@@ -3,6 +3,7 @@ import { SparklesIcon, StarIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/mobile-nav";
+import { Search } from "@/components/search";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { siteConfig } from "@/lib/site-config";
 
@@ -34,6 +35,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <Search />
           <ThemeToggle />
           <Button variant="outline" size="sm" asChild>
             <a
