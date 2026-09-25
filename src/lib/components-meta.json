@@ -38,6 +38,29 @@
     ]
   },
   {
+    "slug": "background-boxes",
+    "title": "Background Boxes",
+    "description": "An isometric grid whose cells light up in brand tints under the pointer.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The grid never moves. Cells still tint on hover and fade back through a colour transition, which involves no movement, so it is kept under reduced motion.",
+      "keyboard": null,
+      "screenReader": "Decorative; the grid is aria-hidden and has no focusable cells, so only the content above it is announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "headline",
+        "title": "Spotlight headline",
+        "description": "A headline section where a radial mask fades the grid out towards the edges."
+      }
+    ]
+  },
+  {
     "slug": "flickering-grid",
     "title": "Flickering Grid",
     "description": "Grid of squares fading in and out on staggered timers.",
@@ -184,6 +207,75 @@
     ]
   },
   {
+    "slug": "shooting-stars",
+    "title": "Shooting Stars",
+    "description": "A twinkling star field with brand-tinted streaks shooting across at random.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Stars stop twinkling and no streaks launch; one streak is painted frozen mid-flight. Both canvases repaint that still frame on resize and theme change.",
+      "keyboard": null,
+      "screenReader": "Decorative; both layers are aria-hidden, so only the content above them is announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "night-sky",
+        "title": "Night sky hero",
+        "description": "A dark hero with a horizon glow, dense stars, frequent streaks and a call to action."
+      }
+    ]
+  },
+  {
+    "slug": "vortex",
+    "title": "Vortex",
+    "description": "Brand-tinted particles spiralling into the centre, leaving soft fading trails.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "No animation runs: the canvas pre-computes a short burst of motion and shows it as one frozen swirl, redrawn on resize and theme change.",
+      "keyboard": null,
+      "screenReader": "Decorative; the wrapper is aria-hidden, so only the content layered above is announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "cta-band",
+        "title": "CTA band",
+        "description": "A dark call-to-action band where the trails glow against the black."
+      }
+    ]
+  },
+  {
+    "slug": "wavy-background",
+    "title": "Wavy Background",
+    "description": "Blurred, translucent ribbons of brand colour flowing sideways on a canvas.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The waves do not move: the canvas paints one still frame of the ribbons and repaints it on resize and theme change.",
+      "keyboard": null,
+      "screenReader": "Decorative; the wrapper is aria-hidden, so only the content layered above is announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "hero",
+        "title": "Hero",
+        "description": "A landing hero with a badge, headline and two calls to action over the waves."
+      }
+    ]
+  },
+  {
     "slug": "animated-gradient-text",
     "title": "Animated Gradient Text",
     "description": "Brand gradient sweeping continuously through text.",
@@ -314,6 +406,31 @@
       {
         "name": "default",
         "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "text-hover-effect",
+    "title": "Text Hover Effect",
+    "description": "Giant outlined word that draws in, then glows in brand colours under the pointer.",
+    "category": "Text",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The outline appears fully drawn with no draw-in, and the spotlight does not track the pointer: hovering fades in the gradient version around the centre of the word.",
+      "keyboard": null,
+      "screenReader": "The SVG is a role=\"img\" named by the text, so the word is read once; the stacked outline and gradient copies are not announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "footer-wordmark",
+        "title": "Footer wordmark",
+        "description": "A site footer that ends in a giant, cropped hover wordmark."
       }
     ]
   },
@@ -602,6 +719,31 @@
     ]
   },
   {
+    "slug": "card-hover-effect",
+    "title": "Card Hover Effect",
+    "description": "Link-card grid with a highlight that glides to whichever card you hover or focus.",
+    "category": "Cards & Layout",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The highlight appears on the hovered or focused card and disappears instantly, without gliding or fading; the arrow nudge is removed.",
+      "keyboard": "Each card is a native link in Tab order; focusing one moves the highlight to it, and it clears when focus leaves the grid.",
+      "screenReader": "Cards are links in a list, named by their title and description text; icons, the arrow and the highlight are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "integrations",
+        "title": "Integrations grid",
+        "description": "Four columns of service cards with lucide icons."
+      }
+    ]
+  },
+  {
     "slug": "card-stack",
     "title": "Card Stack",
     "description": "Deck that shuffles the top card to the back on a timer.",
@@ -678,6 +820,29 @@
     ]
   },
   {
+    "slug": "evervault-card",
+    "title": "Evervault Card",
+    "description": "Card that reveals shuffling brand-tinted characters through a mask following the pointer.",
+    "category": "Cards & Layout",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The characters are drawn once and never reshuffle, and the reveal stays centred instead of following the pointer.",
+      "keyboard": "The card is not focusable itself; keyboard focus on a link or button inside it reveals the characters around the centre.",
+      "screenReader": "The character field is aria-hidden; the label and children are the only content read."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "encrypted-at-rest",
+        "title": "Encrypted at rest",
+        "description": "A security feature card with a lock badge, copy, tags and a docs link."
+      }
+    ]
+  },
+  {
     "slug": "expandable-card",
     "title": "Expandable Card",
     "description": "Expands into a centred panel with shared-layout transitions.",
@@ -712,6 +877,29 @@
       {
         "name": "default",
         "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "focus-cards",
+    "title": "Focus Cards",
+    "description": "Image grid where the hovered card stays sharp while the others blur and step back.",
+    "category": "Cards & Layout",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Cards no longer shrink or zoom, and the blur and title fade switch instantly instead of transitioning.",
+      "keyboard": "Each card is a tab stop (a link when it has an href, otherwise a focusable figure); keyboard focus triggers the same sharp-card, blurred-siblings state as hover and reveals the title.",
+      "screenReader": "Cards are list items; titles are real text that is read even while visually hidden, links are named by the title, and images use the optional alt (empty by default)."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "destinations",
+        "title": "Destinations gallery",
+        "description": "Linked, portrait destination cards under a travel section heading."
       }
     ]
   },
@@ -998,6 +1186,56 @@
     ]
   },
   {
+    "slug": "hero-parallax",
+    "title": "Hero Parallax",
+    "description": "Hero copy over three card rows that slide apart as a tilted block flattens.",
+    "category": "Scroll",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The block renders flat with no tilt, slide or fade, and the rows wrap so every card is visible without scrolling sideways.",
+      "keyboard": "Cards with an href are links in the Tab order with a visible focus ring; a focused card that has drifted past the edge slides its row back into view.",
+      "screenReader": "Cards are announced as three lists; each card's accessible name is its visible title, and the image uses empty alt text."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "agency",
+        "title": "Agency portfolio",
+        "description": "Twelve smaller cards with a shorter drift for a studio's project showcase."
+      }
+    ]
+  },
+  {
+    "slug": "macbook-scroll",
+    "title": "Macbook Scroll",
+    "description": "A CSS-drawn laptop pins in place and opens its lid as the screenshot scales up.",
+    "category": "Scroll",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The laptop renders open with the screenshot at full size, the section drops its extra scroll height, and nothing moves while scrolling.",
+      "keyboard": null,
+      "screenReader": "The title is an h2 and the screenshot uses the `alt` you pass (empty by default); the lid shell, keyboard and trackpad are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "dashboard",
+        "title": "Custom screen",
+        "description": "A mock dashboard built from Tailwind as the screen content instead of an image."
+      }
+    ]
+  },
+  {
     "slug": "parallax-grid",
     "title": "Parallax Grid",
     "description": "Gallery columns drifting at different rates for depth.",
@@ -1078,6 +1316,31 @@
     ]
   },
   {
+    "slug": "timeline",
+    "title": "Timeline",
+    "description": "Vertical timeline with sticky labels and a gradient beam that fills as you scroll.",
+    "category": "Scroll",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The beam is drawn in full from the start and its glowing head is hidden; labels still stick, which is layout rather than animation.",
+      "keyboard": null,
+      "screenReader": "Entries are an ordered list; each label is an h3 followed by its content, and the track, beam and dots are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "changelog",
+        "title": "Product changelog",
+        "description": "Release notes with version labels, change badges and chart previews drawn in Tailwind."
+      }
+    ]
+  },
+  {
     "slug": "tracing-beam",
     "title": "Tracing Beam",
     "description": "Gradient line that draws itself down long-form content.",
@@ -1154,6 +1417,171 @@
       {
         "name": "default",
         "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "glowing-effect",
+    "title": "Glowing Effect",
+    "description": "Border glow that follows the pointer around a card's edge as it comes near.",
+    "category": "Effects",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The arc stops following the pointer; hovering the card shows a soft glow around the whole border instead.",
+      "keyboard": "The effect is not focusable; the full border lights up while the card or anything inside it has keyboard focus.",
+      "screenReader": "The glow layer is aria-hidden and ignores pointer events; only the card content is read."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "feature-grid",
+        "title": "Feature grid",
+        "description": "Six feature cards in a three-column grid, each lighting up as the pointer nears it."
+      }
+    ]
+  },
+  {
+    "slug": "3d-card",
+    "title": "3D Card",
+    "description": "Perspective card that turns toward the pointer while its layers lift to different depths.",
+    "category": "3D",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The card stays flat and its layers stay on the surface; pointer movement and focus change nothing.",
+      "keyboard": "The card is not focusable itself; when a link or button inside it gets keyboard focus, the layers rise to 40% of their depth without tilting.",
+      "screenReader": "A transparent wrapper; the children are read in source order."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "product-card",
+        "title": "Product card",
+        "description": "A shop tile whose product, title, price and add-to-cart button sit at different depths."
+      }
+    ]
+  },
+  {
+    "slug": "3d-pin",
+    "title": "3D Pin",
+    "description": "Card that tilts back as a glowing pin rises with a label chip and rippling rings.",
+    "category": "3D",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The card never tilts and the pin does not rise; on hover or focus the pin, chip and three static rings simply appear over the flat card.",
+      "keyboard": "With href the whole card is one link; without it the root is a plain div and the effect shows while a link or button inside it has keyboard focus. The focused card gets a visible ring.",
+      "screenReader": "The chip's title is real text read with the card content (it forms part of the link name when href is set); the beam, dot and rings are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "project-showcase",
+        "title": "Project showcase",
+        "description": "A portfolio card with a dashboard screenshot built from Tailwind and a link inside."
+      }
+    ]
+  },
+  {
+    "slug": "apple-cards-carousel",
+    "title": "Apple Cards Carousel",
+    "description": "Snap-scrolling row of tall image cards that morph into a full modal story.",
+    "category": "Carousels",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "Cards open and close instantly with no shared-element morph or backdrop fade, and the previous/next buttons jump instead of smooth-scrolling.",
+      "keyboard": "The row is a focusable region that arrow keys scroll; each card is a button that opens a modal dialog. Focus moves into the dialog, Tab and Shift+Tab stay inside it, Escape or Close dismisses it, and focus returns to the card. Previous/next buttons are disabled at either end.",
+      "screenReader": "The row is a labelled region containing a list of buttons named by category and title (aria-haspopup=\"dialog\", aria-expanded); the dialog is aria-modal and named by its heading, and card images are decorative."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "features",
+        "title": "Features you'll love",
+        "description": "A product section of five feature cards whose dialogs hold copy and key stats."
+      }
+    ]
+  },
+  {
+    "slug": "lens",
+    "title": "Lens",
+    "description": "Circular magnifier that follows the pointer or arrow keys to zoom into an image.",
+    "category": "Cursor & Pointer",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The lens tracks the pointer directly with no easing, and appears and hides without a fade or scale.",
+      "keyboard": "The wrapper is a tab stop; keyboard focus shows the lens at its last position, arrow keys move it (Shift for larger steps) and Escape hides it. With staticPosition the lens stays pinned.",
+      "screenReader": "Content is read once from the original children; the magnified copy is aria-hidden and inert, so its links and images are neither announced nor focusable."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "product-inspector",
+        "title": "Product inspector",
+        "description": "A product photo with a stronger zoom, a caption and a buy box."
+      }
+    ]
+  },
+  {
+    "slug": "globe",
+    "title": "Globe",
+    "description": "Dotted canvas globe with markers, great-circle arcs, drag and keyboard rotation.",
+    "category": "Data & Maps",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Auto-rotation, marker pulses and travelling arc highlights stop; one static frame is drawn with arcs shown in full. Dragging and arrow keys still rotate it, arrow keys in instant 15° steps.",
+      "keyboard": "The globe is a single Tab stop with a focus ring; Left/Right arrows turn it west/east and Up/Down tilt it north/south. Auto-rotation pauses while it has focus or is hovered.",
+      "screenReader": "Exposed as one image (role=\"img\") named from the marker labels and arc count, or from the label prop; the canvas is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "edge-network",
+        "title": "Global edge network",
+        "description": "Marketing section pairing copy and stats with a globe of edge locations and arcs from the origin."
+      }
+    ]
+  },
+  {
+    "slug": "world-map",
+    "title": "World Map",
+    "description": "Dotted SVG world map with markers, pulsing hubs and animated connection arcs.",
+    "category": "Data & Maps",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Arcs are drawn in full with no travelling highlight and markers do not pulse. The server render is this static state too; animation is added after hydration.",
+      "keyboard": null,
+      "screenReader": "Exposed as one image (role=\"img\") whose name lists each connection by marker label (or coordinates), or uses the label prop; the SVG and label pills are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "remote-team",
+        "title": "Remote team across timezones",
+        "description": "Team card with labelled city markers, arcs from HQ and a member list with UTC offsets."
       }
     ]
   },

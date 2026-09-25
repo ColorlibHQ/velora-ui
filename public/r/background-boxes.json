@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "background-boxes",
+  "title": "Background Boxes",
+  "description": "An isometric grid whose cells light up in brand tints under the pointer.",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/velora/background-boxes.tsx",
+      "content": "\"use client\";\n\nimport { useMemo } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\n// Nine tints: each brand stop at three strengths, all theme-aware.\nconst TINTS = [85, 65, 45].flatMap((p) =>\n  [\"from\", \"via\", \"to\"].map((v) => `color-mix(in oklab, var(--brand-${v}) ${p}%, transparent)`)\n);\n\ninterface BackgroundBoxesProps extends React.HTMLAttributes<HTMLDivElement> {\n  /** Number of rows (capped at 40) */\n  rows?: number;\n  /** Number of columns (capped at 40) */\n  cols?: number;\n  /** Cell edge length in px, before the isometric tilt */\n  cellSize?: number;\n  /** How long a lit cell takes to fade back, in ms */\n  fade?: number;\n}\n\n/**\n * An isometric grid of cells that light up in random brand tints under the\n * pointer and fade slowly back. Absolutely positioned — place inside a\n * `relative overflow-hidden` section. Content above it blocks the pointer, so\n * give text wrappers `pointer-events-none` to keep the grid reactive.\n */\nexport function BackgroundBoxes({\n  rows = 32,\n  cols = 32,\n  cellSize = 48,\n  fade = 1400,\n  className,\n  ...props\n}: BackgroundBoxesProps) {\n  const r = Math.min(rows, 40);\n  const c = Math.min(cols, 40);\n\n  // Cells never re-render: hover colour is pure CSS, and one delegated\n  // listener picks a fresh tint for whichever cell the pointer enters.\n  const cells = useMemo(\n    () =>\n      Array.from({ length: r * c }, (_, i) => (\n        <div\n          key={i}\n          className=\"border-r border-b border-border transition-[background-color] duration-(--fade) ease-out hover:bg-(--tint) hover:duration-0\"\n        />\n      )),\n    [r, c]\n  );\n\n  return (\n    <div\n      aria-hidden\n      data-slot=\"background-boxes\"\n      className={cn(\"absolute inset-0 overflow-hidden\", className)}\n      {...props}\n    >\n      <div\n        className=\"absolute top-1/2 left-1/2 grid border-t border-l border-border\"\n        style={\n          {\n            gridTemplateColumns: `repeat(${c}, ${cellSize}px)`,\n            gridAutoRows: cellSize,\n            transform: \"translate(-50%, -50%) scaleY(0.58) rotate(-45deg)\",\n            \"--fade\": `${fade}ms`,\n          } as React.CSSProperties\n        }\n        onPointerOver={(e) => {\n          const cell = e.target as HTMLElement;\n          if (cell !== e.currentTarget) {\n            cell.style.setProperty(\"--tint\", TINTS[(Math.random() * TINTS.length) | 0]);\n          }\n        }}\n      >\n        {cells}\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/velora/background-boxes.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

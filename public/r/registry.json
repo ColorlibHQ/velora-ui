@@ -117,6 +117,22 @@
       }
     },
     {
+      "name": "background-boxes",
+      "type": "registry:ui",
+      "title": "Background Boxes",
+      "description": "An isometric grid whose cells light up in brand tints under the pointer.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/background-boxes.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/background-boxes.tsx"
+        }
+      ]
+    },
+    {
       "name": "flickering-grid",
       "type": "registry:ui",
       "title": "Flickering Grid",
@@ -371,6 +387,54 @@
       }
     },
     {
+      "name": "shooting-stars",
+      "type": "registry:ui",
+      "title": "Shooting Stars",
+      "description": "A twinkling star field with brand-tinted streaks shooting across at random.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/shooting-stars.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/shooting-stars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "vortex",
+      "type": "registry:ui",
+      "title": "Vortex",
+      "description": "Brand-tinted particles spiralling into the centre, leaving soft fading trails.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/vortex.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/vortex.tsx"
+        }
+      ]
+    },
+    {
+      "name": "wavy-background",
+      "type": "registry:ui",
+      "title": "Wavy Background",
+      "description": "Blurred, translucent ribbons of brand colour flowing sideways on a canvas.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/wavy-background.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/wavy-background.tsx"
+        }
+      ]
+    },
+    {
       "name": "animated-gradient-text",
       "type": "registry:ui",
       "title": "Animated Gradient Text",
@@ -564,6 +628,25 @@
           "color-brand-to": "var(--brand-to)"
         }
       }
+    },
+    {
+      "name": "text-hover-effect",
+      "type": "registry:ui",
+      "title": "Text Hover Effect",
+      "description": "Giant outlined word that draws in, then glows in brand colours under the pointer.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/text-hover-effect.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/text-hover-effect.tsx"
+        }
+      ]
     },
     {
       "name": "text-reveal",
@@ -936,6 +1019,25 @@
       ]
     },
     {
+      "name": "card-hover-effect",
+      "type": "registry:ui",
+      "title": "Card Hover Effect",
+      "description": "Link-card grid with a highlight that glides to whichever card you hover or focus.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/card-hover-effect.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/card-hover-effect.tsx"
+        }
+      ]
+    },
+    {
       "name": "card-stack",
       "type": "registry:ui",
       "title": "Card Stack",
@@ -1026,6 +1128,22 @@
       ]
     },
     {
+      "name": "evervault-card",
+      "type": "registry:ui",
+      "title": "Evervault Card",
+      "description": "Card that reveals shuffling brand-tinted characters through a mask following the pointer.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/evervault-card.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/evervault-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "expandable-card",
       "type": "registry:ui",
       "title": "Expandable Card",
@@ -1057,6 +1175,22 @@
           "path": "src/components/velora/file-tree.tsx",
           "type": "registry:ui",
           "target": "components/velora/file-tree.tsx"
+        }
+      ]
+    },
+    {
+      "name": "focus-cards",
+      "type": "registry:ui",
+      "title": "Focus Cards",
+      "description": "Image grid where the hovered card stays sharp while the others blur and step back.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/focus-cards.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/focus-cards.tsx"
         }
       ]
     },
@@ -1518,6 +1652,44 @@
       }
     },
     {
+      "name": "hero-parallax",
+      "type": "registry:ui",
+      "title": "Hero Parallax",
+      "description": "Hero copy over three card rows that slide apart as a tilted block flattens.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/hero-parallax.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/hero-parallax.tsx"
+        }
+      ]
+    },
+    {
+      "name": "macbook-scroll",
+      "type": "registry:ui",
+      "title": "Macbook Scroll",
+      "description": "A CSS-drawn laptop pins in place and opens its lid as the screenshot scales up.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/macbook-scroll.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/macbook-scroll.tsx"
+        }
+      ]
+    },
+    {
       "name": "parallax-grid",
       "type": "registry:ui",
       "title": "Parallax Grid",
@@ -1634,6 +1806,25 @@
       }
     },
     {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "Vertical timeline with sticky labels and a gradient beam that fills as you scroll.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/timeline.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/timeline.tsx"
+        }
+      ]
+    },
+    {
       "name": "tracing-beam",
       "type": "registry:ui",
       "title": "Tracing Beam",
@@ -1748,6 +1939,124 @@
           "color-brand-to": "var(--brand-to)"
         }
       }
+    },
+    {
+      "name": "glowing-effect",
+      "type": "registry:ui",
+      "title": "Glowing Effect",
+      "description": "Border glow that follows the pointer around a card's edge as it comes near.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/glowing-effect.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/glowing-effect.tsx"
+        }
+      ]
+    },
+    {
+      "name": "3d-card",
+      "type": "registry:ui",
+      "title": "3D Card",
+      "description": "Perspective card that turns toward the pointer while its layers lift to different depths.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/3d-card.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/3d-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "3d-pin",
+      "type": "registry:ui",
+      "title": "3D Pin",
+      "description": "Card that tilts back as a glowing pin rises with a label chip and rippling rings.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/3d-pin.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/3d-pin.tsx"
+        }
+      ]
+    },
+    {
+      "name": "apple-cards-carousel",
+      "type": "registry:ui",
+      "title": "Apple Cards Carousel",
+      "description": "Snap-scrolling row of tall image cards that morph into a full modal story.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/apple-cards-carousel.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/apple-cards-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lens",
+      "type": "registry:ui",
+      "title": "Lens",
+      "description": "Circular magnifier that follows the pointer or arrow keys to zoom into an image.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/lens.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/lens.tsx"
+        }
+      ]
+    },
+    {
+      "name": "globe",
+      "type": "registry:ui",
+      "title": "Globe",
+      "description": "Dotted canvas globe with markers, great-circle arcs, drag and keyboard rotation.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/globe.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/globe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "world-map",
+      "type": "registry:ui",
+      "title": "World Map",
+      "description": "Dotted SVG world map with markers, pulsing hubs and animated connection arcs.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/world-map.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/world-map.tsx"
+        }
+      ]
     },
     {
       "name": "browser-mockup",

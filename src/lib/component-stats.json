@@ -11,6 +11,11 @@
       "motion/react"
     ]
   },
+  "background-boxes": {
+    "bytes": 2431,
+    "gzip": 1229,
+    "deps": []
+  },
   "flickering-grid": {
     "bytes": 1594,
     "gzip": 830,
@@ -53,6 +58,21 @@
     "gzip": 637,
     "deps": []
   },
+  "shooting-stars": {
+    "bytes": 7841,
+    "gzip": 3026,
+    "deps": []
+  },
+  "vortex": {
+    "bytes": 6757,
+    "gzip": 2860,
+    "deps": []
+  },
+  "wavy-background": {
+    "bytes": 6597,
+    "gzip": 2830,
+    "deps": []
+  },
   "animated-gradient-text": {
     "bytes": 593,
     "gzip": 345,
@@ -92,6 +112,13 @@
   "text-highlighter": {
     "bytes": 1550,
     "gzip": 804,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "text-hover-effect": {
+    "bytes": 5830,
+    "gzip": 2321,
     "deps": [
       "motion/react"
     ]
@@ -185,6 +212,13 @@
       "lucide-react"
     ]
   },
+  "card-hover-effect": {
+    "bytes": 4780,
+    "gzip": 1731,
+    "deps": [
+      "motion/react"
+    ]
+  },
   "card-stack": {
     "bytes": 2593,
     "gzip": 1202,
@@ -209,6 +243,11 @@
       "motion/react"
     ]
   },
+  "evervault-card": {
+    "bytes": 4148,
+    "gzip": 1736,
+    "deps": []
+  },
   "expandable-card": {
     "bytes": 5676,
     "gzip": 1899,
@@ -219,6 +258,11 @@
   "file-tree": {
     "bytes": 2487,
     "gzip": 1089,
+    "deps": []
+  },
+  "focus-cards": {
+    "bytes": 3894,
+    "gzip": 1539,
     "deps": []
   },
   "glare-card": {
@@ -308,6 +352,20 @@
       "motion/react"
     ]
   },
+  "hero-parallax": {
+    "bytes": 5402,
+    "gzip": 2193,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "macbook-scroll": {
+    "bytes": 5541,
+    "gzip": 2080,
+    "deps": [
+      "motion/react"
+    ]
+  },
   "parallax-grid": {
     "bytes": 1559,
     "gzip": 770,
@@ -323,8 +381,8 @@
     ]
   },
   "scroll-velocity": {
-    "bytes": 2493,
-    "gzip": 1095,
+    "bytes": 3352,
+    "gzip": 1401,
     "deps": [
       "motion/react"
     ]
@@ -332,6 +390,13 @@
   "sticky-scroll": {
     "bytes": 3293,
     "gzip": 1369,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "timeline": {
+    "bytes": 3199,
+    "gzip": 1347,
     "deps": [
       "motion/react"
     ]
@@ -363,6 +428,46 @@
     "deps": [
       "motion/react"
     ]
+  },
+  "glowing-effect": {
+    "bytes": 4762,
+    "gzip": 1894,
+    "deps": []
+  },
+  "3d-card": {
+    "bytes": 4480,
+    "gzip": 1622,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "3d-pin": {
+    "bytes": 5238,
+    "gzip": 1946,
+    "deps": []
+  },
+  "apple-cards-carousel": {
+    "bytes": 8835,
+    "gzip": 3130,
+    "deps": [
+      "react-dom",
+      "motion/react"
+    ]
+  },
+  "lens": {
+    "bytes": 4043,
+    "gzip": 1704,
+    "deps": []
+  },
+  "globe": {
+    "bytes": 13233,
+    "gzip": 5349,
+    "deps": []
+  },
+  "world-map": {
+    "bytes": 8620,
+    "gzip": 3902,
+    "deps": []
   },
   "browser-mockup": {
     "bytes": 1141,
