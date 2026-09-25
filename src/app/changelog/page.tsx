@@ -23,6 +23,21 @@ interface Release {
 const releases: Release[] = [
   {
     date: "September 25, 2026",
+    version: "0.9.0",
+    title: "Findable: category pages, comparisons and a faster homepage",
+    tag: "Improved",
+    items: [
+      "A Get started page covering installation, the @velora registry namespace (npx shadcn add @velora/marquee) and setup for AI agents",
+      "16 component category pages, such as /components/category/backgrounds, each with its own introduction",
+      "Honest comparisons with Aceternity UI and Magic UI: measured the same way for all three, including where they're stronger, plus a table for switching over",
+      "Every page now has its own share card, title and description, plus structured data for search engines",
+      "llms-full.txt gives AI agents the props, accessibility notes and a working example for every component",
+      "Homepage Lighthouse score went from 61–90 to a steady 92 for performance and 100 for accessibility, best practices and SEO; the old '100 Lighthouse' claim was replaced with facts we've measured",
+      "Tracing Beam now respects reduced motion",
+    ],
+  },
+  {
+    date: "September 25, 2026",
     version: "0.8.0",
     title: "31 free blocks: complete sections, installable in one command",
     tag: "New",

@@ -80,7 +80,14 @@
 | **Data & Maps** | Globe · World Map |
 | **Mockups** | Browser Mockup · Code Block · iPhone Mockup · Terminal |
 
-Browse them all — with live demos, props, install commands and source — at [velora.colorlib.com/components](https://velora.colorlib.com/components).
+Browse them all — with live demos, props, install commands and source — at [velora.colorlib.com/components](https://velora.colorlib.com/components). New here? Start with [Get started](https://velora.colorlib.com/components/get-started), or register the namespace once and install by name:
+
+```bash
+npx shadcn@latest registry add @velora=https://velora.colorlib.com/r/{name}.json
+npx shadcn@latest add @velora/marquee
+```
+
+Coming from another library? See the measured comparisons with [Aceternity UI](https://velora.colorlib.com/compare/aceternity-ui) and [Magic UI](https://velora.colorlib.com/compare/magic-ui).
 
 ### 31 free blocks
 

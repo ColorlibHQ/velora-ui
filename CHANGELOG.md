@@ -2,6 +2,30 @@
 
 All notable changes to Velora UI. Also published at [/changelog](https://velora.colorlib.com/changelog).
 
+## 0.9.0 — 2026-09-25
+
+### Added
+
+- `/components/get-started`: requirements, install by URL, the `@velora` namespace
+  (`npx shadcn registry add @velora=https://velora.colorlib.com/r/{name}.json`), MCP and llms.txt
+- 16 component category hubs at `/components/category/<category>` with their own copy
+- `/compare/aceternity-ui` and `/compare/magic-ui`: dated, identically measured comparisons
+  (components, blocks, licence, price, reduced motion and ARIA in source, dependency-free
+  components, incomplete CLI installs), what the other library does better, and a switching table
+- Per-page Open Graph/Twitter cards for components, block and component categories, indexes and
+  comparisons; JSON-LD (BreadcrumbList, SoftwareSourceCode, CollectionPage/ItemList, WebSite)
+- `public/llms-full.txt`: props, accessibility notes and a working example for every component
+- Sitemap lists every hub with the date of the last commit that touched it
+
+### Fixed
+
+- Homepage LCP: the hero intro (and every hero block's headline and intro) started invisible inside
+  BlurFade until hydration. Lighthouse mobile performance went from 61–90 to 92; accessibility,
+  best practices and SEO are 100
+- Unverified "100 Lighthouse" claims and stale About stats replaced with measured facts
+- Stack marquee text failed contrast
+- Tracing Beam ignored reduced motion
+
 ## 0.8.0 — 2026-09-25
 
 ### Added
