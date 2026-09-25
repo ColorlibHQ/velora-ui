@@ -34,9 +34,13 @@ function usePackageManager() {
     } catch {
       // storage unavailable — keep the default
     }
+    // Keep every switcher on the page in step.
+    const sync = (e: Event) => setManager((e as CustomEvent<Manager>).detail);
+    window.addEventListener(STORAGE_KEY, sync);
+    return () => window.removeEventListener(STORAGE_KEY, sync);
   }, []);
   const choose = (value: string) => {
-    setManager(value as Manager);
+    window.dispatchEvent(new CustomEvent(STORAGE_KEY, { detail: value }));
     try {
       localStorage.setItem(STORAGE_KEY, value);
     } catch {
@@ -56,6 +60,39 @@ function CommandLine({ command }: { command: string }) {
         className="shrink-0 border-white/15 bg-white/5 text-neutral-300"
       />
     </div>
+  );
+}
+
+/**
+ * A CLI command with a pnpm/npm/yarn/bun switcher; the choice is shared
+ * with every other install block on the site.
+ */
+export function PackageManagerCommand({
+  type,
+  args,
+}: {
+  /** "dlx" runs a package (shadcn); "add" installs dependencies */
+  type: "dlx" | "add";
+  args: string;
+}) {
+  const [manager, setManager] = usePackageManager();
+  return (
+    <Tabs value={manager} onValueChange={setManager} className="gap-2">
+      <TabsList variant="line" className="h-7">
+        {managers.map((m) => (
+          <TabsTrigger key={m} value={m} className="px-2 font-mono text-xs">
+            {m}
+          </TabsTrigger>
+        ))}
+      </TabsList>
+      {managers.map((m) => (
+        <TabsContent key={m} value={m}>
+          <CommandLine
+            command={`${type === "dlx" ? runner[m] : adder[m]} ${args}`}
+          />
+        </TabsContent>
+      ))}
+    </Tabs>
   );
 }
 

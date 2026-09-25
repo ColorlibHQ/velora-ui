@@ -285,11 +285,41 @@ const items = meta.map((c) => ({
   ...(extras[c.slug] ?? {}),
 }));
 
+// Blocks: full sections. Their Velora components are pulled in by URL so a
+// single `shadcn add` installs everything the section needs.
+const blocks = JSON.parse(
+  readFileSync(resolve(root, "src/lib/blocks-meta.json"), "utf8")
+);
+const blockCategories = JSON.parse(
+  readFileSync(resolve(root, "src/content/block-categories.json"), "utf8")
+);
+
+const blockItems = blocks.map((b) => ({
+  name: b.slug,
+  type: "registry:block",
+  title: b.title,
+  description: b.description,
+  categories: [b.category],
+  dependencies: b.dependencies.length ? b.dependencies : undefined,
+  registryDependencies: [
+    "utils",
+    ...b.ui,
+    ...b.components.map((c) => `${HOMEPAGE}/r/${c}.json`),
+  ],
+  files: [
+    {
+      path: `src/components/blocks/${b.slug}.tsx`,
+      type: "registry:component",
+      target: `components/blocks/${b.slug}.tsx`,
+    },
+  ],
+}));
+
 const registry = {
   $schema: "https://ui.shadcn.com/schema/registry.json",
   name: "velora",
   homepage: HOMEPAGE,
-  items,
+  items: [...items, ...blockItems],
 };
 
 writeFileSync(
@@ -337,9 +367,28 @@ ${meta
   )
   .join("\n")}
 
+## Blocks
+
+Complete sections built from the components above. Installing a block also installs every component it uses.
+
+${blockCategories
+  .filter((cat) => blocks.some((b) => b.category === cat.slug))
+  .map(
+    (cat) => `### ${cat.title}
+
+${blocks
+  .filter((b) => b.category === cat.slug)
+  .map(
+    (b) => `- [${b.title}](${HOMEPAGE}/blocks/${cat.slug}#${b.slug}): ${b.description} Install: \`npx shadcn@latest add ${HOMEPAGE}/r/${b.slug}.json\``
+  )
+  .join("\n")}`
+  )
+  .join("\n\n")}
+
 ## Pages
 
 - [Components](${HOMEPAGE}/components): All components with live previews, install commands and source.
+- [Blocks](${HOMEPAGE}/blocks): Free sections — heroes, features, pricing, testimonials, CTAs and more.
 - [Themes](${HOMEPAGE}/themes): Brand ramp presets — rebrand every effect by copying seven CSS variables.
 - [Pricing](${HOMEPAGE}/pricing): Free forever (MIT); Pro adds niche templates and variants.
 - [Blog](${HOMEPAGE}/blog): Engineering notes and announcements (MDX pipeline is part of the free template).
@@ -349,4 +398,4 @@ ${meta
 
 writeFileSync(resolve(root, "public/llms.txt"), llms);
 
-console.log(`registry.json: ${items.length} items, llms.txt written`);
+console.log(`registry.json: ${items.length} components + ${blockItems.length} blocks, llms.txt written`);

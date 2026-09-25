@@ -2444,6 +2444,34 @@
           "target": "components/velora/terminal.tsx"
         }
       ]
+    },
+    {
+      "name": "hero-aurora",
+      "type": "registry:block",
+      "title": "Aurora hero",
+      "description": "Centered hero with a drifting aurora, dotted backdrop, announcement pill and staggered copy.",
+      "categories": [
+        "hero-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "https://velora.colorlib.com/r/animated-gradient-text.json",
+        "https://velora.colorlib.com/r/aurora-background.json",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/grid-pattern.json",
+        "https://velora.colorlib.com/r/shimmer-button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/hero-aurora.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/hero-aurora.tsx"
+        }
+      ]
     }
   ]
 }

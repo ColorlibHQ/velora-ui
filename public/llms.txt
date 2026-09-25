@@ -113,9 +113,18 @@ Install any component with the shadcn CLI:
 - [iPhone Mockup](https://velora.colorlib.com/components/iphone-mockup): iPhone frame with dynamic island — pure CSS. (0.6 KB gzipped, zero deps) Install: `npx shadcn@latest add https://velora.colorlib.com/r/iphone-mockup.json`
 - [Terminal](https://velora.colorlib.com/components/terminal): A terminal window that types its lines in view. (1.4 KB gzipped, deps: motion/react) Install: `npx shadcn@latest add https://velora.colorlib.com/r/terminal.json`
 
+## Blocks
+
+Complete sections built from the components above. Installing a block also installs every component it uses.
+
+### Hero Sections
+
+- [Aurora hero](https://velora.colorlib.com/blocks/hero-sections#hero-aurora): Centered hero with a drifting aurora, dotted backdrop, announcement pill and staggered copy. Install: `npx shadcn@latest add https://velora.colorlib.com/r/hero-aurora.json`
+
 ## Pages
 
 - [Components](https://velora.colorlib.com/components): All components with live previews, install commands and source.
+- [Blocks](https://velora.colorlib.com/blocks): Free sections — heroes, features, pricing, testimonials, CTAs and more.
 - [Themes](https://velora.colorlib.com/themes): Brand ramp presets — rebrand every effect by copying seven CSS variables.
 - [Pricing](https://velora.colorlib.com/pricing): Free forever (MIT); Pro adds niche templates and variants.
 - [Blog](https://velora.colorlib.com/blog): Engineering notes and announcements (MDX pipeline is part of the free template).

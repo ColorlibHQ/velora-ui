@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "hero-aurora",
+    "title": "Aurora hero",
+    "description": "Centered hero with a drifting aurora, dotted backdrop, announcement pill and staggered copy.",
+    "category": "hero-sections",
+    "order": 1,
+    "exportName": "HeroAurora",
+    "components": [
+      "animated-gradient-text",
+      "aurora-background",
+      "blur-fade",
+      "grid-pattern",
+      "shimmer-button"
+    ],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  }
+]

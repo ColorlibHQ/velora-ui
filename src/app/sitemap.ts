@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { blockCategories, blocksIn } from "@/lib/blocks-meta";
 import { componentsMeta } from "@/lib/components-meta";
 import { blogPosts } from "@/lib/blog-posts";
 import { siteConfig } from "@/lib/site-config";
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "",
     "/components",
+    "/blocks",
     "/themes",
     "/pricing",
     "/blog",
@@ -37,5 +39,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...staticPages, ...componentPages, ...postPages];
+  const blockPages = blockCategories
+    .filter((c) => blocksIn(c.slug).length)
+    .map((c) => ({
+      url: `${BASE}/blocks/${c.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }));
+
+  return [...staticPages, ...blockPages, ...componentPages, ...postPages];
 }

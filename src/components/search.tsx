@@ -3,12 +3,22 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Command } from "cmdk";
-import { CornerDownLeftIcon, FileTextIcon, SearchIcon, ShapesIcon } from "lucide-react";
+import {
+  CornerDownLeftIcon,
+  FileTextIcon,
+  LayoutTemplateIcon,
+  SearchIcon,
+  ShapesIcon,
+} from "lucide-react";
 
+import { blockCategories, blocksIn, blocksMeta } from "@/lib/blocks-meta";
 import { categories, componentsMeta, type ComponentMeta } from "@/lib/components-meta";
+
+const blockGroups = blockCategories.filter((c) => blocksIn(c.slug).length);
 
 const pages = [
   { href: "/components", title: "All components" },
+  { href: "/blocks", title: "All blocks" },
   { href: "/themes", title: "Themes" },
   { href: "/pricing", title: "Pricing" },
   { href: "/blog", title: "Blog" },
@@ -48,6 +58,26 @@ export function Search() {
         .filter((r) => r.s > 0)
         .sort((a, b) => b.s - a.s)
         .map((r) => r.c),
+      blocks: [
+        ...blockGroups.map((c) => ({
+          href: `/blocks/${c.slug}`,
+          title: c.title,
+          hint: `${blocksIn(c.slug).length} blocks`,
+          s: score(terms, c.title, "blocks sections", c.heading) + 1,
+        })),
+        ...blocksMeta.map((b) => {
+          const cat = blockGroups.find((c) => c.slug === b.category)!;
+          return {
+            href: `/blocks/${b.category}#${b.slug}`,
+            title: b.title,
+            hint: cat.title,
+            s: score(terms, b.title, cat.title, b.description),
+          };
+        }),
+      ]
+        .filter((r) => r.s > 0)
+        .sort((a, b) => b.s - a.s)
+        .slice(0, 8),
       pages: pages.filter((p) => score(terms, p.title, "", "") > 0),
     };
   }, [query]);
@@ -75,6 +105,16 @@ export function Search() {
         <span className="ml-2 hidden text-xs sm:inline">{c.description}</span>
       </span>
       <CornerDownLeftIcon className="size-3.5 shrink-0 opacity-0 in-data-[selected=true]:opacity-100" />
+    </Command.Item>
+  );
+
+  const blockItem = (b: { href: string; title: string; hint: string }) => (
+    <Command.Item key={b.href} value={b.href} onSelect={() => go(b.href)} className={itemClass}>
+      <LayoutTemplateIcon className="size-4 shrink-0" />
+      <span className="flex-1 truncate">
+        <span className="text-foreground">{b.title}</span>
+        <span className="ml-2 text-xs">{b.hint}</span>
+      </span>
     </Command.Item>
   );
 
@@ -128,6 +168,9 @@ export function Search() {
                   {results.components.map(componentItem)}
                 </Command.Group>
               )}
+              {results.blocks.length > 0 && (
+                <Command.Group heading="Blocks">{results.blocks.map(blockItem)}</Command.Group>
+              )}
               {results.pages.length > 0 && (
                 <Command.Group heading="Pages">{results.pages.map(pageItem)}</Command.Group>
               )}
@@ -139,6 +182,15 @@ export function Search() {
                   {componentsMeta.filter((c) => c.category === category).map(componentItem)}
                 </Command.Group>
               ))}
+              <Command.Group heading="Blocks">
+                {blockGroups.map((c) =>
+                  blockItem({
+                    href: `/blocks/${c.slug}`,
+                    title: c.title,
+                    hint: `${blocksIn(c.slug).length} blocks`,
+                  })
+                )}
+              </Command.Group>
               <Command.Group heading="Pages">{pages.map(pageItem)}</Command.Group>
             </>
           )}
