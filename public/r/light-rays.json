@@ -3,6 +3,9 @@
   "name": "light-rays",
   "title": "Light Rays",
   "description": "God rays fanning down from the top of a section.",
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/light-rays.tsx",

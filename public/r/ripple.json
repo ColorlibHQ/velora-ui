@@ -3,10 +3,13 @@
   "name": "ripple",
   "title": "Ripple",
   "description": "Concentric rings pulsing outward — calm 'listening' backdrop.",
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/ripple.tsx",
-      "content": "import { cn } from \"@/lib/utils\";\n\ninterface RippleProps {\n  /** Number of concentric rings */\n  circles?: number;\n  /** Diameter of the innermost ring, in px */\n  baseSize?: number;\n  className?: string;\n}\n\n/**\n * Concentric rings pulsing outward from the centre — a calm backdrop for\n * \"connected\" or \"listening\" states.\n */\nexport function Ripple({\n  circles = 6,\n  baseSize = 180,\n  className,\n}: RippleProps) {\n  return (\n    <div\n      aria-hidden\n      data-slot=\"ripple\"\n      className={cn(\n        \"pointer-events-none absolute inset-0 grid place-items-center overflow-hidden [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]\",\n        className\n      )}\n    >\n      {Array.from({ length: circles }).map((_, i) => {\n        const size = baseSize + i * 90;\n        return (\n          <span\n            key={i}\n            className=\"absolute animate-ripple-ring rounded-full border border-brand/25\"\n            style={{\n              width: size,\n              height: size,\n              animationDelay: `${i * 0.5}s`,\n              opacity: 1 - i / circles,\n            }}\n          />\n        );\n      })}\n    </div>\n  );\n}\n",
+      "content": "import { cn } from \"@/lib/utils\";\n\ninterface RippleProps {\n  /** Number of concentric rings */\n  circles?: number;\n  /** Diameter of the innermost ring, in px */\n  baseSize?: number;\n  className?: string;\n}\n\n/**\n * Concentric rings pulsing outward from the centre — a calm backdrop for\n * \"connected\" or \"listening\" states.\n */\nexport function Ripple({\n  circles = 6,\n  baseSize = 180,\n  className,\n}: RippleProps) {\n  return (\n    <div\n      aria-hidden\n      data-slot=\"ripple\"\n      className={cn(\n        \"pointer-events-none absolute inset-0 grid place-items-center overflow-hidden [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]\",\n        className\n      )}\n    >\n      {Array.from({ length: circles }).map((_, i) => {\n        const size = baseSize + i * 90;\n        return (\n          <span\n            key={i}\n            className=\"absolute rounded-full border border-brand/25 motion-safe:animate-ripple-ring\"\n            style={{\n              width: size,\n              height: size,\n              animationDelay: `${i * 0.5}s`,\n              opacity: 1 - i / circles,\n            }}\n          />\n        );\n      })}\n    </div>\n  );\n}\n",
       "type": "registry:ui",
       "target": "components/velora/ripple.tsx"
     }

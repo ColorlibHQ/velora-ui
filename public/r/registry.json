@@ -8,6 +8,9 @@
       "type": "registry:ui",
       "title": "Aurora Background",
       "description": "Velora's signature drifting aurora gradient backdrop.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/aurora-background.tsx",
@@ -75,99 +78,15 @@
       }
     },
     {
-      "name": "grid-pattern",
-      "type": "registry:ui",
-      "title": "Grid & Dot Pattern",
-      "description": "SVG grid and dot backdrops with maskable depth.",
-      "files": [
-        {
-          "path": "src/components/velora/grid-pattern.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/grid-pattern.tsx"
-        }
-      ]
-    },
-    {
-      "name": "retro-grid",
-      "type": "registry:ui",
-      "title": "Retro Grid",
-      "description": "Perspective grid scrolling forever toward the horizon.",
-      "files": [
-        {
-          "path": "src/components/velora/retro-grid.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/retro-grid.tsx"
-        }
-      ],
-      "css": {
-        "@keyframes retro-grid": {
-          "from": {
-            "transform": "translateY(-50%)"
-          },
-          "to": {
-            "transform": "translateY(0)"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "animate-retro-grid": "retro-grid 18s linear infinite"
-        }
-      }
-    },
-    {
-      "name": "particles",
-      "type": "registry:ui",
-      "title": "Particles",
-      "description": "Drifting, twinkling particle field on a lightweight canvas.",
-      "files": [
-        {
-          "path": "src/components/velora/particles.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/particles.tsx"
-        }
-      ]
-    },
-    {
-      "name": "meteors",
-      "type": "registry:ui",
-      "title": "Meteors",
-      "description": "Falling meteor streaks for dark hero and CTA sections.",
-      "files": [
-        {
-          "path": "src/components/velora/meteors.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/meteors.tsx"
-        }
-      ],
-      "css": {
-        "@keyframes meteor": {
-          "0%": {
-            "transform": "rotate(var(--meteor-angle, 215deg)) translateX(0)",
-            "opacity": "1"
-          },
-          "70%": {
-            "opacity": "1"
-          },
-          "100%": {
-            "transform": "rotate(var(--meteor-angle, 215deg)) translateX(-600px)",
-            "opacity": "0"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "animate-meteor": "meteor 5s linear infinite"
-        }
-      }
-    },
-    {
       "name": "background-beams",
       "type": "registry:ui",
       "title": "Background Beams",
       "description": "Light beams flowing along curved paths behind content.",
       "dependencies": [
         "motion"
+      ],
+      "registryDependencies": [
+        "utils"
       ],
       "files": [
         {
@@ -198,12 +117,62 @@
       }
     },
     {
+      "name": "flickering-grid",
+      "type": "registry:ui",
+      "title": "Flickering Grid",
+      "description": "Grid of squares fading in and out on staggered timers.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/flickering-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/flickering-grid.tsx"
+        }
+      ],
+      "css": {
+        "@keyframes flicker": {
+          "0%, 100%": {
+            "opacity": "var(--flicker-max, 0.45)"
+          },
+          "50%": {
+            "opacity": "var(--flicker-min, 0.08)"
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "animate-flicker": "flicker 3s steps(1, end) infinite"
+        }
+      }
+    },
+    {
+      "name": "grid-pattern",
+      "type": "registry:ui",
+      "title": "Grid & Dot Pattern",
+      "description": "SVG grid and dot backdrops with maskable depth.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/grid-pattern.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/grid-pattern.tsx"
+        }
+      ]
+    },
+    {
       "name": "lamp",
       "type": "registry:ui",
       "title": "Lamp",
       "description": "A glowing lamp-line header that expands into view.",
       "dependencies": [
         "motion"
+      ],
+      "registryDependencies": [
+        "utils"
       ],
       "files": [
         {
@@ -234,110 +203,18 @@
       }
     },
     {
-      "name": "animated-gradient-text",
+      "name": "light-rays",
       "type": "registry:ui",
-      "title": "Animated Gradient Text",
-      "description": "Brand gradient sweeping continuously through text.",
-      "files": [
-        {
-          "path": "src/components/velora/animated-gradient-text.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/animated-gradient-text.tsx"
-        }
-      ],
-      "css": {
-        "@keyframes gradient": {
-          "0%, 100%": {
-            "background-position": "0% 50%"
-          },
-          "50%": {
-            "background-position": "100% 50%"
-          }
-        }
-      },
-      "cssVars": {
-        "light": {
-          "brand": "oklch(0.546 0.245 263)",
-          "brand-from": "oklch(0.546 0.245 263)",
-          "brand-via": "oklch(0.623 0.214 260)",
-          "brand-to": "oklch(0.685 0.169 237)"
-        },
-        "dark": {
-          "brand": "oklch(0.623 0.214 260)",
-          "brand-from": "oklch(0.623 0.214 260)",
-          "brand-via": "oklch(0.707 0.165 255)",
-          "brand-to": "oklch(0.746 0.16 233)"
-        },
-        "theme": {
-          "color-brand": "var(--brand)",
-          "color-brand-from": "var(--brand-from)",
-          "color-brand-via": "var(--brand-via)",
-          "color-brand-to": "var(--brand-to)",
-          "animate-gradient": "gradient 6s ease infinite"
-        }
-      }
-    },
-    {
-      "name": "text-reveal",
-      "type": "registry:ui",
-      "title": "Text Reveal",
-      "description": "Word-by-word blur reveal on scroll.",
-      "dependencies": [
-        "motion"
+      "title": "Light Rays",
+      "description": "God rays fanning down from the top of a section.",
+      "registryDependencies": [
+        "utils"
       ],
       "files": [
         {
-          "path": "src/components/velora/text-reveal.tsx",
+          "path": "src/components/velora/light-rays.tsx",
           "type": "registry:ui",
-          "target": "components/velora/text-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "typewriter",
-      "type": "registry:ui",
-      "title": "Typewriter",
-      "description": "Types, holds and deletes through a list of words.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/typewriter.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/typewriter.tsx"
-        }
-      ]
-    },
-    {
-      "name": "flip-words",
-      "type": "registry:ui",
-      "title": "Flip Words",
-      "description": "Cycles words with a springy blur-flip transition.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/flip-words.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/flip-words.tsx"
-        }
-      ]
-    },
-    {
-      "name": "sparkles-text",
-      "type": "registry:ui",
-      "title": "Sparkles Text",
-      "description": "Twinkling stars orbiting your headline.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/sparkles-text.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/sparkles-text.tsx"
+          "target": "components/velora/light-rays.tsx"
         }
       ],
       "cssVars": {
@@ -362,452 +239,85 @@
       }
     },
     {
-      "name": "text-shimmer",
+      "name": "meteors",
       "type": "registry:ui",
-      "title": "Text Shimmer",
-      "description": "A soft light sweep — great for AI loading states.",
+      "title": "Meteors",
+      "description": "Falling meteor streaks for dark hero and CTA sections.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
-          "path": "src/components/velora/text-shimmer.tsx",
+          "path": "src/components/velora/meteors.tsx",
           "type": "registry:ui",
-          "target": "components/velora/text-shimmer.tsx"
+          "target": "components/velora/meteors.tsx"
         }
       ],
       "css": {
-        "@keyframes shimmer": {
-          "from": {
-            "background-position": "200% 0"
-          },
-          "to": {
-            "background-position": "-200% 0"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "animate-shimmer": "shimmer 2.5s linear infinite"
-        }
-      }
-    },
-    {
-      "name": "number-ticker",
-      "type": "registry:ui",
-      "title": "Number Ticker",
-      "description": "Springs a number up when it enters the viewport.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/number-ticker.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/number-ticker.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shimmer-button",
-      "type": "registry:ui",
-      "title": "Shimmer Button",
-      "description": "CTA button with a continuous light sweep.",
-      "files": [
-        {
-          "path": "src/components/velora/shimmer-button.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/shimmer-button.tsx"
-        }
-      ],
-      "css": {
-        "@keyframes shimmer": {
-          "from": {
-            "background-position": "200% 0"
-          },
-          "to": {
-            "background-position": "-200% 0"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "animate-shimmer": "shimmer 2.5s linear infinite"
-        }
-      }
-    },
-    {
-      "name": "confetti",
-      "type": "registry:ui",
-      "title": "Confetti",
-      "description": "Dependency-free confetti burst, fired from anywhere.",
-      "files": [
-        {
-          "path": "src/components/velora/confetti.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/confetti.tsx"
-        }
-      ]
-    },
-    {
-      "name": "bento-grid",
-      "type": "registry:ui",
-      "title": "Bento Grid",
-      "description": "Feature bento with hover-reveal CTAs and rich backgrounds.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/bento-grid.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/bento-grid.tsx"
-        }
-      ]
-    },
-    {
-      "name": "spotlight-card",
-      "type": "registry:ui",
-      "title": "Spotlight Card",
-      "description": "A radial glow that follows the cursor across the card.",
-      "files": [
-        {
-          "path": "src/components/velora/spotlight-card.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/spotlight-card.tsx"
-        }
-      ],
-      "cssVars": {
-        "light": {
-          "brand": "oklch(0.546 0.245 263)",
-          "brand-from": "oklch(0.546 0.245 263)",
-          "brand-via": "oklch(0.623 0.214 260)",
-          "brand-to": "oklch(0.685 0.169 237)"
-        },
-        "dark": {
-          "brand": "oklch(0.623 0.214 260)",
-          "brand-from": "oklch(0.623 0.214 260)",
-          "brand-via": "oklch(0.707 0.165 255)",
-          "brand-to": "oklch(0.746 0.16 233)"
-        },
-        "theme": {
-          "color-brand": "var(--brand)",
-          "color-brand-from": "var(--brand-from)",
-          "color-brand-via": "var(--brand-via)",
-          "color-brand-to": "var(--brand-to)"
-        }
-      }
-    },
-    {
-      "name": "tilt-card",
-      "type": "registry:ui",
-      "title": "Tilt Card",
-      "description": "3D perspective tilt that tracks the cursor.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/tilt-card.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/tilt-card.tsx"
-        }
-      ]
-    },
-    {
-      "name": "marquee",
-      "type": "registry:ui",
-      "title": "Marquee",
-      "description": "Seamless scrolling loop — horizontal, vertical, hover-pause.",
-      "files": [
-        {
-          "path": "src/components/velora/marquee.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/marquee.tsx"
-        }
-      ],
-      "css": {
-        "@keyframes marquee": {
-          "from": {
-            "transform": "translateX(0)"
-          },
-          "to": {
-            "transform": "translateX(calc(-100% - var(--gap)))"
-          }
-        },
-        "@keyframes marquee-vertical": {
-          "from": {
-            "transform": "translateY(0)"
-          },
-          "to": {
-            "transform": "translateY(calc(-100% - var(--gap)))"
-          }
-        }
-      },
-      "cssVars": {
-        "theme": {
-          "animate-marquee": "marquee var(--duration, 40s) linear infinite",
-          "animate-marquee-vertical": "marquee-vertical var(--duration, 40s) linear infinite"
-        }
-      }
-    },
-    {
-      "name": "animated-list",
-      "type": "registry:ui",
-      "title": "Animated List",
-      "description": "Looping feed that springs each item in, newest on top.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/animated-list.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/animated-list.tsx"
-        }
-      ]
-    },
-    {
-      "name": "orbiting-circles",
-      "type": "registry:ui",
-      "title": "Orbiting Circles",
-      "description": "Items evenly distributed on rotating orbital rings.",
-      "files": [
-        {
-          "path": "src/components/velora/orbiting-circles.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/orbiting-circles.tsx"
-        }
-      ],
-      "css": {
-        "@keyframes orbit": {
+        "@keyframes meteor": {
           "0%": {
-            "transform": "rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * -1px)) rotate(calc(var(--angle) * -1deg))"
+            "transform": "rotate(var(--meteor-angle, 215deg)) translateX(0)",
+            "opacity": "1"
+          },
+          "70%": {
+            "opacity": "1"
           },
           "100%": {
-            "transform": "rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * -1px)) rotate(calc((var(--angle) * 1deg + 360deg) * -1))"
+            "transform": "rotate(var(--meteor-angle, 215deg)) translateX(-600px)",
+            "opacity": "0"
           }
         }
       },
       "cssVars": {
         "theme": {
-          "animate-orbit": "orbit calc(var(--duration) * 1s) linear infinite"
+          "animate-meteor": "meteor 5s linear infinite"
         }
       }
     },
     {
-      "name": "avatar-circles",
+      "name": "particles",
       "type": "registry:ui",
-      "title": "Avatar Circles",
-      "description": "Stacked initials avatars with a +N badge — zero images.",
+      "title": "Particles",
+      "description": "Drifting, twinkling particle field on a lightweight canvas.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
-          "path": "src/components/velora/avatar-circles.tsx",
+          "path": "src/components/velora/particles.tsx",
           "type": "registry:ui",
-          "target": "components/velora/avatar-circles.tsx"
+          "target": "components/velora/particles.tsx"
         }
       ]
     },
     {
-      "name": "animated-tooltip",
+      "name": "retro-grid",
       "type": "registry:ui",
-      "title": "Animated Tooltip",
-      "description": "Avatar row with springy name tooltips on hover.",
-      "dependencies": [
-        "motion"
+      "title": "Retro Grid",
+      "description": "Perspective grid scrolling forever toward the horizon.",
+      "registryDependencies": [
+        "utils"
       ],
       "files": [
         {
-          "path": "src/components/velora/animated-tooltip.tsx",
+          "path": "src/components/velora/retro-grid.tsx",
           "type": "registry:ui",
-          "target": "components/velora/animated-tooltip.tsx"
-        }
-      ]
-    },
-    {
-      "name": "dock",
-      "type": "registry:ui",
-      "title": "Dock",
-      "description": "macOS-style dock with cursor magnification.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/dock.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/dock.tsx"
-        }
-      ]
-    },
-    {
-      "name": "border-beam",
-      "type": "registry:ui",
-      "title": "Border Beam",
-      "description": "A beam of light traveling around any border.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/border-beam.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/border-beam.tsx"
-        }
-      ],
-      "cssVars": {
-        "light": {
-          "brand": "oklch(0.546 0.245 263)",
-          "brand-from": "oklch(0.546 0.245 263)",
-          "brand-via": "oklch(0.623 0.214 260)",
-          "brand-to": "oklch(0.685 0.169 237)"
-        },
-        "dark": {
-          "brand": "oklch(0.623 0.214 260)",
-          "brand-from": "oklch(0.623 0.214 260)",
-          "brand-via": "oklch(0.707 0.165 255)",
-          "brand-to": "oklch(0.746 0.16 233)"
-        },
-        "theme": {
-          "color-brand": "var(--brand)",
-          "color-brand-from": "var(--brand-from)",
-          "color-brand-via": "var(--brand-via)",
-          "color-brand-to": "var(--brand-to)"
-        }
-      }
-    },
-    {
-      "name": "animated-beam",
-      "type": "registry:ui",
-      "title": "Animated Beam",
-      "description": "Draws an animated connection between any two elements.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/animated-beam.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/animated-beam.tsx"
-        }
-      ]
-    },
-    {
-      "name": "blur-fade",
-      "type": "registry:ui",
-      "title": "Blur Fade",
-      "description": "The workhorse entrance — blur, fade and drift into view.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/blur-fade.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/blur-fade.tsx"
-        }
-      ]
-    },
-    {
-      "name": "scroll-progress",
-      "type": "registry:ui",
-      "title": "Scroll Progress",
-      "description": "Gradient page-progress bar pinned to the top.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/scroll-progress.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/scroll-progress.tsx"
-        }
-      ],
-      "cssVars": {
-        "light": {
-          "brand": "oklch(0.546 0.245 263)",
-          "brand-from": "oklch(0.546 0.245 263)",
-          "brand-via": "oklch(0.623 0.214 260)",
-          "brand-to": "oklch(0.685 0.169 237)"
-        },
-        "dark": {
-          "brand": "oklch(0.623 0.214 260)",
-          "brand-from": "oklch(0.623 0.214 260)",
-          "brand-via": "oklch(0.707 0.165 255)",
-          "brand-to": "oklch(0.746 0.16 233)"
-        },
-        "theme": {
-          "color-brand": "var(--brand)",
-          "color-brand-from": "var(--brand-from)",
-          "color-brand-via": "var(--brand-via)",
-          "color-brand-to": "var(--brand-to)"
-        }
-      }
-    },
-    {
-      "name": "browser-mockup",
-      "type": "registry:ui",
-      "title": "Browser Mockup",
-      "description": "Browser window frame for product screenshots.",
-      "files": [
-        {
-          "path": "src/components/velora/browser-mockup.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/browser-mockup.tsx"
-        }
-      ]
-    },
-    {
-      "name": "iphone-mockup",
-      "type": "registry:ui",
-      "title": "iPhone Mockup",
-      "description": "iPhone frame with dynamic island — pure CSS.",
-      "files": [
-        {
-          "path": "src/components/velora/iphone-mockup.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/iphone-mockup.tsx"
-        }
-      ]
-    },
-    {
-      "name": "terminal",
-      "type": "registry:ui",
-      "title": "Terminal",
-      "description": "A terminal window that types its lines in view.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/terminal.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/terminal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "flickering-grid",
-      "type": "registry:ui",
-      "title": "Flickering Grid",
-      "description": "Grid of squares fading in and out on staggered timers.",
-      "files": [
-        {
-          "path": "src/components/velora/flickering-grid.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/flickering-grid.tsx"
+          "target": "components/velora/retro-grid.tsx"
         }
       ],
       "css": {
-        "@keyframes flicker": {
-          "0%, 100%": {
-            "opacity": "var(--flicker-max, 0.45)"
+        "@keyframes retro-grid": {
+          "from": {
+            "transform": "translateY(-50%)"
           },
-          "50%": {
-            "opacity": "var(--flicker-min, 0.08)"
+          "to": {
+            "transform": "translateY(0)"
           }
         }
       },
       "cssVars": {
         "theme": {
-          "animate-flicker": "flicker 3s steps(1, end) infinite"
+          "animate-retro-grid": "retro-grid 18s linear infinite"
         }
       }
     },
@@ -816,6 +326,9 @@
       "type": "registry:ui",
       "title": "Ripple",
       "description": "Concentric rings pulsing outward — calm 'listening' backdrop.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/ripple.tsx",
@@ -858,15 +371,138 @@
       }
     },
     {
-      "name": "light-rays",
+      "name": "animated-gradient-text",
       "type": "registry:ui",
-      "title": "Light Rays",
-      "description": "God rays fanning down from the top of a section.",
+      "title": "Animated Gradient Text",
+      "description": "Brand gradient sweeping continuously through text.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
-          "path": "src/components/velora/light-rays.tsx",
+          "path": "src/components/velora/animated-gradient-text.tsx",
           "type": "registry:ui",
-          "target": "components/velora/light-rays.tsx"
+          "target": "components/velora/animated-gradient-text.tsx"
+        }
+      ],
+      "css": {
+        "@keyframes gradient": {
+          "0%, 100%": {
+            "background-position": "0% 50%"
+          },
+          "50%": {
+            "background-position": "100% 50%"
+          }
+        }
+      },
+      "cssVars": {
+        "light": {
+          "brand": "oklch(0.546 0.245 263)",
+          "brand-from": "oklch(0.546 0.245 263)",
+          "brand-via": "oklch(0.623 0.214 260)",
+          "brand-to": "oklch(0.685 0.169 237)"
+        },
+        "dark": {
+          "brand": "oklch(0.623 0.214 260)",
+          "brand-from": "oklch(0.623 0.214 260)",
+          "brand-via": "oklch(0.707 0.165 255)",
+          "brand-to": "oklch(0.746 0.16 233)"
+        },
+        "theme": {
+          "color-brand": "var(--brand)",
+          "color-brand-from": "var(--brand-from)",
+          "color-brand-via": "var(--brand-via)",
+          "color-brand-to": "var(--brand-to)",
+          "animate-gradient": "gradient 6s ease infinite"
+        }
+      }
+    },
+    {
+      "name": "flip-words",
+      "type": "registry:ui",
+      "title": "Flip Words",
+      "description": "Cycles words with a springy blur-flip transition.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/flip-words.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/flip-words.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hyper-text",
+      "type": "registry:ui",
+      "title": "Hyper Text",
+      "description": "Scrambles through letters and resolves into the real text.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/hyper-text.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/hyper-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "morphing-text",
+      "type": "registry:ui",
+      "title": "Morphing Text",
+      "description": "Blurs one phrase out as the next resolves in.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/morphing-text.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/morphing-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "number-ticker",
+      "type": "registry:ui",
+      "title": "Number Ticker",
+      "description": "Springs a number up when it enters the viewport.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/number-ticker.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/number-ticker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sparkles-text",
+      "type": "registry:ui",
+      "title": "Sparkles Text",
+      "description": "Twinkling stars orbiting your headline.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/sparkles-text.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/sparkles-text.tsx"
         }
       ],
       "cssVars": {
@@ -891,41 +527,15 @@
       }
     },
     {
-      "name": "word-rotate",
-      "type": "registry:ui",
-      "title": "Word Rotate",
-      "description": "Swaps a single word on a quiet vertical roll.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/word-rotate.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/word-rotate.tsx"
-        }
-      ]
-    },
-    {
-      "name": "hyper-text",
-      "type": "registry:ui",
-      "title": "Hyper Text",
-      "description": "Scrambles through letters and resolves into the real text.",
-      "files": [
-        {
-          "path": "src/components/velora/hyper-text.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/hyper-text.tsx"
-        }
-      ]
-    },
-    {
       "name": "text-highlighter",
       "type": "registry:ui",
       "title": "Text Highlighter",
       "description": "Marker-pen sweep that draws in when the phrase scrolls into view.",
       "dependencies": [
         "motion"
+      ],
+      "registryDependencies": [
+        "utils"
       ],
       "files": [
         {
@@ -956,23 +566,183 @@
       }
     },
     {
-      "name": "morphing-text",
+      "name": "text-reveal",
       "type": "registry:ui",
-      "title": "Morphing Text",
-      "description": "Blurs one phrase out as the next resolves in.",
+      "title": "Text Reveal",
+      "description": "Word-by-word blur reveal on scroll.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
-          "path": "src/components/velora/morphing-text.tsx",
+          "path": "src/components/velora/text-reveal.tsx",
           "type": "registry:ui",
-          "target": "components/velora/morphing-text.tsx"
+          "target": "components/velora/text-reveal.tsx"
         }
       ]
+    },
+    {
+      "name": "text-shimmer",
+      "type": "registry:ui",
+      "title": "Text Shimmer",
+      "description": "A soft light sweep — great for AI loading states.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/text-shimmer.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/text-shimmer.tsx"
+        }
+      ],
+      "css": {
+        "@keyframes shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "animate-shimmer": "shimmer 2.5s linear infinite"
+        }
+      }
+    },
+    {
+      "name": "typewriter",
+      "type": "registry:ui",
+      "title": "Typewriter",
+      "description": "Types, holds and deletes through a list of words.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/typewriter.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/typewriter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "word-rotate",
+      "type": "registry:ui",
+      "title": "Word Rotate",
+      "description": "Swaps a single word on a quiet vertical roll.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/word-rotate.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/word-rotate.tsx"
+        }
+      ]
+    },
+    {
+      "name": "confetti",
+      "type": "registry:ui",
+      "title": "Confetti",
+      "description": "Dependency-free confetti burst, fired from anywhere.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/confetti.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/confetti.tsx"
+        }
+      ]
+    },
+    {
+      "name": "magnetic-button",
+      "type": "registry:ui",
+      "title": "Magnetic Button",
+      "description": "Leans toward the cursor and springs back on leave.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/magnetic-button.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/magnetic-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "moving-border",
+      "type": "registry:ui",
+      "title": "Moving Border",
+      "description": "A light laps the button's border via offset-path.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/moving-border.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/moving-border.tsx"
+        }
+      ],
+      "css": {
+        "@keyframes moving-border": {
+          "from": {
+            "offset-distance": "0%"
+          },
+          "to": {
+            "offset-distance": "100%"
+          }
+        }
+      },
+      "cssVars": {
+        "light": {
+          "brand": "oklch(0.546 0.245 263)",
+          "brand-from": "oklch(0.546 0.245 263)",
+          "brand-via": "oklch(0.623 0.214 260)",
+          "brand-to": "oklch(0.685 0.169 237)"
+        },
+        "dark": {
+          "brand": "oklch(0.623 0.214 260)",
+          "brand-from": "oklch(0.623 0.214 260)",
+          "brand-via": "oklch(0.707 0.165 255)",
+          "brand-to": "oklch(0.746 0.16 233)"
+        },
+        "theme": {
+          "color-brand": "var(--brand)",
+          "color-brand-from": "var(--brand-from)",
+          "color-brand-via": "var(--brand-via)",
+          "color-brand-to": "var(--brand-to)",
+          "animate-moving-border": "moving-border var(--mb-duration, 4s) linear infinite"
+        }
+      }
     },
     {
       "name": "rainbow-button",
       "type": "registry:ui",
       "title": "Rainbow Button",
       "description": "CTA cycling the brand ramp, with a matching glow beneath.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/rainbow-button.tsx",
@@ -1017,6 +787,9 @@
       "type": "registry:ui",
       "title": "Ripple Button",
       "description": "Expands a ripple from the exact point you pressed.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/ripple-button.tsx",
@@ -1043,62 +816,33 @@
       }
     },
     {
-      "name": "magnetic-button",
+      "name": "shimmer-button",
       "type": "registry:ui",
-      "title": "Magnetic Button",
-      "description": "Leans toward the cursor and springs back on leave.",
-      "dependencies": [
-        "motion"
+      "title": "Shimmer Button",
+      "description": "CTA button with a continuous light sweep.",
+      "registryDependencies": [
+        "utils"
       ],
       "files": [
         {
-          "path": "src/components/velora/magnetic-button.tsx",
+          "path": "src/components/velora/shimmer-button.tsx",
           "type": "registry:ui",
-          "target": "components/velora/magnetic-button.tsx"
-        }
-      ]
-    },
-    {
-      "name": "moving-border",
-      "type": "registry:ui",
-      "title": "Moving Border",
-      "description": "A light laps the button's border via offset-path.",
-      "files": [
-        {
-          "path": "src/components/velora/moving-border.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/moving-border.tsx"
+          "target": "components/velora/shimmer-button.tsx"
         }
       ],
       "css": {
-        "@keyframes moving-border": {
+        "@keyframes shimmer": {
           "from": {
-            "offset-distance": "0%"
+            "background-position": "200% 0"
           },
           "to": {
-            "offset-distance": "100%"
+            "background-position": "-200% 0"
           }
         }
       },
       "cssVars": {
-        "light": {
-          "brand": "oklch(0.546 0.245 263)",
-          "brand-from": "oklch(0.546 0.245 263)",
-          "brand-via": "oklch(0.623 0.214 260)",
-          "brand-to": "oklch(0.685 0.169 237)"
-        },
-        "dark": {
-          "brand": "oklch(0.623 0.214 260)",
-          "brand-from": "oklch(0.623 0.214 260)",
-          "brand-via": "oklch(0.707 0.165 255)",
-          "brand-to": "oklch(0.746 0.16 233)"
-        },
         "theme": {
-          "color-brand": "var(--brand)",
-          "color-brand-from": "var(--brand-from)",
-          "color-brand-via": "var(--brand-via)",
-          "color-brand-to": "var(--brand-to)",
-          "animate-moving-border": "moving-border var(--mb-duration, 4s) linear infinite"
+          "animate-shimmer": "shimmer 2.5s linear infinite"
         }
       }
     },
@@ -1107,11 +851,87 @@
       "type": "registry:ui",
       "title": "Theme Toggler",
       "description": "Wipes the new theme in as a circle using View Transitions.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/theme-toggler.tsx",
           "type": "registry:ui",
           "target": "components/velora/theme-toggler.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-list",
+      "type": "registry:ui",
+      "title": "Animated List",
+      "description": "Looping feed that springs each item in, newest on top.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/animated-list.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/animated-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-tooltip",
+      "type": "registry:ui",
+      "title": "Animated Tooltip",
+      "description": "Avatar row with springy name tooltips on hover.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/animated-tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/animated-tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "avatar-circles",
+      "type": "registry:ui",
+      "title": "Avatar Circles",
+      "description": "Stacked initials avatars with a +N badge — zero images.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/avatar-circles.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/avatar-circles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid",
+      "type": "registry:ui",
+      "title": "Bento Grid",
+      "description": "Feature bento with hover-reveal CTAs and rich backgrounds.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/bento-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/bento-grid.tsx"
         }
       ]
     },
@@ -1123,6 +943,9 @@
       "dependencies": [
         "motion"
       ],
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/card-stack.tsx",
@@ -1132,51 +955,18 @@
       ]
     },
     {
-      "name": "glare-card",
+      "name": "compare-slider",
       "type": "registry:ui",
-      "title": "Glare Card",
-      "description": "Sheet of light tracking the cursor, like a foil trading card.",
-      "files": [
-        {
-          "path": "src/components/velora/glare-card.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/glare-card.tsx"
-        }
-      ],
-      "cssVars": {
-        "light": {
-          "brand": "oklch(0.546 0.245 263)",
-          "brand-from": "oklch(0.546 0.245 263)",
-          "brand-via": "oklch(0.623 0.214 260)",
-          "brand-to": "oklch(0.685 0.169 237)"
-        },
-        "dark": {
-          "brand": "oklch(0.623 0.214 260)",
-          "brand-from": "oklch(0.623 0.214 260)",
-          "brand-via": "oklch(0.707 0.165 255)",
-          "brand-to": "oklch(0.746 0.16 233)"
-        },
-        "theme": {
-          "color-brand": "var(--brand)",
-          "color-brand-from": "var(--brand-from)",
-          "color-brand-via": "var(--brand-via)",
-          "color-brand-to": "var(--brand-to)"
-        }
-      }
-    },
-    {
-      "name": "expandable-card",
-      "type": "registry:ui",
-      "title": "Expandable Card",
-      "description": "Expands into a centred panel with shared-layout transitions.",
-      "dependencies": [
-        "motion"
+      "title": "Compare Slider",
+      "description": "Before/after wipe with a keyboard-accessible divider.",
+      "registryDependencies": [
+        "utils"
       ],
       "files": [
         {
-          "path": "src/components/velora/expandable-card.tsx",
+          "path": "src/components/velora/compare-slider.tsx",
           "type": "registry:ui",
-          "target": "components/velora/expandable-card.tsx"
+          "target": "components/velora/compare-slider.tsx"
         }
       ]
     },
@@ -1185,6 +975,9 @@
       "type": "registry:ui",
       "title": "Direction Aware Hover",
       "description": "Overlay enters from the edge the cursor actually crossed.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/direction-aware-hover.tsx",
@@ -1214,15 +1007,40 @@
       }
     },
     {
-      "name": "compare-slider",
+      "name": "dock",
       "type": "registry:ui",
-      "title": "Compare Slider",
-      "description": "Before/after wipe with a keyboard-accessible divider.",
+      "title": "Dock",
+      "description": "macOS-style dock with cursor magnification.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
-          "path": "src/components/velora/compare-slider.tsx",
+          "path": "src/components/velora/dock.tsx",
           "type": "registry:ui",
-          "target": "components/velora/compare-slider.tsx"
+          "target": "components/velora/dock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expandable-card",
+      "type": "registry:ui",
+      "title": "Expandable Card",
+      "description": "Expands into a centred panel with shared-layout transitions.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/expandable-card.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/expandable-card.tsx"
         }
       ]
     },
@@ -1231,6 +1049,9 @@
       "type": "registry:ui",
       "title": "File Tree",
       "description": "Collapsible tree for documenting project structure.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/file-tree.tsx",
@@ -1240,10 +1061,175 @@
       ]
     },
     {
+      "name": "glare-card",
+      "type": "registry:ui",
+      "title": "Glare Card",
+      "description": "Sheet of light tracking the cursor, like a foil trading card.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/glare-card.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/glare-card.tsx"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "brand": "oklch(0.546 0.245 263)",
+          "brand-from": "oklch(0.546 0.245 263)",
+          "brand-via": "oklch(0.623 0.214 260)",
+          "brand-to": "oklch(0.685 0.169 237)"
+        },
+        "dark": {
+          "brand": "oklch(0.623 0.214 260)",
+          "brand-from": "oklch(0.623 0.214 260)",
+          "brand-via": "oklch(0.707 0.165 255)",
+          "brand-to": "oklch(0.746 0.16 233)"
+        },
+        "theme": {
+          "color-brand": "var(--brand)",
+          "color-brand-from": "var(--brand-from)",
+          "color-brand-via": "var(--brand-via)",
+          "color-brand-to": "var(--brand-to)"
+        }
+      }
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "Seamless scrolling loop — horizontal, vertical, hover-pause.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/marquee.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/marquee.tsx"
+        }
+      ],
+      "css": {
+        "@keyframes marquee": {
+          "from": {
+            "transform": "translateX(0)"
+          },
+          "to": {
+            "transform": "translateX(calc(-100% - var(--gap)))"
+          }
+        },
+        "@keyframes marquee-vertical": {
+          "from": {
+            "transform": "translateY(0)"
+          },
+          "to": {
+            "transform": "translateY(calc(-100% - var(--gap)))"
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "animate-marquee": "marquee var(--duration, 40s) linear infinite",
+          "animate-marquee-vertical": "marquee-vertical var(--duration, 40s) linear infinite"
+        }
+      }
+    },
+    {
+      "name": "orbiting-circles",
+      "type": "registry:ui",
+      "title": "Orbiting Circles",
+      "description": "Items evenly distributed on rotating orbital rings.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/orbiting-circles.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/orbiting-circles.tsx"
+        }
+      ],
+      "css": {
+        "@keyframes orbit": {
+          "0%": {
+            "transform": "rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * -1px)) rotate(calc(var(--angle) * -1deg))"
+          },
+          "100%": {
+            "transform": "rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * -1px)) rotate(calc((var(--angle) * 1deg + 360deg) * -1))"
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "animate-orbit": "orbit calc(var(--duration) * 1s) linear infinite"
+        }
+      }
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:ui",
+      "title": "Spotlight Card",
+      "description": "A radial glow that follows the cursor across the card.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/spotlight-card.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/spotlight-card.tsx"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "brand": "oklch(0.546 0.245 263)",
+          "brand-from": "oklch(0.546 0.245 263)",
+          "brand-via": "oklch(0.623 0.214 260)",
+          "brand-to": "oklch(0.685 0.169 237)"
+        },
+        "dark": {
+          "brand": "oklch(0.623 0.214 260)",
+          "brand-from": "oklch(0.623 0.214 260)",
+          "brand-via": "oklch(0.707 0.165 255)",
+          "brand-to": "oklch(0.746 0.16 233)"
+        },
+        "theme": {
+          "color-brand": "var(--brand)",
+          "color-brand-from": "var(--brand-from)",
+          "color-brand-via": "var(--brand-via)",
+          "color-brand-to": "var(--brand-to)"
+        }
+      }
+    },
+    {
+      "name": "tilt-card",
+      "type": "registry:ui",
+      "title": "Tilt Card",
+      "description": "3D perspective tilt that tracks the cursor.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/tilt-card.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/tilt-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "floating-navbar",
       "type": "registry:ui",
       "title": "Floating Navbar",
       "description": "Hides on scroll down, returns the moment you scroll up.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/floating-navbar.tsx",
@@ -1260,6 +1246,9 @@
       "dependencies": [
         "motion"
       ],
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/navbar-menu.tsx",
@@ -1273,6 +1262,9 @@
       "type": "registry:ui",
       "title": "Sticky Banner",
       "description": "Dismissible announcement bar pinned above the header.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/sticky-banner.tsx",
@@ -1302,26 +1294,13 @@
       }
     },
     {
-      "name": "vanish-input",
-      "type": "registry:ui",
-      "title": "Vanish Input",
-      "description": "Search field whose placeholder cycles while empty.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "src/components/velora/vanish-input.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/vanish-input.tsx"
-        }
-      ]
-    },
-    {
       "name": "file-drop",
       "type": "registry:ui",
       "title": "File Drop",
       "description": "Upload zone that lifts and glows while a file is over it.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/file-drop.tsx",
@@ -1358,6 +1337,9 @@
       "dependencies": [
         "motion"
       ],
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/stepper.tsx",
@@ -1387,12 +1369,34 @@
       }
     },
     {
+      "name": "vanish-input",
+      "type": "registry:ui",
+      "title": "Vanish Input",
+      "description": "Search field whose placeholder cycles while empty.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/vanish-input.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/vanish-input.tsx"
+        }
+      ]
+    },
+    {
       "name": "animated-testimonials",
       "type": "registry:ui",
       "title": "Animated Testimonials",
       "description": "Crossfades portraits behind a rotating quote.",
       "dependencies": [
         "motion"
+      ],
+      "registryDependencies": [
+        "utils"
       ],
       "files": [
         {
@@ -1423,43 +1427,13 @@
       }
     },
     {
-      "name": "tweet-card",
-      "type": "registry:ui",
-      "title": "Tweet Card",
-      "description": "Static social-proof card — props, not an API call.",
-      "files": [
-        {
-          "path": "src/components/velora/tweet-card.tsx",
-          "type": "registry:ui",
-          "target": "components/velora/tweet-card.tsx"
-        }
-      ],
-      "cssVars": {
-        "light": {
-          "brand": "oklch(0.546 0.245 263)",
-          "brand-from": "oklch(0.546 0.245 263)",
-          "brand-via": "oklch(0.623 0.214 260)",
-          "brand-to": "oklch(0.685 0.169 237)"
-        },
-        "dark": {
-          "brand": "oklch(0.623 0.214 260)",
-          "brand-from": "oklch(0.623 0.214 260)",
-          "brand-via": "oklch(0.707 0.165 255)",
-          "brand-to": "oklch(0.746 0.16 233)"
-        },
-        "theme": {
-          "color-brand": "var(--brand)",
-          "color-brand-from": "var(--brand-from)",
-          "color-brand-via": "var(--brand-via)",
-          "color-brand-to": "var(--brand-to)"
-        }
-      }
-    },
-    {
       "name": "logo-cloud",
       "type": "registry:ui",
       "title": "Logo Cloud",
       "description": "Customer logos muted until hovered, so they read as texture.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/logo-cloud.tsx",
@@ -1469,18 +1443,18 @@
       ]
     },
     {
-      "name": "sticky-scroll",
+      "name": "tweet-card",
       "type": "registry:ui",
-      "title": "Sticky Scroll",
-      "description": "Copy scrolls past a pinned panel that swaps per section.",
-      "dependencies": [
-        "motion"
+      "title": "Tweet Card",
+      "description": "Static social-proof card — props, not an API call.",
+      "registryDependencies": [
+        "utils"
       ],
       "files": [
         {
-          "path": "src/components/velora/sticky-scroll.tsx",
+          "path": "src/components/velora/tweet-card.tsx",
           "type": "registry:ui",
-          "target": "components/velora/sticky-scroll.tsx"
+          "target": "components/velora/tweet-card.tsx"
         }
       ],
       "cssVars": {
@@ -1512,6 +1486,9 @@
       "dependencies": [
         "motion"
       ],
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/container-scroll.tsx",
@@ -1541,18 +1518,40 @@
       }
     },
     {
-      "name": "tracing-beam",
+      "name": "parallax-grid",
       "type": "registry:ui",
-      "title": "Tracing Beam",
-      "description": "Gradient line that draws itself down long-form content.",
+      "title": "Parallax Grid",
+      "description": "Gallery columns drifting at different rates for depth.",
       "dependencies": [
         "motion"
       ],
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
-          "path": "src/components/velora/tracing-beam.tsx",
+          "path": "src/components/velora/parallax-grid.tsx",
           "type": "registry:ui",
-          "target": "components/velora/tracing-beam.tsx"
+          "target": "components/velora/parallax-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-progress",
+      "type": "registry:ui",
+      "title": "Scroll Progress",
+      "description": "Gradient page-progress bar pinned to the top.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/scroll-progress.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/scroll-progress.tsx"
         }
       ],
       "cssVars": {
@@ -1584,6 +1583,9 @@
       "dependencies": [
         "motion"
       ],
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "src/components/velora/scroll-velocity.tsx",
@@ -1593,18 +1595,208 @@
       ]
     },
     {
-      "name": "parallax-grid",
+      "name": "sticky-scroll",
       "type": "registry:ui",
-      "title": "Parallax Grid",
-      "description": "Gallery columns drifting at different rates for depth.",
+      "title": "Sticky Scroll",
+      "description": "Copy scrolls past a pinned panel that swaps per section.",
       "dependencies": [
         "motion"
       ],
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
-          "path": "src/components/velora/parallax-grid.tsx",
+          "path": "src/components/velora/sticky-scroll.tsx",
           "type": "registry:ui",
-          "target": "components/velora/parallax-grid.tsx"
+          "target": "components/velora/sticky-scroll.tsx"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "brand": "oklch(0.546 0.245 263)",
+          "brand-from": "oklch(0.546 0.245 263)",
+          "brand-via": "oklch(0.623 0.214 260)",
+          "brand-to": "oklch(0.685 0.169 237)"
+        },
+        "dark": {
+          "brand": "oklch(0.623 0.214 260)",
+          "brand-from": "oklch(0.623 0.214 260)",
+          "brand-via": "oklch(0.707 0.165 255)",
+          "brand-to": "oklch(0.746 0.16 233)"
+        },
+        "theme": {
+          "color-brand": "var(--brand)",
+          "color-brand-from": "var(--brand-from)",
+          "color-brand-via": "var(--brand-via)",
+          "color-brand-to": "var(--brand-to)"
+        }
+      }
+    },
+    {
+      "name": "tracing-beam",
+      "type": "registry:ui",
+      "title": "Tracing Beam",
+      "description": "Gradient line that draws itself down long-form content.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/tracing-beam.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/tracing-beam.tsx"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "brand": "oklch(0.546 0.245 263)",
+          "brand-from": "oklch(0.546 0.245 263)",
+          "brand-via": "oklch(0.623 0.214 260)",
+          "brand-to": "oklch(0.685 0.169 237)"
+        },
+        "dark": {
+          "brand": "oklch(0.623 0.214 260)",
+          "brand-from": "oklch(0.623 0.214 260)",
+          "brand-via": "oklch(0.707 0.165 255)",
+          "brand-to": "oklch(0.746 0.16 233)"
+        },
+        "theme": {
+          "color-brand": "var(--brand)",
+          "color-brand-from": "var(--brand-from)",
+          "color-brand-via": "var(--brand-via)",
+          "color-brand-to": "var(--brand-to)"
+        }
+      }
+    },
+    {
+      "name": "animated-beam",
+      "type": "registry:ui",
+      "title": "Animated Beam",
+      "description": "Draws an animated connection between any two elements.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/animated-beam.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/animated-beam.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blur-fade",
+      "type": "registry:ui",
+      "title": "Blur Fade",
+      "description": "The workhorse entrance — blur, fade and drift into view.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/blur-fade.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/blur-fade.tsx"
+        }
+      ]
+    },
+    {
+      "name": "border-beam",
+      "type": "registry:ui",
+      "title": "Border Beam",
+      "description": "A beam of light traveling around any border.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/border-beam.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/border-beam.tsx"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "brand": "oklch(0.546 0.245 263)",
+          "brand-from": "oklch(0.546 0.245 263)",
+          "brand-via": "oklch(0.623 0.214 260)",
+          "brand-to": "oklch(0.685 0.169 237)"
+        },
+        "dark": {
+          "brand": "oklch(0.623 0.214 260)",
+          "brand-from": "oklch(0.623 0.214 260)",
+          "brand-via": "oklch(0.707 0.165 255)",
+          "brand-to": "oklch(0.746 0.16 233)"
+        },
+        "theme": {
+          "color-brand": "var(--brand)",
+          "color-brand-from": "var(--brand-from)",
+          "color-brand-via": "var(--brand-via)",
+          "color-brand-to": "var(--brand-to)"
+        }
+      }
+    },
+    {
+      "name": "browser-mockup",
+      "type": "registry:ui",
+      "title": "Browser Mockup",
+      "description": "Browser window frame for product screenshots.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/browser-mockup.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/browser-mockup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "iphone-mockup",
+      "type": "registry:ui",
+      "title": "iPhone Mockup",
+      "description": "iPhone frame with dynamic island — pure CSS.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/iphone-mockup.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/iphone-mockup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "terminal",
+      "type": "registry:ui",
+      "title": "Terminal",
+      "description": "A terminal window that types its lines in view.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/terminal.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/terminal.tsx"
         }
       ]
     }

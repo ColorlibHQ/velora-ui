@@ -264,6 +264,8 @@ const items = meta.map((c) => ({
   title: c.title,
   description: c.description,
   dependencies: c.dependencies.length ? c.dependencies : undefined,
+  // Every component imports cn() from @/lib/utils.
+  registryDependencies: ["utils"],
   files: [
     {
       path: `src/components/velora/${c.slug}.tsx`,

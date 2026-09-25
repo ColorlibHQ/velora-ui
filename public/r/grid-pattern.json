@@ -3,6 +3,9 @@
   "name": "grid-pattern",
   "title": "Grid & Dot Pattern",
   "description": "SVG grid and dot backdrops with maskable depth.",
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/grid-pattern.tsx",

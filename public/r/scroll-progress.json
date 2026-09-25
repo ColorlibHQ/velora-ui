@@ -6,10 +6,13 @@
   "dependencies": [
     "motion"
   ],
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/scroll-progress.tsx",
-      "content": "\"use client\";\n\nimport { motion, useReducedMotion, useScroll, useSpring } from \"motion/react\";\n\nimport { cn } from \"@/lib/utils\";\n\ninterface ScrollProgressProps {\n  className?: string;\n}\n\nexport function ScrollProgress({ className }: ScrollProgressProps) {\n  const { scrollYProgress } = useScroll();\n  const scaleX = useSpring(scrollYProgress, {\n    stiffness: 180,\n    damping: 32,\n    restDelta: 0.001,\n  });\n  const reducedMotion = useReducedMotion();\n\n  return (\n    <motion.div\n      aria-hidden\n      data-slot=\"scroll-progress\"\n      className={cn(\n        \"fixed inset-x-0 top-0 z-[60] h-0.75 origin-left bg-gradient-to-r from-brand-from via-brand-via to-brand-to\",\n        className\n      )}\n      style={{ scaleX: reducedMotion ? scrollYProgress : scaleX }}\n    />\n  );\n}\n",
+      "content": "\"use client\";\n\nimport { motion, useReducedMotion, useScroll, useSpring } from \"motion/react\";\n\nimport { cn } from \"@/lib/utils\";\n\ninterface ScrollProgressProps {\n  className?: string;\n  /** Track this scroll box instead of the window */\n  container?: React.RefObject<HTMLElement | null>;\n}\n\nexport function ScrollProgress({ className, container }: ScrollProgressProps) {\n  const { scrollYProgress } = useScroll({ container });\n  const scaleX = useSpring(scrollYProgress, {\n    stiffness: 180,\n    damping: 32,\n    restDelta: 0.001,\n  });\n  const reducedMotion = useReducedMotion();\n\n  return (\n    <motion.div\n      aria-hidden\n      data-slot=\"scroll-progress\"\n      className={cn(\n        \"fixed inset-x-0 top-0 z-[60] h-0.75 origin-left bg-gradient-to-r from-brand-from via-brand-via to-brand-to\",\n        className\n      )}\n      style={{ scaleX: reducedMotion ? scrollYProgress : scaleX }}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "components/velora/scroll-progress.tsx"
     }

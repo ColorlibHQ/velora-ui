@@ -3,6 +3,9 @@
   "name": "glare-card",
   "title": "Glare Card",
   "description": "Sheet of light tracking the cursor, like a foil trading card.",
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/glare-card.tsx",

@@ -3,6 +3,9 @@
   "name": "spotlight-card",
   "title": "Spotlight Card",
   "description": "A radial glow that follows the cursor across the card.",
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/spotlight-card.tsx",

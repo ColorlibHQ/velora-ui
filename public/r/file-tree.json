@@ -3,6 +3,9 @@
   "name": "file-tree",
   "title": "File Tree",
   "description": "Collapsible tree for documenting project structure.",
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/file-tree.tsx",
