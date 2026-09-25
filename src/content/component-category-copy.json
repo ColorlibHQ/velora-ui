@@ -1,0 +1,66 @@
+{
+  "Backgrounds": {
+    "heading": "Animated React background components",
+    "description": "Aurora, beams, meteors, vortex, waves, grids and particle fields for hero and CTA sections. Each is a lightweight backdrop you drop into a relative section — canvas loops pause offscreen and stop under reduced motion."
+  },
+  "Text": {
+    "heading": "Animated text components for React",
+    "description": "Typewriters, flipping and rotating words, scramble, shimmer, gradient and highlight effects. Screen readers always get the stable text, and rotating copy pauses on hover and focus."
+  },
+  "Buttons": {
+    "heading": "Animated React button components",
+    "description": "Shimmer, rainbow, ripple, magnetic and moving-border buttons, a promise-aware stateful button and a View Transitions theme toggle. Real buttons with focus rings, ready for your CTAs."
+  },
+  "Cards & Layout": {
+    "heading": "Animated React card and layout components",
+    "description": "Bento grids, spotlight, tilt, glare and wobble cards, marquees, docks, focus and hover grids, expandable and draggable cards. Pointer effects are decorative; content and links stay accessible."
+  },
+  "Navigation": {
+    "heading": "Animated React navigation components",
+    "description": "Floating and resizable navbars, a morphing menu, an animated sidebar and tabs. Keyboard support follows the WAI-ARIA patterns: Escape closes, focus returns, arrow keys move between tabs."
+  },
+  "Forms": {
+    "heading": "Animated React form components",
+    "description": "A vanishing search input, a drag-and-drop file zone and a multi-step stepper — labelled, keyboard-reachable and styled with your shadcn tokens."
+  },
+  "Overlays": {
+    "heading": "Animated React modal components",
+    "description": "A modal built on the native <dialog> element: it lives in the browser's top layer, traps focus, closes on Escape and plays its exit animation before it closes."
+  },
+  "Loaders": {
+    "heading": "React loader and loading-state components",
+    "description": "Dots, pulse, orbit, bars and spinner loaders plus a multi-step loader that announces each step to screen readers. Under reduced motion they fade instead of moving, so progress is still visible."
+  },
+  "Social Proof": {
+    "heading": "React testimonial and social proof components",
+    "description": "Animated testimonials with a visible pause button, tweet-style cards and logo clouds — no third-party embeds, no API calls, no layout shift."
+  },
+  "Scroll": {
+    "heading": "Scroll animation components for React",
+    "description": "Hero parallax, MacBook scroll, timelines, sticky scroll, tracing beams, scroll progress and velocity marquees. Scroll-linked transforms turn off under reduced motion with no hydration mismatch."
+  },
+  "Effects": {
+    "heading": "React UI effect components",
+    "description": "Border beams, animated connection beams, blur-fade reveals and a pointer-following glowing border — small effects that add polish to cards and sections."
+  },
+  "3D": {
+    "heading": "3D card components for React",
+    "description": "Perspective cards whose layers lift to different depths and a pin card with a rising label — CSS 3D transforms, no WebGL and no three.js."
+  },
+  "Carousels": {
+    "heading": "React carousel and slider components",
+    "description": "An Apple-style card carousel with an accessible dialog, a full-bleed image slider with a pause button, and a 3D marquee wall."
+  },
+  "Cursor & Pointer": {
+    "heading": "Custom cursor and pointer components for React",
+    "description": "A lens magnifier, multiplayer-style following pointers, a smooth custom cursor and pointer highlights. They only activate for mouse and trackpad users and never hide the cursor on touch."
+  },
+  "Data & Maps": {
+    "heading": "React globe and world map components",
+    "description": "A dependency-free canvas globe with markers, arcs and drag-to-spin, and an SVG world map with animated connections. No WebGL, no map library — the land data is embedded."
+  },
+  "Mockups": {
+    "heading": "React device mockup and code block components",
+    "description": "Browser and iPhone frames, an animated terminal and a code block with tabs, line highlights and built-in syntax highlighting — for product screenshots and docs."
+  }
+}

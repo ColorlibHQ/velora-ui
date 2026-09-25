@@ -1,17 +1,16 @@
-import type { Metadata } from "next";
-
 import { Badge } from "@/components/ui/badge";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Changelog",
-  alternates: { canonical: "/changelog" },
   description:
     "Every Velora UI release: new components, template pages and improvements.",
-};
+  path: "/changelog",
+});
 
 interface Release {
   date: string;
@@ -70,7 +69,8 @@ const releases: Release[] = [
   {
     date: "September 25, 2026",
     version: "0.5.0",
-    title: "Docs you can build from, and an accessibility pass on every component",
+    title:
+      "Docs you can build from, and an accessibility pass on every component",
     tag: "Improved",
     items: [
       "Every component page now has Preview/Code tabs, CLI and manual install (pnpm, npm, yarn, bun), a props table generated from the TypeScript source, and an Accessibility section",

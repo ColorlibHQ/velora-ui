@@ -1,15 +1,20 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
-import { componentExamples } from "@/content/components";
+import { ComponentCard } from "@/components/docs/component-card";
 import { AnimatedGradientText } from "@/components/velora/animated-gradient-text";
-import { categories, componentsMeta } from "@/lib/components-meta";
+import {
+  categories,
+  categorySlug,
+  componentsMeta,
+} from "@/lib/components-meta";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Components",
-  alternates: { canonical: "/components" },
   description: `${componentsMeta.length} free animated React components for landing pages. Copy the code or install with the shadcn CLI.`,
-};
+  path: "/components",
+  image: "/components/opengraph-image",
+});
 
 export default function ComponentsPage() {
   return (
@@ -29,40 +34,18 @@ export default function ComponentsPage() {
         if (!items.length) return null;
         return (
           <section key={category} className="mt-14">
-            <h2 className="mb-6 text-xl font-semibold">{category}</h2>
+            <h2 className="mb-6 text-xl font-semibold">
+              <Link
+                href={`/components/category/${categorySlug(category)}`}
+                className="hover:underline hover:underline-offset-4"
+              >
+                {category}
+              </Link>
+            </h2>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {items.map((c) => {
-                const Demo = componentExamples[c.slug]?.[0]?.Component;
-                return (
-                  // Demos can contain links and buttons, so the card is not a
-                  // link itself: the title link stretches over the whole card
-                  // and the preview is inert.
-                  <div
-                    key={c.slug}
-                    className="group relative min-w-0 rounded-2xl border bg-card/50 transition-all focus-within:ring-2 focus-within:ring-ring hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5"
-                  >
-                    <div
-                      inert
-                      className="flex h-56 items-center justify-center overflow-hidden border-b border-border/60 p-6"
-                    >
-                      {Demo && <Demo />}
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-medium transition-colors group-hover:text-primary">
-                        <Link
-                          href={`/components/${c.slug}`}
-                          className="outline-none after:absolute after:inset-0 after:rounded-2xl"
-                        >
-                          {c.title}
-                        </Link>
-                      </h3>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        {c.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+              {items.map((c) => (
+                <ComponentCard key={c.slug} component={c} />
+              ))}
             </div>
           </section>
         );

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   AccessibilityIcon,
   GaugeIcon,
@@ -12,13 +11,14 @@ import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { NumberTicker } from "@/components/velora/number-ticker";
 import { SpotlightCard } from "@/components/velora/spotlight-card";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "About",
-  alternates: { canonical: "/about" },
   description:
     "Why Velora UI exists: landing-page polish shouldn't cost $199. Free, accessible, token-driven animated components for React.",
-};
+  path: "/about",
+});
 
 const principles = [
   {
@@ -71,8 +71,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-3xl space-y-5 px-4 text-muted-foreground lg:px-8">
           <BlurFade>
             <p className="leading-7">
-              The React ecosystem settled on a great pattern: copy the
-              component into your project, own the code. But the libraries that
+              The React ecosystem settled on a great pattern: copy the component
+              into your project, own the code. But the libraries that
               popularized animated marketing components put their best work —
               the assembled, multi-page templates — behind $149–$299 paywalls,
               hardcode their brand colors into every snippet, and rarely tell
@@ -82,13 +82,12 @@ export default function AboutPage() {
           <BlurFade delay={0.1}>
             <p className="leading-7">
               Velora is the version of that idea we wanted to exist: every
-              component wired to your design tokens, every animation
-              accountable for its bundle size and its motion-sensitivity
-              behavior, and the complete template — blog, pricing, auth,
-              changelog and all — free under MIT. It works with Base UI and
-              Radix shadcn projects alike, installs through the standard
-              shadcn registry, and is documented for humans and AI agents
-              equally.
+              component wired to your design tokens, every animation accountable
+              for its bundle size and its motion-sensitivity behavior, and the
+              complete template — blog, pricing, auth, changelog and all — free
+              under MIT. It works with Base UI and Radix shadcn projects alike,
+              installs through the standard shadcn registry, and is documented
+              for humans and AI agents equally.
             </p>
           </BlurFade>
         </div>

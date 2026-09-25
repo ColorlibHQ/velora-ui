@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 
@@ -8,13 +7,14 @@ import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { blogPosts } from "@/lib/blog-posts";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Blog",
-  alternates: { canonical: "/blog" },
   description:
     "Engineering notes, design decisions and announcements from Velora UI.",
-};
+  path: "/blog",
+});
 
 export default function BlogPage() {
   return (

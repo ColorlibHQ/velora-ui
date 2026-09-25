@@ -12,10 +12,17 @@ import { InstallTabs } from "@/components/docs/install-tabs";
 import { PropsTable } from "@/components/docs/props-table";
 import { componentProps } from "@/lib/component-props";
 import componentStats from "@/lib/component-stats.json";
-import { componentsMeta } from "@/lib/components-meta";
+import { categorySlug, componentsMeta } from "@/lib/components-meta";
 import { buildCopyPrompt } from "@/lib/copy-prompt";
 import { highlight } from "@/lib/highlight";
 import { manualCss } from "@/lib/registry-css";
+import {
+  JsonLd,
+  absoluteUrl,
+  breadcrumbs,
+  pageMetadata,
+  publisher,
+} from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 const REGISTRY_BASE =
@@ -38,22 +45,47 @@ export async function generateMetadata({
   const { slug } = await params;
   const meta = componentsMeta.find((c) => c.slug === slug);
   if (!meta) return {};
-  return {
-    title: meta.title,
-    alternates: { canonical: `/components/${slug}` },
-    description: meta.description,
-  };
+  const s = stats[slug];
+  const facts = [
+    s && `${(s.gzip / 1024).toFixed(1)} KB gzipped`,
+    s &&
+      (s.deps.length
+        ? `only depends on ${s.deps.join(", ")}`
+        : "zero dependencies"),
+    meta.a11y && "reduced-motion safe",
+  ].filter(Boolean);
+  return pageMetadata({
+    absoluteTitle: `${meta.title} – React & Tailwind CSS Component | Velora UI`,
+    description: `${meta.description} Free and MIT licensed: ${facts.join(", ")}. Install it with the shadcn CLI.`,
+    path: `/components/${slug}`,
+    image: `/components/${slug}/opengraph-image`,
+  });
 }
 
 const readExample = (slug: string, name: string) =>
   fs.readFile(
-    path.join(process.cwd(), "src/content/components", slug, "examples", `${name}.tsx`),
-    "utf8"
+    path.join(
+      process.cwd(),
+      "src/content/components",
+      slug,
+      "examples",
+      `${name}.tsx`,
+    ),
+    "utf8",
   );
 
-function SectionHeading({ id, children }: { id: string; children: React.ReactNode }) {
+function SectionHeading({
+  id,
+  children,
+}: {
+  id: string;
+  children: React.ReactNode;
+}) {
   return (
-    <h2 id={id} className="mt-14 mb-4 scroll-mt-24 text-xl font-semibold tracking-tight">
+    <h2
+      id={id}
+      className="mt-14 mb-4 scroll-mt-24 text-xl font-semibold tracking-tight"
+    >
       <a href={`#${id}`} className="hover:underline hover:underline-offset-4">
         {children}
       </a>
@@ -75,7 +107,7 @@ export default async function ComponentPage({
   const target = `components/velora/${slug}.tsx`;
   const source = await fs.readFile(
     path.join(process.cwd(), "src/components/velora", `${slug}.tsx`),
-    "utf8"
+    "utf8",
   );
   const css = manualCss(slug);
   const props = componentProps[slug];
@@ -83,9 +115,11 @@ export default async function ComponentPage({
   const examples = await Promise.all(
     meta.examples.map(async (ex) => {
       const code = await readExample(slug, ex.name);
-      const Demo = componentExamples[slug]?.find((e) => e.name === ex.name)?.Component;
+      const Demo = componentExamples[slug]?.find(
+        (e) => e.name === ex.name,
+      )?.Component;
       return { ...ex, code, html: await highlight(code), Demo };
-    })
+    }),
   );
   const [primary, ...more] = examples;
 
@@ -96,15 +130,23 @@ export default async function ComponentPage({
       (props?.types ?? []).map(async (t) => ({
         name: t.name,
         html: await highlight(t.source, "ts"),
-      }))
+      })),
     ),
   ]);
 
-  const prompt = buildCopyPrompt({ meta, props, registryUrl, example: primary.code });
+  const prompt = buildCopyPrompt({
+    meta,
+    props,
+    registryUrl,
+    example: primary.code,
+  });
   const s = stats[slug];
   const chips = [
     s && `${(s.gzip / 1024).toFixed(1)} KB gzipped`,
-    s && (s.deps.length === 0 ? "Zero dependencies" : `Deps: ${s.deps.join(", ")}`),
+    s &&
+      (s.deps.length === 0
+        ? "Zero dependencies"
+        : `Deps: ${s.deps.join(", ")}`),
     meta.a11y && "Reduced-motion safe",
     "Base UI & Radix compatible",
   ].filter(Boolean) as string[];
@@ -115,15 +157,52 @@ export default async function ComponentPage({
 
   return (
     <article>
-      <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
+      <JsonLd
+        data={[
+          breadcrumbs([
+            { name: "Components", path: "/components" },
+            {
+              name: meta.category,
+              path: `/components/category/${categorySlug(meta.category)}`,
+            },
+            { name: meta.title, path: `/components/${slug}` },
+          ]),
+          {
+            "@type": "SoftwareSourceCode",
+            name: `${meta.title} — Velora UI`,
+            description: meta.description,
+            url: absoluteUrl(`/components/${slug}`),
+            codeRepository: siteConfig.github,
+            programmingLanguage: ["TypeScript", "React"],
+            runtimePlatform: "React",
+            license: "https://opensource.org/licenses/MIT",
+            isAccessibleForFree: true,
+            publisher,
+          },
+        ]}
+      />
+      <nav
+        aria-label="Breadcrumb"
+        className="mb-6 text-sm text-muted-foreground"
+      >
         <ol className="flex flex-wrap items-center gap-1.5">
           <li>
-            <Link href="/components" className="transition-colors hover:text-foreground">
+            <Link
+              href="/components"
+              className="transition-colors hover:text-foreground"
+            >
               Components
             </Link>
           </li>
           <li aria-hidden>/</li>
-          <li>{meta.category}</li>
+          <li>
+            <Link
+              href={`/components/category/${categorySlug(meta.category)}`}
+              className="transition-colors hover:text-foreground"
+            >
+              {meta.category}
+            </Link>
+          </li>
         </ol>
       </nav>
 
@@ -187,7 +266,9 @@ export default async function ComponentPage({
                   {ex.title}
                 </h3>
                 {ex.description && (
-                  <p className="mt-1 text-sm text-muted-foreground">{ex.description}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {ex.description}
+                  </p>
                 )}
                 <ComponentPreview
                   className="mt-4"
@@ -216,10 +297,16 @@ export default async function ComponentPage({
           <dl className="divide-y rounded-xl border text-sm">
             {[
               ["Reduced motion", meta.a11y.motion],
-              ["Keyboard", meta.a11y.keyboard ?? "Decorative — nothing to operate."],
+              [
+                "Keyboard",
+                meta.a11y.keyboard ?? "Decorative — nothing to operate.",
+              ],
               ["Screen readers", meta.a11y.screenReader],
             ].map(([term, detail]) => (
-              <div key={term} className="grid gap-1 px-4 py-3 sm:grid-cols-[10rem_1fr]">
+              <div
+                key={term}
+                className="grid gap-1 px-4 py-3 sm:grid-cols-[10rem_1fr]"
+              >
                 <dt className="font-medium">{term}</dt>
                 <dd className="text-muted-foreground">{detail}</dd>
               </div>

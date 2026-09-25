@@ -1,17 +1,16 @@
-import type { Metadata } from "next";
-
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { ThemePicker } from "@/components/template/theme-picker";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Themes",
-  alternates: { canonical: "/themes" },
   description:
     "Six ready-made brand ramps for Velora UI. Preview live, copy seven CSS variables, rebrand your whole landing page.",
-};
+  path: "/themes",
+});
 
 export default function ThemesPage() {
   return (

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { categories, componentsMeta } from "@/lib/components-meta";
+import { categories, categorySlug, componentsMeta } from "@/lib/components-meta";
 import { cn } from "@/lib/utils";
 
 export function DocsSidebar() {
@@ -13,9 +13,12 @@ export function DocsSidebar() {
     <nav className="space-y-6">
       {categories.map((category) => (
         <div key={category}>
-          <p className="mb-2 text-xs font-semibold tracking-wide text-foreground uppercase">
+          <Link
+            href={`/components/category/${categorySlug(category)}`}
+            className="mb-2 block text-xs font-semibold tracking-wide text-foreground uppercase hover:text-primary"
+          >
             {category}
-          </p>
+          </Link>
           <ul className="space-y-0.5 border-l border-border/60">
             {componentsMeta
               .filter((c) => c.category === category)

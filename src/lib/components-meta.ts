@@ -1,4 +1,5 @@
 import categoryList from "@/content/categories.json";
+import categoryCopy from "@/content/component-category-copy.json";
 import meta from "./components-meta.json";
 
 export interface ComponentExampleMeta {
@@ -34,3 +35,16 @@ export interface ComponentMeta {
 export const componentsMeta = meta as ComponentMeta[];
 
 export const categories = categoryList as readonly string[];
+
+/** "Cards & Layout" → "cards-layout" */
+export const categorySlug = (category: string) =>
+  category.toLowerCase().replace(/&/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+export const categoryFromSlug = (slug: string) =>
+  categories.find((c) => categorySlug(c) === slug);
+
+/** Search-phrased heading and intro for each category hub page */
+export const categoryInfo = categoryCopy as Record<
+  string,
+  { heading: string; description: string }
+>;

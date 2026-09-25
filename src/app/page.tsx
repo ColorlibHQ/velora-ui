@@ -45,6 +45,8 @@ import { TextReveal } from "@/components/velora/text-reveal";
 import { TiltCard } from "@/components/velora/tilt-card";
 import { Typewriter } from "@/components/velora/typewriter";
 import { componentsMeta } from "@/lib/components-meta";
+import { JsonLd, publisher } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
 
 const stack = [
   "Next.js",
@@ -78,7 +80,8 @@ const testimonials = [
     role: "Example customer · Design engineer",
   },
   {
-    quote: "The reporting view alone replaced two spreadsheets and a weekly status meeting.",
+    quote:
+      "The reporting view alone replaced two spreadsheets and a weekly status meeting.",
     name: "Tom Okafor",
     role: "Example customer · Frontend lead",
   },
@@ -89,7 +92,8 @@ const testimonials = [
     role: "Example customer · Indie hacker",
   },
   {
-    quote: "Fast enough that I checked the numbers twice. Then I showed them to finance.",
+    quote:
+      "Fast enough that I checked the numbers twice. Then I showed them to finance.",
     name: "Dan Romero",
     role: "Example customer · CTO",
   },
@@ -148,6 +152,18 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="relative">
+      <JsonLd
+        data={[
+          {
+            "@type": "WebSite",
+            name: siteConfig.name,
+            url: siteConfig.url,
+            description: siteConfig.description,
+            publisher,
+          },
+          { ...publisher, sameAs: [siteConfig.github] },
+        ]}
+      />
       <ScrollProgress />
 
       <SiteHeader />
@@ -394,7 +410,11 @@ export default function Home() {
           <BlurFade direction="right" className="order-2 lg:order-1">
             <ActivityList />
           </BlurFade>
-          <BlurFade direction="left" delay={0.15} className="order-1 lg:order-2">
+          <BlurFade
+            direction="left"
+            delay={0.15}
+            className="order-1 lg:order-2"
+          >
             <div>
               <span className="text-sm font-medium text-primary">
                 Animated lists
@@ -459,7 +479,8 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <BlurFade>
             <h2 className="mx-auto max-w-2xl text-center text-3xl font-semibold tracking-tight text-balance lg:text-5xl">
-              A testimonial wall <span className="text-primary">that moves</span>
+              A testimonial wall{" "}
+              <span className="text-primary">that moves</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
               Sample quotes from the template — swap in your customers&apos;.
@@ -468,7 +489,11 @@ export default function Home() {
           </BlurFade>
           <div className="mt-16 columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6">
             {testimonials.map((t, i) => (
-              <BlurFade key={t.name} delay={(i % 3) * 0.1} className="break-inside-avoid">
+              <BlurFade
+                key={t.name}
+                delay={(i % 3) * 0.1}
+                className="break-inside-avoid"
+              >
                 <TiltCard>
                   <figure className="rounded-2xl border bg-card p-6">
                     <span className="flex gap-0.5 text-amber-400">
@@ -480,10 +505,15 @@ export default function Home() {
                       “{t.quote}”
                     </blockquote>
                     <figcaption className="mt-4 flex items-center gap-3">
-                      <AvatarCircles people={[t.name]} className="[&>span]:size-8 [&>span]:text-[10px]" />
+                      <AvatarCircles
+                        people={[t.name]}
+                        className="[&>span]:size-8 [&>span]:text-[10px]"
+                      />
                       <div>
                         <p className="text-sm font-medium">{t.name}</p>
-                        <p className="text-xs text-muted-foreground">{t.role}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {t.role}
+                        </p>
                       </div>
                     </figcaption>
                   </figure>
@@ -531,7 +561,11 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" size="lg" className="mt-8 w-full rounded-full">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="mt-8 w-full rounded-full"
+                >
                   Get started
                 </Button>
               </div>
@@ -607,8 +641,8 @@ export default function Home() {
         <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-8">
           <BlurFade>
             <h2 className="text-4xl font-semibold tracking-tight text-balance lg:text-6xl">
-              Stop paying <span className="text-primary">$199</span> for
-              landing pages.
+              Stop paying <span className="text-primary">$199</span> for landing
+              pages.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
               Velora UI gives you the same polish — animated, accessible and

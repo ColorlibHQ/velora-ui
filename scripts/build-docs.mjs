@@ -16,6 +16,12 @@ const contentDir = resolve(root, "src/content/components");
 const categories = JSON.parse(
   readFileSync(resolve(root, "src/content/categories.json"), "utf8")
 );
+const categoryCopy = JSON.parse(
+  readFileSync(resolve(root, "src/content/component-category-copy.json"), "utf8")
+);
+for (const c of categories) {
+  if (!categoryCopy[c]) throw new Error(`component-category-copy.json: no copy for "${c}"`);
+}
 
 // ---------------------------------------------------------------------------
 // Catalogue

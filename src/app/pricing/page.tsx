@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckIcon, MinusIcon, RocketIcon } from "lucide-react";
 
@@ -16,13 +15,14 @@ import { BlurFade } from "@/components/velora/blur-fade";
 import { BorderBeam } from "@/components/velora/border-beam";
 import { ShimmerButton } from "@/components/velora/shimmer-button";
 import { componentsMeta } from "@/lib/components-meta";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Pricing",
-  alternates: { canonical: "/pricing" },
   description:
     "Every component and the complete landing template are free forever. Pro adds more niches, more variants and more shortcuts — one-time payment.",
-};
+  path: "/pricing",
+});
 
 const freeFeatures = [
   `${componentsMeta.length} animated components`,
@@ -49,10 +49,18 @@ const comparison: {
   free: boolean | string;
   pro: boolean | string;
 }[] = [
-  { feature: "Animated components", free: `${componentsMeta.length}`, pro: "All + variants" },
+  {
+    feature: "Animated components",
+    free: `${componentsMeta.length}`,
+    pro: "All + variants",
+  },
   { feature: "SaaS landing template", free: true, pro: true },
   { feature: "Blog, auth & changelog pages", free: true, pro: true },
-  { feature: "Niche templates (AI, dev tool, mobile…)", free: false, pro: "5+" },
+  {
+    feature: "Niche templates (AI, dev tool, mobile…)",
+    free: false,
+    pro: "5+",
+  },
   { feature: "Section design variants", free: false, pro: "50+" },
   { feature: "Figma source file", free: false, pro: true },
   { feature: "Waitlist / newsletter / Stripe wiring", free: false, pro: true },
@@ -102,7 +110,8 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title={
           <>
-            Free forever. <span className="text-primary">Pro when you scale.</span>
+            Free forever.{" "}
+            <span className="text-primary">Pro when you scale.</span>
           </>
         }
         description="Every component and the complete landing template are MIT licensed and free. Pro adds more niches, more variants and more shortcuts — as a one-time payment."

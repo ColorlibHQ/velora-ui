@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 
@@ -7,12 +6,14 @@ import { BlockThumbnail } from "@/components/docs/block-thumbnail";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { blockCategories, blocksIn, blocksMeta } from "@/lib/blocks-meta";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Free React & Tailwind CSS Blocks",
   description: `${blocksMeta.length} free, copy-paste sections for React and Tailwind CSS — heroes, features, pricing, testimonials, CTAs and more. MIT licensed, installable with the shadcn CLI.`,
-  alternates: { canonical: "/blocks" },
-};
+  path: "/blocks",
+  image: "/blocks/opengraph-image",
+});
 
 export default function BlocksPage() {
   const categories = blockCategories.filter((c) => blocksIn(c.slug).length);

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { MailIcon, MessageCircleIcon, StarIcon } from "lucide-react";
 
 import { SiteHeader } from "@/components/site-header";
@@ -6,13 +5,14 @@ import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { ContactForm } from "@/components/template/contact-form";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contact",
-  alternates: { canonical: "/contact" },
   description:
     "Questions about Velora UI, the registry or the upcoming Pro tier? Get in touch.",
-};
+  path: "/contact",
+});
 
 const channels = [
   {
