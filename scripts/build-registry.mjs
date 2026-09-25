@@ -151,6 +151,15 @@ const extras = {
       },
     },
   },
+  "3d-marquee": {
+    css: { "@keyframes marquee-vertical": keyframes.marquee["@keyframes marquee-vertical"] },
+    cssVars: {
+      theme: {
+        "animate-marquee-vertical":
+          "marquee-vertical var(--duration, 40s) linear infinite",
+      },
+    },
+  },
   "shimmer-button": {
     css: keyframes.shimmer,
     cssVars: { theme: { "animate-shimmer": "shimmer 2.5s linear infinite" } },

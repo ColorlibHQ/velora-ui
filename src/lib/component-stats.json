@@ -16,6 +16,11 @@
     "gzip": 1229,
     "deps": []
   },
+  "dotted-glow-background": {
+    "bytes": 5996,
+    "gzip": 2476,
+    "deps": []
+  },
   "flickering-grid": {
     "bytes": 1594,
     "gzip": 830,
@@ -41,6 +46,11 @@
   "meteors": {
     "bytes": 1334,
     "gzip": 679,
+    "deps": []
+  },
+  "noise-background": {
+    "bytes": 4082,
+    "gzip": 1848,
     "deps": []
   },
   "particles": {
@@ -181,6 +191,11 @@
     "gzip": 603,
     "deps": []
   },
+  "stateful-button": {
+    "bytes": 5712,
+    "gzip": 2088,
+    "deps": []
+  },
   "theme-toggler": {
     "bytes": 2743,
     "gzip": 1267,
@@ -243,6 +258,13 @@
       "motion/react"
     ]
   },
+  "draggable-card": {
+    "bytes": 6008,
+    "gzip": 2488,
+    "deps": [
+      "motion/react"
+    ]
+  },
   "evervault-card": {
     "bytes": 4148,
     "gzip": 1736,
@@ -270,6 +292,13 @@
     "gzip": 843,
     "deps": []
   },
+  "layout-grid": {
+    "bytes": 6437,
+    "gzip": 2366,
+    "deps": [
+      "motion/react"
+    ]
+  },
   "marquee": {
     "bytes": 2045,
     "gzip": 875,
@@ -292,6 +321,25 @@
       "motion/react"
     ]
   },
+  "wobble-card": {
+    "bytes": 3098,
+    "gzip": 1452,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "animated-sidebar": {
+    "bytes": 9143,
+    "gzip": 2950,
+    "deps": []
+  },
+  "animated-tabs": {
+    "bytes": 5112,
+    "gzip": 1960,
+    "deps": [
+      "motion/react"
+    ]
+  },
   "floating-navbar": {
     "bytes": 2509,
     "gzip": 1185,
@@ -300,6 +348,13 @@
   "navbar-menu": {
     "bytes": 4427,
     "gzip": 1687,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "resizable-navbar": {
+    "bytes": 7568,
+    "gzip": 2646,
     "deps": [
       "motion/react"
     ]
@@ -327,6 +382,23 @@
     "deps": [
       "motion/react"
     ]
+  },
+  "animated-modal": {
+    "bytes": 9036,
+    "gzip": 3027,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "loaders": {
+    "bytes": 4899,
+    "gzip": 1622,
+    "deps": []
+  },
+  "multi-step-loader": {
+    "bytes": 8738,
+    "gzip": 3034,
+    "deps": []
   },
   "animated-testimonials": {
     "bytes": 6037,
@@ -446,6 +518,11 @@
     "gzip": 1946,
     "deps": []
   },
+  "3d-marquee": {
+    "bytes": 4325,
+    "gzip": 1798,
+    "deps": []
+  },
   "apple-cards-carousel": {
     "bytes": 8835,
     "gzip": 3130,
@@ -454,10 +531,39 @@
       "motion/react"
     ]
   },
+  "image-slider": {
+    "bytes": 7890,
+    "gzip": 3042,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "following-pointer": {
+    "bytes": 4217,
+    "gzip": 1718,
+    "deps": [
+      "motion/react"
+    ]
+  },
   "lens": {
     "bytes": 4043,
     "gzip": 1704,
     "deps": []
+  },
+  "pointer-highlight": {
+    "bytes": 3134,
+    "gzip": 1278,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "smooth-cursor": {
+    "bytes": 5338,
+    "gzip": 1937,
+    "deps": [
+      "react-dom",
+      "motion/react"
+    ]
   },
   "globe": {
     "bytes": 13233,
@@ -473,6 +579,13 @@
     "bytes": 1141,
     "gzip": 554,
     "deps": []
+  },
+  "code-block": {
+    "bytes": 7336,
+    "gzip": 2983,
+    "deps": [
+      "lucide-react"
+    ]
   },
   "iphone-mockup": {
     "bytes": 1226,

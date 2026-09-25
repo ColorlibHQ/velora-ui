@@ -133,6 +133,22 @@
       ]
     },
     {
+      "name": "dotted-glow-background",
+      "type": "registry:ui",
+      "title": "Dotted Glow Background",
+      "description": "Canvas dot grid where drifting glows brighten dots and tint them toward the brand.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/dotted-glow-background.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/dotted-glow-background.tsx"
+        }
+      ]
+    },
+    {
       "name": "flickering-grid",
       "type": "registry:ui",
       "title": "Flickering Grid",
@@ -289,6 +305,22 @@
           "animate-meteor": "meteor 5s linear infinite"
         }
       }
+    },
+    {
+      "name": "noise-background",
+      "type": "registry:ui",
+      "title": "Noise Background",
+      "description": "Drifting brand-gradient blobs under a static film-grain overlay; wraps its content.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/noise-background.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/noise-background.tsx"
+        }
+      ]
     },
     {
       "name": "particles",
@@ -930,6 +962,22 @@
       }
     },
     {
+      "name": "stateful-button",
+      "type": "registry:ui",
+      "title": "Stateful Button",
+      "description": "Button that morphs through loading, success and error states while a Promise settles.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/stateful-button.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/stateful-button.tsx"
+        }
+      ]
+    },
+    {
       "name": "theme-toggler",
       "type": "registry:ui",
       "title": "Theme Toggler",
@@ -1128,6 +1176,25 @@
       ]
     },
     {
+      "name": "draggable-card",
+      "type": "registry:ui",
+      "title": "Draggable Card",
+      "description": "Scattered photo cards you can fling around with inertia, tilt and bounds.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/draggable-card.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/draggable-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "evervault-card",
       "type": "registry:ui",
       "title": "Evervault Card",
@@ -1229,6 +1296,25 @@
           "color-brand-to": "var(--brand-to)"
         }
       }
+    },
+    {
+      "name": "layout-grid",
+      "type": "registry:ui",
+      "title": "Layout Grid",
+      "description": "Bento grid of image tiles that expand in place to reveal rich content.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/layout-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/layout-grid.tsx"
+        }
+      ]
     },
     {
       "name": "marquee",
@@ -1357,6 +1443,60 @@
       ]
     },
     {
+      "name": "wobble-card",
+      "type": "registry:ui",
+      "title": "Wobble Card",
+      "description": "Colored card that drifts toward the pointer, with parallax content and grain.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/wobble-card.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/wobble-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-sidebar",
+      "type": "registry:ui",
+      "title": "Animated Sidebar",
+      "description": "Icon rail that expands on hover or focus and turns into a drawer on narrow screens.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/animated-sidebar.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/animated-sidebar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-tabs",
+      "type": "registry:ui",
+      "title": "Animated Tabs",
+      "description": "Tabs with a gliding pill and panels stacked like cards that peek behind.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/animated-tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/animated-tabs.tsx"
+        }
+      ]
+    },
+    {
       "name": "floating-navbar",
       "type": "registry:ui",
       "title": "Floating Navbar",
@@ -1388,6 +1528,25 @@
           "path": "src/components/velora/navbar-menu.tsx",
           "type": "registry:ui",
           "target": "components/velora/navbar-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "resizable-navbar",
+      "type": "registry:ui",
+      "title": "Resizable Navbar",
+      "description": "Full-width navbar that shrinks into a floating, blurred pill once you scroll.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/resizable-navbar.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/resizable-navbar.tsx"
         }
       ]
     },
@@ -1518,6 +1677,57 @@
           "path": "src/components/velora/vanish-input.tsx",
           "type": "registry:ui",
           "target": "components/velora/vanish-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-modal",
+      "type": "registry:ui",
+      "title": "Animated Modal",
+      "description": "Native dialog whose panel springs in with a tilt over a blurred backdrop.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/animated-modal.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/animated-modal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loaders",
+      "type": "registry:ui",
+      "title": "Loaders",
+      "description": "Five tiny CSS loading indicators — dots, pulse, orbit, bars and spinner.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/loaders.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/loaders.tsx"
+        }
+      ]
+    },
+    {
+      "name": "multi-step-loader",
+      "type": "registry:ui",
+      "title": "Multi Step Loader",
+      "description": "Full-screen overlay that ticks through a list of steps, keeping the active one centred.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/multi-step-loader.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/multi-step-loader.tsx"
         }
       ]
     },
@@ -1992,6 +2202,37 @@
       ]
     },
     {
+      "name": "3d-marquee",
+      "type": "registry:ui",
+      "title": "3D Marquee",
+      "description": "A tilted 3D grid of images whose columns scroll up and down in an endless loop.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/3d-marquee.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/3d-marquee.tsx"
+        }
+      ],
+      "css": {
+        "@keyframes marquee-vertical": {
+          "from": {
+            "transform": "translateY(0)"
+          },
+          "to": {
+            "transform": "translateY(calc(-100% - var(--gap)))"
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "animate-marquee-vertical": "marquee-vertical var(--duration, 40s) linear infinite"
+        }
+      }
+    },
+    {
       "name": "apple-cards-carousel",
       "type": "registry:ui",
       "title": "Apple Cards Carousel",
@@ -2011,6 +2252,44 @@
       ]
     },
     {
+      "name": "image-slider",
+      "type": "registry:ui",
+      "title": "Image Slider",
+      "description": "Full-bleed image slider with crossfade-zoom, autoplay, dots, arrows and swipe.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/image-slider.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/image-slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "following-pointer",
+      "type": "registry:ui",
+      "title": "Following Pointer",
+      "description": "Swaps the cursor for an arrow and a name tag that trail the pointer inside a region.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/following-pointer.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/following-pointer.tsx"
+        }
+      ]
+    },
+    {
       "name": "lens",
       "type": "registry:ui",
       "title": "Lens",
@@ -2023,6 +2302,44 @@
           "path": "src/components/velora/lens.tsx",
           "type": "registry:ui",
           "target": "components/velora/lens.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pointer-highlight",
+      "type": "registry:ui",
+      "title": "Pointer Highlight",
+      "description": "Draws an outline around a phrase on scroll, then glides a pointer icon to its corner.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/pointer-highlight.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/pointer-highlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "smooth-cursor",
+      "type": "registry:ui",
+      "title": "Smooth Cursor",
+      "description": "Dot-and-ring custom cursor; the ring trails on a spring and grows over links and buttons.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/smooth-cursor.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/smooth-cursor.tsx"
         }
       ]
     },
@@ -2071,6 +2388,25 @@
           "path": "src/components/velora/browser-mockup.tsx",
           "type": "registry:ui",
           "target": "components/velora/browser-mockup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code Block",
+      "description": "Code panel with tabs, line numbers, highlighted lines and a copy button.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/code-block.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/code-block.tsx"
         }
       ]
     },
