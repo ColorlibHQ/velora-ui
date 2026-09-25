@@ -15,9 +15,8 @@ export function AuthVisual() {
       <div className="relative flex h-full flex-col justify-end p-12">
         <figure className="max-w-md rounded-2xl border border-border/60 bg-card/70 p-6 backdrop-blur">
           <blockquote className="text-sm leading-6 text-card-foreground">
-            “We replaced a paid template with Velora in one evening. The
-            animations are genuinely better — and everything respects reduced
-            motion out of the box.”
+            “We moved our whole team onto it in a week. Onboarding took an
+            afternoon and nobody has asked to go back.”
           </blockquote>
           <figcaption className="mt-4 flex items-center gap-3">
             <AvatarCircles
@@ -27,7 +26,7 @@ export function AuthVisual() {
             <div>
               <p className="text-sm font-medium">Maya Chen</p>
               <p className="text-xs text-muted-foreground">
-                Design engineer, Studio K
+                Example customer · Design engineer
               </p>
             </div>
           </figcaption>

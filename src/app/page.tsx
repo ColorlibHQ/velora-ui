@@ -44,58 +44,65 @@ import { SpotlightCard } from "@/components/velora/spotlight-card";
 import { TextReveal } from "@/components/velora/text-reveal";
 import { TiltCard } from "@/components/velora/tilt-card";
 import { Typewriter } from "@/components/velora/typewriter";
+import { componentsMeta } from "@/lib/components-meta";
 
-const logos = [
-  "Acme Corp",
-  "Quantum",
-  "Vertex",
-  "Northwind",
-  "Apex Labs",
-  "Orbital",
-  "Luminary",
-  "Pulsewave",
+const stack = [
+  "Next.js",
+  "React",
+  "Tailwind CSS",
+  "Motion",
+  "shadcn/ui",
+  "Radix",
+  "Base UI",
+  "TypeScript",
 ];
 
 const stats = [
-  { value: 32, suffix: "+", prefix: "", label: "Animated components" },
+  {
+    value: componentsMeta.length,
+    suffix: "",
+    prefix: "",
+    label: "Animated components",
+  },
   { value: 100, suffix: "", prefix: "", label: "Lighthouse performance" },
   { value: 0, suffix: "", prefix: "$", label: "Forever. MIT licensed" },
   { value: 5, suffix: " min", prefix: "", label: "To your first page" },
 ];
 
+// Placeholder quotes for the template — swap in real customer quotes.
 const testimonials = [
   {
     quote:
-      "I replaced a $199 template with Velora in one evening. The animations are genuinely better — and everything respects reduced motion out of the box.",
+      "We moved our whole team onto it in a week. Onboarding took an afternoon and nobody has asked to go back.",
     name: "Maya Chen",
-    role: "Design engineer, Studio K",
+    role: "Example customer · Design engineer",
   },
   {
-    quote: "The bento grid + border beam combo sold our landing page redesign to the whole team in one demo.",
+    quote: "The reporting view alone replaced two spreadsheets and a weekly status meeting.",
     name: "Tom Okafor",
-    role: "Frontend lead, Pulsewave",
+    role: "Example customer · Frontend lead",
   },
   {
     quote:
-      "Copy, paste, ship. The components feel like shadcn/ui natives, not bolted-on extras.",
+      "Setup was copy, paste, ship. It fits the tools we already use instead of fighting them.",
     name: "Sofia Lindqvist",
-    role: "Indie hacker",
+    role: "Example customer · Indie hacker",
   },
   {
-    quote: "Perfect Lighthouse scores with this much motion on screen? I checked twice.",
+    quote: "Fast enough that I checked the numbers twice. Then I showed them to finance.",
     name: "Dan Romero",
-    role: "CTO, Orbital",
+    role: "Example customer · CTO",
   },
   {
     quote:
-      "We shipped our AI product launch page in a day. The aurora hero gets compliments weekly.",
+      "We launched in a day. Support answered every question before we finished asking it.",
     name: "Aisha Patel",
-    role: "Founder, Luminary",
+    role: "Example customer · Founder",
   },
   {
-    quote: "The first free template that doesn't look free.",
+    quote: "The first tool in years our designers and engineers both like.",
     name: "Lukas Weber",
-    role: "Product designer",
+    role: "Example customer · Product designer",
   },
 ];
 
@@ -192,28 +199,19 @@ export default function Home() {
           </BlurFade>
 
           <BlurFade delay={0.6}>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <AvatarCircles
-                people={[
-                  "Maya Chen",
-                  "Tom Okafor",
-                  "Sofia Lindqvist",
-                  "Dan Romero",
-                  "Aisha Patel",
-                ]}
-                extra={2400}
-              />
-              <div className="flex flex-col items-center gap-0.5 sm:items-start">
-                <span className="flex gap-0.5 text-amber-400">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <StarIcon key={i} className="size-4 fill-current" />
-                  ))}
-                </span>
-                <span className="text-sm text-muted-foreground">
-                  Loved by 2,400+ builders
-                </span>
-              </div>
-            </div>
+            <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+              {[
+                "MIT licensed",
+                `${componentsMeta.length} components`,
+                "Reduced-motion safe",
+                "shadcn CLI ready",
+              ].map((fact) => (
+                <li key={fact} className="flex items-center gap-1.5">
+                  <CheckIcon className="size-4 text-primary" />
+                  {fact}
+                </li>
+              ))}
+            </ul>
           </BlurFade>
 
           {/* Product mockup */}
@@ -247,10 +245,10 @@ export default function Home() {
       <section className="border-y border-border/40 py-12">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <p className="mb-8 text-center text-sm text-muted-foreground">
-            Trusted by teams shipping with modern React
+            Built on the stack you already ship
           </p>
           <Marquee pauseOnHover className="[--duration:30s]">
-            {logos.map((logo) => (
+            {stack.map((logo) => (
               <span
                 key={logo}
                 className="mx-8 text-xl font-semibold tracking-tight text-muted-foreground/60 transition-colors hover:text-foreground"
@@ -461,10 +459,11 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <BlurFade>
             <h2 className="mx-auto max-w-2xl text-center text-3xl font-semibold tracking-tight text-balance lg:text-5xl">
-              Builders <span className="text-primary">love it</span>
+              A testimonial wall <span className="text-primary">that moves</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
-              Hover the cards — they tilt in 3D. Another Velora primitive.
+              Sample quotes from the template — swap in your customers&apos;.
+              Hover the cards: they tilt in 3D.
             </p>
           </BlurFade>
           <div className="mt-16 columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6">

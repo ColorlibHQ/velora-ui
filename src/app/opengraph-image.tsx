@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 
+import { componentsMeta } from "@/lib/components-meta";
 import { siteConfig } from "@/lib/site-config";
 
 // Prerender the PNG at build time so it ships as a static asset (output: export).
@@ -85,7 +86,7 @@ export default function OpengraphImage() {
             color: "#d4d4d8",
           }}
         >
-          <span>32+ components</span>
+          <span>{componentsMeta.length} components</span>
           <span style={{ color: "#3f3f46" }}>•</span>
           <span>Complete template</span>
           <span style={{ color: "#3f3f46" }}>•</span>
