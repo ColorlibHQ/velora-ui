@@ -1,0 +1,22 @@
+{
+  "title": "Evervault Card",
+  "description": "Card that reveals shuffling brand-tinted characters through a mask following the pointer.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The characters are drawn once and never reshuffle, and the reveal stays centred instead of following the pointer.",
+    "keyboard": "The card is not focusable itself; keyboard focus on a link or button inside it reveals the characters around the centre.",
+    "screenReader": "The character field is aria-hidden; the label and children are the only content read."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "encrypted-at-rest",
+      "title": "Encrypted at rest",
+      "description": "A security feature card with a lock badge, copy, tags and a docs link."
+    }
+  ]
+}

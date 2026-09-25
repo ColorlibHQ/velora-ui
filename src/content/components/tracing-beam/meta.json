@@ -1,0 +1,19 @@
+{
+  "title": "Tracing Beam",
+  "description": "Gradient line that draws itself down long-form content.",
+  "category": "Scroll",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The beam is drawn at full length from the start instead of following your scroll.",
+    "keyboard": null,
+    "screenReader": "The beam is aria-hidden; children render unchanged."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

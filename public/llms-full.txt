@@ -1,0 +1,5148 @@
+# Velora UI — full documentation
+
+> Free, MIT-licensed animated React components and complete sections (blocks) for
+> Tailwind CSS 4 and shadcn/ui. 100 components, 31 blocks. Every
+> component respects prefers-reduced-motion and documents its keyboard and
+> screen-reader behavior. Components import only react, motion/react (some),
+> lucide-react (a few) and a cn() helper from @/lib/utils.
+
+Install any item with the shadcn CLI: `npx shadcn@latest add https://velora.colorlib.com/r/<name>.json`.
+Brand colors come from CSS variables (--brand, --brand-from, --brand-via, --brand-to)
+that the CLI adds to your globals.css.
+
+## Components
+
+### Aurora Background
+
+Velora's signature drifting aurora gradient backdrop. (0.6 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/aurora-background
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/aurora-background.json` (creates `components/velora/aurora-background.tsx`)
+
+**Accessibility**
+- Reduced motion: The drift animation is off; the three blurred colour blobs rest at their default positions, so the glow is unchanged but static.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; the wrapper is aria-hidden and ignored by assistive tech.
+
+**Props**
+
+#### AuroraBackground
+- `intensity?: "subtle" | "medium" | "vivid"` (default `"medium"`) — Overall opacity of the aurora blobs
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { AuroraBackground } from "@/components/velora/aurora-background";
+
+export default function AuroraBackgroundDemo() {
+  return (
+    <div className="relative flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg">
+      <AuroraBackground intensity="vivid" />
+      <p className="relative text-xl font-semibold">Aurora</p>
+    </div>
+  );
+}
+```
+
+
+### Background Beams
+
+Light beams flowing along curved paths behind content. (1.1 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/background-beams
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/background-beams.json` (creates `components/velora/background-beams.tsx`)
+
+**Accessibility**
+- Reduced motion: Only the faint static base curves render; the coloured beams and their gradient animations are not mounted.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; the wrapper is aria-hidden.
+
+**Props**
+
+#### BackgroundBeams
+- `className?: string`
+- `count?: number` (default `7`) — Number of beams
+
+**Example**
+
+```tsx
+import { BackgroundBeams } from "@/components/velora/background-beams";
+
+export default function BackgroundBeamsDemo() {
+  return (
+    <div className="relative flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg">
+      <BackgroundBeams />
+      <p className="relative text-xl font-semibold">Beams</p>
+    </div>
+  );
+}
+```
+
+
+### Background Boxes
+
+An isometric grid whose cells light up in brand tints under the pointer. (1.2 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/background-boxes
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/background-boxes.json` (creates `components/velora/background-boxes.tsx`)
+
+**Accessibility**
+- Reduced motion: The grid never moves. Cells still tint on hover and fade back through a colour transition, which involves no movement, so it is kept under reduced motion.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; the grid is aria-hidden and has no focusable cells, so only the content above it is announced.
+
+**Props**
+
+#### BackgroundBoxes
+- `rows?: number` (default `32`) — Number of rows (capped at 40)
+- `cols?: number` (default `32`) — Number of columns (capped at 40)
+- `cellSize?: number` (default `48`) — Cell edge length in px, before the isometric tilt
+- `fade?: number` (default `1400`) — How long a lit cell takes to fade back, in ms
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { BackgroundBoxes } from "@/components/velora/background-boxes";
+
+export default function BackgroundBoxesDemo() {
+  return (
+    <div className="relative flex min-h-80 w-full items-center justify-center overflow-hidden rounded-lg bg-background">
+      <BackgroundBoxes className="[mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]" />
+      <p className="pointer-events-none relative rounded-full border bg-background/80 px-4 py-1.5 text-sm font-medium backdrop-blur">
+        Hover the grid
+      </p>
+    </div>
+  );
+}
+```
+
+
+### Dotted Glow Background
+
+Canvas dot grid where drifting glows brighten dots and tint them toward the brand. (2.4 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/dotted-glow-background
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/dotted-glow-background.json` (creates `components/velora/dotted-glow-background.tsx`)
+
+**Accessibility**
+- Reduced motion: No animation runs: one still frame with the glows at fixed positions is drawn, and redrawn on resize and theme change.
+- Keyboard: Not focusable. The glows stop while focus is inside the parent element (and while it is hovered, unless pauseOnHover is false); they also stop offscreen and in hidden tabs.
+- Screen readers: Decorative; the wrapper and canvas are aria-hidden, so only the content layered above is announced.
+
+**Props**
+
+#### DottedGlowBackground
+- `gap?: number` (default `18`) — Distance between dot centres in px
+- `radius?: number` (default `1.2`) — Dot radius in px (lit dots grow up to 1.6×)
+- `opacity?: number` (default `0.25`) — Opacity of unlit dots, 0–1
+- `speed?: number` (default `1`) — Glow travel speed multiplier
+- `glows?: number` (default `3`) — Number of travelling glows
+- `pauseOnHover?: boolean` (default `true`) — Pause while the pointer is over the parent element (focus inside it always pauses)
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { DottedGlowBackground } from "@/components/velora/dotted-glow-background";
+
+export default function DottedGlowBackgroundDemo() {
+  return (
+    <div className="relative flex min-h-80 w-full items-center justify-center overflow-hidden rounded-xl border bg-background">
+      <DottedGlowBackground />
+      <div className="relative px-6 text-center">
+        <p className="text-sm font-medium text-muted-foreground">Realtime sync</p>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-balance">
+          Every edit, everywhere, instantly
+        </h2>
+      </div>
+    </div>
+  );
+}
+```
+
+
+### Flickering Grid
+
+Grid of squares fading in and out on staggered timers. (0.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/flickering-grid
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/flickering-grid.json` (creates `components/velora/flickering-grid.tsx`)
+
+**Accessibility**
+- Reduced motion: The flicker stops and every square rests at a fixed opacity halfway between --flicker-min and --flicker-max (about 0.27 by default), leaving an even, dim dot pattern.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative: the grid is aria-hidden and ignores pointer events.
+
+**Props**
+
+#### FlickeringGrid
+- `squareSize?: number` (default `4`) — Square size in px
+- `gap?: number` (default `6`) — Gap between squares in px
+- `columns?: number` (default `40`) — Number of columns and rows to render
+- `rows?: number` (default `20`)
+- `className?: string`
+
+**Example**
+
+```tsx
+import { FlickeringGrid } from "@/components/velora/flickering-grid";
+
+export default function FlickeringGridDemo() {
+  return (
+    <div className="flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg relative bg-neutral-950 text-white/70">
+      <FlickeringGrid columns={44} rows={16} />
+      <p className="relative text-xl font-semibold text-white">
+        Flickering Grid
+      </p>
+    </div>
+  );
+}
+```
+
+
+### Grid & Dot Pattern
+
+SVG grid and dot backdrops with maskable depth. (0.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/grid-pattern
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/grid-pattern.json` (creates `components/velora/grid-pattern.tsx`)
+
+**Accessibility**
+- Reduced motion: Nothing changes: GridPattern and DotPattern are static SVG patterns with no animation.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; both SVGs are aria-hidden.
+
+**Props**
+
+#### GridPattern
+- `width?: number` (default `40`)
+- `height?: number` (default `40`)
+- `x?: number` (default `-1`)
+- `y?: number` (default `-1`)
+- `squares?: Array<[number, number]>` — Cells to fill, as [col, row] pairs
+- `strokeDasharray?: string` (default `"0"`)
+- …and every `React.SVGProps<SVGSVGElement>` prop
+
+#### DotPattern
+- `width?: number` (default `20`)
+- `height?: number` (default `20`)
+- `cx?: number` (default `1`)
+- `cy?: number` (default `1`)
+- `cr?: number` (default `1`)
+- …and every `React.SVGProps<SVGSVGElement>` prop
+
+**Example**
+
+```tsx
+import { DotPattern, GridPattern } from "@/components/velora/grid-pattern";
+
+export default function GridPatternDemo() {
+  return (
+    <div className="relative flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg">
+      <GridPattern
+        width={36}
+        height={36}
+        className="fill-transparent stroke-border [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]"
+      />
+      <DotPattern className="[mask-image:radial-gradient(ellipse_at_center,black,transparent_55%)]" />
+      <p className="relative text-xl font-semibold">Patterns</p>
+    </div>
+  );
+}
+```
+
+
+### Lamp
+
+A glowing lamp-line header that expands into view. (0.9 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/lamp
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/lamp.json` (creates `components/velora/lamp.tsx`)
+
+**Accessibility**
+- Reduced motion: The cones and lamp line appear at full width and opacity when scrolled into view, with no expansion.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Every lamp layer is aria-hidden; only the children are exposed, as normal content.
+
+**Props**
+
+#### Lamp
+- `children: React.ReactNode`
+- `className?: string`
+
+**Example**
+
+```tsx
+import { Lamp } from "@/components/velora/lamp";
+
+export default function LampDemo() {
+  return (
+    <div className="w-full overflow-hidden rounded-lg [&_[data-slot=lamp]]:py-12">
+      <Lamp className="[&>div:first-child]:min-h-44">
+        <h3 className="text-2xl font-semibold">Lit from above</h3>
+      </Lamp>
+    </div>
+  );
+}
+```
+
+
+### Light Rays
+
+God rays fanning down from the top of a section. (0.7 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/light-rays
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/light-rays.json` (creates `components/velora/light-rays.tsx`)
+
+**Accessibility**
+- Reduced motion: No change: the rays are static gradients with no animation.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative: the rays are aria-hidden.
+
+**Props**
+
+#### LightRays
+- `count?: number` (default `9`) — Number of rays fanning out from the origin
+- `spread?: number` (default `70`) — Total spread of the fan, in degrees
+- `className?: string`
+
+**Example**
+
+```tsx
+import { LightRays } from "@/components/velora/light-rays";
+
+export default function LightRaysDemo() {
+  return (
+    <div className="flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg relative bg-neutral-950">
+      <LightRays count={7} />
+      <p className="relative text-xl font-semibold text-white">Light Rays</p>
+    </div>
+  );
+}
+```
+
+
+### Meteors
+
+Falling meteor streaks for dark hero and CTA sections. (0.7 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/meteors
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/meteors.json` (creates `components/velora/meteors.tsx`)
+
+**Accessibility**
+- Reduced motion: The meteors are hidden entirely; no streaks are shown.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; the wrapper is aria-hidden.
+
+**Props**
+
+#### Meteors
+- `number?: number` (default `12`)
+- `className?: string`
+
+**Example**
+
+```tsx
+import { Meteors } from "@/components/velora/meteors";
+
+export default function MeteorsDemo() {
+  return (
+    <div className="relative flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg bg-neutral-950 text-white">
+      <Meteors number={12} className="bg-white/70 before:from-white/60" />
+      <p className="relative text-xl font-semibold">Meteors</p>
+    </div>
+  );
+}
+```
+
+
+### Noise Background
+
+Drifting brand-gradient blobs under a static film-grain overlay; wraps its content. (1.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/noise-background
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/noise-background.json` (creates `components/velora/noise-background.tsx`)
+
+**Accessibility**
+- Reduced motion: The blobs never move; the gradient wash and grain render as a still backdrop.
+- Keyboard: The wrapper is not focusable. The drift stops while focus is inside it (and while hovered, unless pauseOnHover is false); it also stops offscreen and in hidden tabs.
+- Screen readers: The blob and grain layers are aria-hidden; only the children are announced.
+
+**Props**
+
+#### NoiseBackground
+- `grain?: number` (default `0.35`) — Film-grain opacity, 0–1 (0 hides the grain)
+- `speed?: number` (default `1`) — Drift speed multiplier
+- `pauseOnHover?: boolean` (default `true`) — Pause the drift while hovered (focus inside always pauses it)
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { NoiseBackground } from "@/components/velora/noise-background";
+
+export default function NoiseBackgroundDemo() {
+  return (
+    <NoiseBackground className="flex min-h-80 w-full items-center justify-center rounded-2xl border px-6">
+      <div className="text-center">
+        <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+          Quiet software for loud ideas
+        </h2>
+        <p className="mt-3 text-foreground/75">A calm workspace for teams that ship.</p>
+      </div>
+    </NoiseBackground>
+  );
+}
+```
+
+
+### Particles
+
+Drifting, twinkling particle field on a lightweight canvas. (1.4 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/particles
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/particles.json` (creates `components/velora/particles.tsx`)
+
+**Accessibility**
+- Reduced motion: The drift and twinkle loop does not run; the canvas draws one still frame of dots and redraws it on resize and theme change.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; the canvas is aria-hidden.
+
+**Props**
+
+#### Particles
+- `className?: string`
+- `quantity?: number` (default `60`)
+- `color?: string` — "r, g, b" string. Defaults to the inherited text color, so it adapts to the theme.
+
+**Example**
+
+```tsx
+import { Particles } from "@/components/velora/particles";
+
+export default function ParticlesDemo() {
+  return (
+    <div className="relative flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg bg-neutral-950 text-white">
+      <Particles quantity={80} />
+      <p className="relative text-xl font-semibold">Particles</p>
+    </div>
+  );
+}
+```
+
+
+### Retro Grid
+
+Perspective grid scrolling forever toward the horizon. (0.7 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/retro-grid
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/retro-grid.json` (creates `components/velora/retro-grid.tsx`)
+
+**Accessibility**
+- Reduced motion: The scroll animation is off; the perspective grid plane shows as a still grid under the top and bottom fades.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; the wrapper is aria-hidden.
+
+**Props**
+
+#### RetroGrid
+- `angle?: number` (default `55`) — Perspective angle of the grid plane
+- `cellSize?: number` (default `56`)
+- `opacity?: number` (default `0.4`)
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { RetroGrid } from "@/components/velora/retro-grid";
+
+export default function RetroGridDemo() {
+  return (
+    <div className="relative flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg">
+      <RetroGrid opacity={0.6} />
+      <p className="relative text-xl font-semibold">Retro Grid</p>
+    </div>
+  );
+}
+```
+
+
+### Ripple
+
+Concentric rings pulsing outward — calm 'listening' backdrop. (0.6 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/ripple
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/ripple.json` (creates `components/velora/ripple.tsx`)
+
+**Accessibility**
+- Reduced motion: The rings stop pulsing and sit still as concentric circles at their nominal sizes, fading outward.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative: the rings are aria-hidden.
+
+**Props**
+
+#### Ripple
+- `circles?: number` (default `6`) — Number of concentric rings
+- `baseSize?: number` (default `180`) — Diameter of the innermost ring, in px
+- `className?: string`
+
+**Example**
+
+```tsx
+import { Ripple } from "@/components/velora/ripple";
+
+export default function RippleDemo() {
+  return (
+    <div className="flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg relative">
+      <Ripple circles={5} baseSize={90} />
+      <p className="relative text-xl font-semibold">Ripple</p>
+    </div>
+  );
+}
+```
+
+
+### Shooting Stars
+
+A twinkling star field with brand-tinted streaks shooting across at random. (3.0 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/shooting-stars
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/shooting-stars.json` (creates `components/velora/shooting-stars.tsx`)
+
+**Accessibility**
+- Reduced motion: Stars stop twinkling and no streaks launch; one streak is painted frozen mid-flight. Both canvases repaint that still frame on resize and theme change.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; both layers are aria-hidden, so only the content above them is announced.
+
+**Props**
+
+#### StarsBackground
+- `density?: number` (default `5`) — Stars per 10,000 px²
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+#### ShootingStars
+- `delay?: number` (default `2400`) — Average pause between streaks in ms; each pause varies ±60%
+- `speed?: number` (default `900`) — Travel speed in px per second; each streak varies ±30%
+- `angle?: number` (default `25`) — Direction in degrees below horizontal; each streak varies ±12°
+- `length?: number` (default `150`) — Trail length in px
+- `color?: string` (default `"--brand-to"`) — Any CSS colour or custom property name
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { ShootingStars, StarsBackground } from "@/components/velora/shooting-stars";
+
+export default function ShootingStarsDemo() {
+  return (
+    <div className="relative flex min-h-80 w-full items-center justify-center overflow-hidden rounded-lg bg-gradient-to-b from-background to-brand-from/10">
+      <StarsBackground className="text-brand-from dark:text-white" />
+      <ShootingStars />
+      <p className="relative text-3xl font-semibold tracking-tight">Make a wish</p>
+    </div>
+  );
+}
+```
+
+
+### Vortex
+
+Brand-tinted particles spiralling into the centre, leaving soft fading trails. (2.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/vortex
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/vortex.json` (creates `components/velora/vortex.tsx`)
+
+**Accessibility**
+- Reduced motion: No animation runs: the canvas pre-computes a short burst of motion and shows it as one frozen swirl, redrawn on resize and theme change.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; the wrapper is aria-hidden, so only the content layered above is announced.
+
+**Props**
+
+#### Vortex
+- `particles?: number` (default `520`) — Maximum particle count; capped by container area so small screens draw fewer
+- `speed?: number` (default `1`) — Rotation speed multiplier
+- `range?: number` (default `1`) — How far the swirl reaches towards the edges, 0–1
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { Vortex } from "@/components/velora/vortex";
+
+export default function VortexDemo() {
+  return (
+    <div className="relative flex min-h-80 w-full items-center justify-center overflow-hidden rounded-lg bg-background">
+      <Vortex />
+      <p className="relative text-3xl font-semibold tracking-tight">Into the vortex</p>
+    </div>
+  );
+}
+```
+
+
+### Wavy Background
+
+Blurred, translucent ribbons of brand colour flowing sideways on a canvas. (2.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/wavy-background
+- Category: Backgrounds
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/wavy-background.json` (creates `components/velora/wavy-background.tsx`)
+
+**Accessibility**
+- Reduced motion: The waves do not move: the canvas paints one still frame of the ribbons and repaints it on resize and theme change.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; the wrapper is aria-hidden, so only the content layered above is announced.
+
+**Props**
+
+#### WavyBackground
+- `waves?: number` (default `5`) — Number of layered waves
+- `speed?: "slow" | "fast"` (default `"slow"`) — How quickly the waves drift
+- `blur?: number` (default `16`) — Blur radius in px applied to the wave layer
+- `colors?: string[]` (default `["--brand-from", "--brand-via", "--brand-to"]`) — Any CSS colours or custom property names (e.g. "--brand-from"); cycled across the waves
+- `opacity?: number` (default `0.5`) — Opacity of each wave, 0–1
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { WavyBackground } from "@/components/velora/wavy-background";
+
+export default function WavyBackgroundDemo() {
+  return (
+    <div className="relative flex min-h-80 w-full items-center justify-center overflow-hidden rounded-lg bg-background">
+      <WavyBackground />
+      <p className="relative text-3xl font-semibold tracking-tight">Make some waves</p>
+    </div>
+  );
+}
+```
+
+
+### Animated Gradient Text
+
+Brand gradient sweeping continuously through text. (0.3 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/animated-gradient-text
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/animated-gradient-text.json` (creates `components/velora/animated-gradient-text.tsx`)
+
+**Accessibility**
+- Reduced motion: The pan animation is off; the text keeps a fixed gradient (the brand-from to brand-via section).
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Children are read as normal text; the gradient is a background-clip effect and adds nothing to the accessible text.
+
+**Props**
+
+#### AnimatedGradientText
+- `children: React.ReactNode`
+- …and every `React.HTMLAttributes<HTMLSpanElement>` prop
+
+**Example**
+
+```tsx
+import { AnimatedGradientText } from "@/components/velora/animated-gradient-text";
+
+export default function AnimatedGradientTextDemo() {
+  return (
+    <p className="text-3xl font-semibold">
+      Ship <AnimatedGradientText>beautiful</AnimatedGradientText> pages
+    </p>
+  );
+}
+```
+
+
+### Flip Words
+
+Cycles words with a springy blur-flip transition. (0.9 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/flip-words
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/flip-words.json` (creates `components/velora/flip-words.tsx`)
+
+**Accessibility**
+- Reduced motion: The first word stays on screen and the words don't cycle. With motion allowed, cycling pauses while the pointer is over the word or focus is inside it.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: All words are exposed once, comma-separated, in an sr-only span; the rotating visual word is aria-hidden, so nothing is announced on change.
+
+**Props**
+
+#### FlipWords
+- `words: string[]`
+- `duration?: number` (default `2600`) — ms each word stays on screen
+- `className?: string`
+
+**Example**
+
+```tsx
+import { FlipWords } from "@/components/velora/flip-words";
+
+export default function FlipWordsDemo() {
+  return (
+    <p className="text-2xl font-semibold">
+      Make it{" "}
+      <FlipWords
+        words={["modern", "animated", "accessible"]}
+        className="text-primary"
+      />
+    </p>
+  );
+}
+```
+
+
+### Hyper Text
+
+Scrambles through letters and resolves into the real text. (1.0 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/hyper-text
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/hyper-text.json` (creates `components/velora/hyper-text.tsx`)
+
+**Accessibility**
+- Reduced motion: No scramble runs, on mount or on hover; the text renders as-is.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The real text is in an sr-only span and the scrambling visual copy is aria-hidden, so assistive tech never reads random letters.
+
+**Props**
+
+#### HyperText
+- `children: string`
+- `frame?: number` (default `40`) — Milliseconds between scramble frames
+- `onHover?: boolean` (default `false`) — Scramble on hover instead of on mount
+- `className?: string`
+
+**Example**
+
+```tsx
+import { HyperText } from "@/components/velora/hyper-text";
+
+export default function HyperTextDemo() {
+  return <HyperText className="text-2xl font-semibold">VELORA UI</HyperText>;
+}
+```
+
+
+### Morphing Text
+
+Blurs one phrase out as the next resolves in. (0.9 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/morphing-text
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/morphing-text.json` (creates `components/velora/morphing-text.tsx`)
+
+**Accessibility**
+- Reduced motion: Only the first phrase is shown, statically, with no blur. With motion allowed, cycling pauses while the pointer is over the text, while focus is inside it, and while the tab is hidden.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: All phrases are exposed once, comma-separated, in an sr-only span; the morphing visual phrase is aria-hidden, so nothing is announced on change.
+
+**Props**
+
+#### MorphingText
+- `texts: string[]`
+- `hold?: number` (default `2`) — Seconds each phrase is held at full clarity
+- `morph?: number` (default `0.8`) — Seconds spent blurring between phrases
+- `className?: string`
+
+**Example**
+
+```tsx
+import { MorphingText } from "@/components/velora/morphing-text";
+
+export default function MorphingTextDemo() {
+  return (
+    <div className="text-2xl font-semibold">
+      <MorphingText texts={["Animate", "Measure", "Ship"]} />
+    </div>
+  );
+}
+```
+
+
+### Number Ticker
+
+Springs a number up when it enters the viewport. (0.9 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/number-ticker
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/number-ticker.json` (creates `components/velora/number-ticker.tsx`)
+
+**Accessibility**
+- Reduced motion: The final value appears at once when the element scrolls into view, with no count-up.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The final formatted value is always in an sr-only span; the animating digits are aria-hidden.
+
+**Props**
+
+#### NumberTicker
+- `value: number`
+- `startValue?: number` (default `0`)
+- `delay?: number` (default `0`) — Seconds to wait after entering the viewport
+- `decimalPlaces?: number` (default `0`)
+- `prefix?: string` (default `""`)
+- `suffix?: string` (default `""`)
+- …and every `React.HTMLAttributes<HTMLSpanElement>` prop
+
+**Example**
+
+```tsx
+import { NumberTicker } from "@/components/velora/number-ticker";
+
+export default function NumberTickerDemo() {
+  return (
+    <p className="text-5xl font-semibold tracking-tight">
+      <NumberTicker value={12480} suffix="+" />
+    </p>
+  );
+}
+```
+
+
+### Sparkles Text
+
+Twinkling stars orbiting your headline. (1.0 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/sparkles-text
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/sparkles-text.json` (creates `components/velora/sparkles-text.tsx`)
+
+**Accessibility**
+- Reduced motion: No sparkles render; only the plain text is shown.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Children are read normally; each sparkle SVG is aria-hidden.
+
+**Props**
+
+#### SparklesText
+- `children: React.ReactNode`
+- `count?: number` (default `9`) — Number of sparkles
+- …and every `React.HTMLAttributes<HTMLSpanElement>` prop
+
+**Example**
+
+```tsx
+import { SparklesText } from "@/components/velora/sparkles-text";
+
+export default function SparklesTextDemo() {
+  return (
+    <SparklesText className="text-3xl font-semibold">
+      Magic moments
+    </SparklesText>
+  );
+}
+```
+
+
+### Text Highlighter
+
+Marker-pen sweep that draws in when the phrase scrolls into view. (0.8 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/text-highlighter
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/text-highlighter.json` (creates `components/velora/text-highlighter.tsx`)
+
+**Accessibility**
+- Reduced motion: The marker wash appears instantly at full width once the phrase scrolls into view, with no sweep.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The text is read normally; the highlight bar is aria-hidden and the emphasis is visual only (no <mark> or <strong> semantics).
+
+**Props**
+
+#### TextHighlighter
+- `children: React.ReactNode`
+- `color?: string` (default `"color-mix(in oklch, var(--brand) 30%, transparent)"`) — Any CSS colour; defaults to a translucent brand wash
+- `duration?: number` (default `0.7`) — Seconds for the sweep
+- `className?: string`
+
+**Example**
+
+```tsx
+import { TextHighlighter } from "@/components/velora/text-highlighter";
+
+export default function TextHighlighterDemo() {
+  return (
+    <p className="max-w-xs text-center text-lg">
+      Every component ships <TextHighlighter>its own receipts</TextHighlighter>.
+    </p>
+  );
+}
+```
+
+
+### Text Hover Effect
+
+Giant outlined word that draws in, then glows in brand colours under the pointer. (2.3 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/text-hover-effect
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/text-hover-effect.json` (creates `components/velora/text-hover-effect.tsx`)
+
+**Accessibility**
+- Reduced motion: The outline appears fully drawn with no draw-in, and the spotlight does not track the pointer: hovering fades in the gradient version around the centre of the word.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The SVG is a role="img" named by the text, so the word is read once; the stacked outline and gradient copies are not announced.
+
+**Props**
+
+#### TextHoverEffect
+- `text: string` — The word or short phrase to draw
+- `strokeWidth?: number` (default `0.75`) — Outline width in SVG units (the glyphs are 100 units tall)
+- `revealRadius?: number` (default `28`) — Radius of the pointer reveal, as a percentage of the drawing's size
+- `drawDuration?: number` (default `3`) — Seconds the outline takes to draw itself in on mount
+- …and every `Omit<React.SVGAttributes<SVGSVGElement>, "children">` prop
+
+**Example**
+
+```tsx
+import { TextHoverEffect } from "@/components/velora/text-hover-effect";
+
+export default function TextHoverEffectDemo() {
+  return <TextHoverEffect text="VELORA" className="w-full max-w-2xl" />;
+}
+```
+
+
+### Text Reveal
+
+Word-by-word blur reveal on scroll. (0.8 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/text-reveal
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/text-reveal.json` (creates `components/velora/text-reveal.tsx`)
+
+**Accessibility**
+- Reduced motion: All words are visible immediately, including before hydration, with no fade, blur or slide.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The full sentence is read once from an sr-only span; the per-word animated spans are aria-hidden.
+
+**Props**
+
+#### TextReveal
+- `text: string` — Plain text — revealed word by word
+- `className?: string`
+- `as?: "h1" | "h2" | "h3" | "p" | "span"` (default `"span"`)
+- `delay?: number` (default `0`)
+- `stagger?: number` (default `0.045`) — Seconds between each word
+- `once?: boolean` (default `true`)
+
+**Example**
+
+```tsx
+import { TextReveal } from "@/components/velora/text-reveal";
+
+export default function TextRevealDemo() {
+  return (
+    <TextReveal
+      text="Every word arrives exactly when it should"
+      className="max-w-sm text-center text-2xl font-semibold"
+    />
+  );
+}
+```
+
+
+### Text Shimmer
+
+A soft light sweep — great for AI loading states. (0.4 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/text-shimmer
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/text-shimmer.json` (creates `components/velora/text-shimmer.tsx`)
+
+**Accessibility**
+- Reduced motion: The sweep is off; the text rests in the muted foreground colour with a slight brightening at the right edge and stays fully readable.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Children are read as normal text. It is not a live region, so add role="status" yourself if you use it as a loading indicator.
+
+**Props**
+
+#### TextShimmer
+- `children: React.ReactNode`
+- …and every `React.HTMLAttributes<HTMLSpanElement>` prop
+
+**Example**
+
+```tsx
+import { TextShimmer } from "@/components/velora/text-shimmer";
+
+export default function TextShimmerDemo() {
+  return (
+    <TextShimmer className="text-2xl font-semibold">
+      Generating your page…
+    </TextShimmer>
+  );
+}
+```
+
+
+### Typewriter
+
+Types, holds and deletes through a list of words. (1.3 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/typewriter
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/typewriter.json` (creates `components/velora/typewriter.tsx`)
+
+**Accessibility**
+- Reduced motion: The first word shows as static text with no typing, deleting or cursor. With motion allowed, typing pauses while the pointer is over the text or focus is inside it.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: All words are exposed once, comma-separated, in an sr-only span; the typed text and cursor are aria-hidden.
+
+**Props**
+
+#### Typewriter
+- `words: string[]`
+- `typeSpeed?: number` (default `70`) — ms per typed character
+- `deleteSpeed?: number` (default `40`) — ms per deleted character
+- `holdTime?: number` (default `1800`) — ms to hold a completed word
+- `loop?: boolean` (default `true`)
+- `cursor?: boolean` (default `true`)
+- …and every `React.HTMLAttributes<HTMLSpanElement>` prop
+
+**Example**
+
+```tsx
+import { AnimatedGradientText } from "@/components/velora/animated-gradient-text";
+import { Typewriter } from "@/components/velora/typewriter";
+
+export default function TypewriterDemo() {
+  return (
+    <p className="text-2xl font-semibold">
+      Build it{" "}
+      <AnimatedGradientText>
+        <Typewriter words={["faster.", "smoother.", "free."]} />
+      </AnimatedGradientText>
+    </p>
+  );
+}
+```
+
+
+### Word Rotate
+
+Swaps a single word on a quiet vertical roll. (0.9 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/word-rotate
+- Category: Text
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/word-rotate.json` (creates `components/velora/word-rotate.tsx`)
+
+**Accessibility**
+- Reduced motion: The first word stays on screen and the words don't rotate. With motion allowed, rotation pauses while the pointer is over the word, while focus is inside it, and while the tab is hidden.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: All words are exposed once, comma-separated, in an sr-only span; the rotating visual word is aria-hidden, so nothing is announced on change.
+
+**Props**
+
+#### WordRotate
+- `words: string[]`
+- `interval?: number` (default `2.5`) — Seconds each word is held
+- `className?: string`
+
+**Example**
+
+```tsx
+import { WordRotate } from "@/components/velora/word-rotate";
+
+export default function WordRotateDemo() {
+  return (
+    <p className="text-2xl font-semibold">
+      Build{" "}
+      <WordRotate
+        words={["faster", "lighter", "calmer"]}
+        className="text-brand"
+      />
+    </p>
+  );
+}
+```
+
+
+### Confetti
+
+Dependency-free confetti burst, fired from anywhere. (1.6 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/confetti
+- Category: Buttons
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/confetti.json` (creates `components/velora/confetti.tsx`)
+
+**Accessibility**
+- Reduced motion: confettiBurst does nothing, so clicking shows no burst; the button's own onClick still runs.
+- Keyboard: Native <button>: reachable with Tab, Enter or Space fires it (the burst starts from the button's centre), and focus-visible shows a 2px outline in the ring colour.
+- Screen readers: Named by its children; the temporary burst canvas is decorative and not exposed.
+
+**Props**
+
+#### ConfettiButton
+- `children: React.ReactNode`
+- …and every `React.ButtonHTMLAttributes<HTMLButtonElement>` prop
+
+**Example**
+
+```tsx
+import { ConfettiButton } from "@/components/velora/confetti";
+
+export default function ConfettiDemo() {
+  return <ConfettiButton>🎉 Click me</ConfettiButton>;
+}
+```
+
+
+### Magnetic Button
+
+Leans toward the cursor and springs back on leave. (1.0 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/magnetic-button
+- Category: Buttons
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/magnetic-button.json` (creates `components/velora/magnetic-button.tsx`)
+
+**Accessibility**
+- Reduced motion: The button stays in place and does not follow the cursor.
+- Keyboard: A native <button type="button"> by default: focusable, activates with Enter or Space, with a visible focus-visible outline. Blur resets any offset.
+- Screen readers: Announced as a button named by its children; aria-label, other aria-* attributes and disabled are passed through for icon-only or disabled use.
+
+**Props**
+
+#### MagneticButton
+- `children: React.ReactNode`
+- `className?: string`
+- `strength?: number` (default `14`) — How far the button is allowed to travel toward the cursor, in px
+- …and every `Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "style" | "onAnimationStart" | "onDrag" | "onDragStart" | "onDragEnd">` prop
+
+**Example**
+
+```tsx
+import { MagneticButton } from "@/components/velora/magnetic-button";
+
+export default function MagneticButtonDemo() {
+  return <MagneticButton>Hover me</MagneticButton>;
+}
+```
+
+
+### Moving Border
+
+A light laps the button's border via offset-path. (1.0 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/moving-border
+- Category: Buttons
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/moving-border.json` (creates `components/velora/moving-border.tsx`)
+
+**Accessibility**
+- Reduced motion: The travelling light is replaced by a static glow on the top-left and bottom-right corners of the border.
+- Keyboard: A native <button>: Enter or Space activate it, with a visible focus-visible outline.
+- Screen readers: Announced as a button named by its text; the light layer is aria-hidden.
+
+**Props**
+
+#### MovingBorder
+- `duration?: number` (default `4`) — Seconds for one lap of the border
+- `size?: number` (default `90`) — Length of the travelling light, in px
+- `radius?: number` (default `12`) — Corner radius of the border path, in px
+- `children: React.ReactNode`
+- …and every `React.ButtonHTMLAttributes<HTMLButtonElement>` prop
+
+**Example**
+
+```tsx
+import { MovingBorder } from "@/components/velora/moving-border";
+
+export default function MovingBorderDemo() {
+  return <MovingBorder>Deploy</MovingBorder>;
+}
+```
+
+
+### Rainbow Button
+
+CTA cycling the brand ramp, with a matching glow beneath. (0.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/rainbow-button
+- Category: Buttons
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/rainbow-button.json` (creates `components/velora/rainbow-button.tsx`)
+
+**Accessibility**
+- Reduced motion: The colour cycle and glow freeze, leaving a static brand gradient with a still glow beneath; the hover glow and press scale remain.
+- Keyboard: A native <button>: focusable, activates with Enter or Space, with a visible focus-visible outline.
+- Screen readers: Announced as a button named by its text content.
+
+**Props**
+
+#### RainbowButton
+- `speed?: number` (default `4`) — Seconds for one full colour cycle
+- `children: React.ReactNode`
+- …and every `React.ButtonHTMLAttributes<HTMLButtonElement>` prop
+
+**Example**
+
+```tsx
+import { RainbowButton } from "@/components/velora/rainbow-button";
+
+export default function RainbowButtonDemo() {
+  return <RainbowButton>Get started</RainbowButton>;
+}
+```
+
+
+### Ripple Button
+
+Expands a ripple from the exact point you pressed. (1.2 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/ripple-button
+- Category: Buttons
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/ripple-button.json` (creates `components/velora/ripple-button.tsx`)
+
+**Accessibility**
+- Reduced motion: No ripple is created on click; the button keeps its hover background change only.
+- Keyboard: A native <button>: Enter or Space activate it, with a visible focus-visible outline. Keyboard activation ripples from the centre.
+- Screen readers: Announced as a button named by its text; the ripple layer is aria-hidden.
+
+**Props**
+
+#### RippleButton
+- `duration?: number` (default `600`) — Milliseconds for a ripple to finish expanding
+- `rippleColor?: string` (default `"currentColor"`) — Any CSS colour; defaults to a translucent version of the text colour
+- `children: React.ReactNode`
+- …and every `React.ButtonHTMLAttributes<HTMLButtonElement>` prop
+
+**Example**
+
+```tsx
+import { RippleButton } from "@/components/velora/ripple-button";
+
+export default function RippleButtonDemo() {
+  return <RippleButton>Click me</RippleButton>;
+}
+```
+
+
+### Shimmer Button
+
+CTA button with a continuous light sweep. (0.6 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/shimmer-button
+- Category: Buttons
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/shimmer-button.json` (creates `components/velora/shimmer-button.tsx`)
+
+**Accessibility**
+- Reduced motion: The sweep is off; a faint static sheen rests on the right side of the button. The hover scale still applies.
+- Keyboard: Native <button>: reachable with Tab, activated with Enter or Space, and focus-visible shows a 2px outline in the ring colour.
+- Screen readers: Named by its children; the shimmer overlay is aria-hidden.
+
+**Props**
+
+#### ShimmerButton
+- `children: React.ReactNode`
+- …and every `React.ButtonHTMLAttributes<HTMLButtonElement>` prop
+
+**Example**
+
+```tsx
+import { RocketIcon } from "lucide-react";
+
+import { ShimmerButton } from "@/components/velora/shimmer-button";
+
+export default function ShimmerButtonDemo() {
+  return (
+    <ShimmerButton>
+      <RocketIcon className="size-4" />
+      Get started
+    </ShimmerButton>
+  );
+}
+```
+
+
+### Stateful Button
+
+Button that morphs through loading, success and error states while a Promise settles. (2.0 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/stateful-button
+- Category: Buttons
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/stateful-button.json` (creates `components/velora/stateful-button.tsx`)
+
+**Accessibility**
+- Reduced motion: The pill no longer shrinks to a circle, the spinner stands still and the labels swap instantly; colour changes remain.
+- Keyboard: A native button with a visible focus ring. While pending it uses aria-disabled rather than disabled, so focus stays put and repeat presses are ignored.
+- Screen readers: The accessible name stays the button's own label in every state; aria-busy is set while pending and a polite status region announces the success or error text.
+
+**Props**
+
+#### StatefulButton
+- `onClick?: (event: React.MouseEvent<HTMLButtonElement>) => unknown` — Click handler; return a Promise to show loading, then success or error
+- `resetAfter?: number` (default `2000`) — Milliseconds the success or error state stays before returning to idle
+- `successText?: string` (default `"Done"`) — Shown beside the check and announced when the promise resolves
+- `errorText?: string` (default `"Failed"`) — Shown beside the cross and announced when the promise rejects
+- …and every `Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onClick">` prop
+
+**Example**
+
+```tsx
+"use client";
+
+import { StatefulButton } from "@/components/velora/stateful-button";
+
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export default function StatefulButtonDemo() {
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-4">
+      <StatefulButton onClick={() => wait(1500)} successText="Published">
+        Publish post
+      </StatefulButton>
+      <StatefulButton
+        onClick={() => wait(1500)}
+        successText="Copied"
+        className="text-brand-foreground [--surface:var(--color-brand)]"
+      >
+        Copy invite link
+      </StatefulButton>
+    </div>
+  );
+}
+```
+
+
+### Theme Toggler
+
+Wipes the new theme in as a circle using View Transitions. (1.2 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/theme-toggler
+- Category: Buttons
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/theme-toggler.json` (creates `components/velora/theme-toggler.tsx`)
+
+**Accessibility**
+- Reduced motion: The circular View Transition wipe is skipped and the theme switches instantly.
+- Keyboard: A native <button type="button">: Enter or Space toggle the theme, with a visible focus-visible outline.
+- Screen readers: Named by an aria-label describing the action ("Switch to light theme" or "Switch to dark theme") that updates after each toggle; the icon is aria-hidden.
+
+**Props**
+
+#### ThemeToggler
+- `isDark: boolean` — Current theme; drives the icon and the accessible label
+- `onToggle: () => void` — Apply the theme change. Called inside a View Transition when supported.
+- `className?: string`
+
+**Example**
+
+```tsx
+"use client";
+
+import { useSyncExternalStore } from "react";
+import { useTheme } from "next-themes";
+
+import { ThemeToggler } from "@/components/velora/theme-toggler";
+
+const noop = () => () => {};
+
+export default function ThemeTogglerDemo() {
+  const { resolvedTheme, setTheme } = useTheme();
+  // The theme is unknown on the server; match its markup until hydrated.
+  const hydrated = useSyncExternalStore(noop, () => true, () => false);
+  const isDark = hydrated && resolvedTheme === "dark";
+
+  return (
+    <div className="flex flex-col items-center gap-3">
+      <ThemeToggler
+        isDark={isDark}
+        onToggle={() => setTheme(isDark ? "light" : "dark")}
+      />
+      <p className="text-sm text-muted-foreground">
+        Wipes the theme in from the button
+      </p>
+    </div>
+  );
+}
+```
+
+
+### Animated List
+
+Looping feed that springs each item in, newest on top. (1.1 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/animated-list
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/animated-list.json` (creates `components/velora/animated-list.tsx`)
+
+**Accessibility**
+- Reduced motion: The loop stops and all items are shown at once, newest on top, with no spring, scale or layout animation.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Without reduced motion items are added on a timer, so a screen reader finds only the items revealed so far; the loop pauses while the list is hovered or has focus.
+
+**Props**
+
+#### AnimatedList
+- `children: React.ReactNode`
+- `className?: string`
+- `delay?: number` (default `2000`) — ms between items appearing
+
+**Example**
+
+```tsx
+import { ZapIcon } from "lucide-react";
+
+import { AnimatedList } from "@/components/velora/animated-list";
+
+export default function AnimatedListDemo() {
+  return (
+    <div className="h-56 w-full max-w-sm overflow-hidden [mask-image:linear-gradient(to_bottom,black_60%,transparent)]">
+      <AnimatedList delay={1500}>
+        {[
+          "Deploy succeeded",
+          "New signup",
+          "Payment received",
+          "New review",
+        ].map((title) => (
+          <div
+            key={title}
+            className="flex items-center gap-3 rounded-xl border bg-card p-3 text-sm shadow-sm"
+          >
+            <span className="flex size-8 items-center justify-center rounded-lg bg-primary/15 text-primary">
+              <ZapIcon className="size-4" />
+            </span>
+            {title}
+          </div>
+        ))}
+      </AnimatedList>
+    </div>
+  );
+}
+```
+
+
+### Animated Tooltip
+
+Avatar row with springy name tooltips on hover. (1.2 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/animated-tooltip
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/animated-tooltip.json` (creates `components/velora/animated-tooltip.tsx`)
+
+**Accessibility**
+- Reduced motion: The tooltip appears and disappears instantly instead of springing in, and the avatar's hover scale no longer transitions.
+- Keyboard: Each avatar is focusable with Tab and shows its tooltip and a focus ring while focused; Escape hides the tooltip.
+- Screen readers: Each avatar is read as its name and role from visually hidden text; the visual tooltip and initials are aria-hidden.
+
+**Props**
+
+#### AnimatedTooltip
+- `items: TooltipItem[]`
+- `className?: string`
+
+**Example**
+
+```tsx
+import { AnimatedTooltip } from "@/components/velora/animated-tooltip";
+
+export default function AnimatedTooltipDemo() {
+  return (
+    <AnimatedTooltip
+      items={[
+        { name: "Maya Chen", role: "Design engineer" },
+        { name: "Tom Okafor", role: "Frontend lead" },
+        { name: "Sofia Lindqvist", role: "Indie hacker" },
+        { name: "Dan Romero", role: "CTO" },
+      ]}
+    />
+  );
+}
+```
+
+
+### Avatar Circles
+
+Stacked initials avatars with a +N badge — zero images. (0.7 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/avatar-circles
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/avatar-circles.json` (creates `components/velora/avatar-circles.tsx`)
+
+**Accessibility**
+- Reduced motion: Static; no animation.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Each avatar is read by its full name, with the initials hidden, and the badge is read as "and 2,400 more" (the exact extra count).
+
+**Props**
+
+#### AvatarCircles
+- `people: string[]` — Names rendered as initials
+- `extra?: number` — "+N" badge count
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { AvatarCircles } from "@/components/velora/avatar-circles";
+
+export default function AvatarCirclesDemo() {
+  return (
+    <AvatarCircles
+      people={["Maya Chen", "Tom Okafor", "Sofia Lindqvist", "Dan Romero"]}
+      extra={2400}
+    />
+  );
+}
+```
+
+
+### Bento Grid
+
+Feature bento with hover-reveal CTAs and rich backgrounds. (1.0 KB gzipped, deps: lucide-react)
+
+- Docs: https://velora.colorlib.com/components/bento-grid
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/bento-grid.json` (creates `components/velora/bento-grid.tsx`)
+
+**Accessibility**
+- Reduced motion: The hover transitions are removed: the CTA link is always shown at the bottom of the card, the text block rests lifted above it, and the background no longer scales on hover.
+- Keyboard: The CTA link (rendered when href is set) is reachable with Tab; focusing it reveals it the same way hover does and shows a focus ring.
+- Screen readers: Reads the card heading, description and CTA link; the gradient overlay is hidden, but any text inside the background node is read as well.
+
+**Props**
+
+#### BentoGrid
+- `children: React.ReactNode`
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+#### BentoCard
+- `name: string`
+- `description: string`
+- `background?: React.ReactNode` — Visual filling the card behind the text (chart, image, animation…)
+- `icon?: React.ReactNode`
+- `href?: string`
+- `cta?: string` (default `"Learn more"`)
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { BentoCard, BentoGrid } from "@/components/velora/bento-grid";
+import { DotPattern } from "@/components/velora/grid-pattern";
+import { Meteors } from "@/components/velora/meteors";
+
+export default function BentoGridDemo() {
+  return (
+    <BentoGrid className="w-full auto-rows-[11rem] grid-cols-2 gap-3">
+      <BentoCard
+        name="Patterns"
+        description="Maskable backdrops."
+        background={
+          <DotPattern className="[mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+        }
+      />
+      <BentoCard
+        name="Meteors"
+        description="Streaks of light."
+        background={<Meteors number={6} />}
+      />
+    </BentoGrid>
+  );
+}
+```
+
+
+### Card Hover Effect
+
+Link-card grid with a highlight that glides to whichever card you hover or focus. (1.7 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/card-hover-effect
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/card-hover-effect.json` (creates `components/velora/card-hover-effect.tsx`)
+
+**Accessibility**
+- Reduced motion: The highlight appears on the hovered or focused card and disappears instantly, without gliding or fading; the arrow nudge is removed.
+- Keyboard: Each card is a native link in Tab order; focusing one moves the highlight to it, and it clears when focus leaves the grid.
+- Screen readers: Cards are links in a list, named by their title and description text; icons, the arrow and the highlight are aria-hidden.
+
+**Props**
+
+#### HoverCards
+- `items: HoverCardItem[]` — The link cards, in order
+- `columns?: 1 | 2 | 3 | 4` (default `3`) — Column count once the container is wide enough (container queries)
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { HoverCards } from "@/components/velora/card-hover-effect";
+
+const items = [
+  {
+    title: "Quickstart",
+    description: "Install the CLI and add your first component in under a minute.",
+    href: "#quickstart",
+  },
+  {
+    title: "Theming",
+    description: "Re-skin every component by changing seven CSS variables.",
+    href: "#theming",
+  },
+  {
+    title: "Accessibility",
+    description: "Keyboard support, reduced motion and screen reader notes for each part.",
+    href: "#accessibility",
+  },
+  {
+    title: "Registry",
+    description: "Pull components straight into your codebase with the shadcn CLI.",
+    href: "#registry",
+  },
+  {
+    title: "Examples",
+    description: "Copy-paste sections built from the library, ready to adapt.",
+    href: "#examples",
+  },
+  {
+    title: "Changelog",
+    description: "Every release, what changed, and how to upgrade safely.",
+    href: "#changelog",
+  },
+];
+
+export default function HoverCardsDemo() {
+  return <HoverCards items={items} className="max-w-4xl" />;
+}
+```
+
+
+### Card Stack
+
+Deck that shuffles the top card to the back on a timer. (1.2 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/card-stack
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/card-stack.json` (creates `components/velora/card-stack.tsx`)
+
+**Accessibility**
+- Reduced motion: The deck does not auto-shuffle; the first card stays on top. With motion allowed, shuffling pauses while the pointer is over the deck, while focus is inside it, and while the tab is hidden.
+- Keyboard: Not interactive itself. Links or buttons inside buried cards stay in the tab order while visually covered.
+- Screen readers: All cards are in the DOM in source order and are read in full regardless of which is on top; nothing is announced on shuffle.
+
+**Props**
+
+#### CardStack
+- `items: { id: string | number; content: React.ReactNode }[]` — Each entry becomes one card; the first is on top
+- `interval?: number` (default `4`) — Seconds between automatic shuffles; 0 disables
+- `offset?: number` (default `12`) — Vertical offset per card, in px
+- `className?: string`
+
+**Example**
+
+```tsx
+import { CardStack } from "@/components/velora/card-stack";
+
+const quotes = [
+  {
+    quote:
+      "Swapped three separate animation libraries for Velora and the bundle got smaller.",
+    name: "Dana Whitfield",
+    role: "Staff engineer, Corvine",
+  },
+  {
+    quote:
+      "The size on every docs page is the reason we shipped it without a review meeting.",
+    name: "Marco Elias",
+    role: "Design engineer, Halyard",
+  },
+  {
+    quote: "Reduced-motion worked out of the box. That never happens.",
+    name: "Priya Raman",
+    role: "Accessibility lead, Northbeam",
+  },
+];
+
+export default function CardStackDemo() {
+  return (
+    <CardStack
+      className="h-44 max-w-xs"
+      offset={10}
+      items={quotes.map((q) => ({
+        id: q.name,
+        content: (
+          <>
+            <p className="text-sm leading-relaxed">&ldquo;{q.quote}&rdquo;</p>
+            <p className="text-xs text-muted-foreground">{q.name}</p>
+          </>
+        ),
+      }))}
+    />
+  );
+}
+```
+
+
+### Compare Slider
+
+Before/after wipe with a keyboard-accessible divider. (1.2 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/compare-slider
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/compare-slider.json` (creates `components/velora/compare-slider.tsx`)
+
+**Accessibility**
+- Reduced motion: Nothing animates: the divider and clip jump straight to the slider value, so reduced-motion users see the same thing as everyone else.
+- Keyboard: The handle is a native range input covering the panel. Tab focuses it (the panel shows a focus ring), and Arrow keys, Home, End, PageUp and PageDown move the divider.
+- Screen readers: A native slider (0 to 100, position announced) named by the `label` prop, default "Compare before and after"; the visual divider is aria-hidden.
+
+**Props**
+
+#### CompareSlider
+- `before: React.ReactNode`
+- `after: React.ReactNode`
+- `initial?: number` (default `50`) — Starting divider position, 0–100
+- `label?: string` (default `"Compare before and after"`) — Announced by the slider handle
+- `className?: string`
+
+**Example**
+
+```tsx
+import { CompareSlider } from "@/components/velora/compare-slider";
+
+export default function CompareSliderDemo() {
+  return (
+    <CompareSlider
+      className="max-w-sm"
+      before={
+        <div className="flex size-full items-center justify-center bg-neutral-900 text-sm text-white">
+          Before
+        </div>
+      }
+      after={
+        <div className="flex size-full items-center justify-center bg-gradient-to-br from-brand-from to-brand-to text-sm text-white">
+          After
+        </div>
+      }
+    />
+  );
+}
+```
+
+
+### Direction Aware Hover
+
+Overlay enters from the edge the cursor actually crossed. (1.3 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/direction-aware-hover
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/direction-aware-hover.json` (creates `components/velora/direction-aware-hover.tsx`)
+
+**Accessibility**
+- Reduced motion: The overlay appears and disappears instantly instead of sliding in from the entry edge.
+- Keyboard: The card is focusable (tabIndex 0); keyboard focus on it or on anything inside reveals the overlay, and moving focus out hides it. On touch, a tap toggles the overlay.
+- Screen readers: The overlay is only moved off-canvas, not hidden, so both the base content and the overlay text are read regardless of state.
+
+**Props**
+
+#### DirectionAwareHover
+- `children: React.ReactNode`
+- `overlay: React.ReactNode` — Slides in from whichever edge the cursor crossed
+- `className?: string`
+
+**Example**
+
+```tsx
+import { DirectionAwareHover } from "@/components/velora/direction-aware-hover";
+
+export default function DirectionAwareHoverDemo() {
+  return (
+    <DirectionAwareHover
+      className="size-44"
+      overlay={<span className="font-medium">Enters from your edge</span>}
+    >
+      <div className="flex size-full items-center justify-center bg-muted">
+        <span className="text-sm text-muted-foreground">Hover me</span>
+      </div>
+    </DirectionAwareHover>
+  );
+}
+```
+
+
+### Dock
+
+macOS-style dock with cursor magnification. (1.4 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/dock
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/dock.json` (creates `components/velora/dock.tsx`)
+
+**Accessibility**
+- Reduced motion: Icons stay at their base size and never magnify; only the hover color change remains.
+- Keyboard: Each DockIcon is a native button, or a link when href is set, reachable with Tab and activated with Enter (and Space for buttons); focus shows a ring and magnifies the icon and its neighbours.
+- Screen readers: Each icon is announced as a button or link named by its label prop.
+
+**Props**
+
+#### Dock
+- `children: React.ReactNode`
+- `className?: string`
+- `baseSize?: number` (default `40`) — Icon size at rest, px
+- `magnification?: number` (default `64`) — Icon size under the cursor, px
+- `distance?: number` (default `140`) — Cursor influence radius, px
+
+#### DockIcon
+- `children: React.ReactNode`
+- `className?: string`
+- `label?: string` — Accessible name; also used as the tooltip title
+- `href?: string` — Render as a link to this URL instead of a button
+- `onClick?: React.MouseEventHandler<HTMLElement>` — Click handler for the button (or link)
+
+**Example**
+
+```tsx
+import {
+  GaugeIcon,
+  LayersIcon,
+  PaletteIcon,
+  RocketIcon,
+  ZapIcon,
+} from "lucide-react";
+
+import { Dock, DockIcon } from "@/components/velora/dock";
+
+export default function DockDemo() {
+  return (
+    <Dock>
+      <DockIcon label="Layers">
+        <LayersIcon className="size-5" />
+      </DockIcon>
+      <DockIcon label="Palette">
+        <PaletteIcon className="size-5" />
+      </DockIcon>
+      <DockIcon label="Speed">
+        <GaugeIcon className="size-5" />
+      </DockIcon>
+      <DockIcon label="Energy">
+        <ZapIcon className="size-5" />
+      </DockIcon>
+      <DockIcon label="Launch">
+        <RocketIcon className="size-5" />
+      </DockIcon>
+    </Dock>
+  );
+}
+```
+
+
+### Draggable Card
+
+Scattered photo cards you can fling around with inertia, tilt and bounds. (2.4 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/draggable-card
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/draggable-card.json` (creates `components/velora/draggable-card.tsx`)
+
+**Accessibility**
+- Reduced motion: Cards still drag, but stop where they are released: no momentum, overshoot, lift or tilt.
+- Keyboard: Each card is focusable; arrow keys nudge it 12px (48px with Shift) without leaving the board, and Enter or Space brings it to the front.
+- Screen readers: Each card is a focusable group (aria-roledescription "draggable card") named by its label and described by a hidden hint listing the keyboard controls.
+
+**Props**
+
+#### DraggableCardContainer
+- `children: React.ReactNode` — `DraggableCard` elements
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+#### DraggableCard
+- `label?: string` — Accessible name for the card, e.g. its caption
+- `rotate?: number` — Resting tilt in degrees (defaults to a seeded ±7° per card)
+- …and every `Omit<React.HTMLAttributes<HTMLDivElement>, "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart">` prop
+
+**Example**
+
+```tsx
+import { DraggableCard, DraggableCardContainer } from "@/components/velora/draggable-card";
+
+const photo = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?w=600&q=70&auto=format&fit=crop`;
+
+const cards = [
+  { title: "Moraine Lake", src: photo("1493246507139-91e8fad9978e") },
+  { title: "Above the clouds", src: photo("1506905925346-21bda4d32df4") },
+  { title: "Northern lights", src: photo("1531366936337-7c912a4589a7") },
+  { title: "Red rock road", src: photo("1500530855697-b586d89ba3ee") },
+  { title: "Forest light", src: photo("1441974231531-c6227db76b6e") },
+];
+
+export default function DraggableCardDemo() {
+  return (
+    <DraggableCardContainer className="h-[26rem]">
+      {cards.map((card) => (
+        <DraggableCard key={card.title} label={card.title} className="w-40 sm:w-48">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={card.src}
+            alt=""
+            draggable={false}
+            className="pointer-events-none aspect-square w-full rounded-md object-cover"
+          />
+          <p className="mt-3 text-center text-sm font-medium">{card.title}</p>
+        </DraggableCard>
+      ))}
+    </DraggableCardContainer>
+  );
+}
+```
+
+
+### Evervault Card
+
+Card that reveals shuffling brand-tinted characters through a mask following the pointer. (1.7 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/evervault-card
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/evervault-card.json` (creates `components/velora/evervault-card.tsx`)
+
+**Accessibility**
+- Reduced motion: The characters are drawn once and never reshuffle, and the reveal stays centred instead of following the pointer.
+- Keyboard: The card is not focusable itself; keyboard focus on a link or button inside it reveals the characters around the centre.
+- Screen readers: The character field is aria-hidden; the label and children are the only content read.
+
+**Props**
+
+#### EvervaultCard
+- `label?: React.ReactNode` — Centred badge content (text or an icon) drawn above the character field
+- `radius?: number` (default `140`) — Radius of the reveal mask in px
+- `interval?: number` (default `60`) — Minimum ms between re-randomising the characters while the pointer moves
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { EvervaultCard } from "@/components/velora/evervault-card";
+
+export default function EvervaultCardDemo() {
+  return <EvervaultCard label="Velora" className="size-72" />;
+}
+```
+
+
+### Expandable Card
+
+Expands into a centred panel with shared-layout transitions. (1.9 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/expandable-card
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/expandable-card.json` (creates `components/velora/expandable-card.tsx`)
+
+**Accessibility**
+- Reduced motion: The card snaps straight into the centred panel with no shared-layout spring; the backdrop keeps a short opacity fade.
+- Keyboard: The card is a button that opens a modal dialog with Enter or Space. Focus moves into the dialog, Tab and Shift+Tab stay inside it, Escape or Close dismisses it, and focus returns to the card.
+- Screen readers: The card is announced as a button with aria-haspopup="dialog" and aria-expanded; the panel is a role="dialog" with aria-modal, named by its heading.
+
+**Props**
+
+#### ExpandableCard
+- `title: string`
+- `subtitle?: string`
+- `children: React.ReactNode` — Shown only once the card is expanded
+- `media?: React.ReactNode` — Rendered in both the collapsed card and the expanded panel
+- `className?: string`
+
+**Example**
+
+```tsx
+import { ExpandableCard } from "@/components/velora/expandable-card";
+
+export default function ExpandableCardDemo() {
+  return (
+    <ExpandableCard
+      title="Animations with receipts"
+      subtitle="Click to expand"
+      media={
+        <div className="h-24 w-full bg-gradient-to-br from-brand-from/30 to-brand-to/30" />
+      }
+    >
+      Every component publishes its gzipped size and dependency count.
+    </ExpandableCard>
+  );
+}
+```
+
+
+### File Tree
+
+Collapsible tree for documenting project structure. (1.1 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/file-tree
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/file-tree.json` (creates `components/velora/file-tree.tsx`)
+
+**Accessibility**
+- Reduced motion: The chevron snaps between closed and open instead of rotating. Child lists appear and disappear instantly for everyone.
+- Keyboard: Each folder is a native button: Tab reaches it and Enter or Space toggles it. Files are plain text and not focusable, and there is no arrow-key tree navigation.
+- Screen readers: Nested lists where folder buttons report aria-expanded (a disclosure pattern, not role=tree).
+
+**Props**
+
+#### FileTree
+- `tree: FileNode[]`
+- `className?: string`
+
+**Example**
+
+```tsx
+import { FileTree } from "@/components/velora/file-tree";
+
+export default function FileTreeDemo() {
+  return (
+    <FileTree
+      className="max-w-xs text-xs"
+      tree={[
+        {
+          name: "components",
+          children: [
+            {
+              name: "velora",
+              children: [{ name: "marquee.tsx" }, { name: "dock.tsx" }],
+            },
+            { name: "ui", children: [{ name: "button.tsx" }] },
+          ],
+        },
+      ]}
+    />
+  );
+}
+```
+
+
+### Focus Cards
+
+Image grid where the hovered card stays sharp while the others blur and step back. (1.5 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/focus-cards
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/focus-cards.json` (creates `components/velora/focus-cards.tsx`)
+
+**Accessibility**
+- Reduced motion: Cards no longer shrink or zoom, and the blur and title fade switch instantly instead of transitioning.
+- Keyboard: Each card is a tab stop (a link when it has an href, otherwise a focusable figure); keyboard focus triggers the same sharp-card, blurred-siblings state as hover and reveals the title.
+- Screen readers: Cards are list items; titles are real text that is read even while visually hidden, links are named by the title, and images use the optional alt (empty by default).
+
+**Props**
+
+#### FocusCards
+- `cards: FocusCard[]` — The cards, in order
+- `cardClassName?: string` — Extra classes for every card, e.g. a different aspect ratio
+- …and every `React.HTMLAttributes<HTMLUListElement>` prop
+
+**Example**
+
+```tsx
+import { FocusCards } from "@/components/velora/focus-cards";
+
+const photo = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?w=800&q=70&auto=format&fit=crop`;
+
+const cards = [
+  { title: "Forest light", src: photo("1441974231531-c6227db76b6e") },
+  { title: "Canopy walk", src: photo("1447752875215-b2761acb3c5d") },
+  { title: "Moraine Lake", src: photo("1493246507139-91e8fad9978e") },
+  { title: "Highland morning", src: photo("1470071459604-3b5ec3a7fe05") },
+  { title: "Night summit", src: photo("1485470733090-0aae1788d5af") },
+  { title: "Valley of mist", src: photo("1469474968028-56623f02e42e") },
+];
+
+export default function FocusCardsDemo() {
+  return <FocusCards cards={cards} className="w-full max-w-3xl" />;
+}
+```
+
+
+### Glare Card
+
+Sheet of light tracking the cursor, like a foil trading card. (0.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/glare-card
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/glare-card.json` (creates `components/velora/glare-card.tsx`)
+
+**Accessibility**
+- Reduced motion: The glare still follows the cursor, since it is pointer-driven, but it appears and disappears without the fade.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The glare layer is aria-hidden and the children are read normally.
+
+**Props**
+
+#### GlareCard
+- `children: React.ReactNode`
+- `className?: string`
+
+**Example**
+
+```tsx
+import { GlareCard } from "@/components/velora/glare-card";
+
+export default function GlareCardDemo() {
+  return (
+    <GlareCard className="w-full max-w-xs">
+      <h3 className="font-medium">Glare Card</h3>
+      <p className="mt-1 text-sm text-muted-foreground">
+        Move the cursor across this card.
+      </p>
+    </GlareCard>
+  );
+}
+```
+
+
+### Layout Grid
+
+Bento grid of image tiles that expand in place to reveal rich content. (2.3 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/layout-grid
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/layout-grid.json` (creates `components/velora/layout-grid.tsx`)
+
+**Accessibility**
+- Reduced motion: Tiles open and close instantly, with no shared-layout morph or dimming fade.
+- Keyboard: Each tile is a button; opening one moves focus to the expanded panel. Escape, the Close button or a click outside collapses it, and focus returns to the tile unless the click moved it elsewhere.
+- Screen readers: Tiles are buttons named by their title with aria-expanded; the expanded panel is a labelled region and the dimmed tiles behind it are inert.
+
+**Props**
+
+#### LayoutGrid
+- `items: LayoutGridItem[]` — Tiles, in reading order
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { LayoutGrid } from "@/components/velora/layout-grid";
+
+const photo = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?w=1200&q=70&auto=format&fit=crop`;
+
+const items = [
+  {
+    title: "Glasshaus",
+    subtitle: "Office · Rotterdam",
+    src: photo("1497366811353-6870744d04b2"),
+    className: "md:col-span-2",
+    content: (
+      <p>
+        A converted print works with a glazed sawtooth roof. Daylight reaches
+        every desk, so the lights stay off until late afternoon.
+      </p>
+    ),
+  },
+  {
+    title: "Harbor House",
+    subtitle: "Residence · Maine",
+    src: photo("1493809842364-78817add7ffb"),
+    content: (
+      <p>
+        Cedar shingles, a deep porch and one long room facing the water. Built
+        to weather salt air for the next hundred years.
+      </p>
+    ),
+  },
+  {
+    title: "Atelier",
+    subtitle: "Studio · Lisbon",
+    src: photo("1524758631624-e2822e304c36"),
+    content: (
+      <p>
+        A furniture maker&apos;s studio with a gallery wall that doubles as
+        storage: every chair on display is also for sale.
+      </p>
+    ),
+  },
+  {
+    title: "Meridian Tower",
+    subtitle: "Commercial · Chicago",
+    src: photo("1486406146926-c627a92ad1ab"),
+    className: "md:col-span-2",
+    content: (
+      <p>
+        Forty floors of offset glass bands that shade the floor below, cutting
+        cooling loads by a third without a single external louvre.
+      </p>
+    ),
+  },
+];
+
+export default function LayoutGridDemo() {
+  return <LayoutGrid items={items} className="max-w-3xl" />;
+}
+```
+
+
+### Marquee
+
+Seamless scrolling loop — horizontal, vertical, hover-pause. (0.9 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/marquee
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/marquee.json` (creates `components/velora/marquee.tsx`)
+
+**Accessibility**
+- Reduced motion: Scrolling stops and only the first copy is shown, without the edge fade; horizontal items wrap onto extra rows and a vertical marquee becomes scrollable, so no item is clipped out of reach.
+- Keyboard: The marquee itself is not focusable; scrolling pauses while focus is inside it (and on hover with pauseOnHover), and the duplicate copies are inert, so Tab only visits the first copy's links or buttons.
+- Screen readers: The content is read once; copies 2 and up are aria-hidden.
+
+**Props**
+
+#### Marquee
+- `reverse?: boolean` (default `false`) — Reverse the scroll direction
+- `pauseOnHover?: boolean` (default `false`) — Pause the animation while hovered (it always pauses while focus is inside)
+- `vertical?: boolean` (default `false`) — Scroll vertically instead of horizontally
+- `repeat?: number` (default `4`) — Number of content copies (keep >=2 for a seamless loop)
+- `fade?: boolean` (default `true`) — Fade the edges with a mask
+- `children: React.ReactNode`
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { Marquee } from "@/components/velora/marquee";
+
+const chips = ["Astro", "Next.js", "Remix", "Vite", "Nuxt", "SvelteKit"];
+
+export default function MarqueeDemo() {
+  return (
+    <Marquee pauseOnHover className="w-full [--duration:18s]">
+      {chips.map((chip) => (
+        <span
+          key={chip}
+          className="mx-2 rounded-full border bg-card px-4 py-1.5 text-sm font-medium"
+        >
+          {chip}
+        </span>
+      ))}
+    </Marquee>
+  );
+}
+```
+
+
+### Orbiting Circles
+
+Items evenly distributed on rotating orbital rings. (1.0 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/orbiting-circles
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/orbiting-circles.json` (creates `components/velora/orbiting-circles.tsx`)
+
+**Accessibility**
+- Reduced motion: The rotation stops; the items rest evenly spaced on the ring.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The orbit ring is aria-hidden; the orbiting children are read as-is.
+
+**Props**
+
+#### OrbitingCircles
+- `children: React.ReactNode`
+- `duration?: number` (default `20`) — Seconds per revolution
+- `radius?: number` (default `160`) — Orbit radius in px
+- `reverse?: boolean` (default `false`)
+- `path?: boolean` (default `true`) — Show the orbit ring
+- `iconSize?: number` (default `32`) — Diameter of each orbiting item in px
+- `speed?: number` (default `1`)
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import {
+  GaugeIcon,
+  LayersIcon,
+  MoonIcon,
+  PaletteIcon,
+  SparklesIcon,
+} from "lucide-react";
+
+import { OrbitingCircles } from "@/components/velora/orbiting-circles";
+
+export default function OrbitingCirclesDemo() {
+  return (
+    <div className="relative flex h-64 w-full items-center justify-center">
+      <SparklesIcon className="size-7 text-primary" />
+      <OrbitingCircles radius={80} iconSize={26} duration={18}>
+        <LayersIcon className="size-4 text-muted-foreground" />
+        <PaletteIcon className="size-4 text-muted-foreground" />
+        <GaugeIcon className="size-4 text-muted-foreground" />
+        <MoonIcon className="size-4 text-muted-foreground" />
+      </OrbitingCircles>
+    </div>
+  );
+}
+```
+
+
+### Spotlight Card
+
+A radial glow that follows the cursor across the card. (0.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/spotlight-card
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/spotlight-card.json` (creates `components/velora/spotlight-card.tsx`)
+
+**Accessibility**
+- Reduced motion: Unchanged: the radial glow still fades in on hover and follows the pointer, as a color highlight with no element movement.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The glow layer is aria-hidden; only the children are read.
+
+**Props**
+
+#### SpotlightCard
+- `children: React.ReactNode`
+- `radius?: number` (default `320`) — Radius of the spotlight in px
+- `color?: string` (default `"color-mix(in oklab, var(--brand) 14%, transparent)"`) — Any CSS color for the glow
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { SpotlightCard } from "@/components/velora/spotlight-card";
+
+export default function SpotlightCardDemo() {
+  return (
+    <SpotlightCard className="w-full max-w-sm p-8">
+      <h3 className="font-semibold">Move your cursor here</h3>
+      <p className="mt-2 text-sm text-muted-foreground">
+        The glow follows the pointer across the card surface.
+      </p>
+    </SpotlightCard>
+  );
+}
+```
+
+
+### Tilt Card
+
+3D perspective tilt that tracks the cursor. (0.7 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/tilt-card
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/tilt-card.json` (creates `components/velora/tilt-card.tsx`)
+
+**Accessibility**
+- Reduced motion: The card never tilts; it stays flat while the pointer moves over it.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: A transparent wrapper; only the children are read.
+
+**Props**
+
+#### TiltCard
+- `children: React.ReactNode`
+- `className?: string`
+- `maxTilt?: number` (default `8`) — Maximum tilt in degrees
+
+**Example**
+
+```tsx
+import { TiltCard } from "@/components/velora/tilt-card";
+
+export default function TiltCardDemo() {
+  return (
+    <TiltCard className="w-full max-w-sm">
+      <div className="rounded-2xl border bg-card p-8">
+        <h3 className="font-semibold">Tilt me</h3>
+        <p className="mt-2 text-sm text-muted-foreground">
+          3D perspective that tracks your cursor.
+        </p>
+      </div>
+    </TiltCard>
+  );
+}
+```
+
+
+### Wobble Card
+
+Colored card that drifts toward the pointer, with parallax content and grain. (1.4 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/wobble-card
+- Category: Cards & Layout
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/wobble-card.json` (creates `components/velora/wobble-card.tsx`)
+
+**Accessibility**
+- Reduced motion: The card and its content stay put when the pointer moves over them, and the focus lift is replaced by a stronger shadow alone.
+- Keyboard: The card itself is not focusable; when a link or button inside it has keyboard focus the card lifts slightly and its shadow deepens.
+- Screen readers: Only the children are read; the grain overlay is aria-hidden.
+
+**Props**
+
+#### WobbleCard
+- `strength?: number` (default `10`) — Furthest the card shifts toward the pointer, in px
+- `depth?: number` (default `0.6`) — How much further the content moves than the card (parallax), as a multiple
+- `grain?: boolean` (default `true`) — Show the film-grain texture
+- `contentClassName?: string` — Classes for the inner content wrapper (padding lives here)
+- …and every `Omit<React.HTMLAttributes<HTMLDivElement>, "onAnimationStart" | "onDrag" | "onDragStart" | "onDragEnd">` prop
+
+**Example**
+
+```tsx
+import { WobbleCard } from "@/components/velora/wobble-card";
+
+export default function WobbleCardDemo() {
+  return (
+    <WobbleCard className="w-full max-w-xl" contentClassName="min-h-56">
+      <p className="text-sm font-medium opacity-80">Launch week</p>
+      <h3 className="mt-2 max-w-xs text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
+        Ship previews for every pull request
+      </h3>
+      <p className="mt-3 max-w-60 text-sm opacity-80">
+        Each branch gets its own URL, so reviewers click instead of cloning.
+      </p>
+      <div
+        aria-hidden
+        className="absolute -right-8 -bottom-10 hidden w-56 -rotate-6 rounded-xl border border-white/25 bg-white/10 p-3 shadow-2xl sm:block"
+      >
+        <div className="flex gap-1">
+          <span className="size-2 rounded-full bg-white/50" />
+          <span className="size-2 rounded-full bg-white/30" />
+          <span className="size-2 rounded-full bg-white/30" />
+        </div>
+        <div className="mt-3 h-2 w-3/4 rounded-full bg-white/40" />
+        <div className="mt-2 h-2 w-1/2 rounded-full bg-white/25" />
+        <div className="mt-4 h-16 rounded-lg bg-white/15" />
+      </div>
+    </WobbleCard>
+  );
+}
+```
+
+
+### Animated Sidebar
+
+Icon rail that expands on hover or focus and turns into a drawer on narrow screens. (2.9 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/animated-sidebar
+- Category: Navigation
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/animated-sidebar.json` (creates `components/velora/animated-sidebar.tsx`)
+
+**Accessibility**
+- Reduced motion: The rail snaps between its collapsed and expanded widths, labels appear without fading and the drawer opens without sliding.
+- Keyboard: Links are native anchors; tabbing into the rail expands it. In the narrow layout the menu button opens a modal drawer that keeps Tab inside, closes on Escape or a backdrop click, and returns focus to the button.
+- Screen readers: A nav landmark (label prop) of links with aria-current on the active page; collapsed labels are only faded, so every link keeps its name, and the menu button reports aria-expanded.
+
+**Props**
+
+#### Sidebar
+- `pinned?: boolean` — Controlled pinned-open state of the desktop rail
+- `defaultPinned?: boolean` (default `false`) — Initial pinned state when uncontrolled
+- `onPinnedChange?: (pinned: boolean) => void` — Called when the pin toggle is pressed
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+#### SidebarBody
+- `logo?: React.ReactNode` — Icon-sized mark, always visible
+- `title?: React.ReactNode` — Product name next to the logo; fades in with the labels
+- `footer?: React.ReactNode` — Links pinned to the bottom (e.g. settings or the account)
+- `label?: string` (default `"Main"`) — Accessible name of the navigation landmark
+- `pinnable?: boolean` (default `true`) — Show the "Keep expanded" toggle at the bottom of the rail
+- `className?: string` — Classes for the navigation panel (rail and drawer)
+- `children: React.ReactNode` — SidebarLink elements
+
+#### SidebarLink
+- `icon: React.ReactNode` — Icon shown in both collapsed and expanded states
+- `label: string` — Link text; stays the accessible name while the rail is collapsed
+- `active?: boolean` (default `false`) — Marks the current page (sets aria-current="page")
+- …and every `React.AnchorHTMLAttributes<HTMLAnchorElement>` prop
+
+**Example**
+
+```tsx
+import {
+  Bell,
+  FolderKanban,
+  LayoutDashboard,
+  Settings,
+  Users,
+} from "lucide-react";
+
+import {
+  Sidebar,
+  SidebarBody,
+  SidebarLink,
+} from "@/components/velora/animated-sidebar";
+
+const links = [
+  { label: "Dashboard", icon: <LayoutDashboard />, active: true },
+  { label: "Projects", icon: <FolderKanban /> },
+  { label: "Team", icon: <Users /> },
+  { label: "Notifications", icon: <Bell /> },
+];
+
+export default function AnimatedSidebarDemo() {
+  return (
+    <Sidebar className="h-96 w-full overflow-hidden rounded-xl border bg-background">
+      <SidebarBody
+        logo={
+          <span className="size-7 rounded-lg bg-linear-to-br from-brand-from via-brand-via to-brand-to" />
+        }
+        title="Northwind"
+        footer={<SidebarLink href="#settings" label="Settings" icon={<Settings />} />}
+      >
+        {links.map((link) => (
+          <SidebarLink
+            key={link.label}
+            href={`#${link.label.toLowerCase()}`}
+            label={link.label}
+            icon={link.icon}
+            active={link.active}
+          />
+        ))}
+      </SidebarBody>
+      <main className="@container flex-1 space-y-4 overflow-auto p-6">
+        <h2 className="text-lg font-semibold">Dashboard</h2>
+        <p className="max-w-md text-sm text-muted-foreground">
+          Hover the rail or Tab into it to expand it. Pin it open with the
+          toggle at the bottom.
+        </p>
+        <div className="grid gap-3 @lg:grid-cols-3">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="h-24 rounded-xl border bg-muted/50" />
+          ))}
+        </div>
+        <div className="h-32 rounded-xl border bg-muted/50" />
+      </main>
+    </Sidebar>
+  );
+}
+```
+
+
+### Animated Tabs
+
+Tabs with a gliding pill and panels stacked like cards that peek behind. (1.9 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/animated-tabs
+- Category: Navigation
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/animated-tabs.json` (creates `components/velora/animated-tabs.tsx`)
+
+**Accessibility**
+- Reduced motion: The pill jumps to the selected tab and the panels swap places instantly; the stacked, offset layout stays as a static picture.
+- Keyboard: One Tab stop for the tab list (roving tabindex). Arrow Left/Right move and select with wrap-around, Home and End jump to the first and last tab, and Tab then moves into the active panel.
+- Screen readers: Uses tablist, tab and tabpanel roles with aria-selected, aria-controls and aria-labelledby; the peeking inactive panels are aria-hidden and inert.
+
+**Props**
+
+#### AnimatedTabs
+- `tabs: Tab[]` — The tabs, in order
+- `defaultValue?: string` — Value of the tab selected on first render (defaults to the first tab)
+- `value?: string` — Controlled selected value
+- `onValueChange?: (value: string) => void` — Called with the new value when the selection changes
+- `peek?: number` (default `2`) — How many inactive panels peek out behind the active one
+- `listClassName?: string` — Classes for the tab list
+- `panelClassName?: string` — Classes for every panel card
+- …and every `Omit<React.HTMLAttributes<HTMLDivElement>, "defaultValue">` prop
+
+**Example**
+
+```tsx
+import { AnimatedTabs } from "@/components/velora/animated-tabs";
+
+const tabs = [
+  {
+    value: "design",
+    title: "Design",
+    heading: "Sketch in the browser",
+    body: "Start from tokens, not pixels. Every colour and radius maps to a CSS variable you can re-theme later.",
+  },
+  {
+    value: "build",
+    title: "Build",
+    heading: "Copy, paste, own it",
+    body: "Components land in your repo as plain TSX files. No runtime package to upgrade, no black boxes.",
+  },
+  {
+    value: "ship",
+    title: "Ship",
+    heading: "Fast by default",
+    body: "Each component is a few kilobytes and respects reduced motion out of the box.",
+  },
+  {
+    value: "iterate",
+    title: "Iterate",
+    heading: "Tweak without fear",
+    body: "Props are typed and documented, so changing behaviour is a prop away rather than a rewrite.",
+  },
+].map((tab) => ({
+  value: tab.value,
+  title: tab.title,
+  content: (
+    <div>
+      <div className="h-1.5 bg-linear-to-r from-brand-from via-brand-via to-brand-to" />
+      <div className="space-y-2 p-8">
+        <h3 className="text-xl font-semibold tracking-tight">{tab.heading}</h3>
+        <p className="max-w-md text-sm text-muted-foreground">{tab.body}</p>
+      </div>
+    </div>
+  ),
+}));
+
+export default function AnimatedTabsDemo() {
+  return <AnimatedTabs tabs={tabs} className="max-w-xl" />;
+}
+```
+
+
+### Floating Navbar
+
+Hides on scroll down, returns the moment you scroll up. (1.2 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/floating-navbar
+- Category: Navigation
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/floating-navbar.json` (creates `components/velora/floating-navbar.tsx`)
+
+**Accessibility**
+- Reduced motion: The bar still hides on scroll down and returns on scroll up, but it jumps instead of sliding over 300ms.
+- Keyboard: Links inside stay in the tab order. Moving focus into the bar brings it back on screen, and it does not hide while focus is inside it.
+- Screen readers: Renders a <header> (a banner landmark at the top level of the page) and adds no ARIA of its own.
+
+**Props**
+
+#### FloatingNavbar
+- `revealAfter?: number` (default `120`) — Pixels scrolled before the bar is allowed to hide
+- `scrollContainer?: React.RefObject<HTMLElement | null>` — Scrollable element to watch instead of the window
+- `children: React.ReactNode`
+- …and every `React.HTMLAttributes<HTMLElement>` prop
+
+**Example**
+
+```tsx
+"use client";
+
+import { useRef } from "react";
+
+import { FloatingNavbar } from "@/components/velora/floating-navbar";
+
+export default function FloatingNavbarDemo() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      ref={scrollRef}
+      className="relative h-80 w-full max-w-md overflow-y-auto rounded-xl border"
+    >
+      {/* In a real layout, drop `scrollContainer` and `sticky`: the bar is
+          fixed to the viewport and follows the page scroll. */}
+      <FloatingNavbar
+        scrollContainer={scrollRef}
+        revealAfter={40}
+        className="sticky"
+      >
+        <span className="text-sm font-semibold">Velora</span>
+        <nav className="flex gap-4 text-sm text-muted-foreground">
+          <a href="#docs" className="hover:text-foreground">
+            Docs
+          </a>
+          <a href="#pricing" className="hover:text-foreground">
+            Pricing
+          </a>
+        </nav>
+      </FloatingNavbar>
+      <div className="space-y-3 px-6 pt-8 pb-6">
+        <p className="text-sm text-muted-foreground">
+          Scroll down in this box to hide the bar, then scroll up to bring it
+          back.
+        </p>
+        {Array.from({ length: 12 }).map((_, i) => (
+          <div key={i} className="h-10 rounded-lg bg-muted" />
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+
+### Navbar Menu
+
+Hover-driven menu whose pill and panel morph between items. (1.6 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/navbar-menu
+- Category: Navigation
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/navbar-menu.json` (creates `components/velora/navbar-menu.tsx`)
+
+**Accessibility**
+- Reduced motion: The highlight pill jumps between items and the panel appears and disappears instantly, with no fade, rise or scale.
+- Keyboard: Tabbing to an item with a panel opens it, and Tab continues into the panel. Escape closes it and returns focus to the item, focus leaving the menu closes it, and Enter or Space reopens it. Items with `href` are ordinary links.
+- Screen readers: A <nav> of buttons and links; only items with a panel carry aria-expanded, plus aria-controls while open.
+
+**Props**
+
+#### NavbarMenu
+- `children: React.ReactNode`
+- `className?: string`
+
+#### MenuItem
+- `label: string`
+- `href?: string` — Renders the item as a link; ignored when the item has a panel
+- `children?: React.ReactNode`
+- `className?: string`
+
+**Example**
+
+```tsx
+import { MenuItem, NavbarMenu } from "@/components/velora/navbar-menu";
+
+export default function NavbarMenuDemo() {
+  return (
+    <NavbarMenu>
+      <MenuItem label="Product">
+        <ul className="flex w-40 flex-col gap-1 text-sm">
+          <li>
+            <a href="#components" className="text-muted-foreground hover:text-foreground">
+              Components
+            </a>
+          </li>
+          <li>
+            <a href="#themes" className="text-muted-foreground hover:text-foreground">
+              Themes
+            </a>
+          </li>
+        </ul>
+      </MenuItem>
+      <MenuItem label="Docs" href="#docs" />
+      <MenuItem label="Pricing" href="#pricing" />
+    </NavbarMenu>
+  );
+}
+```
+
+
+### Resizable Navbar
+
+Full-width navbar that shrinks into a floating, blurred pill once you scroll. (2.6 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/resizable-navbar
+- Category: Navigation
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/resizable-navbar.json` (creates `components/velora/resizable-navbar.tsx`)
+
+**Accessibility**
+- Reduced motion: The bar still narrows into the pill past the threshold, but it snaps to size instead of springing; the link highlight jumps rather than glides and the mobile menu appears without sliding.
+- Keyboard: Links are native anchors and the highlight follows keyboard focus. In the narrow layout a Menu button toggles the link list; Escape closes it and returns focus to the button, and choosing a link or clicking outside closes it too.
+- Screen readers: A header containing a nav landmark (label prop) with aria-current on the active link; the menu button reports aria-expanded and aria-controls, and the highlight is aria-hidden.
+
+**Props**
+
+#### ResizableNavbar
+- `items: NavItem[]` — Links shown in the bar (and in the mobile menu)
+- `logo?: React.ReactNode` — Brand mark or logo link on the left
+- `cta?: React.ReactNode` — Call to action on the right (e.g. a sign-up link)
+- `threshold?: number` (default `80`) — Pixels scrolled before the bar shrinks into a floating pill
+- `compactWidth?: number` (default `760`) — Maximum width of the floating pill, in px
+- `maxWidth?: number` (default `1152`) — Maximum width of the full bar, in px
+- `activeHref?: string` — href of the current page; that link gets aria-current="page"
+- `label?: string` (default `"Main"`) — Accessible name of the navigation landmark
+- `container?: React.RefObject<HTMLElement | null>` — Scrollable element to watch instead of the window
+- …and every `React.HTMLAttributes<HTMLElement>` prop
+
+**Example**
+
+```tsx
+"use client";
+
+import { useRef } from "react";
+
+import { ResizableNavbar } from "@/components/velora/resizable-navbar";
+
+const items = [
+  { label: "Features", href: "#features" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Docs", href: "#docs" },
+  { label: "Blog", href: "#blog" },
+];
+
+export default function ResizableNavbarDemo() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      ref={scrollRef}
+      className="relative h-96 w-full overflow-y-auto rounded-xl border bg-background"
+    >
+      {/* In a real layout, drop `container`: the bar sticks to the top of
+          the page and watches the window scroll. */}
+      <ResizableNavbar
+        container={scrollRef}
+        threshold={24}
+        compactWidth={600}
+        items={items}
+        activeHref="#features"
+        logo={
+          <a href="#top" className="flex items-center gap-2 font-semibold">
+            <span className="size-6 rounded-md bg-linear-to-br from-brand-from via-brand-via to-brand-to" />
+            Northwind
+          </a>
+        }
+        cta={
+          <a
+            href="#start"
+            className="inline-flex h-9 items-center rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground"
+          >
+            Get started
+          </a>
+        }
+      />
+      <div className="space-y-3 px-6 pt-10 pb-6">
+        <p className="text-center text-sm text-muted-foreground">
+          Scroll inside this box — the bar shrinks into a floating pill.
+        </p>
+        {Array.from({ length: 10 }).map((_, i) => (
+          <div key={i} className="mx-auto h-16 max-w-2xl rounded-xl bg-muted" />
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+
+### Sticky Banner
+
+Dismissible announcement bar pinned above the header. (1.2 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/sticky-banner
+- Category: Navigation
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/sticky-banner.json` (creates `components/velora/sticky-banner.tsx`)
+
+**Accessibility**
+- Reduced motion: Nothing animates, so reduced-motion users see the same banner.
+- Keyboard: The dismiss button is a native button with a visible focus outline. Dismissing moves focus to the next focusable element after the banner.
+- Screen readers: The dismiss button is named "Dismiss announcement"; the banner itself is a plain div with no landmark role.
+
+**Props**
+
+#### StickyBanner
+- `dismissible?: boolean` (default `true`) — Hide the dismiss button for banners that must stay put
+- `onDismiss?: () => void` — Called after the banner is dismissed; focus has already moved to the next focusable element
+- `children: React.ReactNode`
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { StickyBanner } from "@/components/velora/sticky-banner";
+
+export default function StickyBannerDemo() {
+  return (
+    <div className="w-full max-w-sm overflow-hidden rounded-lg border">
+      <StickyBanner className="static">
+        <span className="text-sm">Velora 0.4 is out — 64 components</span>
+      </StickyBanner>
+      <div className="h-20 bg-muted/40" />
+    </div>
+  );
+}
+```
+
+
+### File Drop
+
+Upload zone that lifts and glows while a file is over it. (1.4 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/file-drop
+- Category: Forms
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/file-drop.json` (creates `components/velora/file-drop.tsx`)
+
+**Accessibility**
+- Reduced motion: The 200ms transition is removed, so on drag-over the zone snaps to its lifted, brand-bordered state instead of easing into it.
+- Keyboard: Tab reaches the visually hidden file input, the zone shows a focus ring, and Enter or Space opens the file picker.
+- Screen readers: The file input is wrapped in a label, so it is announced with the zone's text (the instruction plus the accepted types); the selected-file list is not a live region.
+
+**Props**
+
+#### FileDrop
+- `onFiles?: (files: File[]) => void`
+- `accept?: string` — Passed straight to the underlying input
+- `multiple?: boolean` (default `true`)
+- `className?: string`
+
+**Example**
+
+```tsx
+import { FileDrop } from "@/components/velora/file-drop";
+
+export default function FileDropDemo() {
+  return <FileDrop className="max-w-xs" accept="image/*" />;
+}
+```
+
+
+### Stepper
+
+Progress indicator for multi-step forms and checkouts. (1.4 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/stepper
+- Category: Forms
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/stepper.json` (creates `components/velora/stepper.tsx`)
+
+**Accessibility**
+- Reduced motion: The progress bar jumps to its new fill instead of animating. Marker colors still change with a short color transition.
+- Keyboard: With `onStepClick`, completed steps are buttons that Tab reaches and Enter or Space activates. Otherwise markers are plain text and not focusable.
+- Screen readers: An ordered list where each marker is named like "Step 1: Account, complete" and the current step's item has aria-current="step".
+
+**Props**
+
+#### Stepper
+- `steps: string[]`
+- `current: number` — Zero-based index of the step in progress
+- `onStepClick?: (index: number) => void` — Make completed steps clickable; other markers render as plain text
+- `className?: string`
+
+**Example**
+
+```tsx
+import { Stepper } from "@/components/velora/stepper";
+
+export default function StepperDemo() {
+  return (
+    <Stepper
+      className="max-w-xs"
+      steps={["Account", "Plan", "Done"]}
+      current={1}
+    />
+  );
+}
+```
+
+
+### Vanish Input
+
+Search field whose placeholder cycles while empty. (1.6 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/vanish-input
+- Category: Forms
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/vanish-input.json` (creates `components/velora/vanish-input.tsx`)
+
+**Accessibility**
+- Reduced motion: The placeholder does not cycle: it stays on the first entry, with no slide or fade.
+- Keyboard: A native form: the input is focusable, Enter submits, and focus stays in the input after submitting. The placeholder stops cycling while the field is hovered or focused.
+- Screen readers: The input is named by the `label` prop (default "Search"); the rotating placeholder is aria-hidden and the icon button is named "Submit".
+
+**Props**
+
+#### VanishInput
+- `placeholders: string[]` — Cycled through while the field is empty
+- `interval?: number` (default `3`) — Seconds each placeholder is held
+- `label?: string` (default `"Search"`) — Accessible name for the input
+- `onSubmit?: (value: string) => void`
+- `className?: string`
+
+**Example**
+
+```tsx
+import { VanishInput } from "@/components/velora/vanish-input";
+
+export default function VanishInputDemo() {
+  return (
+    <VanishInput
+      className="max-w-xs"
+      placeholders={[
+        "Search components…",
+        "Try 'border beam'",
+        "Try 'bento grid'",
+      ]}
+    />
+  );
+}
+```
+
+
+### Animated Modal
+
+Native dialog whose panel springs in with a tilt over a blurred backdrop. (3.0 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/animated-modal
+- Category: Overlays
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/animated-modal.json` (creates `components/velora/animated-modal.tsx`)
+
+**Accessibility**
+- Reduced motion: The spring, scale and tilt are dropped; the panel and backdrop fade in and out over 150–200ms.
+- Keyboard: The trigger is a native button. Opening moves focus into the dialog and Tab stays inside it (native showModal); Escape, the × button and ModalClose close it, and focus returns to the element that opened it.
+- Screen readers: A native modal <dialog> named by its title (or aria-labelledby) and described by its description; the page behind is inert while it is open.
+
+**Props**
+
+#### Modal
+- `open?: boolean` — Controlled open state
+- `defaultOpen?: boolean` (default `false`) — Initial open state when uncontrolled
+- `onOpenChange?: (open: boolean) => void` — Called whenever the modal asks to open or close
+- `children: React.ReactNode` — ModalTrigger, ModalContent and anything else
+
+#### ModalTrigger
+- …and every `React.ButtonHTMLAttributes<HTMLButtonElement>` prop
+
+#### ModalContent
+- `title?: React.ReactNode` — Heading rendered at the top; it becomes the dialog's accessible name
+- `description?: React.ReactNode` — Supporting text under the title, announced as the dialog's description
+- `showCloseButton?: boolean` (default `true`) — Show the × button in the top-right corner
+- …and every `Omit<React.HTMLAttributes<HTMLDivElement>, "title" | MotionConflicts>` prop
+
+#### ModalFooter
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+#### ModalClose
+- …and every `React.ButtonHTMLAttributes<HTMLButtonElement>` prop
+
+**Example**
+
+```tsx
+import {
+  Modal,
+  ModalClose,
+  ModalContent,
+  ModalFooter,
+  ModalTrigger,
+} from "@/components/velora/animated-modal";
+
+export default function AnimatedModalDemo() {
+  return (
+    <Modal>
+      <ModalTrigger>Invite teammates</ModalTrigger>
+      <ModalContent
+        title="Invite your team"
+        description="Teammates get access to every project in this workspace."
+      >
+        <div className="space-y-4 px-6 py-5">
+          <label className="block space-y-1.5 text-sm font-medium">
+            <span>Email addresses</span>
+            <input
+              type="email"
+              multiple
+              placeholder="ada@studio.dev, grace@studio.dev"
+              className="h-10 w-full rounded-lg border bg-background px-3 text-sm font-normal outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring"
+            />
+          </label>
+          <label className="block space-y-1.5 text-sm font-medium">
+            <span>Role</span>
+            <select className="h-10 w-full rounded-lg border bg-background px-3 text-sm font-normal outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <option>Editor</option>
+              <option>Viewer</option>
+              <option>Admin</option>
+            </select>
+          </label>
+        </div>
+        <ModalFooter>
+          <ModalClose>Cancel</ModalClose>
+          <ModalClose className="border-transparent bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground">
+            Send invites
+          </ModalClose>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  );
+}
+```
+
+
+### Loaders
+
+Five tiny CSS loading indicators — dots, pulse, orbit, bars and spinner. (1.6 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/loaders
+- Category: Loaders
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/loaders.json` (creates `components/velora/loaders.tsx`)
+
+**Accessibility**
+- Reduced motion: Bouncing, spinning and rippling stop; each loader holds its shape and fades gently in and out on a 2-second cycle instead.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Each loader is role="status" with a visually hidden label ("Loading" by default); pass aria-hidden when nearby text already says what is happening.
+
+**Props**
+
+#### DotsLoader
+- `size?: LoaderSize` (default `"md"`) — Overall size: sm = 16px, md = 24px, lg = 32px
+- `label?: string` (default `"Loading"`) — Text read by screen readers (visually hidden)
+- …and every `React.HTMLAttributes<HTMLSpanElement>` prop
+
+#### PulseLoader
+- `size?: LoaderSize` (default `"md"`) — Overall size: sm = 16px, md = 24px, lg = 32px
+- `label?: string` (default `"Loading"`) — Text read by screen readers (visually hidden)
+- …and every `React.HTMLAttributes<HTMLSpanElement>` prop
+
+#### OrbitLoader
+- `size?: LoaderSize` (default `"md"`) — Overall size: sm = 16px, md = 24px, lg = 32px
+- `label?: string` (default `"Loading"`) — Text read by screen readers (visually hidden)
+- …and every `React.HTMLAttributes<HTMLSpanElement>` prop
+
+#### BarsLoader
+- `size?: LoaderSize` (default `"md"`) — Overall size: sm = 16px, md = 24px, lg = 32px
+- `label?: string` (default `"Loading"`) — Text read by screen readers (visually hidden)
+- …and every `React.HTMLAttributes<HTMLSpanElement>` prop
+
+#### SpinnerLoader
+- `size?: LoaderSize` (default `"md"`) — Overall size: sm = 16px, md = 24px, lg = 32px
+- `label?: string` (default `"Loading"`) — Text read by screen readers (visually hidden)
+- …and every `React.HTMLAttributes<HTMLSpanElement>` prop
+
+**Example**
+
+```tsx
+import {
+  BarsLoader,
+  DotsLoader,
+  OrbitLoader,
+  PulseLoader,
+  SpinnerLoader,
+} from "@/components/velora/loaders";
+
+const loaders = [
+  { name: "Dots", Loader: DotsLoader },
+  { name: "Pulse", Loader: PulseLoader },
+  { name: "Orbit", Loader: OrbitLoader },
+  { name: "Bars", Loader: BarsLoader },
+  { name: "Spinner", Loader: SpinnerLoader },
+];
+
+export default function LoadersDemo() {
+  return (
+    <div className="grid w-full max-w-3xl grid-cols-2 gap-3 sm:grid-cols-5">
+      {loaders.map(({ name, Loader }) => (
+        <div
+          key={name}
+          className="flex flex-col items-center gap-4 rounded-2xl border bg-card px-4 py-6"
+        >
+          <div className="flex h-10 items-center gap-4 text-brand">
+            <Loader size="sm" />
+            <Loader size="lg" />
+          </div>
+          <span className="text-xs font-medium text-muted-foreground">{name}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+
+### Multi Step Loader
+
+Full-screen overlay that ticks through a list of steps, keeping the active one centred. (3.0 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/multi-step-loader
+- Category: Loaders
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/multi-step-loader.json` (creates `components/velora/multi-step-loader.tsx`)
+
+**Accessibility**
+- Reduced motion: The list jumps to the active step instead of scrolling, the spinner stands still and the overlay appears without a fade; steps still advance on schedule.
+- Keyboard: Built on a modal <dialog>: focus moves into it on open, Tab stays inside, and focus returns to the trigger on close. With onClose, Escape and a Close button dismiss it; a looping loader pauses while hovered or while its Close button has focus.
+- Screen readers: A polite live region announces each change ("Step 2 of 5: Installing dependencies"); the steps are an ordered list with aria-current="step" on the active one and completed steps marked done.
+
+**Props**
+
+#### MultiStepLoader
+- `loading: boolean` — Show the overlay
+- `steps: LoaderStep[]` — Steps, in order
+- `current?: number` — Active step index (steps.length = all done); omit to auto-advance
+- `duration?: number` (default `1600`) — Milliseconds per step when auto-advancing
+- `loop?: boolean` (default `false`) — Start again after the last step instead of finishing
+- `title?: string` — Visible heading, also the dialog's accessible name
+- `onComplete?: () => void` — Called one `duration` after every auto-advanced step is done
+- `onClose?: () => void` — Renders a close button and lets Escape dismiss the overlay
+- …and every `Omit<React.DialogHTMLAttributes<HTMLDialogElement>, "title" | "open" | "onClose">` prop
+
+**Example**
+
+```tsx
+"use client";
+
+import { useState } from "react";
+
+import { MultiStepLoader } from "@/components/velora/multi-step-loader";
+
+const steps = [
+  { text: "Creating your workspace" },
+  { text: "Inviting your team" },
+  { text: "Importing projects" },
+  { text: "Setting up permissions" },
+  { text: "Applying your theme" },
+  { text: "Almost there" },
+];
+
+export default function MultiStepLoaderDemo() {
+  const [loading, setLoading] = useState(false);
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setLoading(true)}
+        className="h-10 rounded-lg bg-primary px-5 text-sm font-medium text-primary-foreground shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+      >
+        Show loader
+      </button>
+      <MultiStepLoader
+        loading={loading}
+        steps={steps}
+        duration={1400}
+        loop
+        onClose={() => setLoading(false)}
+      />
+    </>
+  );
+}
+```
+
+
+### Animated Testimonials
+
+Crossfades portraits behind a rotating quote. (2.0 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/animated-testimonials
+- Category: Social Proof
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/animated-testimonials.json` (creates `components/velora/animated-testimonials.tsx`)
+
+**Accessibility**
+- Reduced motion: Autoplay is off and the pause button is hidden. Changing slides with the dots swaps the portrait and quote instantly, with no scale, rotate or slide.
+- Keyboard: The pause/play button and the dots are native buttons with visible focus rings and 24px hit areas. Autoplay also pauses while the pointer or focus is inside the component.
+- Screen readers: Each dot is named "Show testimonial from {name}" with aria-current on the shown one, the quote is a blockquote, and slide changes are not announced.
+
+**Props**
+
+#### AnimatedTestimonials
+- `testimonials: Testimonial[]`
+- `interval?: number` (default `6`) — Seconds between slides; 0 disables autoplay
+- `className?: string`
+
+**Example**
+
+```tsx
+import { AnimatedTestimonials } from "@/components/velora/animated-testimonials";
+
+const quotes = [
+  {
+    quote:
+      "Swapped three separate animation libraries for Velora and the bundle got smaller.",
+    name: "Dana Whitfield",
+    role: "Staff engineer, Corvine",
+  },
+  {
+    quote:
+      "The size on every docs page is the reason we shipped it without a review meeting.",
+    name: "Marco Elias",
+    role: "Design engineer, Halyard",
+  },
+  {
+    quote: "Reduced-motion worked out of the box. That never happens.",
+    name: "Priya Raman",
+    role: "Accessibility lead, Northbeam",
+  },
+];
+
+export default function AnimatedTestimonialsDemo() {
+  return <AnimatedTestimonials testimonials={quotes} className="max-w-sm" />;
+}
+```
+
+
+### Logo Cloud
+
+Customer logos muted until hovered, so they read as texture. (0.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/logo-cloud
+- Category: Social Proof
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/logo-cloud.json` (creates `components/velora/logo-cloud.tsx`)
+
+**Accessibility**
+- Reduced motion: The 300ms fade is removed, so a hovered logo switches straight from dimmed grayscale to full color.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: A list with one item per logo, each announced by its `name`; the logo node itself is aria-hidden.
+
+**Props**
+
+#### LogoCloud
+- `logos: { name: string; logo: React.ReactNode }[]` — One entry per logo — pass SVGs, `img` elements or plain wordmarks
+- `dimUntilHover?: boolean` (default `true`) — Show logos muted until hovered
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { LogoCloud } from "@/components/velora/logo-cloud";
+
+const chips = ["Astro", "Next.js", "Remix", "Vite", "Nuxt", "SvelteKit"];
+
+export default function LogoCloudDemo() {
+  return (
+    <LogoCloud
+      className="max-w-sm grid-cols-3 gap-6 lg:grid-cols-3"
+      logos={chips.slice(0, 6).map((name) => ({
+        name,
+        logo: <span className="text-sm font-semibold">{name}</span>,
+      }))}
+    />
+  );
+}
+```
+
+
+### Tweet Card
+
+Static social-proof card — props, not an API call. (1.2 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/tweet-card
+- Category: Social Proof
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/tweet-card.json` (creates `components/velora/tweet-card.tsx`)
+
+**Accessibility**
+- Reduced motion: Nothing animates beyond a background-color change on hover.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: A figure with name, @handle and time followed by a blockquote; the avatar is decorative and the verified badge is announced as "Verified account".
+
+**Props**
+
+#### TweetCard
+- `name: string`
+- `handle: string`
+- `content: React.ReactNode`
+- `avatar?: string` — Optional avatar URL; falls back to the author's initial
+- `time?: string` — Free-form, e.g. "2h" or "Mar 14"
+- `verified?: boolean` (default `false`)
+- …and every `Omit<React.HTMLAttributes<HTMLElement>, "content">` prop
+
+**Example**
+
+```tsx
+import { TweetCard } from "@/components/velora/tweet-card";
+
+export default function TweetCardDemo() {
+  return (
+    <TweetCard
+      name="Dana Whitfield"
+      handle="danawhit"
+      time="2h"
+      verified
+      content="Velora publishes the gzipped size of every component. Nobody else does this."
+    />
+  );
+}
+```
+
+
+### Container Scroll
+
+Screenshot panel that rotates flat as it scrolls into view. (0.8 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/container-scroll
+- Category: Scroll
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/container-scroll.json` (creates `components/velora/container-scroll.tsx`)
+
+**Accessibility**
+- Reduced motion: A CSS override keeps the panel flat and the header in place: no 26° tilt, no scale, no scroll offset.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Plain wrapper divs; the header and children pass through unchanged.
+
+**Props**
+
+#### ContainerScroll
+- `header?: React.ReactNode` — Headline area above the panel
+- `children: React.ReactNode`
+- `className?: string`
+
+**Example**
+
+```tsx
+import { ContainerScroll } from "@/components/velora/container-scroll";
+
+export default function ContainerScrollDemo() {
+  return (
+    <ContainerScroll className="w-full max-w-xs">
+      <div className="flex h-28 items-center justify-center bg-gradient-to-br from-brand-from/20 to-brand-to/20 text-sm text-muted-foreground">
+        Your screenshot
+      </div>
+    </ContainerScroll>
+  );
+}
+```
+
+
+### Hero Parallax
+
+Hero copy over three card rows that slide apart as a tilted block flattens. (2.1 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/hero-parallax
+- Category: Scroll
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/hero-parallax.json` (creates `components/velora/hero-parallax.tsx`)
+
+**Accessibility**
+- Reduced motion: The block renders flat with no tilt, slide or fade, and the rows wrap so every card is visible without scrolling sideways.
+- Keyboard: Cards with an href are links in the Tab order with a visible focus ring; a focused card that has drifted past the edge slides its row back into view.
+- Screen readers: Cards are announced as three lists; each card's accessible name is its visible title, and the image uses empty alt text.
+
+**Props**
+
+#### HeroParallax
+- `products: HeroParallaxProduct[]` — Cards, split evenly across three rows
+- `children?: React.ReactNode` — Hero copy shown above the rows
+- `drift?: number` (default `480`) — How far each row slides sideways over the scroll, in px
+- `cardClassName?: string` — Extra classes for every card, e.g. to resize them
+- `container?: React.RefObject<HTMLElement | null>` — Scrollable element to track instead of the window
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+"use client";
+
+import { useRef } from "react";
+
+import { HeroParallax } from "@/components/velora/hero-parallax";
+
+const photo = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?w=800&q=70&auto=format&fit=crop`;
+
+const products = [
+  { title: "Ledger Analytics", image: photo("1460925895917-afdab827c52f"), href: "#ledger" },
+  { title: "Pulse Dashboard", image: photo("1551288049-bebda4e38f71"), href: "#pulse" },
+  { title: "Wander Mobile", image: photo("1545235617-9465d2a55698"), href: "#wander" },
+  { title: "Flowboard", image: photo("1531403009284-440f080d1e12"), href: "#flowboard" },
+  { title: "Hue Design System", image: photo("1561070791-2526d30994b5"), href: "#hue" },
+  { title: "Aurora Brand Kit", image: photo("1618005182384-a83a8bd57fbe"), href: "#aurora" },
+  { title: "Helix Identity", image: photo("1618172193622-ae2d025f4032"), href: "#helix" },
+  { title: "Sketchpad Pro", image: photo("1558655146-9f40138edfeb"), href: "#sketchpad" },
+  { title: "Northwind Docs", image: photo("1517694712202-14dd9538aa97"), href: "#northwind" },
+  { title: "Tidal Campaign", image: photo("1604871000636-074fa5117945"), href: "#tidal" },
+  { title: "Reactor CLI", image: photo("1633356122544-f134324a6cee"), href: "#reactor" },
+  { title: "Studio Desk", image: photo("1498050108023-c5249f4df085"), href: "#studio" },
+  { title: "Arcade Rewind", image: photo("1550745165-9bc0b252726f"), href: "#arcade" },
+  { title: "Prism Labs", image: photo("1523961131990-5ea7c61b2107"), href: "#prism" },
+  { title: "Glow Wallpapers", image: photo("1579546929518-9e396f3cc809"), href: "#glow" },
+];
+
+export default function HeroParallaxDemo() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  return (
+    // `@container-size` makes the component's cqh heights measure this
+    // box instead of the viewport. On a real page, drop it and `container`.
+    <div
+      ref={scrollRef}
+      className="relative h-[28rem] w-full overflow-y-auto rounded-xl border @container-size"
+    >
+      <HeroParallax products={products} container={scrollRef}>
+        <p className="text-sm font-medium text-muted-foreground">
+          Product studio
+        </p>
+        <h2 className="mt-3 max-w-2xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+          We design and ship{" "}
+          <span className="bg-gradient-to-r from-brand-from via-brand-via to-brand-to bg-clip-text text-transparent">
+            software people love
+          </span>
+        </h2>
+        <p className="mt-4 max-w-xl text-muted-foreground">
+          Fifteen launches this year, from analytics suites to brand systems.
+          Scroll to browse the work.
+        </p>
+      </HeroParallax>
+    </div>
+  );
+}
+```
+
+
+### Macbook Scroll
+
+A CSS-drawn laptop pins in place and opens its lid as the screenshot scales up. (2.0 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/macbook-scroll
+- Category: Scroll
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/macbook-scroll.json` (creates `components/velora/macbook-scroll.tsx`)
+
+**Accessibility**
+- Reduced motion: The laptop renders open with the screenshot at full size, the section drops its extra scroll height, and nothing moves while scrolling.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The title is an h2 and the screenshot uses the `alt` you pass (empty by default); the lid shell, keyboard and trackpad are aria-hidden.
+
+**Props**
+
+#### MacbookScroll
+- `src?: string` — Screenshot shown on the screen
+- `alt?: string` (default `""`) — Alt text for `src`; leave empty if the image is decorative
+- `children?: React.ReactNode` — Custom screen content, used instead of `src`; `cqw` units scale with the screen
+- `title?: React.ReactNode` — Heading above the laptop, rendered in an h2
+- `badge?: React.ReactNode` — Small element on the lower-left of the deck, e.g. a logo
+- `container?: React.RefObject<HTMLElement | null>` — Scrollable element to track instead of the window
+- …and every `Omit<React.HTMLAttributes<HTMLDivElement>, "title">` prop
+
+**Example**
+
+```tsx
+"use client";
+
+import { useRef } from "react";
+
+import { MacbookScroll } from "@/components/velora/macbook-scroll";
+
+export default function MacbookScrollDemo() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  return (
+    // `@container-size` makes the component's cqh heights measure this
+    // box instead of the viewport. On a real page, drop it and `container`.
+    <div
+      ref={scrollRef}
+      className="relative h-[30rem] w-full overflow-y-auto rounded-xl border @container-size"
+    >
+      <MacbookScroll
+        container={scrollRef}
+        title="Open it up. Everything is already set."
+        src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=70&auto=format&fit=crop"
+        badge={
+          <span aria-hidden className="flex size-7 -rotate-12 items-center justify-center rounded-full bg-gradient-to-br from-brand-from to-brand-to text-xs font-bold text-brand-foreground shadow-md">
+            V
+          </span>
+        }
+      />
+    </div>
+  );
+}
+```
+
+
+### Parallax Grid
+
+Gallery columns drifting at different rates for depth. (0.8 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/parallax-grid
+- Category: Scroll
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/parallax-grid.json` (creates `components/velora/parallax-grid.tsx`)
+
+**Accessibility**
+- Reduced motion: A CSS override pins every tile in its grid cell, so the columns do not drift.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Plain divs, one wrapper per child, with no list or grid semantics beyond what the children provide.
+
+**Props**
+
+#### ParallaxGrid
+- `children: React.ReactNode[]` — Each child becomes one tile; columns drift at different speeds
+- `depth?: number` (default `90`) — Maximum vertical drift in px
+- `className?: string`
+
+**Example**
+
+```tsx
+import { ParallaxGrid } from "@/components/velora/parallax-grid";
+
+export default function ParallaxGridDemo() {
+  return (
+    <ParallaxGrid className="w-full max-w-xs gap-2">
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <div
+          key={i}
+          className="h-14 rounded-lg bg-gradient-to-br from-brand-from/25 to-brand-to/25"
+        />
+      ))}
+    </ParallaxGrid>
+  );
+}
+```
+
+
+### Scroll Progress
+
+Gradient page-progress bar pinned to the top. (0.5 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/scroll-progress
+- Category: Scroll
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/scroll-progress.json` (creates `components/velora/scroll-progress.tsx`)
+
+**Accessibility**
+- Reduced motion: The bar follows the scroll position directly, with no spring easing or overshoot.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; aria-hidden.
+
+**Props**
+
+#### ScrollProgress
+- `className?: string`
+- `container?: React.RefObject<HTMLElement | null>` — Track this scroll box instead of the window
+
+**Example**
+
+```tsx
+"use client";
+
+import { useRef } from "react";
+
+import { ScrollProgress } from "@/components/velora/scroll-progress";
+
+export default function ScrollProgressDemo() {
+  const container = useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      ref={container}
+      className="relative h-72 w-full max-w-md overflow-y-auto rounded-xl border"
+    >
+      {/* On a real page, drop `container` and the default fixed position. */}
+      <ScrollProgress container={container} className="sticky" />
+      <div className="space-y-4 p-6">
+        <p className="font-semibold">Scroll this box</p>
+        {Array.from({ length: 12 }, (_, i) => (
+          <p key={i} className="text-sm text-muted-foreground">
+            Paragraph {i + 1}. The bar above fills as you read, easing on a
+            spring so it never jitters.
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+
+### Scroll Velocity
+
+Marquee whose speed and direction follow your scrolling. (1.4 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/scroll-velocity
+- Category: Scroll
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/scroll-velocity.json` (creates `components/velora/scroll-velocity.tsx`)
+
+**Accessibility**
+- Reduced motion: The row stays still at its starting position and does not react to scrolling.
+- Keyboard: Nothing is interactive by default. If children contain links, only the first copy is focusable, and the marquee pauses while the pointer or focus is inside it.
+- Screen readers: Only the first copy of the children is exposed; the three duplicates are aria-hidden and inert.
+
+**Props**
+
+#### ScrollVelocity
+- `children: React.ReactNode`
+- `baseVelocity?: number` (default `4`) — Base speed in percent of content width per second
+- `className?: string`
+
+**Example**
+
+```tsx
+import { ScrollVelocity } from "@/components/velora/scroll-velocity";
+
+export default function ScrollVelocityDemo() {
+  return (
+    <ScrollVelocity className="text-2xl font-semibold text-muted-foreground">
+      Velora UI · Animations with receipts ·
+    </ScrollVelocity>
+  );
+}
+```
+
+
+### Sticky Scroll
+
+Copy scrolls past a pinned panel that swaps per section. (1.3 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/sticky-scroll
+- Category: Scroll
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/sticky-scroll.json` (creates `components/velora/sticky-scroll.tsx`)
+
+**Accessibility**
+- Reduced motion: The pinned panel swaps instantly with no crossfade or scale, and titles switch between full and 60% opacity without fading.
+- Keyboard: Nothing is interactive by default. Interactive `content` in inactive panels is inert, so only the visible panel's controls take focus.
+- Screen readers: Titles are h3 headings with a paragraph each; inactive panels are aria-hidden and inert, and the panel column is hidden below the lg breakpoint.
+
+**Props**
+
+#### StickyScroll
+- `items: StickyScrollItem[]`
+- `container?: React.RefObject<HTMLElement | null>` — Scrollable element to track instead of the window
+- `className?: string`
+
+**Example**
+
+```tsx
+"use client";
+
+import { useRef } from "react";
+
+import { StickyScroll } from "@/components/velora/sticky-scroll";
+
+const items = [
+  {
+    title: "Install",
+    description: "Add a component with one CLI command. The source lands in your repo.",
+    content: <span className="font-mono text-sm">npx shadcn add …</span>,
+  },
+  {
+    title: "Customize",
+    description: "Every class is yours to edit. Tokens come from your theme.",
+    content: <span className="text-lg font-medium">Your tokens</span>,
+  },
+  {
+    title: "Ship",
+    description: "No runtime to configure. It is just a React component.",
+    content: <span className="text-lg font-medium">Deployed</span>,
+  },
+];
+
+export default function StickyScrollDemo() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  return (
+    // `@container-size` makes the component's cqh heights measure this
+    // box instead of the viewport. On a real page, drop it and `container`.
+    <div
+      ref={scrollRef}
+      className="relative h-80 w-full max-w-xl overflow-y-auto rounded-xl border @container-size"
+    >
+      <StickyScroll items={items} container={scrollRef} className="gap-6 px-6" />
+    </div>
+  );
+}
+```
+
+
+### Timeline
+
+Vertical timeline with sticky labels and a gradient beam that fills as you scroll. (1.3 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/timeline
+- Category: Scroll
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/timeline.json` (creates `components/velora/timeline.tsx`)
+
+**Accessibility**
+- Reduced motion: The beam is drawn in full from the start and its glowing head is hidden; labels still stick, which is layout rather than animation.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Entries are an ordered list; each label is an h3 followed by its content, and the track, beam and dots are aria-hidden.
+
+**Props**
+
+#### Timeline
+- `items: TimelineItem[]` — Entries, rendered in order as an ordered list
+- `container?: React.RefObject<HTMLElement | null>` — Scrollable element to track instead of the window
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+"use client";
+
+import { useRef } from "react";
+
+import { Timeline } from "@/components/velora/timeline";
+
+function Tiles({ labels }: { labels: string[] }) {
+  return (
+    <div className="mt-5 grid grid-cols-2 gap-3">
+      {labels.map((label) => (
+        <div
+          key={label}
+          className="flex aspect-[16/10] items-end rounded-xl border bg-gradient-to-br from-brand-from/15 via-brand-via/5 to-brand-to/20 p-3 text-xs font-medium text-muted-foreground"
+        >
+          {label}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+const items = [
+  {
+    title: "2023",
+    content: (
+      <>
+        <p className="text-muted-foreground">
+          Two engineers, one spare room and a shared belief that UI libraries
+          should ship as source you own.
+        </p>
+        <Tiles labels={["First commit", "Kitchen-table office"]} />
+      </>
+    ),
+  },
+  {
+    title: "2024",
+    content: (
+      <>
+        <p className="text-muted-foreground">
+          The first public release. A thousand teams installed a component in
+          the first month, and the issue tracker never slept again.
+        </p>
+        <Tiles labels={["v1.0 launch", "1,000 teams"]} />
+      </>
+    ),
+  },
+  {
+    title: "2025",
+    content: (
+      <>
+        <p className="text-muted-foreground">
+          Theming, reduced-motion support and an accessibility audit of every
+          component. Contributors from 40 countries.
+        </p>
+        <Tiles labels={["Theme builder", "Community call"]} />
+      </>
+    ),
+  },
+  {
+    title: "Today",
+    content: (
+      <p className="text-muted-foreground">
+        Still small, still shipping. The next chapter is being written in the
+        open.
+      </p>
+    ),
+  },
+];
+
+export default function TimelineDemo() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  return (
+    // `@container-size` makes the component's cqh offsets measure this
+    // box instead of the viewport. On a real page, drop it and `container`.
+    <div
+      ref={scrollRef}
+      className="relative h-96 w-full overflow-y-auto rounded-xl border @container-size"
+    >
+      <div className="px-6 pt-10 pb-[35cqh] sm:px-10">
+        <Timeline items={items} container={scrollRef} />
+      </div>
+    </div>
+  );
+}
+```
+
+
+### Tracing Beam
+
+Gradient line that draws itself down long-form content. (0.8 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/tracing-beam
+- Category: Scroll
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/tracing-beam.json` (creates `components/velora/tracing-beam.tsx`)
+
+**Accessibility**
+- Reduced motion: The beam is drawn at full length from the start instead of following your scroll.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The beam is aria-hidden; children render unchanged.
+
+**Props**
+
+#### TracingBeam
+- `children: React.ReactNode`
+- `className?: string`
+
+**Example**
+
+```tsx
+import { TracingBeam } from "@/components/velora/tracing-beam";
+
+export default function TracingBeamDemo() {
+  return (
+    <TracingBeam className="max-w-xs pl-6">
+      <div className="space-y-2">
+        <div className="h-2 w-full rounded bg-muted-foreground/25" />
+        <div className="h-2 w-4/5 rounded bg-muted-foreground/25" />
+        <div className="h-2 w-3/5 rounded bg-muted-foreground/25" />
+        <p className="pt-2 text-xs text-muted-foreground">
+          The beam draws as you read.
+        </p>
+      </div>
+    </TracingBeam>
+  );
+}
+```
+
+
+### Animated Beam
+
+Draws an animated connection between any two elements. (1.5 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/animated-beam
+- Category: Effects
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/animated-beam.json` (creates `components/velora/animated-beam.tsx`)
+
+**Accessibility**
+- Reduced motion: The pulse stops; each connection shows a still gradient stroke along the full path.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; the svg is aria-hidden.
+
+**Props**
+
+#### AnimatedBeam
+- `containerRef: RefObject<HTMLElement | null>`
+- `fromRef: RefObject<HTMLElement | null>`
+- `toRef: RefObject<HTMLElement | null>`
+- `curvature?: number` (default `0`) — Vertical bend of the beam in px (positive bends up)
+- `reverse?: boolean` (default `false`)
+- `duration?: number` (default `5`)
+- `delay?: number` (default `0`)
+- `pathWidth?: number` (default `2`)
+- `pathOpacity?: number` (default `0.15`)
+- `gradientStartColor?: string` (default `"#8b5cf6"`)
+- `gradientStopColor?: string` (default `"#22d3ee"`)
+- `className?: string`
+
+**Example**
+
+```tsx
+"use client";
+
+import { useRef, type Ref } from "react";
+import {
+  BoxIcon,
+  CloudIcon,
+  CodeIcon,
+  DatabaseIcon,
+  MailIcon,
+  SparklesIcon,
+  WalletIcon,
+} from "lucide-react";
+
+import { AnimatedBeam } from "@/components/velora/animated-beam";
+import { cn } from "@/lib/utils";
+
+function Node({
+  ref,
+  className,
+  children,
+}: {
+  ref?: Ref<HTMLDivElement>;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "z-10 flex size-13 items-center justify-center rounded-full border bg-card shadow-lg [&_svg]:size-5",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
+}
+
+/** Six service nodes beaming into a central hub. */
+export default function AnimatedBeamDemo() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const centerRef = useRef<HTMLDivElement>(null);
+  const left1 = useRef<HTMLDivElement>(null);
+  const left2 = useRef<HTMLDivElement>(null);
+  const left3 = useRef<HTMLDivElement>(null);
+  const right1 = useRef<HTMLDivElement>(null);
+  const right2 = useRef<HTMLDivElement>(null);
+  const right3 = useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative flex h-80 w-full items-center justify-between px-2 sm:px-8"
+    >
+      <div className="flex h-full flex-col justify-between py-6">
+        <Node ref={left1}>
+          <DatabaseIcon className="text-muted-foreground" />
+        </Node>
+        <Node ref={left2}>
+          <CodeIcon className="text-muted-foreground" />
+        </Node>
+        <Node ref={left3}>
+          <CloudIcon className="text-muted-foreground" />
+        </Node>
+      </div>
+
+      <Node
+        ref={centerRef}
+        className="size-18 border-primary/40 bg-primary/10 shadow-primary/20 [&_svg]:size-8"
+      >
+        <SparklesIcon className="text-primary" />
+      </Node>
+
+      <div className="flex h-full flex-col justify-between py-6">
+        <Node ref={right1}>
+          <MailIcon className="text-muted-foreground" />
+        </Node>
+        <Node ref={right2}>
+          <WalletIcon className="text-muted-foreground" />
+        </Node>
+        <Node ref={right3}>
+          <BoxIcon className="text-muted-foreground" />
+        </Node>
+      </div>
+
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={left1}
+        toRef={centerRef}
+        curvature={-60}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={left2}
+        toRef={centerRef}
+        delay={1}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={left3}
+        toRef={centerRef}
+        curvature={60}
+        delay={2}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={right1}
+        toRef={centerRef}
+        curvature={-60}
+        reverse
+        delay={0.5}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={right2}
+        toRef={centerRef}
+        reverse
+        delay={1.5}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={right3}
+        toRef={centerRef}
+        curvature={60}
+        reverse
+        delay={2.5}
+      />
+    </div>
+  );
+}
+```
+
+
+### Blur Fade
+
+The workhorse entrance — blur, fade and drift into view. (1.0 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/blur-fade
+- Category: Effects
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/blur-fade.json` (creates `components/velora/blur-fade.tsx`)
+
+**Accessibility**
+- Reduced motion: Content still starts hidden and appears instantly, with no blur or slide, once it scrolls 10% into view.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Children stay in the DOM before they are revealed, so they are always read.
+
+**Props**
+
+#### BlurFade
+- `children: React.ReactNode`
+- `className?: string`
+- `delay?: number` (default `0`) — Seconds before the animation starts
+- `duration?: number` (default `0.5`)
+- `direction?: "up" | "down" | "left" | "right" | "none"` (default `"up"`) — Direction the element enters from
+- `offset?: number` (default `16`) — Distance travelled in px
+- `once?: boolean` (default `true`) — Animate only the first time it enters the viewport
+- `inView?: boolean` — Start animating immediately instead of waiting to scroll into view
+
+**Example**
+
+```tsx
+import { BlurFade } from "@/components/velora/blur-fade";
+
+export default function BlurFadeDemo() {
+  return (
+    <div className="flex gap-3">
+      {[0, 0.15, 0.3].map((delay) => (
+        <BlurFade key={delay} delay={delay} once={false}>
+          <div className="flex size-20 items-center justify-center rounded-xl border bg-card text-sm font-medium">
+            {delay}s
+          </div>
+        </BlurFade>
+      ))}
+    </div>
+  );
+}
+```
+
+
+### Border Beam
+
+A beam of light traveling around any border. (0.9 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/border-beam
+- Category: Effects
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/border-beam.json` (creates `components/velora/border-beam.tsx`)
+
+**Accessibility**
+- Reduced motion: The beam is hidden entirely; only the parent's normal border remains.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Decorative; aria-hidden.
+
+**Props**
+
+#### BorderBeam
+- `className?: string`
+- `size?: number` (default `64`) — Size of the beam in px
+- `duration?: number` (default `6`) — Seconds for one full loop
+- `delay?: number` (default `0`) — Seconds of delay before starting
+- `reverse?: boolean` (default `false`)
+- `colorFrom?: string` (default `"var(--brand-from)"`)
+- `colorTo?: string` (default `"var(--brand-to)"`)
+
+**Example**
+
+```tsx
+import { BorderBeam } from "@/components/velora/border-beam";
+
+export default function BorderBeamDemo() {
+  return (
+    <div className="relative flex h-40 w-full max-w-sm items-center justify-center rounded-2xl border bg-card">
+      <BorderBeam size={64} duration={6} />
+      <p className="text-sm text-muted-foreground">&lt;BorderBeam /&gt;</p>
+    </div>
+  );
+}
+```
+
+
+### Glowing Effect
+
+Border glow that follows the pointer around a card's edge as it comes near. (1.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/glowing-effect
+- Category: Effects
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/glowing-effect.json` (creates `components/velora/glowing-effect.tsx`)
+
+**Accessibility**
+- Reduced motion: The arc stops following the pointer; hovering the card shows a soft glow around the whole border instead.
+- Keyboard: The effect is not focusable; the full border lights up while the card or anything inside it has keyboard focus.
+- Screen readers: The glow layer is aria-hidden and ignores pointer events; only the card content is read.
+
+**Props**
+
+#### GlowingEffect
+- `proximity?: number` (default `64`) — Distance in px outside the card at which the glow starts to fade in
+- `spread?: number` (default `80`) — Length of the lit arc, in degrees of the border
+- `borderWidth?: number` (default `2`) — Thickness of the glowing border in px
+- `halo?: boolean` (default `true`) — Add a soft blurred halo behind the lit border
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { Sparkles } from "lucide-react";
+
+import { GlowingEffect } from "@/components/velora/glowing-effect";
+
+export default function GlowingEffectDemo() {
+  return (
+    <div className="relative w-full max-w-sm rounded-2xl border bg-card p-6 shadow-sm">
+      <GlowingEffect />
+      <div className="flex size-10 items-center justify-center rounded-xl border bg-background shadow-sm">
+        <Sparkles className="size-5 text-brand" aria-hidden />
+      </div>
+      <h3 className="mt-4 font-semibold tracking-tight">Follows your pointer</h3>
+      <p className="mt-1.5 text-sm text-muted-foreground">
+        Bring the cursor near any edge and the border lights up where you are.
+      </p>
+      <a
+        href="#"
+        className="mt-4 inline-block rounded-sm text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+      >
+        Learn more
+      </a>
+    </div>
+  );
+}
+```
+
+
+### 3D Card
+
+Perspective card that turns toward the pointer while its layers lift to different depths. (1.6 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/3d-card
+- Category: 3D
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/3d-card.json` (creates `components/velora/3d-card.tsx`)
+
+**Accessibility**
+- Reduced motion: The card stays flat and its layers stay on the surface; pointer movement and focus change nothing.
+- Keyboard: The card is not focusable itself; when a link or button inside it gets keyboard focus, the layers rise to 40% of their depth without tilting.
+- Screen readers: A transparent wrapper; the children are read in source order.
+
+**Props**
+
+#### Card3D
+- `maxTilt?: number` (default `10`) — Maximum rotation toward the pointer, in degrees
+- `perspective?: number` (default `1000`) — CSS perspective distance in px (smaller = stronger 3D)
+- `cardClassName?: string` — Classes for the rotating surface (avoid overflow-hidden: it flattens the layers)
+- `children: React.ReactNode` — Card content; wrap layers that should lift in Card3DItem
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+#### Card3DItem
+- `depth?: number` (default `40`) — How far the item lifts toward the viewer, in px (translateZ)
+- `rotateX?: number` (default `0`) — Extra rotation around the X axis at full lift, in degrees
+- `rotateY?: number` (default `0`) — Extra rotation around the Y axis at full lift, in degrees
+- `rotateZ?: number` (default `0`) — Extra rotation around the Z axis at full lift, in degrees
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { Card3D, Card3DItem } from "@/components/velora/3d-card";
+
+export default function Card3DDemo() {
+  return (
+    <Card3D
+      className="w-full max-w-sm"
+      cardClassName="rounded-2xl border bg-card p-6 shadow-sm"
+    >
+      <Card3DItem depth={50} className="text-xl font-semibold tracking-tight">
+        Depth on demand
+      </Card3DItem>
+      <Card3DItem depth={35} className="mt-2 text-sm text-muted-foreground">
+        Every layer floats at its own height as the card turns toward you.
+      </Card3DItem>
+      <Card3DItem depth={90} className="relative mt-5">
+        <div className="relative h-36 overflow-hidden rounded-xl bg-linear-to-br from-brand-from via-brand-via to-brand-to shadow-lg shadow-brand/25">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(255_255_255/0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.12)_1px,transparent_1px)] bg-size-[20px_20px]" />
+          <div className="absolute -bottom-8 -left-6 size-32 rounded-full bg-white/25 blur-2xl" />
+        </div>
+        <Card3DItem
+          depth={40}
+          className="absolute right-4 bottom-4 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-zinc-900 shadow-lg"
+        >
+          +130px
+        </Card3DItem>
+      </Card3DItem>
+      <div className="mt-5 flex items-center justify-between">
+        <Card3DItem depth={25} className="text-xs text-muted-foreground">
+          Hover or tab in
+        </Card3DItem>
+        <Card3DItem depth={60}>
+          <button
+            type="button"
+            className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none"
+          >
+            Try it
+          </button>
+        </Card3DItem>
+      </div>
+    </Card3D>
+  );
+}
+```
+
+
+### 3D Pin
+
+Card that tilts back as a glowing pin rises with a label chip and rippling rings. (1.9 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/3d-pin
+- Category: 3D
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/3d-pin.json` (creates `components/velora/3d-pin.tsx`)
+
+**Accessibility**
+- Reduced motion: The card never tilts and the pin does not rise; on hover or focus the pin, chip and three static rings simply appear over the flat card.
+- Keyboard: With href the whole card is one link; without it the root is a plain div and the effect shows while a link or button inside it has keyboard focus. The focused card gets a visible ring.
+- Screen readers: The chip's title is real text read with the card content (it forms part of the link name when href is set); the beam, dot and rings are aria-hidden.
+
+**Props**
+
+#### Pin3D
+- `title: string` — Label shown in the chip at the top of the pin
+- `href?: string` — Makes the whole card a link; without it the root is a plain div
+- `cardClassName?: string` — Classes for the card surface that holds the children
+- `children: React.ReactNode` — Card content, drawn on the tilting surface
+- …and every `Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "title">` prop
+
+**Example**
+
+```tsx
+import { Pin3D } from "@/components/velora/3d-pin";
+
+export default function Pin3DDemo() {
+  return (
+    <Pin3D
+      title="velora.colorlib.com"
+      href="https://velora.colorlib.com"
+      className="mt-6 w-72"
+    >
+      <div className="relative flex h-44 flex-col justify-between overflow-hidden rounded-xl bg-linear-to-br from-brand-from/20 via-brand-via/5 to-brand-to/25 p-4">
+        <div className="absolute -top-10 -right-10 size-36 rounded-full bg-brand/30 blur-2xl" />
+        <span className="relative text-xs font-medium tracking-wider text-muted-foreground uppercase">
+          Velora UI
+        </span>
+        <div className="relative">
+          <h3 className="text-lg font-semibold tracking-tight">
+            Components that move
+          </h3>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Copy, paste and ship animated interfaces.
+          </p>
+        </div>
+      </div>
+    </Pin3D>
+  );
+}
+```
+
+
+### 3D Marquee
+
+A tilted 3D grid of images whose columns scroll up and down in an endless loop. (1.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/3d-marquee
+- Category: Carousels
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/3d-marquee.json` (creates `components/velora/3d-marquee.tsx`)
+
+**Accessibility**
+- Reduced motion: The columns stop scrolling and the grid rests as a static tilted wall. Scrolling also pauses on hover and while offscreen.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Images are decorative (empty alt) unless you pass alt text, in which case each is read once; duplicated copies are aria-hidden and inert.
+
+**Props**
+
+#### Marquee3D
+- `images: Marquee3DImage[]` — Image URLs, or { src, alt } objects (images without alt are decorative)
+- `columns?: number` (default `5`) — Number of columns on the tilted plane
+- `duration?: number` (default `40`) — Seconds for one full loop of a column
+- `fade?: boolean` (default `true`) — Fade the edges into the background
+- `pauseOnHover?: boolean` (default `true`) — Pause scrolling while hovered
+- `imageClassName?: string` — Extra classes for every image tile
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { Marquee3D } from "@/components/velora/3d-marquee";
+
+const photo = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?w=800&q=70&auto=format&fit=crop`;
+
+const images = [
+  "1506905925346-21bda4d32df4",
+  "1441974231531-c6227db76b6e",
+  "1507525428034-b723cf961d3e",
+  "1493246507139-91e8fad9978e",
+  "1531366936337-7c912a4589a7",
+  "1470071459604-3b5ec3a7fe05",
+  "1500530855697-b586d89ba3ee",
+  "1518509562904-e7ef99cdcc86",
+  "1469474968028-56623f02e42e",
+  "1476514525535-07fb3b4ae5f1",
+  "1447752875215-b2761acb3c5d",
+  "1485470733090-0aae1788d5af",
+].map(photo);
+
+export default function Marquee3DDemo() {
+  return <Marquee3D images={images} className="h-96 rounded-2xl" />;
+}
+```
+
+
+### Apple Cards Carousel
+
+Snap-scrolling row of tall image cards that morph into a full modal story. (3.1 KB gzipped, deps: react-dom, motion/react)
+
+- Docs: https://velora.colorlib.com/components/apple-cards-carousel
+- Category: Carousels
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/apple-cards-carousel.json` (creates `components/velora/apple-cards-carousel.tsx`)
+
+**Accessibility**
+- Reduced motion: Cards open and close instantly with no shared-element morph or backdrop fade, and the previous/next buttons jump instead of smooth-scrolling.
+- Keyboard: The row is a focusable region that arrow keys scroll; each card is a button that opens a modal dialog. Focus moves into the dialog, Tab and Shift+Tab stay inside it, Escape or Close dismisses it, and focus returns to the card. Previous/next buttons are disabled at either end.
+- Screen readers: The row is a labelled region containing a list of buttons named by category and title (aria-haspopup="dialog", aria-expanded); the dialog is aria-modal and named by its heading, and card images are decorative.
+
+**Props**
+
+#### CardsCarousel
+- `children: React.ReactNode` — `CarouselCard` elements
+- `label?: string` (default `"Carousel"`) — Accessible name for the scrollable region
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+#### CarouselCard
+- `src: string` — Cover image URL
+- `category: string` — Small label above the title
+- `title: string` — Card title and dialog heading
+- `children: React.ReactNode` — Rich content shown once the card is opened
+- `className?: string` — Extra classes for the card
+
+**Example**
+
+```tsx
+import { CardsCarousel, CarouselCard } from "@/components/velora/apple-cards-carousel";
+
+const photo = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?w=800&q=70&auto=format&fit=crop`;
+
+const stories = [
+  { category: "Photo essay", title: "A week above the clouds", src: photo("1506905925346-21bda4d32df4") },
+  { category: "Lakes", title: "Rowing out before sunrise", src: photo("1476514525535-07fb3b4ae5f1") },
+  { category: "Night skies", title: "Chasing the northern lights", src: photo("1531366936337-7c912a4589a7") },
+  { category: "Road trip", title: "Four hundred miles of red rock", src: photo("1500530855697-b586d89ba3ee") },
+  { category: "Islands", title: "Where the lagoon turns turquoise", src: photo("1518509562904-e7ef99cdcc86") },
+  { category: "Coastline", title: "Golden hour on an empty beach", src: photo("1507525428034-b723cf961d3e") },
+];
+
+export default function CardsCarouselDemo() {
+  return (
+    <CardsCarousel label="Field notes">
+      {stories.map((story) => (
+        <CarouselCard key={story.title} {...story}>
+          <p>
+            <strong className="font-medium text-foreground">{story.title}.</strong>{" "}
+            We packed light, left the itinerary loose and let the weather decide
+            where to go next. These are the moments that made the trip.
+          </p>
+          <p>
+            Every photo was shot handheld on a single prime lens, then edited
+            only for exposure — what you see is what we saw.
+          </p>
+        </CarouselCard>
+      ))}
+    </CardsCarousel>
+  );
+}
+```
+
+
+### Image Slider
+
+Full-bleed image slider with crossfade-zoom, autoplay, dots, arrows and swipe. (3.0 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/image-slider
+- Category: Carousels
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/image-slider.json` (creates `components/velora/image-slider.tsx`)
+
+**Accessibility**
+- Reduced motion: Autoplay never starts on its own and slides change instantly with no fade or zoom; pressing Play opts in to autoplay with instant changes.
+- Keyboard: Previous, next, pause/play and dot buttons are native buttons; Left/Right arrows (and Home/End) change slides while focus is inside the slider. Autoplay pauses while hovered or while focus is inside.
+- Screen readers: A region with aria-roledescription="carousel" whose current slide is a group labelled "n of N"; image alt text is read, and slide changes are announced politely only while autoplay is not running.
+
+**Props**
+
+#### ImageSlider
+- `images: SliderImage[]` — Images to cycle through
+- `children?: React.ReactNode` — Content layered above the images (headline, call-to-action…)
+- `autoplay?: boolean` (default `true`) — Advance automatically (never starts on its own under reduced motion)
+- `interval?: number` (default `5000`) — ms each slide stays on screen while autoplaying
+- `scrim?: boolean` (default `true`) — Darken the images so overlay text and controls stay legible
+- `label?: string` (default `"Image slider"`) — Accessible name for the carousel region
+- …and every `React.HTMLAttributes<HTMLElement>` prop
+
+**Example**
+
+```tsx
+import { ImageSlider } from "@/components/velora/image-slider";
+
+const photo = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?w=1600&q=70&auto=format&fit=crop`;
+
+const images = [
+  { src: photo("1506905925346-21bda4d32df4"), alt: "Mountain peaks rising above a sea of clouds" },
+  { src: photo("1507525428034-b723cf961d3e"), alt: "An empty beach at golden hour" },
+  { src: photo("1470071459604-3b5ec3a7fe05"), alt: "Morning fog over green highland hills" },
+  { src: photo("1531366936337-7c912a4589a7"), alt: "Northern lights over a snowy ridge" },
+  { src: photo("1500530855697-b586d89ba3ee"), alt: "A road winding through red rock canyons" },
+];
+
+export default function ImageSliderDemo() {
+  return (
+    <ImageSlider
+      images={images}
+      label="Landscapes"
+      className="h-80 rounded-2xl sm:h-96"
+    />
+  );
+}
+```
+
+
+### Following Pointer
+
+Swaps the cursor for an arrow and a name tag that trail the pointer inside a region. (1.7 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/following-pointer
+- Category: Cursor & Pointer
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/following-pointer.json` (creates `components/velora/following-pointer.tsx`)
+
+**Accessibility**
+- Reduced motion: The arrow and tag track the pointer 1:1 with no spring, and appear and hide without a scale or fade.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The arrow and tag are aria-hidden; the wrapped content is read and focused as normal.
+
+**Props**
+
+#### FollowingPointer
+- `label?: React.ReactNode` — Content of the name tag next to the arrow; leave empty for an arrow only
+- `color?: string` (default `"var(--brand)"`) — Any CSS colour for the arrow and tag
+- `children: React.ReactNode`
+- …and every `Omit<React.HTMLAttributes<HTMLDivElement>, "color">` prop
+
+**Example**
+
+```tsx
+import { FollowingPointer } from "@/components/velora/following-pointer";
+
+export default function FollowingPointerDemo() {
+  return (
+    <FollowingPointer
+      label="Maya · Design"
+      className="grid h-72 w-full max-w-xl place-items-center rounded-2xl border bg-card bg-[radial-gradient(var(--color-border)_1px,transparent_1px)] bg-size-[18px_18px] shadow-sm"
+    >
+      <div className="max-w-xs space-y-3 rounded-xl border bg-background/90 p-5 text-center shadow-sm backdrop-blur">
+        <p className="text-sm font-medium">Q3 launch board</p>
+        <p className="text-sm text-muted-foreground">
+          Move your mouse around the canvas to see a teammate&apos;s cursor.
+        </p>
+        <div className="flex justify-center -space-x-2" aria-hidden>
+          {["bg-brand-from", "bg-brand-via", "bg-brand-to"].map((tone) => (
+            <span key={tone} className={`size-7 rounded-full ring-2 ring-background ${tone}`} />
+          ))}
+        </div>
+      </div>
+    </FollowingPointer>
+  );
+}
+```
+
+
+### Lens
+
+Circular magnifier that follows the pointer or arrow keys to zoom into an image. (1.7 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/lens
+- Category: Cursor & Pointer
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/lens.json` (creates `components/velora/lens.tsx`)
+
+**Accessibility**
+- Reduced motion: The lens tracks the pointer directly with no easing, and appears and hides without a fade or scale.
+- Keyboard: The wrapper is a tab stop; keyboard focus shows the lens at its last position, arrow keys move it (Shift for larger steps) and Escape hides it. With staticPosition the lens stays pinned.
+- Screen readers: Content is read once from the original children; the magnified copy is aria-hidden and inert, so its links and images are neither announced nor focusable.
+
+**Props**
+
+#### Lens
+- `children: React.ReactNode` — The content to magnify, usually an `<img>` that fills the box
+- `zoomFactor?: number` (default `2`) — How many times the lens magnifies
+- `radius?: number` (default `80`) — Lens radius in px
+- `staticPosition?: { x: number; y: number }` — Pin the lens open at this spot (percentages of width and height) and ignore the pointer — handy for touch screens and product callouts
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { Lens } from "@/components/velora/lens";
+
+export default function LensDemo() {
+  return (
+    <Lens className="aspect-[4/3] w-full max-w-lg shadow-lg">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=75&auto=format&fit=crop"
+        alt="Close-up of a circuit board covered in chips and components"
+        className="size-full object-cover"
+      />
+    </Lens>
+  );
+}
+```
+
+
+### Pointer Highlight
+
+Draws an outline around a phrase on scroll, then glides a pointer icon to its corner. (1.2 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/pointer-highlight
+- Category: Cursor & Pointer
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/pointer-highlight.json` (creates `components/velora/pointer-highlight.tsx`)
+
+**Accessibility**
+- Reduced motion: The outline and pointer are shown in their final place as soon as the phrase is on screen, with no drawing or glide.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The text is read normally; the outline and pointer icon are aria-hidden.
+
+**Props**
+
+#### PointerHighlight
+- `children: React.ReactNode` — The phrase to frame
+- `rectangleClassName?: string` — Classes for the drawn outline (border colour, width, radius, fill)
+- `pointerClassName?: string` — Classes for the pointer icon (colour, size)
+- `once?: boolean` (default `true`) — Play only the first time the phrase enters the viewport
+- …and every `React.HTMLAttributes<HTMLSpanElement>` prop
+
+**Example**
+
+```tsx
+import { PointerHighlight } from "@/components/velora/pointer-highlight";
+
+export default function PointerHighlightDemo() {
+  return (
+    <p className="max-w-lg text-center text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
+      Every component ships with <PointerHighlight>reduced motion</PointerHighlight> built
+      in.
+    </p>
+  );
+}
+```
+
+
+### Smooth Cursor
+
+Dot-and-ring custom cursor; the ring trails on a spring and grows over links and buttons. (1.9 KB gzipped, deps: react-dom, motion/react)
+
+- Docs: https://velora.colorlib.com/components/smooth-cursor
+- Category: Cursor & Pointer
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/smooth-cursor.json` (creates `components/velora/smooth-cursor.tsx`)
+
+**Accessibility**
+- Reduced motion: The ring snaps to the dot instead of trailing, and grows or shrinks without easing.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The dot and ring are aria-hidden and never take pointer events; nothing is announced.
+
+**Props**
+
+#### SmoothCursor
+- `container?: React.RefObject<HTMLElement | null>` — Limit the cursor to this element; defaults to the whole document
+- `hideNativeCursor?: boolean` (default `true`) — Hide the system cursor while the custom one is showing
+- `interactiveSelector?: string` (default `"a, button, [role=button], input, select, textarea, label, summary"`) — CSS selector for elements that make the ring grow
+- `dotClassName?: string` — Classes for the dot
+- `ringClassName?: string` — Classes for the trailing ring
+
+**Example**
+
+```tsx
+"use client";
+
+import { useRef } from "react";
+
+import { SmoothCursor } from "@/components/velora/smooth-cursor";
+
+export default function SmoothCursorDemo() {
+  // Scoped to this box for the demo. In an app, render <SmoothCursor />
+  // once in your root layout without a container.
+  const area = useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      ref={area}
+      className="grid h-72 w-full place-items-center rounded-2xl border bg-card bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-size-[32px_32px]"
+    >
+      <SmoothCursor container={area} />
+      <div className="space-y-3 rounded-xl border bg-background/90 px-6 py-5 text-center shadow-sm backdrop-blur">
+        <p className="text-sm font-medium">Move your mouse around this box</p>
+        <p className="text-sm text-muted-foreground">
+          The ring trails behind the dot and grows over{" "}
+          <a href="#" className="font-medium text-primary underline underline-offset-4">
+            links
+          </a>{" "}
+          and buttons.
+        </p>
+      </div>
+    </div>
+  );
+}
+```
+
+
+### Globe
+
+Dotted canvas globe with markers, great-circle arcs, drag and keyboard rotation. (5.2 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/globe
+- Category: Data & Maps
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/globe.json` (creates `components/velora/globe.tsx`)
+
+**Accessibility**
+- Reduced motion: Auto-rotation, marker pulses and travelling arc highlights stop; one static frame is drawn with arcs shown in full. Dragging and arrow keys still rotate it, arrow keys in instant 15° steps.
+- Keyboard: The globe is a single Tab stop with a focus ring; Left/Right arrows turn it west/east and Up/Down tilt it north/south. Auto-rotation pauses while it has focus or is hovered.
+- Screen readers: Exposed as one image (role="img") named from the marker labels and arc count, or from the label prop; the canvas is aria-hidden.
+
+**Props**
+
+#### Globe
+- `markers?: GlobeMarker[]` (default `[]`) — Highlighted points, as { lat, lng, label? }
+- `arcs?: GlobeArc[]` (default `[]`) — Great-circle connections, as { from: [lat, lng], to: [lat, lng] }
+- `center?: [number, number]` (default `[20, 10]`) — [lat, lng] facing the viewer on first paint
+- `speed?: number` (default `6`) — Auto-rotation in degrees per second (negative spins west); 0 turns it off
+- `samples?: number` (default `12000`) — Points sampled over the sphere; roughly 3 in 10 land and become dots
+- `dotColor?: string` (default `"var(--muted-foreground)"`) — Land dot color: any CSS color, var() tokens included
+- `accentColor?: string` (default `"var(--brand)"`) — Marker and arc color: any CSS color, var() tokens included
+- `label?: string` — Accessible name; generated from marker labels when omitted
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { Globe, type GlobeArc } from "@/components/velora/globe";
+
+const markers = [
+  { lat: 51.51, lng: -0.13, label: "London" },
+  { lat: 40.71, lng: -74.01, label: "New York" },
+  { lat: -23.55, lng: -46.63, label: "São Paulo" },
+  { lat: 25.2, lng: 55.27, label: "Dubai" },
+  { lat: 1.35, lng: 103.82, label: "Singapore" },
+];
+
+const arcs: GlobeArc[] = [
+  { from: [51.51, -0.13], to: [40.71, -74.01] },
+  { from: [51.51, -0.13], to: [25.2, 55.27] },
+  { from: [40.71, -74.01], to: [-23.55, -46.63] },
+];
+
+export default function GlobeDemo() {
+  return (
+    <Globe
+      markers={markers}
+      arcs={arcs}
+      center={[30, -25]}
+      className="max-w-sm"
+    />
+  );
+}
+```
+
+
+### World Map
+
+Dotted SVG world map with markers, pulsing hubs and animated connection arcs. (3.8 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/world-map
+- Category: Data & Maps
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/world-map.json` (creates `components/velora/world-map.tsx`)
+
+**Accessibility**
+- Reduced motion: Arcs are drawn in full with no travelling highlight and markers do not pulse. The server render is this static state too; animation is added after hydration.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: Exposed as one image (role="img") whose name lists each connection by marker label (or coordinates), or uses the label prop; the SVG and label pills are aria-hidden.
+
+**Props**
+
+#### WorldMap
+- `markers?: WorldMapMarker[]` (default `[]`) — Highlighted points, as { lat, lng, label?, pulse? }
+- `arcs?: WorldMapArc[]` (default `[]`) — Curved connections, as { from: [lat, lng], to: [lat, lng] }
+- `duration?: number` (default `4`) — Seconds for one highlight to travel along an arc (including a short rest)
+- `label?: string` — Accessible name; generated from the arcs and marker labels when omitted
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { WorldMap, type WorldMapArc } from "@/components/velora/world-map";
+
+const markers = [
+  { lat: 37.77, lng: -122.42, label: "San Francisco", pulse: true },
+  { lat: 40.71, lng: -74.01 },
+  { lat: 51.51, lng: -0.13 },
+  { lat: -23.55, lng: -46.63 },
+  { lat: 1.35, lng: 103.82 },
+  { lat: 35.68, lng: 139.69 },
+];
+
+const arcs: WorldMapArc[] = [
+  { from: [37.77, -122.42], to: [40.71, -74.01] },
+  { from: [37.77, -122.42], to: [-23.55, -46.63] },
+  { from: [40.71, -74.01], to: [51.51, -0.13] },
+  { from: [51.51, -0.13], to: [1.35, 103.82] },
+  { from: [1.35, 103.82], to: [35.68, 139.69] },
+];
+
+export default function WorldMapDemo() {
+  return <WorldMap markers={markers} arcs={arcs} className="max-w-3xl" />;
+}
+```
+
+
+### Browser Mockup
+
+Browser window frame for product screenshots. (0.5 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/browser-mockup
+- Category: Mockups
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/browser-mockup.json` (creates `components/velora/browser-mockup.tsx`)
+
+**Accessibility**
+- Reduced motion: Static; no animation.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The URL text is read as plain text, then the children; the window dots are empty.
+
+**Props**
+
+#### BrowserMockup
+- `url?: string` (default `"velora.dev"`)
+- `children: React.ReactNode`
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { BrowserMockup } from "@/components/velora/browser-mockup";
+
+export default function BrowserMockupDemo() {
+  return (
+    <BrowserMockup url="velora.dev" className="w-full max-w-md">
+      <div className="flex h-40 items-center justify-center bg-gradient-to-br from-brand-from/20 via-brand-via/15 to-brand-to/20">
+        <p className="text-sm text-muted-foreground">Your product here</p>
+      </div>
+    </BrowserMockup>
+  );
+}
+```
+
+
+### Code Block
+
+Code panel with tabs, line numbers, highlighted lines and a copy button. (2.9 KB gzipped, deps: lucide-react)
+
+- Docs: https://velora.colorlib.com/components/code-block
+- Category: Mockups
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/code-block.json` (creates `components/velora/code-block.tsx`)
+
+**Accessibility**
+- Reduced motion: Nothing animates, so there is no reduced-motion difference; the copy icon swaps to a check mark instantly.
+- Keyboard: The code area is focusable and scrolls with the arrow keys. With tabs, the tab list is one Tab stop: Left/Right arrows, Home and End switch files. The copy button is a native button.
+- Screen readers: The code region is labelled with the file name, line numbers are aria-hidden, tabs use tablist/tab/tabpanel roles, and a status region announces "Copied to clipboard".
+
+**Props**
+
+#### CodeBlock
+- `code?: string` (default `""`) — Source to show (ignored when `tabs` is set)
+- `language?: string` (default `"tsx"`) — Language for highlighting: tsx, ts, jsx, js, css, bash, json
+- `filename?: string` — File name shown in the header and used as the code region's label
+- `tabs?: CodeFile[]` — Several files, shown as tabs
+- `highlightLines?: number[]` (default `[]`) — 1-based line numbers to highlight
+- `lineNumbers?: boolean` (default `true`) — Show the line-number gutter
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { CodeBlock } from "@/components/velora/code-block";
+
+const code = `import { useState } from "react";
+
+// A counter that remembers its last value
+export function Counter({ start = 0 }: { start?: number }) {
+  const [count, setCount] = useState(start);
+  const label = \`Clicked \${count} times\`;
+
+  return (
+    <button type="button" onClick={() => setCount(count + 1)}>
+      {label}
+    </button>
+  );
+}`;
+
+export default function CodeBlockDemo() {
+  return (
+    <CodeBlock
+      filename="counter.tsx"
+      language="tsx"
+      code={code}
+      highlightLines={[5, 9]}
+      className="w-full max-w-2xl"
+    />
+  );
+}
+```
+
+
+### iPhone Mockup
+
+iPhone frame with dynamic island — pure CSS. (0.6 KB gzipped, zero deps)
+
+- Docs: https://velora.colorlib.com/components/iphone-mockup
+- Category: Mockups
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/iphone-mockup.json` (creates `components/velora/iphone-mockup.tsx`)
+
+**Accessibility**
+- Reduced motion: Static; no animation.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The frame parts are empty elements; only the children are read.
+
+**Props**
+
+#### IphoneMockup
+- `children: React.ReactNode`
+- …and every `React.HTMLAttributes<HTMLDivElement>` prop
+
+**Example**
+
+```tsx
+import { IphoneMockup } from "@/components/velora/iphone-mockup";
+
+export default function IphoneMockupDemo() {
+  return (
+    <IphoneMockup className="w-44">
+      <div className="flex size-full items-center justify-center bg-gradient-to-b from-brand-from/25 to-brand-to/25 pt-10">
+        <p className="text-xs text-muted-foreground">Your app here</p>
+      </div>
+    </IphoneMockup>
+  );
+}
+```
+
+
+### Terminal
+
+A terminal window that types its lines in view. (1.4 KB gzipped, deps: motion/react)
+
+- Docs: https://velora.colorlib.com/components/terminal
+- Category: Mockups
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/terminal.json` (creates `components/velora/terminal.tsx`)
+
+**Accessibility**
+- Reduced motion: All lines render in full immediately with no typing effect and no blinking cursor.
+- Keyboard: Decorative; nothing to operate.
+- Screen readers: The full lines are always available as visually hidden text; the typed visual layer is aria-hidden.
+
+**Props**
+
+#### Terminal
+- `lines: string[]` — Lines to type. Prefix with "$ " to render a prompt-colored command.
+- `title?: string` (default `"bash"`)
+- `speed?: number` (default `18`) — ms per character
+- `className?: string`
+
+**Example**
+
+```tsx
+import { Terminal } from "@/components/velora/terminal";
+
+export default function TerminalDemo() {
+  return (
+    <Terminal
+      className="max-w-md"
+      lines={[
+        "$ npx shadcn@latest add velora/marquee",
+        "✔ Checking registry…",
+        "✔ Installing dependencies…",
+        "✔ Created components/velora/marquee.tsx",
+      ]}
+    />
+  );
+}
+```
+
+
+## Blocks
+
+### Aurora hero
+
+Centered hero with a drifting aurora, dotted backdrop, announcement pill and staggered copy.
+
+- Preview: https://velora.colorlib.com/blocks/hero-sections#hero-aurora
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/hero-aurora.json` (creates `components/blocks/hero-aurora.tsx` and installs animated-gradient-text, aurora-background, blur-fade, grid-pattern, shimmer-button)
+
+### Globe split hero
+
+Split hero with copy, CTAs and live stats beside an interactive dotted globe with arcs.
+
+- Preview: https://velora.colorlib.com/blocks/hero-sections#hero-globe
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/hero-globe.json` (creates `components/blocks/hero-globe.tsx` and installs blur-fade, globe, number-ticker)
+
+### Product screenshot hero
+
+Centered headline above a dashboard in a browser frame with a border beam and a logo row.
+
+- Preview: https://velora.colorlib.com/blocks/hero-sections#hero-screenshot
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/hero-screenshot.json` (creates `components/blocks/hero-screenshot.tsx` and installs blur-fade, border-beam, browser-mockup, logo-cloud)
+
+### Phone split hero
+
+App launch hero with an email capture on the left and an app screen in an iPhone frame.
+
+- Preview: https://velora.colorlib.com/blocks/hero-sections#hero-split-phone
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/hero-split-phone.json` (creates `components/blocks/hero-split-phone.tsx` and installs blur-fade, iphone-mockup, ripple)
+
+### Wavy hero
+
+Bold centered hero over flowing waves, with a rotating headline word and avatar social proof.
+
+- Preview: https://velora.colorlib.com/blocks/hero-sections#hero-waves
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/hero-waves.json` (creates `components/blocks/hero-waves.tsx` and installs avatar-circles, blur-fade, flip-words, shimmer-button, wavy-background)
+
+### Developer tool hero
+
+Minimal hero on a retro grid with a typed headline accent, an install terminal and two CTAs.
+
+- Preview: https://velora.colorlib.com/blocks/hero-sections#hero-grid-minimal
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/hero-grid-minimal.json` (creates `components/blocks/hero-grid-minimal.tsx` and installs blur-fade, retro-grid, terminal, typewriter)
+
+### Bento feature grid
+
+Five-card bento grid with live visuals: integration beams, orbiting icons, a chart, a tag marquee and a globe.
+
+- Preview: https://velora.colorlib.com/blocks/feature-sections#features-bento
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/features-bento.json` (creates `components/blocks/features-bento.tsx` and installs animated-beam, bento-grid, blur-fade, globe, marquee, number-ticker, orbiting-circles)
+
+### Icon feature grid
+
+Heading and six icon feature cards in a three-column grid, each border lit by a cursor-following glow.
+
+- Preview: https://velora.colorlib.com/blocks/feature-sections#features-icon-grid
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/features-icon-grid.json` (creates `components/blocks/features-icon-grid.tsx` and installs blur-fade, glowing-effect)
+
+### Tabbed product tour
+
+Product tour with animated tabs; each tab pairs short copy and a checklist with a Tailwind-built app mock.
+
+- Preview: https://velora.colorlib.com/blocks/feature-sections#features-tabs
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/features-tabs.json` (creates `components/blocks/features-tabs.tsx` and installs animated-tabs, blur-fade)
+
+### Alternating screenshot rows
+
+Two alternating rows of copy with a checklist beside a browser-framed dashboard mock, sides swapped.
+
+- Preview: https://velora.colorlib.com/blocks/feature-sections#features-split-screenshot
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/features-split-screenshot.json` (creates `components/blocks/features-split-screenshot.tsx` and installs blur-fade, border-beam, browser-mockup)
+
+### Numbered steps
+
+How-it-works section with four numbered steps on a gradient connector line, each with a small UI visual.
+
+- Preview: https://velora.colorlib.com/blocks/feature-sections#features-steps
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/features-steps.json` (creates `components/blocks/features-steps.tsx` and installs avatar-circles, blur-fade, border-beam, number-ticker)
+
+### Three-tier pricing
+
+Three plan cards with a monthly/yearly switch, a savings badge and a highlighted middle plan.
+
+- Preview: https://velora.colorlib.com/blocks/pricing-sections#pricing-three-tiers
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/pricing-three-tiers.json` (creates `components/blocks/pricing-three-tiers.tsx` and installs blur-fade, border-beam, grid-pattern, number-ticker)
+
+### Single plan pricing
+
+One all-inclusive plan card beside a benefit list and short reassurance answers.
+
+- Preview: https://velora.colorlib.com/blocks/pricing-sections#pricing-single-plan
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/pricing-single-plan.json` (creates `components/blocks/pricing-single-plan.tsx` and installs avatar-circles, blur-fade, glowing-effect, grid-pattern, spotlight-card)
+
+### Pricing comparison table
+
+Grouped feature comparison table with a sticky plan header, and per-plan tabs on mobile.
+
+- Preview: https://velora.colorlib.com/blocks/pricing-sections#pricing-comparison
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/pricing-comparison.json` (creates `components/blocks/pricing-comparison.tsx` and installs blur-fade)
+
+### Testimonial marquee
+
+Two rows of review cards scrolling in opposite directions, with faded edges and pause on hover or focus.
+
+- Preview: https://velora.colorlib.com/blocks/testimonial-sections#testimonials-marquee
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/testimonials-marquee.json` (creates `components/blocks/testimonials-marquee.tsx` and installs blur-fade, marquee)
+
+### Featured testimonial
+
+One rotating quote with crossfading portraits, framed by a beam card over a row of counting stats.
+
+- Preview: https://velora.colorlib.com/blocks/testimonial-sections#testimonials-featured
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/testimonials-featured.json` (creates `components/blocks/testimonials-featured.tsx` and installs animated-testimonials, blur-fade, border-beam, grid-pattern, number-ticker)
+
+### Testimonial grid
+
+Masonry wall of social posts and quote cards, led by a wide case-study quote with a headline metric.
+
+- Preview: https://velora.colorlib.com/blocks/testimonial-sections#testimonials-grid
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/testimonials-grid.json` (creates `components/blocks/testimonials-grid.tsx` and installs blur-fade, text-highlighter, tweet-card)
+
+### Vortex CTA band
+
+Dark rounded call-to-action band over a brand-tinted particle vortex, with two actions and fine print.
+
+- Preview: https://velora.colorlib.com/blocks/cta-sections#cta-vortex
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/cta-vortex.json` (creates `components/blocks/cta-vortex.tsx` and installs vortex)
+
+### Split CTA with product visual
+
+Two-column CTA card with a benefit list and a dashboard mock-up, traced by an animated border beam.
+
+- Preview: https://velora.colorlib.com/blocks/cta-sections#cta-split-image
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/cta-split-image.json` (creates `components/blocks/cta-split-image.tsx` and installs border-beam, grid-pattern, meteors)
+
+### Newsletter sign-up
+
+Newsletter card over a glowing dot grid with a labelled email field, subscriber avatars and a privacy note.
+
+- Preview: https://velora.colorlib.com/blocks/cta-sections#cta-newsletter
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/cta-newsletter.json` (creates `components/blocks/cta-newsletter.tsx` and installs avatar-circles, dotted-glow-background)
+
+### Logo marquee
+
+A “Trusted by” line over a scrolling strip of grayscale logos that take their colour on hover.
+
+- Preview: https://velora.colorlib.com/blocks/logo-clouds#logos-marquee
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/logos-marquee.json` (creates `components/blocks/logos-marquee.tsx` and installs marquee)
+
+### Logo grid
+
+Bordered grid of customer logos with a cursor spotlight per cell, beside a heading and stories link.
+
+- Preview: https://velora.colorlib.com/blocks/logo-clouds#logos-grid
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/logos-grid.json` (creates `components/blocks/logos-grid.tsx` and installs blur-fade, spotlight-card)
+
+### Centered FAQ accordion
+
+Centered heading over an accordion of eight questions, closed by a contact row.
+
+- Preview: https://velora.colorlib.com/blocks/faq-sections#faq-accordion
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/faq-accordion.json` (creates `components/blocks/faq-accordion.tsx` and installs avatar-circles, blur-fade, grid-pattern)
+
+### Two-column FAQ
+
+Sticky intro and contact card on the left, an accordion of questions on the right.
+
+- Preview: https://velora.colorlib.com/blocks/faq-sections#faq-two-column
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/faq-two-column.json` (creates `components/blocks/faq-two-column.tsx` and installs blur-fade, spotlight-card)
+
+### Floating pill navbar
+
+Full-width navbar that shrinks into a blurred floating pill on scroll, with a CTA and mobile menu.
+
+- Preview: https://velora.colorlib.com/blocks/navbars#navbar-floating
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/navbar-floating.json` (creates `components/blocks/navbar-floating.tsx` and installs resizable-navbar)
+
+### Mega menu navbar
+
+Top bar with a keyboard-accessible Product mega menu, search, sign-in and a slide-over mobile menu.
+
+- Preview: https://velora.colorlib.com/blocks/navbars#navbar-mega
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/navbar-mega.json` (creates `components/blocks/navbar-mega.tsx` and installs no Velora components)
+
+### Link columns footer
+
+Footer with logo, tagline and social links, four link columns and a copyright bar with legal links.
+
+- Preview: https://velora.colorlib.com/blocks/footers#footer-columns
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/footer-columns.json` (creates `components/blocks/footer-columns.tsx` and installs no Velora components)
+
+### Giant wordmark footer
+
+Minimal footer that ends in an oversized outlined wordmark lighting up in brand colours under the pointer.
+
+- Preview: https://velora.colorlib.com/blocks/footers#footer-wordmark
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/footer-wordmark.json` (creates `components/blocks/footer-wordmark.tsx` and installs text-hover-effect)
+
+### Newsletter footer
+
+Footer with a newsletter sign-up row, link columns and a live “All systems normal” status badge.
+
+- Preview: https://velora.colorlib.com/blocks/footers#footer-newsletter
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/footer-newsletter.json` (creates `components/blocks/footer-newsletter.tsx` and installs stateful-button)
+
+### Split login page
+
+Login form with password reveal, remember-me and social sign-in beside an aurora testimonial panel.
+
+- Preview: https://velora.colorlib.com/blocks/auth-sections#auth-login-split
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/auth-login-split.json` (creates `components/blocks/auth-login-split.tsx` and installs aurora-background, grid-pattern)
+
+### Sign-up card
+
+Centered sign-up card over a grid and light beams, with live password rules, terms and social sign-up.
+
+- Preview: https://velora.colorlib.com/blocks/auth-sections#auth-signup-card
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/auth-signup-card.json` (creates `components/blocks/auth-signup-card.tsx` and installs background-beams, grid-pattern)

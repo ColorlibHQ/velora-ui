@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
@@ -29,14 +29,47 @@ export function ExpandableCard({
   const [open, setOpen] = useState(false);
   const id = useId();
   const reducedMotion = useReducedMotion();
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
+  // Modal focus handling: move focus in, keep Tab inside, Escape closes, and
+  // hand focus back to the trigger however the dialog was closed.
   useEffect(() => {
     if (!open) return;
+    const trigger = triggerRef.current;
+    const dialog = dialogRef.current;
+    dialog?.focus({ preventScroll: true });
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (event.key !== "Tab" || !dialog) return;
+      const focusable = Array.from(
+        dialog.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      );
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (!first || !dialog.contains(active)) {
+        event.preventDefault();
+        (first ?? dialog).focus();
+      } else if (event.shiftKey && (active === first || active === dialog)) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      trigger?.focus({ preventScroll: true });
+    };
   }, [open]);
 
   const spring = reducedMotion
@@ -46,14 +79,17 @@ export function ExpandableCard({
   return (
     <>
       <motion.button
+        ref={triggerRef}
         type="button"
         layoutId={`card-${id}`}
         onClick={() => setOpen(true)}
         transition={spring}
+        aria-haspopup="dialog"
         aria-expanded={open}
+        aria-controls={open ? `dialog-${id}` : undefined}
         data-slot="expandable-card"
         className={cn(
-          "flex w-full max-w-sm cursor-pointer flex-col gap-3 rounded-2xl border bg-card p-4 text-left transition-colors hover:bg-muted/50",
+          "flex w-full max-w-sm cursor-pointer flex-col gap-3 rounded-2xl border bg-card p-4 text-left transition-colors hover:bg-muted/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
           className
         )}
       >
@@ -66,11 +102,17 @@ export function ExpandableCard({
             {media}
           </motion.div>
         )}
-        <motion.h3 layoutId={`title-${id}`} transition={spring} className="font-medium">
+        {/* Buttons only allow phrasing content, so the title is a span here
+            and becomes the dialog's heading once expanded. */}
+        <motion.span
+          layoutId={`title-${id}`}
+          transition={spring}
+          className="font-medium"
+        >
           {title}
-        </motion.h3>
+        </motion.span>
         {subtitle && (
-          <p className="-mt-2 text-sm text-muted-foreground">{subtitle}</p>
+          <span className="-mt-2 text-sm text-muted-foreground">{subtitle}</span>
         )}
       </motion.button>
 
@@ -85,12 +127,15 @@ export function ExpandableCard({
               className="absolute inset-0 bg-background/70 backdrop-blur-sm"
             />
             <motion.div
+              ref={dialogRef}
+              id={`dialog-${id}`}
               layoutId={`card-${id}`}
               transition={spring}
               role="dialog"
               aria-modal="true"
-              aria-label={title}
-              className="relative flex w-full max-w-lg flex-col gap-4 rounded-2xl border bg-card p-6 shadow-2xl"
+              aria-labelledby={`title-${id}`}
+              tabIndex={-1}
+              className="relative flex w-full max-w-lg flex-col gap-4 rounded-2xl border bg-card p-6 shadow-2xl outline-none"
             >
               {media && (
                 <motion.div
@@ -102,6 +147,7 @@ export function ExpandableCard({
                 </motion.div>
               )}
               <motion.h3
+                id={`title-${id}`}
                 layoutId={`title-${id}`}
                 transition={spring}
                 className="text-lg font-semibold"
@@ -112,7 +158,7 @@ export function ExpandableCard({
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="self-start rounded-lg border px-3 py-1.5 text-sm transition-colors hover:bg-muted"
+                className="self-start rounded-lg border px-3 py-1.5 text-sm transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
                 Close
               </button>

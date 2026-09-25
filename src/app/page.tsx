@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   CheckIcon,
   GaugeIcon,
@@ -22,7 +23,7 @@ import { ActivityList } from "@/components/demo/activity-list";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { HeroMockup } from "@/components/demo/hero-mockup";
-import { IntegrationsBeam } from "@/components/demo/integrations-beam";
+import IntegrationsBeam from "@/content/components/animated-beam/examples/default";
 import { AnimatedGradientText } from "@/components/velora/animated-gradient-text";
 import { AuroraBackground } from "@/components/velora/aurora-background";
 import { AvatarCircles } from "@/components/velora/avatar-circles";
@@ -43,58 +44,70 @@ import { SpotlightCard } from "@/components/velora/spotlight-card";
 import { TextReveal } from "@/components/velora/text-reveal";
 import { TiltCard } from "@/components/velora/tilt-card";
 import { Typewriter } from "@/components/velora/typewriter";
+import { blocksMeta } from "@/lib/blocks-meta";
+import { componentsMeta } from "@/lib/components-meta";
+import { JsonLd, publisher } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
 
-const logos = [
-  "Acme Corp",
-  "Quantum",
-  "Vertex",
-  "Northwind",
-  "Apex Labs",
-  "Orbital",
-  "Luminary",
-  "Pulsewave",
+const stack = [
+  "Next.js",
+  "React",
+  "Tailwind CSS",
+  "Motion",
+  "shadcn/ui",
+  "Radix",
+  "Base UI",
+  "TypeScript",
 ];
 
 const stats = [
-  { value: 32, suffix: "+", prefix: "", label: "Animated components" },
-  { value: 100, suffix: "", prefix: "", label: "Lighthouse performance" },
+  {
+    value: componentsMeta.length,
+    suffix: "",
+    prefix: "",
+    label: "Animated components",
+  },
+  { value: blocksMeta.length, suffix: "", prefix: "", label: "Free blocks" },
   { value: 0, suffix: "", prefix: "$", label: "Forever. MIT licensed" },
   { value: 5, suffix: " min", prefix: "", label: "To your first page" },
 ];
 
+// Placeholder quotes for the template — swap in real customer quotes.
 const testimonials = [
   {
     quote:
-      "I replaced a $199 template with Velora in one evening. The animations are genuinely better — and everything respects reduced motion out of the box.",
+      "We moved our whole team onto it in a week. Onboarding took an afternoon and nobody has asked to go back.",
     name: "Maya Chen",
-    role: "Design engineer, Studio K",
+    role: "Example customer · Design engineer",
   },
   {
-    quote: "The bento grid + border beam combo sold our landing page redesign to the whole team in one demo.",
+    quote:
+      "The reporting view alone replaced two spreadsheets and a weekly status meeting.",
     name: "Tom Okafor",
-    role: "Frontend lead, Pulsewave",
+    role: "Example customer · Frontend lead",
   },
   {
     quote:
-      "Copy, paste, ship. The components feel like shadcn/ui natives, not bolted-on extras.",
+      "Setup was copy, paste, ship. It fits the tools we already use instead of fighting them.",
     name: "Sofia Lindqvist",
-    role: "Indie hacker",
-  },
-  {
-    quote: "Perfect Lighthouse scores with this much motion on screen? I checked twice.",
-    name: "Dan Romero",
-    role: "CTO, Orbital",
+    role: "Example customer · Indie hacker",
   },
   {
     quote:
-      "We shipped our AI product launch page in a day. The aurora hero gets compliments weekly.",
-    name: "Aisha Patel",
-    role: "Founder, Luminary",
+      "Fast enough that I checked the numbers twice. Then I showed them to finance.",
+    name: "Dan Romero",
+    role: "Example customer · CTO",
   },
   {
-    quote: "The first free template that doesn't look free.",
+    quote:
+      "We launched in a day. Support answered every question before we finished asking it.",
+    name: "Aisha Patel",
+    role: "Example customer · Founder",
+  },
+  {
+    quote: "The first tool in years our designers and engineers both like.",
     name: "Lukas Weber",
-    role: "Product designer",
+    role: "Example customer · Product designer",
   },
 ];
 
@@ -118,7 +131,7 @@ const faqs = [
 ];
 
 const freeFeatures = [
-  "64+ animated components",
+  `${componentsMeta.length} animated components`,
   "Complete SaaS landing template",
   "Dark mode + full accessibility",
   "MIT license — commercial use OK",
@@ -133,9 +146,25 @@ const proFeatures = [
   "Private registry + lifetime updates",
 ];
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   return (
     <main className="relative">
+      <JsonLd
+        data={[
+          {
+            "@type": "WebSite",
+            name: siteConfig.name,
+            url: siteConfig.url,
+            description: siteConfig.description,
+            publisher,
+          },
+          { ...publisher, sameAs: [siteConfig.github] },
+        ]}
+      />
       <ScrollProgress />
 
       <SiteHeader />
@@ -165,14 +194,14 @@ export default function Home() {
             </AnimatedGradientText>
           </h1>
 
-          <BlurFade delay={0.35}>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground text-pretty">
-              Free, open-source animated components and complete landing
-              templates for React. Built on Next.js 16, Tailwind CSS 4 and
-              shadcn/ui — accessible, reduced-motion friendly and tuned for
-              perfect Lighthouse scores.
-            </p>
-          </BlurFade>
+          {/* Not faded in: this is the Largest Contentful Paint element, and
+              hiding it until hydration costs seconds of LCP on mobile. */}
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground text-pretty">
+            Free, open-source animated components and complete landing
+            templates for React. Built on Next.js 16, Tailwind CSS 4 and
+            shadcn/ui — accessible, reduced-motion friendly and light: most
+            components weigh under 3 KB.
+          </p>
 
           <BlurFade delay={0.5}>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -187,28 +216,19 @@ export default function Home() {
           </BlurFade>
 
           <BlurFade delay={0.6}>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <AvatarCircles
-                people={[
-                  "Maya Chen",
-                  "Tom Okafor",
-                  "Sofia Lindqvist",
-                  "Dan Romero",
-                  "Aisha Patel",
-                ]}
-                extra={2400}
-              />
-              <div className="flex flex-col items-center gap-0.5 sm:items-start">
-                <span className="flex gap-0.5 text-amber-400">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <StarIcon key={i} className="size-4 fill-current" />
-                  ))}
-                </span>
-                <span className="text-sm text-muted-foreground">
-                  Loved by 2,400+ builders
-                </span>
-              </div>
-            </div>
+            <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+              {[
+                "MIT licensed",
+                `${componentsMeta.length} components`,
+                "Reduced-motion safe",
+                "shadcn CLI ready",
+              ].map((fact) => (
+                <li key={fact} className="flex items-center gap-1.5">
+                  <CheckIcon className="size-4 text-primary" />
+                  {fact}
+                </li>
+              ))}
+            </ul>
           </BlurFade>
 
           {/* Product mockup */}
@@ -242,13 +262,13 @@ export default function Home() {
       <section className="border-y border-border/40 py-12">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <p className="mb-8 text-center text-sm text-muted-foreground">
-            Trusted by teams shipping with modern React
+            Built on the stack you already ship
           </p>
           <Marquee pauseOnHover className="[--duration:30s]">
-            {logos.map((logo) => (
+            {stack.map((logo) => (
               <span
                 key={logo}
-                className="mx-8 text-xl font-semibold tracking-tight text-muted-foreground/60 transition-colors hover:text-foreground"
+                className="mx-8 text-xl font-semibold tracking-tight text-muted-foreground transition-colors hover:text-foreground"
               >
                 {logo}
               </span>
@@ -316,7 +336,7 @@ export default function Home() {
                         "“Shipped our launch page in an afternoon.”",
                         "“The animations are buttery smooth.”",
                         "“Finally, free components that feel premium.”",
-                        "“Lighthouse 100 out of the box.”",
+                        "“Our docs finally feel alive.”",
                       ].map((quote) => (
                         <div
                           key={quote}
@@ -391,7 +411,11 @@ export default function Home() {
           <BlurFade direction="right" className="order-2 lg:order-1">
             <ActivityList />
           </BlurFade>
-          <BlurFade direction="left" delay={0.15} className="order-1 lg:order-2">
+          <BlurFade
+            direction="left"
+            delay={0.15}
+            className="order-1 lg:order-2"
+          >
             <div>
               <span className="text-sm font-medium text-primary">
                 Animated lists
@@ -456,15 +480,21 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <BlurFade>
             <h2 className="mx-auto max-w-2xl text-center text-3xl font-semibold tracking-tight text-balance lg:text-5xl">
-              Builders <span className="text-primary">love it</span>
+              A testimonial wall{" "}
+              <span className="text-primary">that moves</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
-              Hover the cards — they tilt in 3D. Another Velora primitive.
+              Sample quotes from the template — swap in your customers&apos;.
+              Hover the cards: they tilt in 3D.
             </p>
           </BlurFade>
           <div className="mt-16 columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6">
             {testimonials.map((t, i) => (
-              <BlurFade key={t.name} delay={(i % 3) * 0.1} className="break-inside-avoid">
+              <BlurFade
+                key={t.name}
+                delay={(i % 3) * 0.1}
+                className="break-inside-avoid"
+              >
                 <TiltCard>
                   <figure className="rounded-2xl border bg-card p-6">
                     <span className="flex gap-0.5 text-amber-400">
@@ -476,10 +506,15 @@ export default function Home() {
                       “{t.quote}”
                     </blockquote>
                     <figcaption className="mt-4 flex items-center gap-3">
-                      <AvatarCircles people={[t.name]} className="[&>span]:size-8 [&>span]:text-[10px]" />
+                      <AvatarCircles
+                        people={[t.name]}
+                        className="[&>span]:size-8 [&>span]:text-[10px]"
+                      />
                       <div>
                         <p className="text-sm font-medium">{t.name}</p>
-                        <p className="text-xs text-muted-foreground">{t.role}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {t.role}
+                        </p>
                       </div>
                     </figcaption>
                   </figure>
@@ -527,7 +562,11 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" size="lg" className="mt-8 w-full rounded-full">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="mt-8 w-full rounded-full"
+                >
                   Get started
                 </Button>
               </div>
@@ -603,8 +642,8 @@ export default function Home() {
         <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-8">
           <BlurFade>
             <h2 className="text-4xl font-semibold tracking-tight text-balance lg:text-6xl">
-              Stop paying <span className="text-primary">$199</span> for
-              landing pages.
+              Stop paying <span className="text-primary">$199</span> for landing
+              pages.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
               Velora UI gives you the same polish — animated, accessible and

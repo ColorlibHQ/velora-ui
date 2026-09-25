@@ -1,0 +1,22 @@
+{
+  "title": "Vortex",
+  "description": "Brand-tinted particles spiralling into the centre, leaving soft fading trails.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "a11y": {
+    "motion": "No animation runs: the canvas pre-computes a short burst of motion and shows it as one frozen swirl, redrawn on resize and theme change.",
+    "keyboard": null,
+    "screenReader": "Decorative; the wrapper is aria-hidden, so only the content layered above is announced."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "cta-band",
+      "title": "CTA band",
+      "description": "A dark call-to-action band where the trails glow against the black."
+    }
+  ]
+}

@@ -48,12 +48,15 @@ export function NumberTicker({
   useEffect(() => {
     if (!isInView) return;
     if (reducedMotion) {
+      // jump() on the source alone still makes the spring follow it,
+      // so jump the spring too to skip the count-up entirely
       motionValue.jump(value);
+      springValue.jump(value);
       return;
     }
     const timeout = setTimeout(() => motionValue.set(value), delay * 1000);
     return () => clearTimeout(timeout);
-  }, [isInView, reducedMotion, motionValue, value, delay]);
+  }, [isInView, reducedMotion, motionValue, springValue, value, delay]);
 
   useEffect(
     () =>
@@ -66,12 +69,14 @@ export function NumberTicker({
 
   return (
     <span
-      ref={ref}
       data-slot="number-ticker"
       className={cn("inline-block tabular-nums", className)}
       {...props}
     >
-      {format(startValue)}
+      <span className="sr-only">{format(value)}</span>
+      <span ref={ref} aria-hidden>
+        {format(startValue)}
+      </span>
     </span>
   );
 }

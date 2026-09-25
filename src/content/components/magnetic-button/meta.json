@@ -1,0 +1,19 @@
+{
+  "title": "Magnetic Button",
+  "description": "Leans toward the cursor and springs back on leave.",
+  "category": "Buttons",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The button stays in place and does not follow the cursor.",
+    "keyboard": "A native <button type=\"button\"> by default: focusable, activates with Enter or Space, with a visible focus-visible outline. Blur resets any offset.",
+    "screenReader": "Announced as a button named by its children; aria-label, other aria-* attributes and disabled are passed through for icon-only or disabled use."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

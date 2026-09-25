@@ -3,6 +3,9 @@
   "name": "browser-mockup",
   "title": "Browser Mockup",
   "description": "Browser window frame for product screenshots.",
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/browser-mockup.tsx",

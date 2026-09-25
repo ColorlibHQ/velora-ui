@@ -1,0 +1,19 @@
+{
+  "title": "Dock",
+  "description": "macOS-style dock with cursor magnification.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "Icons stay at their base size and never magnify; only the hover color change remains.",
+    "keyboard": "Each DockIcon is a native button, or a link when href is set, reachable with Tab and activated with Enter (and Space for buttons); focus shows a ring and magnifies the icon and its neighbours.",
+    "screenReader": "Each icon is announced as a button or link named by its label prop."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

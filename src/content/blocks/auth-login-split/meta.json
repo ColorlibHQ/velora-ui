@@ -1,0 +1,6 @@
+{
+  "title": "Split login page",
+  "description": "Login form with password reveal, remember-me and social sign-in beside an aurora testimonial panel.",
+  "category": "auth-sections",
+  "order": 1
+}

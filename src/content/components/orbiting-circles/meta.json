@@ -1,0 +1,17 @@
+{
+  "title": "Orbiting Circles",
+  "description": "Items evenly distributed on rotating orbital rings.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The rotation stops; the items rest evenly spaced on the ring.",
+    "keyboard": null,
+    "screenReader": "The orbit ring is aria-hidden; the orbiting children are read as-is."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

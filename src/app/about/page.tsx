@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   AccessibilityIcon,
   GaugeIcon,
@@ -12,12 +11,17 @@ import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { NumberTicker } from "@/components/velora/number-ticker";
 import { SpotlightCard } from "@/components/velora/spotlight-card";
+import { blocksMeta } from "@/lib/blocks-meta";
+import componentStats from "@/lib/component-stats.json";
+import { componentsMeta } from "@/lib/components-meta";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About — Velora UI",
+export const metadata = pageMetadata({
+  title: "About",
   description:
     "Why Velora UI exists: landing-page polish shouldn't cost $199. Free, accessible, token-driven animated components for React.",
-};
+  path: "/about",
+});
 
 const principles = [
   {
@@ -42,10 +46,14 @@ const principles = [
   },
 ];
 
+const zeroDependency = Object.values(
+  componentStats as Record<string, { deps: string[] }>
+).filter((s) => s.deps.length === 0).length;
+
 const stats = [
-  { value: 32, suffix: "+", label: "Animated components" },
-  { value: 100, suffix: "", label: "Lighthouse performance" },
-  { value: 0, suffix: "", label: "Runtime deps beyond Motion" },
+  { value: componentsMeta.length, suffix: "", label: "Animated components" },
+  { value: blocksMeta.length, suffix: "", label: "Free blocks" },
+  { value: zeroDependency, suffix: "", label: "With zero dependencies" },
   { value: 10, suffix: "+", label: "Template pages" },
 ];
 
@@ -70,8 +78,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-3xl space-y-5 px-4 text-muted-foreground lg:px-8">
           <BlurFade>
             <p className="leading-7">
-              The React ecosystem settled on a great pattern: copy the
-              component into your project, own the code. But the libraries that
+              The React ecosystem settled on a great pattern: copy the component
+              into your project, own the code. But the libraries that
               popularized animated marketing components put their best work —
               the assembled, multi-page templates — behind $149–$299 paywalls,
               hardcode their brand colors into every snippet, and rarely tell
@@ -81,13 +89,12 @@ export default function AboutPage() {
           <BlurFade delay={0.1}>
             <p className="leading-7">
               Velora is the version of that idea we wanted to exist: every
-              component wired to your design tokens, every animation
-              accountable for its bundle size and its motion-sensitivity
-              behavior, and the complete template — blog, pricing, auth,
-              changelog and all — free under MIT. It works with Base UI and
-              Radix shadcn projects alike, installs through the standard
-              shadcn registry, and is documented for humans and AI agents
-              equally.
+              component wired to your design tokens, every animation accountable
+              for its bundle size and its motion-sensitivity behavior, and the
+              complete template — blog, pricing, auth, changelog and all — free
+              under MIT. It works with Base UI and Radix shadcn projects alike,
+              installs through the standard shadcn registry, and is documented
+              for humans and AI agents equally.
             </p>
           </BlurFade>
         </div>

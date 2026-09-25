@@ -1,0 +1,24 @@
+{
+  "title": "Wobble Card",
+  "description": "Colored card that drifts toward the pointer, with parallax content and grain.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The card and its content stay put when the pointer moves over them, and the focus lift is replaced by a stronger shadow alone.",
+    "keyboard": "The card itself is not focusable; when a link or button inside it has keyboard focus the card lifts slightly and its shadow deepens.",
+    "screenReader": "Only the children are read; the grain overlay is aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "feature-bento",
+      "title": "Feature bento",
+      "description": "Three WobbleCards of different spans and colors forming a feature grid."
+    }
+  ]
+}

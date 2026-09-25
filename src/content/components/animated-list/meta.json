@@ -1,0 +1,19 @@
+{
+  "title": "Animated List",
+  "description": "Looping feed that springs each item in, newest on top.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The loop stops and all items are shown at once, newest on top, with no spring, scale or layout animation.",
+    "keyboard": null,
+    "screenReader": "Without reduced motion items are added on a timer, so a screen reader finds only the items revealed so far; the loop pauses while the list is hovered or has focus."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

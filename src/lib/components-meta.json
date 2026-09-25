@@ -4,35 +4,18 @@
     "title": "Aurora Background",
     "description": "Velora's signature drifting aurora gradient backdrop.",
     "category": "Backgrounds",
-    "dependencies": []
-  },
-  {
-    "slug": "grid-pattern",
-    "title": "Grid & Dot Pattern",
-    "description": "SVG grid and dot backdrops with maskable depth.",
-    "category": "Backgrounds",
-    "dependencies": []
-  },
-  {
-    "slug": "retro-grid",
-    "title": "Retro Grid",
-    "description": "Perspective grid scrolling forever toward the horizon.",
-    "category": "Backgrounds",
-    "dependencies": []
-  },
-  {
-    "slug": "particles",
-    "title": "Particles",
-    "description": "Drifting, twinkling particle field on a lightweight canvas.",
-    "category": "Backgrounds",
-    "dependencies": []
-  },
-  {
-    "slug": "meteors",
-    "title": "Meteors",
-    "description": "Falling meteor streaks for dark hero and CTA sections.",
-    "category": "Backgrounds",
-    "dependencies": []
+    "dependencies": [],
+    "a11y": {
+      "motion": "The drift animation is off; the three blurred colour blobs rest at their default positions, so the glow is unchanged but static.",
+      "keyboard": null,
+      "screenReader": "Decorative; the wrapper is aria-hidden and ignored by assistive tech."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
   },
   {
     "slug": "background-beams",
@@ -41,6 +24,99 @@
     "category": "Backgrounds",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "Only the faint static base curves render; the coloured beams and their gradient animations are not mounted.",
+      "keyboard": null,
+      "screenReader": "Decorative; the wrapper is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "background-boxes",
+    "title": "Background Boxes",
+    "description": "An isometric grid whose cells light up in brand tints under the pointer.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The grid never moves. Cells still tint on hover and fade back through a colour transition, which involves no movement, so it is kept under reduced motion.",
+      "keyboard": null,
+      "screenReader": "Decorative; the grid is aria-hidden and has no focusable cells, so only the content above it is announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "headline",
+        "title": "Spotlight headline",
+        "description": "A headline section where a radial mask fades the grid out towards the edges."
+      }
+    ]
+  },
+  {
+    "slug": "dotted-glow-background",
+    "title": "Dotted Glow Background",
+    "description": "Canvas dot grid where drifting glows brighten dots and tint them toward the brand.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "No animation runs: one still frame with the glows at fixed positions is drawn, and redrawn on resize and theme change.",
+      "keyboard": "Not focusable. The glows stop while focus is inside the parent element (and while it is hovered, unless pauseOnHover is false); they also stop offscreen and in hidden tabs.",
+      "screenReader": "Decorative; the wrapper and canvas are aria-hidden, so only the content layered above is announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "pricing-card",
+        "title": "Pricing card",
+        "description": "A pricing card with a finer, dimmer grid and two glows behind the plan details."
+      }
+    ]
+  },
+  {
+    "slug": "flickering-grid",
+    "title": "Flickering Grid",
+    "description": "Grid of squares fading in and out on staggered timers.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The flicker stops and every square rests at a fixed opacity halfway between --flicker-min and --flicker-max (about 0.27 by default), leaving an even, dim dot pattern.",
+      "keyboard": null,
+      "screenReader": "Decorative: the grid is aria-hidden and ignores pointer events."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "grid-pattern",
+    "title": "Grid & Dot Pattern",
+    "description": "SVG grid and dot backdrops with maskable depth.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Nothing changes: GridPattern and DotPattern are static SVG patterns with no animation.",
+      "keyboard": null,
+      "screenReader": "Decorative; both SVGs are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
   },
   {
@@ -50,6 +126,199 @@
     "category": "Backgrounds",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "The cones and lamp line appear at full width and opacity when scrolled into view, with no expansion.",
+      "keyboard": null,
+      "screenReader": "Every lamp layer is aria-hidden; only the children are exposed, as normal content."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "light-rays",
+    "title": "Light Rays",
+    "description": "God rays fanning down from the top of a section.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "No change: the rays are static gradients with no animation.",
+      "keyboard": null,
+      "screenReader": "Decorative: the rays are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "meteors",
+    "title": "Meteors",
+    "description": "Falling meteor streaks for dark hero and CTA sections.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The meteors are hidden entirely; no streaks are shown.",
+      "keyboard": null,
+      "screenReader": "Decorative; the wrapper is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "noise-background",
+    "title": "Noise Background",
+    "description": "Drifting brand-gradient blobs under a static film-grain overlay; wraps its content.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The blobs never move; the gradient wash and grain render as a still backdrop.",
+      "keyboard": "The wrapper is not focusable. The drift stops while focus is inside it (and while hovered, unless pauseOnHover is false); it also stops offscreen and in hidden tabs.",
+      "screenReader": "The blob and grain layers are aria-hidden; only the children are announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "newsletter",
+        "title": "Newsletter card",
+        "description": "An email signup card with heavier grain; the drift stops while the field has focus."
+      }
+    ]
+  },
+  {
+    "slug": "particles",
+    "title": "Particles",
+    "description": "Drifting, twinkling particle field on a lightweight canvas.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The drift and twinkle loop does not run; the canvas draws one still frame of dots and redraws it on resize and theme change.",
+      "keyboard": null,
+      "screenReader": "Decorative; the canvas is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "retro-grid",
+    "title": "Retro Grid",
+    "description": "Perspective grid scrolling forever toward the horizon.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The scroll animation is off; the perspective grid plane shows as a still grid under the top and bottom fades.",
+      "keyboard": null,
+      "screenReader": "Decorative; the wrapper is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "ripple",
+    "title": "Ripple",
+    "description": "Concentric rings pulsing outward — calm 'listening' backdrop.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The rings stop pulsing and sit still as concentric circles at their nominal sizes, fading outward.",
+      "keyboard": null,
+      "screenReader": "Decorative: the rings are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "shooting-stars",
+    "title": "Shooting Stars",
+    "description": "A twinkling star field with brand-tinted streaks shooting across at random.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Stars stop twinkling and no streaks launch; one streak is painted frozen mid-flight. Both canvases repaint that still frame on resize and theme change.",
+      "keyboard": null,
+      "screenReader": "Decorative; both layers are aria-hidden, so only the content above them is announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "night-sky",
+        "title": "Night sky hero",
+        "description": "A dark hero with a horizon glow, dense stars, frequent streaks and a call to action."
+      }
+    ]
+  },
+  {
+    "slug": "vortex",
+    "title": "Vortex",
+    "description": "Brand-tinted particles spiralling into the centre, leaving soft fading trails.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "No animation runs: the canvas pre-computes a short burst of motion and shows it as one frozen swirl, redrawn on resize and theme change.",
+      "keyboard": null,
+      "screenReader": "Decorative; the wrapper is aria-hidden, so only the content layered above is announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "cta-band",
+        "title": "CTA band",
+        "description": "A dark call-to-action band where the trails glow against the black."
+      }
+    ]
+  },
+  {
+    "slug": "wavy-background",
+    "title": "Wavy Background",
+    "description": "Blurred, translucent ribbons of brand colour flowing sideways on a canvas.",
+    "category": "Backgrounds",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The waves do not move: the canvas paints one still frame of the ribbons and repaints it on resize and theme change.",
+      "keyboard": null,
+      "screenReader": "Decorative; the wrapper is aria-hidden, so only the content layered above is announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "hero",
+        "title": "Hero",
+        "description": "A landing hero with a badge, headline and two calls to action over the waves."
+      }
     ]
   },
   {
@@ -57,24 +326,17 @@
     "title": "Animated Gradient Text",
     "description": "Brand gradient sweeping continuously through text.",
     "category": "Text",
-    "dependencies": []
-  },
-  {
-    "slug": "text-reveal",
-    "title": "Text Reveal",
-    "description": "Word-by-word blur reveal on scroll.",
-    "category": "Text",
-    "dependencies": [
-      "motion"
-    ]
-  },
-  {
-    "slug": "typewriter",
-    "title": "Typewriter",
-    "description": "Types, holds and deletes through a list of words.",
-    "category": "Text",
-    "dependencies": [
-      "motion"
+    "dependencies": [],
+    "a11y": {
+      "motion": "The pan animation is off; the text keeps a fixed gradient (the brand-from to brand-via section).",
+      "keyboard": null,
+      "screenReader": "Children are read as normal text; the gradient is a background-clip effect and adds nothing to the accessible text."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
   },
   {
@@ -84,6 +346,73 @@
     "category": "Text",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "The first word stays on screen and the words don't cycle. With motion allowed, cycling pauses while the pointer is over the word or focus is inside it.",
+      "keyboard": null,
+      "screenReader": "All words are exposed once, comma-separated, in an sr-only span; the rotating visual word is aria-hidden, so nothing is announced on change."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "hyper-text",
+    "title": "Hyper Text",
+    "description": "Scrambles through letters and resolves into the real text.",
+    "category": "Text",
+    "dependencies": [],
+    "a11y": {
+      "motion": "No scramble runs, on mount or on hover; the text renders as-is.",
+      "keyboard": null,
+      "screenReader": "The real text is in an sr-only span and the scrambling visual copy is aria-hidden, so assistive tech never reads random letters."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "morphing-text",
+    "title": "Morphing Text",
+    "description": "Blurs one phrase out as the next resolves in.",
+    "category": "Text",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Only the first phrase is shown, statically, with no blur. With motion allowed, cycling pauses while the pointer is over the text, while focus is inside it, and while the tab is hidden.",
+      "keyboard": null,
+      "screenReader": "All phrases are exposed once, comma-separated, in an sr-only span; the morphing visual phrase is aria-hidden, so nothing is announced on change."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "number-ticker",
+    "title": "Number Ticker",
+    "description": "Springs a number up when it enters the viewport.",
+    "category": "Text",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The final value appears at once when the element scrolls into view, with no count-up.",
+      "keyboard": null,
+      "screenReader": "The final formatted value is always in an sr-only span; the animating digits are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
   },
   {
@@ -93,22 +422,232 @@
     "category": "Text",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "No sparkles render; only the plain text is shown.",
+      "keyboard": null,
+      "screenReader": "Children are read normally; each sparkle SVG is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "text-highlighter",
+    "title": "Text Highlighter",
+    "description": "Marker-pen sweep that draws in when the phrase scrolls into view.",
+    "category": "Text",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The marker wash appears instantly at full width once the phrase scrolls into view, with no sweep.",
+      "keyboard": null,
+      "screenReader": "The text is read normally; the highlight bar is aria-hidden and the emphasis is visual only (no <mark> or <strong> semantics)."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "text-hover-effect",
+    "title": "Text Hover Effect",
+    "description": "Giant outlined word that draws in, then glows in brand colours under the pointer.",
+    "category": "Text",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The outline appears fully drawn with no draw-in, and the spotlight does not track the pointer: hovering fades in the gradient version around the centre of the word.",
+      "keyboard": null,
+      "screenReader": "The SVG is a role=\"img\" named by the text, so the word is read once; the stacked outline and gradient copies are not announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "footer-wordmark",
+        "title": "Footer wordmark",
+        "description": "A site footer that ends in a giant, cropped hover wordmark."
+      }
+    ]
+  },
+  {
+    "slug": "text-reveal",
+    "title": "Text Reveal",
+    "description": "Word-by-word blur reveal on scroll.",
+    "category": "Text",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "All words are visible immediately, including before hydration, with no fade, blur or slide.",
+      "keyboard": null,
+      "screenReader": "The full sentence is read once from an sr-only span; the per-word animated spans are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
   },
   {
     "slug": "text-shimmer",
     "title": "Text Shimmer",
-    "description": "A soft light sweep \u2014 great for AI loading states.",
+    "description": "A soft light sweep — great for AI loading states.",
     "category": "Text",
-    "dependencies": []
+    "dependencies": [],
+    "a11y": {
+      "motion": "The sweep is off; the text rests in the muted foreground colour with a slight brightening at the right edge and stays fully readable.",
+      "keyboard": null,
+      "screenReader": "Children are read as normal text. It is not a live region, so add role=\"status\" yourself if you use it as a loading indicator."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
   },
   {
-    "slug": "number-ticker",
-    "title": "Number Ticker",
-    "description": "Springs a number up when it enters the viewport.",
+    "slug": "typewriter",
+    "title": "Typewriter",
+    "description": "Types, holds and deletes through a list of words.",
     "category": "Text",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "The first word shows as static text with no typing, deleting or cursor. With motion allowed, typing pauses while the pointer is over the text or focus is inside it.",
+      "keyboard": null,
+      "screenReader": "All words are exposed once, comma-separated, in an sr-only span; the typed text and cursor are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "word-rotate",
+    "title": "Word Rotate",
+    "description": "Swaps a single word on a quiet vertical roll.",
+    "category": "Text",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The first word stays on screen and the words don't rotate. With motion allowed, rotation pauses while the pointer is over the word, while focus is inside it, and while the tab is hidden.",
+      "keyboard": null,
+      "screenReader": "All words are exposed once, comma-separated, in an sr-only span; the rotating visual word is aria-hidden, so nothing is announced on change."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "confetti",
+    "title": "Confetti",
+    "description": "Dependency-free confetti burst, fired from anywhere.",
+    "category": "Buttons",
+    "dependencies": [],
+    "a11y": {
+      "motion": "confettiBurst does nothing, so clicking shows no burst; the button's own onClick still runs.",
+      "keyboard": "Native <button>: reachable with Tab, Enter or Space fires it (the burst starts from the button's centre), and focus-visible shows a 2px outline in the ring colour.",
+      "screenReader": "Named by its children; the temporary burst canvas is decorative and not exposed."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "magnetic-button",
+    "title": "Magnetic Button",
+    "description": "Leans toward the cursor and springs back on leave.",
+    "category": "Buttons",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The button stays in place and does not follow the cursor.",
+      "keyboard": "A native <button type=\"button\"> by default: focusable, activates with Enter or Space, with a visible focus-visible outline. Blur resets any offset.",
+      "screenReader": "Announced as a button named by its children; aria-label, other aria-* attributes and disabled are passed through for icon-only or disabled use."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "moving-border",
+    "title": "Moving Border",
+    "description": "A light laps the button's border via offset-path.",
+    "category": "Buttons",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The travelling light is replaced by a static glow on the top-left and bottom-right corners of the border.",
+      "keyboard": "A native <button>: Enter or Space activate it, with a visible focus-visible outline.",
+      "screenReader": "Announced as a button named by its text; the light layer is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "rainbow-button",
+    "title": "Rainbow Button",
+    "description": "CTA cycling the brand ramp, with a matching glow beneath.",
+    "category": "Buttons",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The colour cycle and glow freeze, leaving a static brand gradient with a still glow beneath; the hover glow and press scale remain.",
+      "keyboard": "A native <button>: focusable, activates with Enter or Space, with a visible focus-visible outline.",
+      "screenReader": "Announced as a button named by its text content."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "ripple-button",
+    "title": "Ripple Button",
+    "description": "Expands a ripple from the exact point you pressed.",
+    "category": "Buttons",
+    "dependencies": [],
+    "a11y": {
+      "motion": "No ripple is created on click; the button keeps its hover background change only.",
+      "keyboard": "A native <button>: Enter or Space activate it, with a visible focus-visible outline. Keyboard activation ripples from the centre.",
+      "screenReader": "Announced as a button named by its text; the ripple layer is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
   },
   {
@@ -116,46 +655,59 @@
     "title": "Shimmer Button",
     "description": "CTA button with a continuous light sweep.",
     "category": "Buttons",
-    "dependencies": []
+    "dependencies": [],
+    "a11y": {
+      "motion": "The sweep is off; a faint static sheen rests on the right side of the button. The hover scale still applies.",
+      "keyboard": "Native <button>: reachable with Tab, activated with Enter or Space, and focus-visible shows a 2px outline in the ring colour.",
+      "screenReader": "Named by its children; the shimmer overlay is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
   },
   {
-    "slug": "confetti",
-    "title": "Confetti",
-    "description": "Dependency-free confetti burst, fired from anywhere.",
+    "slug": "stateful-button",
+    "title": "Stateful Button",
+    "description": "Button that morphs through loading, success and error states while a Promise settles.",
     "category": "Buttons",
-    "dependencies": []
-  },
-  {
-    "slug": "bento-grid",
-    "title": "Bento Grid",
-    "description": "Feature bento with hover-reveal CTAs and rich backgrounds.",
-    "category": "Cards & Layout",
-    "dependencies": [
-      "lucide-react"
+    "dependencies": [],
+    "a11y": {
+      "motion": "The pill no longer shrinks to a circle, the spinner stands still and the labels swap instantly; colour changes remain.",
+      "keyboard": "A native button with a visible focus ring. While pending it uses aria-disabled rather than disabled, so focus stays put and repeat presses are ignored.",
+      "screenReader": "The accessible name stays the button's own label in every state; aria-busy is set while pending and a polite status region announces the success or error text."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "form",
+        "title": "Save form",
+        "description": "A profile form where Save changes succeeds and Sync to CRM fails."
+      }
     ]
   },
   {
-    "slug": "spotlight-card",
-    "title": "Spotlight Card",
-    "description": "A radial glow that follows the cursor across the card.",
-    "category": "Cards & Layout",
-    "dependencies": []
-  },
-  {
-    "slug": "tilt-card",
-    "title": "Tilt Card",
-    "description": "3D perspective tilt that tracks the cursor.",
-    "category": "Cards & Layout",
-    "dependencies": [
-      "motion"
+    "slug": "theme-toggler",
+    "title": "Theme Toggler",
+    "description": "Wipes the new theme in as a circle using View Transitions.",
+    "category": "Buttons",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The circular View Transition wipe is skipped and the theme switches instantly.",
+      "keyboard": "A native <button type=\"button\">: Enter or Space toggle the theme, with a visible focus-visible outline.",
+      "screenReader": "Named by an aria-label describing the action (\"Switch to light theme\" or \"Switch to dark theme\") that updates after each toggle; the icon is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
-  },
-  {
-    "slug": "marquee",
-    "title": "Marquee",
-    "description": "Seamless scrolling loop \u2014 horizontal, vertical, hover-pause.",
-    "category": "Cards & Layout",
-    "dependencies": []
   },
   {
     "slug": "animated-list",
@@ -164,21 +716,18 @@
     "category": "Cards & Layout",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "The loop stops and all items are shown at once, newest on top, with no spring, scale or layout animation.",
+      "keyboard": null,
+      "screenReader": "Without reduced motion items are added on a timer, so a screen reader finds only the items revealed so far; the loop pauses while the list is hovered or has focus."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
-  },
-  {
-    "slug": "orbiting-circles",
-    "title": "Orbiting Circles",
-    "description": "Items evenly distributed on rotating orbital rings.",
-    "category": "Cards & Layout",
-    "dependencies": []
-  },
-  {
-    "slug": "avatar-circles",
-    "title": "Avatar Circles",
-    "description": "Stacked initials avatars with a +N badge \u2014 zero images.",
-    "category": "Cards & Layout",
-    "dependencies": []
   },
   {
     "slug": "animated-tooltip",
@@ -187,6 +736,136 @@
     "category": "Cards & Layout",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "The tooltip appears and disappears instantly instead of springing in, and the avatar's hover scale no longer transitions.",
+      "keyboard": "Each avatar is focusable with Tab and shows its tooltip and a focus ring while focused; Escape hides the tooltip.",
+      "screenReader": "Each avatar is read as its name and role from visually hidden text; the visual tooltip and initials are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "avatar-circles",
+    "title": "Avatar Circles",
+    "description": "Stacked initials avatars with a +N badge — zero images.",
+    "category": "Cards & Layout",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Static; no animation.",
+      "keyboard": null,
+      "screenReader": "Each avatar is read by its full name, with the initials hidden, and the badge is read as \"and 2,400 more\" (the exact extra count)."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "bento-grid",
+    "title": "Bento Grid",
+    "description": "Feature bento with hover-reveal CTAs and rich backgrounds.",
+    "category": "Cards & Layout",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "a11y": {
+      "motion": "The hover transitions are removed: the CTA link is always shown at the bottom of the card, the text block rests lifted above it, and the background no longer scales on hover.",
+      "keyboard": "The CTA link (rendered when href is set) is reachable with Tab; focusing it reveals it the same way hover does and shows a focus ring.",
+      "screenReader": "Reads the card heading, description and CTA link; the gradient overlay is hidden, but any text inside the background node is read as well."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "card-hover-effect",
+    "title": "Card Hover Effect",
+    "description": "Link-card grid with a highlight that glides to whichever card you hover or focus.",
+    "category": "Cards & Layout",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The highlight appears on the hovered or focused card and disappears instantly, without gliding or fading; the arrow nudge is removed.",
+      "keyboard": "Each card is a native link in Tab order; focusing one moves the highlight to it, and it clears when focus leaves the grid.",
+      "screenReader": "Cards are links in a list, named by their title and description text; icons, the arrow and the highlight are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "integrations",
+        "title": "Integrations grid",
+        "description": "Four columns of service cards with lucide icons."
+      }
+    ]
+  },
+  {
+    "slug": "card-stack",
+    "title": "Card Stack",
+    "description": "Deck that shuffles the top card to the back on a timer.",
+    "category": "Cards & Layout",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The deck does not auto-shuffle; the first card stays on top. With motion allowed, shuffling pauses while the pointer is over the deck, while focus is inside it, and while the tab is hidden.",
+      "keyboard": "Not interactive itself. Links or buttons inside buried cards stay in the tab order while visually covered.",
+      "screenReader": "All cards are in the DOM in source order and are read in full regardless of which is on top; nothing is announced on shuffle."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "compare-slider",
+    "title": "Compare Slider",
+    "description": "Before/after wipe with a keyboard-accessible divider.",
+    "category": "Cards & Layout",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Nothing animates: the divider and clip jump straight to the slider value, so reduced-motion users see the same thing as everyone else.",
+      "keyboard": "The handle is a native range input covering the panel. Tab focuses it (the panel shows a focus ring), and Arrow keys, Home, End, PageUp and PageDown move the divider.",
+      "screenReader": "A native slider (0 to 100, position announced) named by the `label` prop, default \"Compare before and after\"; the visual divider is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "direction-aware-hover",
+    "title": "Direction Aware Hover",
+    "description": "Overlay enters from the edge the cursor actually crossed.",
+    "category": "Cards & Layout",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The overlay appears and disappears instantly instead of sliding in from the entry edge.",
+      "keyboard": "The card is focusable (tabIndex 0); keyboard focus on it or on anything inside reveals the overlay, and moving focus out hides it. On touch, a tap toggles the overlay.",
+      "screenReader": "The overlay is only moved off-canvas, not hidden, so both the base content and the overlay text are read regardless of state."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
   },
   {
@@ -196,172 +875,66 @@
     "category": "Cards & Layout",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "Icons stay at their base size and never magnify; only the hover color change remains.",
+      "keyboard": "Each DockIcon is a native button, or a link when href is set, reachable with Tab and activated with Enter (and Space for buttons); focus shows a ring and magnifies the icon and its neighbours.",
+      "screenReader": "Each icon is announced as a button or link named by its label prop."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
   },
   {
-    "slug": "border-beam",
-    "title": "Border Beam",
-    "description": "A beam of light traveling around any border.",
-    "category": "Effects",
-    "dependencies": [
-      "motion"
-    ]
-  },
-  {
-    "slug": "animated-beam",
-    "title": "Animated Beam",
-    "description": "Draws an animated connection between any two elements.",
-    "category": "Effects",
-    "dependencies": [
-      "motion"
-    ]
-  },
-  {
-    "slug": "blur-fade",
-    "title": "Blur Fade",
-    "description": "The workhorse entrance \u2014 blur, fade and drift into view.",
-    "category": "Effects",
-    "dependencies": [
-      "motion"
-    ]
-  },
-  {
-    "slug": "scroll-progress",
-    "title": "Scroll Progress",
-    "description": "Gradient page-progress bar pinned to the top.",
-    "category": "Scroll",
-    "dependencies": [
-      "motion"
-    ]
-  },
-  {
-    "slug": "browser-mockup",
-    "title": "Browser Mockup",
-    "description": "Browser window frame for product screenshots.",
-    "category": "Mockups",
-    "dependencies": []
-  },
-  {
-    "slug": "iphone-mockup",
-    "title": "iPhone Mockup",
-    "description": "iPhone frame with dynamic island \u2014 pure CSS.",
-    "category": "Mockups",
-    "dependencies": []
-  },
-  {
-    "slug": "terminal",
-    "title": "Terminal",
-    "description": "A terminal window that types its lines in view.",
-    "category": "Mockups",
-    "dependencies": [
-      "motion"
-    ]
-  },
-  {
-    "slug": "flickering-grid",
-    "title": "Flickering Grid",
-    "description": "Grid of squares fading in and out on staggered timers.",
-    "category": "Backgrounds",
-    "dependencies": []
-  },
-  {
-    "slug": "ripple",
-    "title": "Ripple",
-    "description": "Concentric rings pulsing outward \u2014 calm 'listening' backdrop.",
-    "category": "Backgrounds",
-    "dependencies": []
-  },
-  {
-    "slug": "light-rays",
-    "title": "Light Rays",
-    "description": "God rays fanning down from the top of a section.",
-    "category": "Backgrounds",
-    "dependencies": []
-  },
-  {
-    "slug": "word-rotate",
-    "title": "Word Rotate",
-    "description": "Swaps a single word on a quiet vertical roll.",
-    "category": "Text",
-    "dependencies": [
-      "motion"
-    ]
-  },
-  {
-    "slug": "hyper-text",
-    "title": "Hyper Text",
-    "description": "Scrambles through letters and resolves into the real text.",
-    "category": "Text",
-    "dependencies": []
-  },
-  {
-    "slug": "text-highlighter",
-    "title": "Text Highlighter",
-    "description": "Marker-pen sweep that draws in when the phrase scrolls into view.",
-    "category": "Text",
-    "dependencies": [
-      "motion"
-    ]
-  },
-  {
-    "slug": "morphing-text",
-    "title": "Morphing Text",
-    "description": "Blurs one phrase out as the next resolves in.",
-    "category": "Text",
-    "dependencies": []
-  },
-  {
-    "slug": "rainbow-button",
-    "title": "Rainbow Button",
-    "description": "CTA cycling the brand ramp, with a matching glow beneath.",
-    "category": "Buttons",
-    "dependencies": []
-  },
-  {
-    "slug": "ripple-button",
-    "title": "Ripple Button",
-    "description": "Expands a ripple from the exact point you pressed.",
-    "category": "Buttons",
-    "dependencies": []
-  },
-  {
-    "slug": "magnetic-button",
-    "title": "Magnetic Button",
-    "description": "Leans toward the cursor and springs back on leave.",
-    "category": "Buttons",
-    "dependencies": [
-      "motion"
-    ]
-  },
-  {
-    "slug": "moving-border",
-    "title": "Moving Border",
-    "description": "A light laps the button's border via offset-path.",
-    "category": "Buttons",
-    "dependencies": []
-  },
-  {
-    "slug": "theme-toggler",
-    "title": "Theme Toggler",
-    "description": "Wipes the new theme in as a circle using View Transitions.",
-    "category": "Buttons",
-    "dependencies": []
-  },
-  {
-    "slug": "card-stack",
-    "title": "Card Stack",
-    "description": "Deck that shuffles the top card to the back on a timer.",
+    "slug": "draggable-card",
+    "title": "Draggable Card",
+    "description": "Scattered photo cards you can fling around with inertia, tilt and bounds.",
     "category": "Cards & Layout",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "Cards still drag, but stop where they are released: no momentum, overshoot, lift or tilt.",
+      "keyboard": "Each card is focusable; arrow keys nudge it 12px (48px with Shift) without leaving the board, and Enter or Space brings it to the front.",
+      "screenReader": "Each card is a focusable group (aria-roledescription \"draggable card\") named by its label and described by a hidden hint listing the keyboard controls."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "moodboard",
+        "title": "Moodboard",
+        "description": "Six captioned photos pinned to a board, ready to be rearranged."
+      }
     ]
   },
   {
-    "slug": "glare-card",
-    "title": "Glare Card",
-    "description": "Sheet of light tracking the cursor, like a foil trading card.",
+    "slug": "evervault-card",
+    "title": "Evervault Card",
+    "description": "Card that reveals shuffling brand-tinted characters through a mask following the pointer.",
     "category": "Cards & Layout",
-    "dependencies": []
+    "dependencies": [],
+    "a11y": {
+      "motion": "The characters are drawn once and never reshuffle, and the reveal stays centred instead of following the pointer.",
+      "keyboard": "The card is not focusable itself; keyboard focus on a link or button inside it reveals the characters around the centre.",
+      "screenReader": "The character field is aria-hidden; the label and children are the only content read."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "encrypted-at-rest",
+        "title": "Encrypted at rest",
+        "description": "A security feature card with a lock badge, copy, tags and a docs link."
+      }
+    ]
   },
   {
     "slug": "expandable-card",
@@ -370,35 +943,272 @@
     "category": "Cards & Layout",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "The card snaps straight into the centred panel with no shared-layout spring; the backdrop keeps a short opacity fade.",
+      "keyboard": "The card is a button that opens a modal dialog with Enter or Space. Focus moves into the dialog, Tab and Shift+Tab stay inside it, Escape or Close dismisses it, and focus returns to the card.",
+      "screenReader": "The card is announced as a button with aria-haspopup=\"dialog\" and aria-expanded; the panel is a role=\"dialog\" with aria-modal, named by its heading."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
-  },
-  {
-    "slug": "direction-aware-hover",
-    "title": "Direction Aware Hover",
-    "description": "Overlay enters from the edge the cursor actually crossed.",
-    "category": "Cards & Layout",
-    "dependencies": []
-  },
-  {
-    "slug": "compare-slider",
-    "title": "Compare Slider",
-    "description": "Before/after wipe with a keyboard-accessible divider.",
-    "category": "Cards & Layout",
-    "dependencies": []
   },
   {
     "slug": "file-tree",
     "title": "File Tree",
     "description": "Collapsible tree for documenting project structure.",
     "category": "Cards & Layout",
-    "dependencies": []
+    "dependencies": [],
+    "a11y": {
+      "motion": "The chevron snaps between closed and open instead of rotating. Child lists appear and disappear instantly for everyone.",
+      "keyboard": "Each folder is a native button: Tab reaches it and Enter or Space toggles it. Files are plain text and not focusable, and there is no arrow-key tree navigation.",
+      "screenReader": "Nested lists where folder buttons report aria-expanded (a disclosure pattern, not role=tree)."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "focus-cards",
+    "title": "Focus Cards",
+    "description": "Image grid where the hovered card stays sharp while the others blur and step back.",
+    "category": "Cards & Layout",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Cards no longer shrink or zoom, and the blur and title fade switch instantly instead of transitioning.",
+      "keyboard": "Each card is a tab stop (a link when it has an href, otherwise a focusable figure); keyboard focus triggers the same sharp-card, blurred-siblings state as hover and reveals the title.",
+      "screenReader": "Cards are list items; titles are real text that is read even while visually hidden, links are named by the title, and images use the optional alt (empty by default)."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "destinations",
+        "title": "Destinations gallery",
+        "description": "Linked, portrait destination cards under a travel section heading."
+      }
+    ]
+  },
+  {
+    "slug": "glare-card",
+    "title": "Glare Card",
+    "description": "Sheet of light tracking the cursor, like a foil trading card.",
+    "category": "Cards & Layout",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The glare still follows the cursor, since it is pointer-driven, but it appears and disappears without the fade.",
+      "keyboard": null,
+      "screenReader": "The glare layer is aria-hidden and the children are read normally."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "layout-grid",
+    "title": "Layout Grid",
+    "description": "Bento grid of image tiles that expand in place to reveal rich content.",
+    "category": "Cards & Layout",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "Tiles open and close instantly, with no shared-layout morph or dimming fade.",
+      "keyboard": "Each tile is a button; opening one moves focus to the expanded panel. Escape, the Close button or a click outside collapses it, and focus returns to the tile unless the click moved it elsewhere.",
+      "screenReader": "Tiles are buttons named by their title with aria-expanded; the expanded panel is a labelled region and the dimmed tiles behind it are inert."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "travel-stories",
+        "title": "Travel stories",
+        "description": "A travel magazine grid where each destination opens into a short story."
+      }
+    ]
+  },
+  {
+    "slug": "marquee",
+    "title": "Marquee",
+    "description": "Seamless scrolling loop — horizontal, vertical, hover-pause.",
+    "category": "Cards & Layout",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Scrolling stops and only the first copy is shown, without the edge fade; horizontal items wrap onto extra rows and a vertical marquee becomes scrollable, so no item is clipped out of reach.",
+      "keyboard": "The marquee itself is not focusable; scrolling pauses while focus is inside it (and on hover with pauseOnHover), and the duplicate copies are inert, so Tab only visits the first copy's links or buttons.",
+      "screenReader": "The content is read once; copies 2 and up are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "orbiting-circles",
+    "title": "Orbiting Circles",
+    "description": "Items evenly distributed on rotating orbital rings.",
+    "category": "Cards & Layout",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The rotation stops; the items rest evenly spaced on the ring.",
+      "keyboard": null,
+      "screenReader": "The orbit ring is aria-hidden; the orbiting children are read as-is."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "spotlight-card",
+    "title": "Spotlight Card",
+    "description": "A radial glow that follows the cursor across the card.",
+    "category": "Cards & Layout",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Unchanged: the radial glow still fades in on hover and follows the pointer, as a color highlight with no element movement.",
+      "keyboard": null,
+      "screenReader": "The glow layer is aria-hidden; only the children are read."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "tilt-card",
+    "title": "Tilt Card",
+    "description": "3D perspective tilt that tracks the cursor.",
+    "category": "Cards & Layout",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The card never tilts; it stays flat while the pointer moves over it.",
+      "keyboard": null,
+      "screenReader": "A transparent wrapper; only the children are read."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "wobble-card",
+    "title": "Wobble Card",
+    "description": "Colored card that drifts toward the pointer, with parallax content and grain.",
+    "category": "Cards & Layout",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The card and its content stay put when the pointer moves over them, and the focus lift is replaced by a stronger shadow alone.",
+      "keyboard": "The card itself is not focusable; when a link or button inside it has keyboard focus the card lifts slightly and its shadow deepens.",
+      "screenReader": "Only the children are read; the grain overlay is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "feature-bento",
+        "title": "Feature bento",
+        "description": "Three WobbleCards of different spans and colors forming a feature grid."
+      }
+    ]
+  },
+  {
+    "slug": "animated-sidebar",
+    "title": "Animated Sidebar",
+    "description": "Icon rail that expands on hover or focus and turns into a drawer on narrow screens.",
+    "category": "Navigation",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The rail snaps between its collapsed and expanded widths, labels appear without fading and the drawer opens without sliding.",
+      "keyboard": "Links are native anchors; tabbing into the rail expands it. In the narrow layout the menu button opens a modal drawer that keeps Tab inside, closes on Escape or a backdrop click, and returns focus to the button.",
+      "screenReader": "A nav landmark (label prop) of links with aria-current on the active page; collapsed labels are only faded, so every link keeps its name, and the menu button reports aria-expanded."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "dashboard",
+        "title": "Dashboard shell",
+        "description": "A pinned-capable rail beside a dashboard with stats, a chart and recent orders."
+      },
+      {
+        "name": "narrow",
+        "title": "Narrow container",
+        "description": "Below a 42rem container width the rail becomes a top bar with a drawer."
+      }
+    ]
+  },
+  {
+    "slug": "animated-tabs",
+    "title": "Animated Tabs",
+    "description": "Tabs with a gliding pill and panels stacked like cards that peek behind.",
+    "category": "Navigation",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The pill jumps to the selected tab and the panels swap places instantly; the stacked, offset layout stays as a static picture.",
+      "keyboard": "One Tab stop for the tab list (roving tabindex). Arrow Left/Right move and select with wrap-around, Home and End jump to the first and last tab, and Tab then moves into the active panel.",
+      "screenReader": "Uses tablist, tab and tabpanel roles with aria-selected, aria-controls and aria-labelledby; the peeking inactive panels are aria-hidden and inert."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "feature-tour",
+        "title": "Product feature tour",
+        "description": "Four tabs of rich content, each with copy, a checklist and a mock UI."
+      }
+    ]
   },
   {
     "slug": "floating-navbar",
     "title": "Floating Navbar",
     "description": "Hides on scroll down, returns the moment you scroll up.",
     "category": "Navigation",
-    "dependencies": []
+    "dependencies": [],
+    "a11y": {
+      "motion": "The bar still hides on scroll down and returns on scroll up, but it jumps instead of sliding over 300ms.",
+      "keyboard": "Links inside stay in the tab order. Moving focus into the bar brings it back on screen, and it does not hide while focus is inside it.",
+      "screenReader": "Renders a <header> (a banner landmark at the top level of the page) and adds no ARIA of its own."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
   },
   {
     "slug": "navbar-menu",
@@ -407,6 +1217,42 @@
     "category": "Navigation",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "The highlight pill jumps between items and the panel appears and disappears instantly, with no fade, rise or scale.",
+      "keyboard": "Tabbing to an item with a panel opens it, and Tab continues into the panel. Escape closes it and returns focus to the item, focus leaving the menu closes it, and Enter or Space reopens it. Items with `href` are ordinary links.",
+      "screenReader": "A <nav> of buttons and links; only items with a panel carry aria-expanded, plus aria-controls while open."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "resizable-navbar",
+    "title": "Resizable Navbar",
+    "description": "Full-width navbar that shrinks into a floating, blurred pill once you scroll.",
+    "category": "Navigation",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The bar still narrows into the pill past the threshold, but it snaps to size instead of springing; the link highlight jumps rather than glides and the mobile menu appears without sliding.",
+      "keyboard": "Links are native anchors and the highlight follows keyboard focus. In the narrow layout a Menu button toggles the link list; Escape closes it and returns focus to the button, and choosing a link or clicking outside closes it too.",
+      "screenReader": "A header containing a nav landmark (label prop) with aria-current on the active link; the menu button reports aria-expanded and aria-controls, and the highlight is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "landing-page",
+        "title": "Landing page shell",
+        "description": "A full landing page in a scroll box: hero, logos, features and a closing CTA."
+      }
     ]
   },
   {
@@ -414,15 +1260,17 @@
     "title": "Sticky Banner",
     "description": "Dismissible announcement bar pinned above the header.",
     "category": "Navigation",
-    "dependencies": []
-  },
-  {
-    "slug": "vanish-input",
-    "title": "Vanish Input",
-    "description": "Search field whose placeholder cycles while empty.",
-    "category": "Forms",
-    "dependencies": [
-      "motion"
+    "dependencies": [],
+    "a11y": {
+      "motion": "Nothing animates, so reduced-motion users see the same banner.",
+      "keyboard": "The dismiss button is a native button with a visible focus outline. Dismissing moves focus to the next focusable element after the banner.",
+      "screenReader": "The dismiss button is named \"Dismiss announcement\"; the banner itself is a plain div with no landmark role."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
   },
   {
@@ -430,7 +1278,18 @@
     "title": "File Drop",
     "description": "Upload zone that lifts and glows while a file is over it.",
     "category": "Forms",
-    "dependencies": []
+    "dependencies": [],
+    "a11y": {
+      "motion": "The 200ms transition is removed, so on drag-over the zone snaps to its lifted, brand-bordered state instead of easing into it.",
+      "keyboard": "Tab reaches the visually hidden file input, the zone shows a focus ring, and Enter or Space opens the file picker.",
+      "screenReader": "The file input is wrapped in a label, so it is announced with the zone's text (the instruction plus the accepted types); the selected-file list is not a live region."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
   },
   {
     "slug": "stepper",
@@ -439,6 +1298,108 @@
     "category": "Forms",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "The progress bar jumps to its new fill instead of animating. Marker colors still change with a short color transition.",
+      "keyboard": "With `onStepClick`, completed steps are buttons that Tab reaches and Enter or Space activates. Otherwise markers are plain text and not focusable.",
+      "screenReader": "An ordered list where each marker is named like \"Step 1: Account, complete\" and the current step's item has aria-current=\"step\"."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "vanish-input",
+    "title": "Vanish Input",
+    "description": "Search field whose placeholder cycles while empty.",
+    "category": "Forms",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The placeholder does not cycle: it stays on the first entry, with no slide or fade.",
+      "keyboard": "A native form: the input is focusable, Enter submits, and focus stays in the input after submitting. The placeholder stops cycling while the field is hovered or focused.",
+      "screenReader": "The input is named by the `label` prop (default \"Search\"); the rotating placeholder is aria-hidden and the icon button is named \"Submit\"."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "animated-modal",
+    "title": "Animated Modal",
+    "description": "Native dialog whose panel springs in with a tilt over a blurred backdrop.",
+    "category": "Overlays",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The spring, scale and tilt are dropped; the panel and backdrop fade in and out over 150–200ms.",
+      "keyboard": "The trigger is a native button. Opening moves focus into the dialog and Tab stays inside it (native showModal); Escape, the × button and ModalClose close it, and focus returns to the element that opened it.",
+      "screenReader": "A native modal <dialog> named by its title (or aria-labelledby) and described by its description; the page behind is inert while it is open."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "book-trip",
+        "title": "Book your trip",
+        "description": "A travel booking modal with a photo strip, trip details and a CTA footer."
+      }
+    ]
+  },
+  {
+    "slug": "loaders",
+    "title": "Loaders",
+    "description": "Five tiny CSS loading indicators — dots, pulse, orbit, bars and spinner.",
+    "category": "Loaders",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Bouncing, spinning and rippling stop; each loader holds its shape and fades gently in and out on a 2-second cycle instead.",
+      "keyboard": null,
+      "screenReader": "Each loader is role=\"status\" with a visually hidden label (\"Loading\" by default); pass aria-hidden when nearby text already says what is happening."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "in-context",
+        "title": "In context",
+        "description": "Loaders inside buttons, a typing bubble, an upload row, a live badge and an empty card."
+      }
+    ]
+  },
+  {
+    "slug": "multi-step-loader",
+    "title": "Multi Step Loader",
+    "description": "Full-screen overlay that ticks through a list of steps, keeping the active one centred.",
+    "category": "Loaders",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The list jumps to the active step instead of scrolling, the spinner stands still and the overlay appears without a fade; steps still advance on schedule.",
+      "keyboard": "Built on a modal <dialog>: focus moves into it on open, Tab stays inside, and focus returns to the trigger on close. With onClose, Escape and a Close button dismiss it; a looping loader pauses while hovered or while its Close button has focus.",
+      "screenReader": "A polite live region announces each change (\"Step 2 of 5: Installing dependencies\"); the steps are an ordered list with aria-current=\"step\" on the active one and completed steps marked done."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "deploy",
+        "title": "Deploy flow",
+        "description": "A deploy card opens the loader; onComplete closes it and marks the site live."
+      }
     ]
   },
   {
@@ -448,29 +1409,53 @@
     "category": "Social Proof",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "Autoplay is off and the pause button is hidden. Changing slides with the dots swaps the portrait and quote instantly, with no scale, rotate or slide.",
+      "keyboard": "The pause/play button and the dots are native buttons with visible focus rings and 24px hit areas. Autoplay also pauses while the pointer or focus is inside the component.",
+      "screenReader": "Each dot is named \"Show testimonial from {name}\" with aria-current on the shown one, the quote is a blockquote, and slide changes are not announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
-  },
-  {
-    "slug": "tweet-card",
-    "title": "Tweet Card",
-    "description": "Static social-proof card \u2014 props, not an API call.",
-    "category": "Social Proof",
-    "dependencies": []
   },
   {
     "slug": "logo-cloud",
     "title": "Logo Cloud",
     "description": "Customer logos muted until hovered, so they read as texture.",
     "category": "Social Proof",
-    "dependencies": []
+    "dependencies": [],
+    "a11y": {
+      "motion": "The 300ms fade is removed, so a hovered logo switches straight from dimmed grayscale to full color.",
+      "keyboard": null,
+      "screenReader": "A list with one item per logo, each announced by its `name`; the logo node itself is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
   },
   {
-    "slug": "sticky-scroll",
-    "title": "Sticky Scroll",
-    "description": "Copy scrolls past a pinned panel that swaps per section.",
-    "category": "Scroll",
-    "dependencies": [
-      "motion"
+    "slug": "tweet-card",
+    "title": "Tweet Card",
+    "description": "Static social-proof card — props, not an API call.",
+    "category": "Social Proof",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Nothing animates beyond a background-color change on hover.",
+      "keyboard": null,
+      "screenReader": "A figure with name, @handle and time followed by a blockquote; the avatar is decorative and the verified badge is announced as \"Verified account\"."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
   },
   {
@@ -480,24 +1465,67 @@
     "category": "Scroll",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "A CSS override keeps the panel flat and the header in place: no 26° tilt, no scale, no scroll offset.",
+      "keyboard": null,
+      "screenReader": "Plain wrapper divs; the header and children pass through unchanged."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
   },
   {
-    "slug": "tracing-beam",
-    "title": "Tracing Beam",
-    "description": "Gradient line that draws itself down long-form content.",
+    "slug": "hero-parallax",
+    "title": "Hero Parallax",
+    "description": "Hero copy over three card rows that slide apart as a tilted block flattens.",
     "category": "Scroll",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "The block renders flat with no tilt, slide or fade, and the rows wrap so every card is visible without scrolling sideways.",
+      "keyboard": "Cards with an href are links in the Tab order with a visible focus ring; a focused card that has drifted past the edge slides its row back into view.",
+      "screenReader": "Cards are announced as three lists; each card's accessible name is its visible title, and the image uses empty alt text."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "agency",
+        "title": "Agency portfolio",
+        "description": "Twelve smaller cards with a shorter drift for a studio's project showcase."
+      }
     ]
   },
   {
-    "slug": "scroll-velocity",
-    "title": "Scroll Velocity",
-    "description": "Marquee whose speed and direction follow your scrolling.",
+    "slug": "macbook-scroll",
+    "title": "Macbook Scroll",
+    "description": "A CSS-drawn laptop pins in place and opens its lid as the screenshot scales up.",
     "category": "Scroll",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "The laptop renders open with the screenshot at full size, the section drops its extra scroll height, and nothing moves while scrolling.",
+      "keyboard": null,
+      "screenReader": "The title is an h2 and the screenshot uses the `alt` you pass (empty by default); the lid shell, keyboard and trackpad are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "dashboard",
+        "title": "Custom screen",
+        "description": "A mock dashboard built from Tailwind as the screen content instead of an image."
+      }
     ]
   },
   {
@@ -507,6 +1535,551 @@
     "category": "Scroll",
     "dependencies": [
       "motion"
+    ],
+    "a11y": {
+      "motion": "A CSS override pins every tile in its grid cell, so the columns do not drift.",
+      "keyboard": null,
+      "screenReader": "Plain divs, one wrapper per child, with no list or grid semantics beyond what the children provide."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "scroll-progress",
+    "title": "Scroll Progress",
+    "description": "Gradient page-progress bar pinned to the top.",
+    "category": "Scroll",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The bar follows the scroll position directly, with no spring easing or overshoot.",
+      "keyboard": null,
+      "screenReader": "Decorative; aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "scroll-velocity",
+    "title": "Scroll Velocity",
+    "description": "Marquee whose speed and direction follow your scrolling.",
+    "category": "Scroll",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The row stays still at its starting position and does not react to scrolling.",
+      "keyboard": "Nothing is interactive by default. If children contain links, only the first copy is focusable, and the marquee pauses while the pointer or focus is inside it.",
+      "screenReader": "Only the first copy of the children is exposed; the three duplicates are aria-hidden and inert."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "sticky-scroll",
+    "title": "Sticky Scroll",
+    "description": "Copy scrolls past a pinned panel that swaps per section.",
+    "category": "Scroll",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The pinned panel swaps instantly with no crossfade or scale, and titles switch between full and 60% opacity without fading.",
+      "keyboard": "Nothing is interactive by default. Interactive `content` in inactive panels is inert, so only the visible panel's controls take focus.",
+      "screenReader": "Titles are h3 headings with a paragraph each; inactive panels are aria-hidden and inert, and the panel column is hidden below the lg breakpoint."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "timeline",
+    "title": "Timeline",
+    "description": "Vertical timeline with sticky labels and a gradient beam that fills as you scroll.",
+    "category": "Scroll",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The beam is drawn in full from the start and its glowing head is hidden; labels still stick, which is layout rather than animation.",
+      "keyboard": null,
+      "screenReader": "Entries are an ordered list; each label is an h3 followed by its content, and the track, beam and dots are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "changelog",
+        "title": "Product changelog",
+        "description": "Release notes with version labels, change badges and chart previews drawn in Tailwind."
+      }
+    ]
+  },
+  {
+    "slug": "tracing-beam",
+    "title": "Tracing Beam",
+    "description": "Gradient line that draws itself down long-form content.",
+    "category": "Scroll",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The beam is drawn at full length from the start instead of following your scroll.",
+      "keyboard": null,
+      "screenReader": "The beam is aria-hidden; children render unchanged."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "animated-beam",
+    "title": "Animated Beam",
+    "description": "Draws an animated connection between any two elements.",
+    "category": "Effects",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The pulse stops; each connection shows a still gradient stroke along the full path.",
+      "keyboard": null,
+      "screenReader": "Decorative; the svg is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "blur-fade",
+    "title": "Blur Fade",
+    "description": "The workhorse entrance — blur, fade and drift into view.",
+    "category": "Effects",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "Content still starts hidden and appears instantly, with no blur or slide, once it scrolls 10% into view.",
+      "keyboard": null,
+      "screenReader": "Children stay in the DOM before they are revealed, so they are always read."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "border-beam",
+    "title": "Border Beam",
+    "description": "A beam of light traveling around any border.",
+    "category": "Effects",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The beam is hidden entirely; only the parent's normal border remains.",
+      "keyboard": null,
+      "screenReader": "Decorative; aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "glowing-effect",
+    "title": "Glowing Effect",
+    "description": "Border glow that follows the pointer around a card's edge as it comes near.",
+    "category": "Effects",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The arc stops following the pointer; hovering the card shows a soft glow around the whole border instead.",
+      "keyboard": "The effect is not focusable; the full border lights up while the card or anything inside it has keyboard focus.",
+      "screenReader": "The glow layer is aria-hidden and ignores pointer events; only the card content is read."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "feature-grid",
+        "title": "Feature grid",
+        "description": "Six feature cards in a three-column grid, each lighting up as the pointer nears it."
+      }
+    ]
+  },
+  {
+    "slug": "3d-card",
+    "title": "3D Card",
+    "description": "Perspective card that turns toward the pointer while its layers lift to different depths.",
+    "category": "3D",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The card stays flat and its layers stay on the surface; pointer movement and focus change nothing.",
+      "keyboard": "The card is not focusable itself; when a link or button inside it gets keyboard focus, the layers rise to 40% of their depth without tilting.",
+      "screenReader": "A transparent wrapper; the children are read in source order."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "product-card",
+        "title": "Product card",
+        "description": "A shop tile whose product, title, price and add-to-cart button sit at different depths."
+      }
+    ]
+  },
+  {
+    "slug": "3d-pin",
+    "title": "3D Pin",
+    "description": "Card that tilts back as a glowing pin rises with a label chip and rippling rings.",
+    "category": "3D",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The card never tilts and the pin does not rise; on hover or focus the pin, chip and three static rings simply appear over the flat card.",
+      "keyboard": "With href the whole card is one link; without it the root is a plain div and the effect shows while a link or button inside it has keyboard focus. The focused card gets a visible ring.",
+      "screenReader": "The chip's title is real text read with the card content (it forms part of the link name when href is set); the beam, dot and rings are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "project-showcase",
+        "title": "Project showcase",
+        "description": "A portfolio card with a dashboard screenshot built from Tailwind and a link inside."
+      }
+    ]
+  },
+  {
+    "slug": "3d-marquee",
+    "title": "3D Marquee",
+    "description": "A tilted 3D grid of images whose columns scroll up and down in an endless loop.",
+    "category": "Carousels",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The columns stop scrolling and the grid rests as a static tilted wall. Scrolling also pauses on hover and while offscreen.",
+      "keyboard": null,
+      "screenReader": "Images are decorative (empty alt) unless you pass alt text, in which case each is read once; duplicated copies are aria-hidden and inert."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "showcase-wall",
+        "title": "Showcase wall",
+        "description": "A \"Built with Velora\" wall of screenshots behind centered headline copy."
+      }
+    ]
+  },
+  {
+    "slug": "apple-cards-carousel",
+    "title": "Apple Cards Carousel",
+    "description": "Snap-scrolling row of tall image cards that morph into a full modal story.",
+    "category": "Carousels",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "Cards open and close instantly with no shared-element morph or backdrop fade, and the previous/next buttons jump instead of smooth-scrolling.",
+      "keyboard": "The row is a focusable region that arrow keys scroll; each card is a button that opens a modal dialog. Focus moves into the dialog, Tab and Shift+Tab stay inside it, Escape or Close dismisses it, and focus returns to the card. Previous/next buttons are disabled at either end.",
+      "screenReader": "The row is a labelled region containing a list of buttons named by category and title (aria-haspopup=\"dialog\", aria-expanded); the dialog is aria-modal and named by its heading, and card images are decorative."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "features",
+        "title": "Features you'll love",
+        "description": "A product section of five feature cards whose dialogs hold copy and key stats."
+      }
+    ]
+  },
+  {
+    "slug": "image-slider",
+    "title": "Image Slider",
+    "description": "Full-bleed image slider with crossfade-zoom, autoplay, dots, arrows and swipe.",
+    "category": "Carousels",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "Autoplay never starts on its own and slides change instantly with no fade or zoom; pressing Play opts in to autoplay with instant changes.",
+      "keyboard": "Previous, next, pause/play and dot buttons are native buttons; Left/Right arrows (and Home/End) change slides while focus is inside the slider. Autoplay pauses while hovered or while focus is inside.",
+      "screenReader": "A region with aria-roledescription=\"carousel\" whose current slide is a group labelled \"n of N\"; image alt text is read, and slide changes are announced politely only while autoplay is not running."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "hero",
+        "title": "Hero",
+        "description": "A landing hero with a headline and call-to-action layered over an autoplaying slider."
+      }
+    ]
+  },
+  {
+    "slug": "following-pointer",
+    "title": "Following Pointer",
+    "description": "Swaps the cursor for an arrow and a name tag that trail the pointer inside a region.",
+    "category": "Cursor & Pointer",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The arrow and tag track the pointer 1:1 with no spring, and appear and hide without a scale or fade.",
+      "keyboard": null,
+      "screenReader": "The arrow and tag are aria-hidden; the wrapped content is read and focused as normal."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "blog-grid",
+        "title": "Blog grid",
+        "description": "A grid of post cards where hovering shows a \"Read post\" tag."
+      }
+    ]
+  },
+  {
+    "slug": "lens",
+    "title": "Lens",
+    "description": "Circular magnifier that follows the pointer or arrow keys to zoom into an image.",
+    "category": "Cursor & Pointer",
+    "dependencies": [],
+    "a11y": {
+      "motion": "The lens tracks the pointer directly with no easing, and appears and hides without a fade or scale.",
+      "keyboard": "The wrapper is a tab stop; keyboard focus shows the lens at its last position, arrow keys move it (Shift for larger steps) and Escape hides it. With staticPosition the lens stays pinned.",
+      "screenReader": "Content is read once from the original children; the magnified copy is aria-hidden and inert, so its links and images are neither announced nor focusable."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "product-inspector",
+        "title": "Product inspector",
+        "description": "A product photo with a stronger zoom, a caption and a buy box."
+      }
+    ]
+  },
+  {
+    "slug": "pointer-highlight",
+    "title": "Pointer Highlight",
+    "description": "Draws an outline around a phrase on scroll, then glides a pointer icon to its corner.",
+    "category": "Cursor & Pointer",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The outline and pointer are shown in their final place as soon as the phrase is on screen, with no drawing or glide.",
+      "keyboard": null,
+      "screenReader": "The text is read normally; the outline and pointer icon are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "hero",
+        "title": "Hero headline",
+        "description": "A hero headline with one highlighted phrase, a subtitle and two buttons."
+      }
+    ]
+  },
+  {
+    "slug": "smooth-cursor",
+    "title": "Smooth Cursor",
+    "description": "Dot-and-ring custom cursor; the ring trails on a spring and grows over links and buttons.",
+    "category": "Cursor & Pointer",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "The ring snaps to the dot instead of trailing, and grows or shrinks without easing.",
+      "keyboard": null,
+      "screenReader": "The dot and ring are aria-hidden and never take pointer events; nothing is announced."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "cta-card",
+        "title": "CTA card",
+        "description": "A call-to-action card with buttons and links that make the ring grow."
+      }
+    ]
+  },
+  {
+    "slug": "globe",
+    "title": "Globe",
+    "description": "Dotted canvas globe with markers, great-circle arcs, drag and keyboard rotation.",
+    "category": "Data & Maps",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Auto-rotation, marker pulses and travelling arc highlights stop; one static frame is drawn with arcs shown in full. Dragging and arrow keys still rotate it, arrow keys in instant 15° steps.",
+      "keyboard": "The globe is a single Tab stop with a focus ring; Left/Right arrows turn it west/east and Up/Down tilt it north/south. Auto-rotation pauses while it has focus or is hovered.",
+      "screenReader": "Exposed as one image (role=\"img\") named from the marker labels and arc count, or from the label prop; the canvas is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "edge-network",
+        "title": "Global edge network",
+        "description": "Marketing section pairing copy and stats with a globe of edge locations and arcs from the origin."
+      }
+    ]
+  },
+  {
+    "slug": "world-map",
+    "title": "World Map",
+    "description": "Dotted SVG world map with markers, pulsing hubs and animated connection arcs.",
+    "category": "Data & Maps",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Arcs are drawn in full with no travelling highlight and markers do not pulse. The server render is this static state too; animation is added after hydration.",
+      "keyboard": null,
+      "screenReader": "Exposed as one image (role=\"img\") whose name lists each connection by marker label (or coordinates), or uses the label prop; the SVG and label pills are aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "remote-team",
+        "title": "Remote team across timezones",
+        "description": "Team card with labelled city markers, arcs from HQ and a member list with UTC offsets."
+      }
+    ]
+  },
+  {
+    "slug": "browser-mockup",
+    "title": "Browser Mockup",
+    "description": "Browser window frame for product screenshots.",
+    "category": "Mockups",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Static; no animation.",
+      "keyboard": null,
+      "screenReader": "The URL text is read as plain text, then the children; the window dots are empty."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "code-block",
+    "title": "Code Block",
+    "description": "Code panel with tabs, line numbers, highlighted lines and a copy button.",
+    "category": "Mockups",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "a11y": {
+      "motion": "Nothing animates, so there is no reduced-motion difference; the copy icon swaps to a check mark instantly.",
+      "keyboard": "The code area is focusable and scrolls with the arrow keys. With tabs, the tab list is one Tab stop: Left/Right arrows, Home and End switch files. The copy button is a native button.",
+      "screenReader": "The code region is labelled with the file name, line numbers are aria-hidden, tabs use tablist/tab/tabpanel roles, and a status region announces \"Copied to clipboard\"."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      },
+      {
+        "name": "tabs",
+        "title": "File tabs",
+        "description": "A component and its usage as two file tabs, each with its own highlighted lines."
+      }
+    ]
+  },
+  {
+    "slug": "iphone-mockup",
+    "title": "iPhone Mockup",
+    "description": "iPhone frame with dynamic island — pure CSS.",
+    "category": "Mockups",
+    "dependencies": [],
+    "a11y": {
+      "motion": "Static; no animation.",
+      "keyboard": null,
+      "screenReader": "The frame parts are empty elements; only the children are read."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
+    ]
+  },
+  {
+    "slug": "terminal",
+    "title": "Terminal",
+    "description": "A terminal window that types its lines in view.",
+    "category": "Mockups",
+    "dependencies": [
+      "motion"
+    ],
+    "a11y": {
+      "motion": "All lines render in full immediately with no typing effect and no blinking cursor.",
+      "keyboard": null,
+      "screenReader": "The full lines are always available as visually hidden text; the typed visual layer is aria-hidden."
+    },
+    "examples": [
+      {
+        "name": "default",
+        "title": "Default"
+      }
     ]
   }
 ]

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "3d-marquee",
+  "title": "3D Marquee",
+  "description": "A tilted 3D grid of images whose columns scroll up and down in an endless loop.",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/velora/3d-marquee.tsx",
+      "content": "\"use client\";\n\nimport { useEffect, useRef } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type Marquee3DImage = string | { src: string; alt?: string };\n\ninterface Marquee3DProps extends React.HTMLAttributes<HTMLDivElement> {\n  /** Image URLs, or { src, alt } objects (images without alt are decorative) */\n  images: Marquee3DImage[];\n  /** Number of columns on the tilted plane */\n  columns?: number;\n  /** Seconds for one full loop of a column */\n  duration?: number;\n  /** Fade the edges into the background */\n  fade?: boolean;\n  /** Pause scrolling while hovered */\n  pauseOnHover?: boolean;\n  /** Extra classes for every image tile */\n  imageClassName?: string;\n}\n\n/**\n * A grid of images tilted in 3D whose columns scroll endlessly, alternating\n * up and down. Give it a height (default h-112) and place copy on top.\n * Scrolling pauses offscreen and on hover; under reduced motion the tilted\n * grid rests in place.\n */\nexport function Marquee3D({\n  images,\n  columns = 5,\n  duration = 40,\n  fade = true,\n  pauseOnHover = true,\n  imageClassName,\n  className,\n  style,\n  ...props\n}: Marquee3DProps) {\n  const ref = useRef<HTMLDivElement>(null);\n  const n = images.length;\n  // Enough tiles per copy that one copy always spans the visible diagonal\n  const perCopy = Math.ceil(columns * 1.6) + 1;\n\n  // Pause the CSS animations while offscreen\n  useEffect(() => {\n    const el = ref.current!;\n    const observer = new IntersectionObserver(([e]) =>\n      el.toggleAttribute(\"data-offscreen\", !e.isIntersecting)\n    );\n    observer.observe(el);\n    return () => observer.disconnect();\n  }, []);\n\n  return (\n    <div\n      {...props}\n      ref={ref}\n      data-slot=\"marquee-3d\"\n      style={{ \"--duration\": `${duration}s`, ...style } as React.CSSProperties}\n      className={cn(\n        \"group/marquee3d relative h-112 w-full overflow-hidden [--gap:1rem] @container-size\",\n        fade &&\n          \"mask-intersect mask-[linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent),linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]\",\n        className\n      )}\n    >\n      <div\n        className=\"absolute top-1/2 left-1/2 grid w-[calc(118cqh+80cqw)] origin-top-left gap-(--gap)\"\n        style={{\n          gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,\n          // Rotate about the container's centre, a quarter of the way down the\n          // plane, so a column's first copy covers the view at every offset.\n          transform: \"rotateX(55deg) rotateZ(-40deg) translate(-50%, -25%)\",\n        }}\n      >\n        {n > 0 &&\n          Array.from({ length: columns }, (_, c) => (\n            <div key={c} className=\"flex flex-col gap-(--gap)\">\n              {[0, 1].map((copy) => (\n                <div\n                  key={copy}\n                  aria-hidden={copy > 0 || undefined}\n                  inert={copy > 0 || undefined}\n                  className={cn(\n                    \"flex flex-col gap-(--gap) motion-safe:animate-marquee-vertical group-data-offscreen/marquee3d:[animation-play-state:paused]\",\n                    c % 2 && \"[animation-direction:reverse]\",\n                    pauseOnHover && \"group-hover/marquee3d:[animation-play-state:paused]\"\n                  )}\n                >\n                  {Array.from({ length: perCopy }, (_, k) => {\n                    const i = c + k * columns;\n                    const image = images[i % n];\n                    const { src, alt = \"\" } = typeof image === \"string\" ? { src: image } : image;\n                    return (\n                      // eslint-disable-next-line @next/next/no-img-element\n                      <img\n                        key={k}\n                        src={src}\n                        // Each image's alt is read once; repeats are decorative\n                        alt={copy || i >= n ? \"\" : alt}\n                        loading=\"lazy\"\n                        draggable={false}\n                        className={cn(\n                          \"aspect-4/3 w-full rounded-xl bg-muted object-cover shadow-lg ring-1 ring-border\",\n                          imageClassName\n                        )}\n                      />\n                    );\n                  })}\n                </div>\n              ))}\n            </div>\n          ))}\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/velora/3d-marquee.tsx"
+    }
+  ],
+  "cssVars": {
+    "theme": {
+      "animate-marquee-vertical": "marquee-vertical var(--duration, 40s) linear infinite"
+    }
+  },
+  "css": {
+    "@keyframes marquee-vertical": {
+      "from": {
+        "transform": "translateY(0)"
+      },
+      "to": {
+        "transform": "translateY(calc(-100% - var(--gap)))"
+      }
+    }
+  },
+  "type": "registry:ui"
+}

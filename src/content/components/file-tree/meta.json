@@ -1,0 +1,17 @@
+{
+  "title": "File Tree",
+  "description": "Collapsible tree for documenting project structure.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The chevron snaps between closed and open instead of rotating. Child lists appear and disappear instantly for everyone.",
+    "keyboard": "Each folder is a native button: Tab reaches it and Enter or Space toggles it. Files are plain text and not focusable, and there is no arrow-key tree navigation.",
+    "screenReader": "Nested lists where folder buttons report aria-expanded (a disclosure pattern, not role=tree)."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

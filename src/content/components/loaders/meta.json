@@ -1,0 +1,22 @@
+{
+  "title": "Loaders",
+  "description": "Five tiny CSS loading indicators — dots, pulse, orbit, bars and spinner.",
+  "category": "Loaders",
+  "dependencies": [],
+  "a11y": {
+    "motion": "Bouncing, spinning and rippling stop; each loader holds its shape and fades gently in and out on a 2-second cycle instead.",
+    "keyboard": null,
+    "screenReader": "Each loader is role=\"status\" with a visually hidden label (\"Loading\" by default); pass aria-hidden when nearby text already says what is happening."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "in-context",
+      "title": "In context",
+      "description": "Loaders inside buttons, a typing bubble, an upload row, a live badge and an empty card."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Hyper Text",
+  "description": "Scrambles through letters and resolves into the real text.",
+  "category": "Text",
+  "dependencies": [],
+  "a11y": {
+    "motion": "No scramble runs, on mount or on hover; the text renders as-is.",
+    "keyboard": null,
+    "screenReader": "The real text is in an sr-only span and the scrambling visual copy is aria-hidden, so assistive tech never reads random letters."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

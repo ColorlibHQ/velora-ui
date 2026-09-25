@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
@@ -30,19 +30,33 @@ export function CardStack({
   const [shift, setShift] = useState(0);
   const reducedMotion = useReducedMotion();
   const count = items.length;
+  // Held while hovered or focused so the top card can be read (WCAG 2.2.2).
+  const paused = useRef(false);
 
   useEffect(() => {
-    if (!interval || count < 2) return;
-    const id = window.setInterval(
-      () => setShift((value) => value + 1),
-      interval * 1000
-    );
+    // Reduced motion: no auto-shuffle, the first card stays on top.
+    if (!interval || count < 2 || reducedMotion !== false) return;
+    const id = window.setInterval(() => {
+      if (paused.current || document.hidden) return;
+      setShift((value) => value + 1);
+    }, interval * 1000);
     return () => window.clearInterval(id);
-  }, [interval, count]);
+  }, [interval, count, reducedMotion]);
+
+  const pause = () => {
+    paused.current = true;
+  };
+  const resume = () => {
+    paused.current = false;
+  };
 
   return (
     <div
       data-slot="card-stack"
+      onMouseEnter={pause}
+      onMouseLeave={resume}
+      onFocus={pause}
+      onBlur={resume}
       className={cn("relative h-56 w-full max-w-sm", className)}
     >
       {items.map((card, i) => {

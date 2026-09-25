@@ -1,0 +1,24 @@
+{
+  "title": "Layout Grid",
+  "description": "Bento grid of image tiles that expand in place to reveal rich content.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "Tiles open and close instantly, with no shared-layout morph or dimming fade.",
+    "keyboard": "Each tile is a button; opening one moves focus to the expanded panel. Escape, the Close button or a click outside collapses it, and focus returns to the tile unless the click moved it elsewhere.",
+    "screenReader": "Tiles are buttons named by their title with aria-expanded; the expanded panel is a labelled region and the dimmed tiles behind it are inert."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "travel-stories",
+      "title": "Travel stories",
+      "description": "A travel magazine grid where each destination opens into a short story."
+    }
+  ]
+}

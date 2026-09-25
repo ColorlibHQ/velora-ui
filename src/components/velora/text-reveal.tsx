@@ -26,10 +26,9 @@ export function TextReveal({
   const reducedMotion = useReducedMotion();
   const words = text.split(" ");
 
-  if (reducedMotion) {
-    return <Tag className={cn(className)}>{text}</Tag>;
-  }
-
+  // Same markup on server and client. Under reduced motion the CSS
+  // overrides keep every word visible (even before hydration) and the
+  // JS transition is instant.
   return (
     <Tag data-slot="text-reveal" className={cn(className)}>
       <span className="sr-only">{text}</span>
@@ -44,14 +43,16 @@ export function TextReveal({
         {words.map((word, i) => (
           <motion.span
             key={`${word}-${i}`}
-            className="inline-block will-change-transform"
+            className="inline-block will-change-transform motion-reduce:transform-none! motion-reduce:opacity-100! motion-reduce:[filter:none]!"
             variants={{
               hidden: { opacity: 0, y: 12, filter: "blur(8px)" },
               visible: {
                 opacity: 1,
                 y: 0,
                 filter: "blur(0px)",
-                transition: { duration: 0.45, ease: [0.21, 0.47, 0.32, 0.98] },
+                transition: reducedMotion
+                  ? { duration: 0 }
+                  : { duration: 0.45, ease: [0.21, 0.47, 0.32, 0.98] },
               },
             }}
           >

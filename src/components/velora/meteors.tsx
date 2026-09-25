@@ -27,7 +27,7 @@ export function Meteors({ number = 12, className }: MeteorsProps) {
         <span
           key={i}
           className={cn(
-            "animate-meteor absolute size-0.5 rounded-full bg-foreground/70 shadow-[0_0_0_1px_rgba(255,255,255,0.08)]",
+            "motion-safe:animate-meteor motion-reduce:hidden absolute size-0.5 rounded-full bg-foreground/70 shadow-[0_0_0_1px_rgba(255,255,255,0.08)]",
             "before:absolute before:top-1/2 before:h-px before:w-[70px] before:-translate-y-1/2 before:bg-gradient-to-r before:from-foreground/60 before:to-transparent",
             className
           )}

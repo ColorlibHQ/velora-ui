@@ -1,0 +1,17 @@
+{
+  "title": "Direction Aware Hover",
+  "description": "Overlay enters from the edge the cursor actually crossed.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The overlay appears and disappears instantly instead of sliding in from the entry edge.",
+    "keyboard": "The card is focusable (tabIndex 0); keyboard focus on it or on anything inside reveals the overlay, and moving focus out hides it. On touch, a tap toggles the overlay.",
+    "screenReader": "The overlay is only moved off-canvas, not hidden, so both the base content and the overlay text are read regardless of state."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

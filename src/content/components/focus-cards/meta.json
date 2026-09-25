@@ -1,0 +1,22 @@
+{
+  "title": "Focus Cards",
+  "description": "Image grid where the hovered card stays sharp while the others blur and step back.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "a11y": {
+    "motion": "Cards no longer shrink or zoom, and the blur and title fade switch instantly instead of transitioning.",
+    "keyboard": "Each card is a tab stop (a link when it has an href, otherwise a focusable figure); keyboard focus triggers the same sharp-card, blurred-siblings state as hover and reveals the title.",
+    "screenReader": "Cards are list items; titles are real text that is read even while visually hidden, links are named by the title, and images use the optional alt (empty by default)."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "destinations",
+      "title": "Destinations gallery",
+      "description": "Linked, portrait destination cards under a travel section heading."
+    }
+  ]
+}

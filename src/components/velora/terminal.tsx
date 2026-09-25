@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useInView, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
+
+const noopSubscribe = () => () => {};
 
 interface TerminalProps {
   /** Lines to type. Prefix with "$ " to render a prompt-colored command. */
@@ -25,7 +27,10 @@ export function Terminal({
 }: TerminalProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -15% 0px" });
-  const reducedMotion = useReducedMotion();
+  // useReducedMotion() already knows the preference on the first client
+  // render, but the server can't — keep the animated markup until hydrated.
+  const hydrated = useSyncExternalStore(noopSubscribe, () => true, () => false);
+  const reducedMotion = useReducedMotion() === true && hydrated;
   const [progress, setProgress] = useState({ line: 0, char: 0 });
 
   const done =
@@ -59,7 +64,7 @@ export function Terminal({
       ref={ref}
       data-slot="terminal"
       className={cn(
-        "w-full overflow-hidden rounded-xl border bg-neutral-950 font-mono text-sm shadow-xl",
+        "relative w-full overflow-hidden rounded-xl border bg-neutral-950 font-mono text-sm shadow-xl",
         className
       )}
     >
@@ -71,7 +76,12 @@ export function Terminal({
         </div>
         <span className="text-xs text-neutral-500">{title}</span>
       </div>
-      <div className="min-h-32 space-y-1.5 p-4 text-neutral-300">
+      <div className="sr-only">
+        {lines.map((line, i) => (
+          <p key={i}>{line}</p>
+        ))}
+      </div>
+      <div aria-hidden className="min-h-32 space-y-1.5 p-4 text-neutral-300">
         {visibleLines.map((line, i) => {
           const isCommand = lines[i]?.startsWith("$ ");
           const isLast = i === visibleLines.length - 1;
@@ -86,7 +96,7 @@ export function Terminal({
                 <span className="text-neutral-400">{line}</span>
               )}
               {isLast && !done && (
-                <span className="animate-pulse text-neutral-100">▍</span>
+                <span className="text-neutral-100 motion-safe:animate-pulse">▍</span>
               )}
             </p>
           );

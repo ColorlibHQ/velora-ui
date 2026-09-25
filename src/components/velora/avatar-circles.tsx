@@ -39,19 +39,25 @@ export function AvatarCircles({
             key={name}
             title={name}
             className={cn(
-              "flex size-10 items-center justify-center rounded-full text-xs font-semibold text-white ring-2 ring-background",
+              "relative flex size-10 items-center justify-center rounded-full text-xs font-semibold text-white ring-2 ring-background",
               tones[i % tones.length]
             )}
           >
-            {initials}
+            <span aria-hidden>{initials}</span>
+            <span className="sr-only">{name}</span>
           </span>
         );
       })}
-      {extra && (
-        <span className="flex size-10 items-center justify-center rounded-full bg-muted text-xs font-semibold ring-2 ring-background">
-          +{extra >= 1000 ? `${Math.floor(extra / 1000)}k` : extra}
+      {extra ? (
+        <span className="relative flex size-10 items-center justify-center rounded-full bg-muted text-xs font-semibold ring-2 ring-background">
+          <span aria-hidden>
+            +{extra >= 1000 ? `${Math.floor(extra / 1000)}k` : extra}
+          </span>
+          <span className="sr-only">
+            and {extra.toLocaleString("en-US")} more
+          </span>
         </span>
-      )}
+      ) : null}
     </div>
   );
 }

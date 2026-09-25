@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-aurora",
+  "title": "Aurora hero",
+  "description": "Centered hero with a drifting aurora, dotted backdrop, announcement pill and staggered copy.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils",
+    "button",
+    "https://velora.colorlib.com/r/animated-gradient-text.json",
+    "https://velora.colorlib.com/r/aurora-background.json",
+    "https://velora.colorlib.com/r/blur-fade.json",
+    "https://velora.colorlib.com/r/grid-pattern.json",
+    "https://velora.colorlib.com/r/shimmer-button.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/hero-aurora.tsx",
+      "content": "import { ArrowRightIcon, SparklesIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { AnimatedGradientText } from \"@/components/velora/animated-gradient-text\";\nimport { AuroraBackground } from \"@/components/velora/aurora-background\";\nimport { BlurFade } from \"@/components/velora/blur-fade\";\nimport { DotPattern } from \"@/components/velora/grid-pattern\";\nimport { ShimmerButton } from \"@/components/velora/shimmer-button\";\n\n/**\n * Centered hero with a drifting aurora, a dotted backdrop and staggered\n * copy. Replace the copy and links; everything else re-themes from your\n * brand tokens.\n */\nexport function HeroAurora() {\n  return (\n    <section className=\"relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:px-8\">\n      <AuroraBackground intensity=\"medium\" />\n      <DotPattern\n        aria-hidden\n        className=\"absolute inset-0 -z-10 size-full fill-foreground/10 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]\"\n      />\n\n      <div className=\"relative mx-auto max-w-3xl text-center\">\n        <BlurFade>\n          <a\n            href=\"#\"\n            className=\"inline-flex items-center gap-2 rounded-full border bg-background/60 px-3 py-1 text-sm text-muted-foreground backdrop-blur transition-colors hover:text-foreground\"\n          >\n            <SparklesIcon className=\"size-4 text-primary\" />\n            Announcing our Series A\n            <ArrowRightIcon className=\"size-3.5\" />\n          </a>\n        </BlurFade>\n\n        <h1 className=\"mt-8 text-4xl font-semibold tracking-tight text-balance sm:text-6xl\">\n          The workspace where{\" \"}\n          <AnimatedGradientText>ideas ship</AnimatedGradientText>\n        </h1>\n\n        <p className=\"mx-auto mt-6 max-w-xl text-lg text-pretty text-muted-foreground\">\n          Plan, build and launch in one calm place. Acme keeps your roadmap,\n          docs and releases in sync — so your team can focus on the work.\n        </p>\n\n        <BlurFade delay={0.3}>\n          <div className=\"mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row\">\n            <ShimmerButton>Start for free</ShimmerButton>\n            <Button variant=\"ghost\" size=\"lg\" asChild>\n              <a href=\"#\">\n                Book a demo <ArrowRightIcon />\n              </a>\n            </Button>\n          </div>\n        </BlurFade>\n\n        <BlurFade delay={0.4}>\n          <p className=\"mt-8 text-sm text-muted-foreground\">\n            Free for teams up to 10 · No credit card required\n          </p>\n        </BlurFade>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/hero-aurora.tsx"
+    }
+  ],
+  "categories": [
+    "hero-sections"
+  ],
+  "type": "registry:block"
+}

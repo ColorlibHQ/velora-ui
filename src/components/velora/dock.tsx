@@ -61,11 +61,22 @@ export function Dock({
 interface DockIconProps {
   children: React.ReactNode;
   className?: string;
+  /** Accessible name; also used as the tooltip title */
   label?: string;
+  /** Render as a link to this URL instead of a button */
+  href?: string;
+  /** Click handler for the button (or link) */
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
-export function DockIcon({ children, className, label }: DockIconProps) {
-  const ref = useRef<HTMLDivElement>(null);
+export function DockIcon({
+  children,
+  className,
+  label,
+  href,
+  onClick,
+}: DockIconProps) {
+  const ref = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion();
   const fallbackX = useMotionValue(Infinity);
   const ctx = useContext(DockContext);
@@ -90,22 +101,41 @@ export function DockIcon({ children, className, label }: DockIconProps) {
     damping: 13,
   });
 
-  return (
-    <motion.div
-      ref={ref}
-      data-slot="dock-icon"
-      aria-label={label}
-      style={
-        reducedMotion
-          ? { width: baseSize, height: baseSize }
-          : { width: size, height: size }
-      }
-      className={cn(
-        "flex aspect-square cursor-pointer items-center justify-center rounded-full bg-muted text-muted-foreground transition-colors hover:text-foreground",
-        className
-      )}
+  const shared = {
+    "data-slot": "dock-icon",
+    "aria-label": label,
+    title: label,
+    onClick,
+    // Magnify around the focused icon for keyboard users, like a hover would
+    onFocus: () => {
+      const bounds = ref.current?.getBoundingClientRect();
+      if (bounds) mouseX.set(bounds.x + bounds.width / 2);
+    },
+    onBlur: () => mouseX.set(Infinity),
+    style: reducedMotion
+      ? { width: baseSize, height: baseSize }
+      : { width: size, height: size },
+    className: cn(
+      "flex aspect-square cursor-pointer items-center justify-center rounded-full bg-muted text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+      className
+    ),
+  };
+
+  return href ? (
+    <motion.a
+      ref={ref as React.RefObject<HTMLAnchorElement>}
+      href={href}
+      {...shared}
     >
       {children}
-    </motion.div>
+    </motion.a>
+  ) : (
+    <motion.button
+      ref={ref as React.RefObject<HTMLButtonElement>}
+      type="button"
+      {...shared}
+    >
+      {children}
+    </motion.button>
   );
 }

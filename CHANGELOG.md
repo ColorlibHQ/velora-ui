@@ -2,6 +2,121 @@
 
 All notable changes to Velora UI. Also published at [/changelog](https://velora.colorlib.com/changelog).
 
+## 0.9.0 — 2026-09-25
+
+### Added
+
+- `/components/get-started`: requirements, install by URL, the `@velora` namespace
+  (`npx shadcn registry add @velora=https://velora.colorlib.com/r/{name}.json`), MCP and llms.txt
+- 16 component category hubs at `/components/category/<category>` with their own copy
+- `/compare/aceternity-ui` and `/compare/magic-ui`: dated, identically measured comparisons
+  (components, blocks, licence, price, reduced motion and ARIA in source, dependency-free
+  components, incomplete CLI installs), what the other library does better, and a switching table
+- Per-page Open Graph/Twitter cards for components, block and component categories, indexes and
+  comparisons; JSON-LD (BreadcrumbList, SoftwareSourceCode, CollectionPage/ItemList, WebSite)
+- `public/llms-full.txt`: props, accessibility notes and a working example for every component
+- Sitemap lists every hub with the date of the last commit that touched it
+
+### Fixed
+
+- Homepage LCP: the hero intro (and every hero block's headline and intro) started invisible inside
+  BlurFade until hydration. Lighthouse mobile performance went from 61–90 to 92; accessibility,
+  best practices and SEO are 100
+- Unverified "100 Lighthouse" claims and stale About stats replaced with measured facts
+- Stack marquee text failed contrast
+- Tracing Beam ignored reduced motion
+
+## 0.8.0 — 2026-09-25
+
+### Added
+
+- **31 free blocks** in 10 categories: Hero Sections (6), Feature Sections (5), Pricing
+  Sections (3), Testimonial Sections (3), CTA Sections (3), Logo Clouds (2), FAQ Sections (2),
+  Navbars (2), Footers (3) and Login & Sign-up (2)
+- `/blocks` and one page per category, with iframe previews at desktop, tablet and mobile widths
+- Blocks are `registry:block` items: `npx shadcn add …/r/<block>.json` installs the section and
+  every Velora component it uses (pulled in by URL)
+- `scripts/build-docs.mjs` derives each block's components, shadcn primitives and npm
+  dependencies from its imports and rejects site-only imports
+- Blocks in the header, footer, sitemap, ⌘K search and llms.txt
+
+### Fixed
+
+- The footer prefetched `/llms.txt` and the 404 demo as routes, logging 404s on every page
+- Resizable Navbar keyed items by `href`, so duplicate links collided
+
+## 0.7.0 — 2026-09-25
+
+### Added
+
+- **18 new components — 100 in total.** New categories: Overlays and Loaders.
+  - **Overlays** — Animated Modal (`Modal`, `ModalTrigger`, `ModalContent`, `ModalFooter`,
+    `ModalClose`) on the native `<dialog>`: top layer, focus trap, Escape, exit animation before close
+  - **Navigation** — Animated Sidebar (collapsible rail; native-dialog drawer below 42rem),
+    Animated Tabs (WAI-ARIA tabs with roving tabindex), Resizable Navbar
+  - **Loaders** — Multi-Step Loader (live-region progress), Loaders (`DotsLoader`, `PulseLoader`,
+    `OrbitLoader`, `BarsLoader`, `SpinnerLoader`), Stateful Button (promise-aware, stable width)
+  - **Cursor & Pointer** — Following Pointer, Smooth Cursor, Pointer Highlight
+  - **Carousels** — Image Slider (visible pause, swipe, arrow keys), 3D Marquee
+  - **Cards & Layout** — Draggable Card, Layout Grid, Wobble Card
+  - **Mockups** — Code Block (tabs, line numbers, highlighted lines, zero-dependency tokenizer)
+  - **Backgrounds** — Dotted Glow Background, Noise Background
+- Registry: 3D Marquee ships the `marquee-vertical` keyframes it uses
+
+## 0.6.0 — 2026-09-25
+
+### Added
+
+- **18 new components — 82 in total.** Four new categories: 3D, Carousels, Cursor & Pointer
+  and Data & Maps.
+  - **Data & Maps** — Globe (2D canvas, no WebGL; markers, great-circle arcs, drag with inertia,
+    arrow keys) and World Map (SVG, animated connections, generated accessible description).
+    Land mask derived from Natural Earth (public domain), embedded — no map dependency
+  - **3D** — 3D Card (`Card3D` + `Card3DItem` depth layers), 3D Pin
+  - **Scroll** — Hero Parallax, MacBook Scroll, Timeline
+  - **Backgrounds** — Wavy Background, Vortex, Shooting Stars (+ Stars Background), Background Boxes
+  - **Cards & Layout / Effects** — Glowing Effect, Evervault Card, Focus Cards, Card Hover Effect
+  - **Text** — Text Hover Effect; **Carousels** — Apple Cards Carousel (focus-trapped dialog,
+    portalled to `<body>`); **Cursor & Pointer** — Lens (keyboard-movable)
+- Every new component has two examples, generated props and an Accessibility section
+
+### Fixed
+
+- Scroll Velocity ran a requestAnimationFrame loop every frame for its whole life, including
+  under reduced motion and offscreen; it now runs only while visible and motion is allowed
+
+## 0.5.0 — 2026-09-25
+
+### Added
+
+- Component pages: Preview/Code tabs with replay and full screen, CLI and manual install tabs
+  (pnpm/npm/yarn/bun, plus the exact CSS the registry merges), props tables generated from each
+  component's TypeScript interfaces, an Accessibility section, breadcrumbs and prev/next links
+- **Copy prompt** (install command, working example and props for AI agents) and **Open in v0**
+- ⌘K search across components and pages
+- `DockIcon` accepts `href` and `onClick`; `NavbarMenu` items accept `href`; `VanishInput` takes a
+  `label`; `ScrollProgress`, `StickyScroll` and `FloatingNavbar` can track a scroll container
+- Registry items declare `registryDependencies: ["utils"]` so installs work outside shadcn projects
+
+### Fixed
+
+- Accessibility audit of all 64 components: 60 defects fixed across 38 of them. Highlights:
+  keyboard-operable Dock, Animated Tooltip, Navbar Menu (Escape, focus return) and Expandable Card
+  (focus trap, Escape, focus restore); screen-reader text for typed, scrambled and rotating copy;
+  pause on hover and focus for everything that loops (WCAG 2.2.2); named Stepper markers,
+  labelled File Drop, 24px testimonial dots
+- CSS keyframe animations use `motion-safe:` so reduced motion works in projects that install
+  components with the CLI — previously the guard lived only in this site's `globals.css`
+- Hydration mismatches under reduced motion (Typewriter, Text Reveal, Background Beams, Sparkles
+  Text, Animated List, Terminal, Container Scroll, Parallax Grid)
+- Number Ticker still counted up under reduced motion; Orbiting Circles collapsed to the centre
+
+### Changed
+
+- Demos live in `src/content/components/<slug>/examples/`; `scripts/build-docs.mjs` generates the
+  catalogue, example index and props data before every dev and build
+- Components are 0.3–2.0 KB gzipped after the accessibility work (was 0.3–1.5 KB)
+
 ## 0.4.0 — 2026-09-05
 
 ### Added

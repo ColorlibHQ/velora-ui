@@ -1,0 +1,19 @@
+{
+  "title": "Terminal",
+  "description": "A terminal window that types its lines in view.",
+  "category": "Mockups",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "All lines render in full immediately with no typing effect and no blinking cursor.",
+    "keyboard": null,
+    "screenReader": "The full lines are always available as visually hidden text; the typed visual layer is aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,35 +1,35 @@
 {
   "aurora-background": {
-    "bytes": 1305,
-    "gzip": 627,
+    "bytes": 1341,
+    "gzip": 634,
+    "deps": []
+  },
+  "background-beams": {
+    "bytes": 2964,
+    "gzip": 1162,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "background-boxes": {
+    "bytes": 2431,
+    "gzip": 1229,
+    "deps": []
+  },
+  "dotted-glow-background": {
+    "bytes": 5996,
+    "gzip": 2476,
+    "deps": []
+  },
+  "flickering-grid": {
+    "bytes": 1594,
+    "gzip": 830,
     "deps": []
   },
   "grid-pattern": {
     "bytes": 2410,
     "gzip": 805,
     "deps": []
-  },
-  "retro-grid": {
-    "bytes": 1500,
-    "gzip": 717,
-    "deps": []
-  },
-  "particles": {
-    "bytes": 3527,
-    "gzip": 1409,
-    "deps": []
-  },
-  "meteors": {
-    "bytes": 1301,
-    "gzip": 663,
-    "deps": []
-  },
-  "background-beams": {
-    "bytes": 2531,
-    "gzip": 997,
-    "deps": [
-      "motion/react"
-    ]
   },
   "lamp": {
     "bytes": 2702,
@@ -38,71 +38,280 @@
       "motion/react"
     ]
   },
-  "animated-gradient-text": {
-    "bytes": 581,
-    "gzip": 336,
+  "light-rays": {
+    "bytes": 1272,
+    "gzip": 699,
     "deps": []
   },
-  "text-reveal": {
-    "bytes": 1644,
-    "gzip": 754,
-    "deps": [
-      "motion/react"
-    ]
+  "meteors": {
+    "bytes": 1334,
+    "gzip": 679,
+    "deps": []
   },
-  "typewriter": {
-    "bytes": 2663,
-    "gzip": 996,
-    "deps": [
-      "motion/react"
-    ]
+  "noise-background": {
+    "bytes": 4082,
+    "gzip": 1848,
+    "deps": []
+  },
+  "particles": {
+    "bytes": 3652,
+    "gzip": 1437,
+    "deps": []
+  },
+  "retro-grid": {
+    "bytes": 1512,
+    "gzip": 725,
+    "deps": []
+  },
+  "ripple": {
+    "bytes": 1171,
+    "gzip": 637,
+    "deps": []
+  },
+  "shooting-stars": {
+    "bytes": 7841,
+    "gzip": 3026,
+    "deps": []
+  },
+  "vortex": {
+    "bytes": 6757,
+    "gzip": 2860,
+    "deps": []
+  },
+  "wavy-background": {
+    "bytes": 6597,
+    "gzip": 2830,
+    "deps": []
+  },
+  "animated-gradient-text": {
+    "bytes": 593,
+    "gzip": 345,
+    "deps": []
   },
   "flip-words": {
-    "bytes": 1821,
-    "gzip": 834,
+    "bytes": 2147,
+    "gzip": 949,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "hyper-text": {
+    "bytes": 2204,
+    "gzip": 1032,
+    "deps": []
+  },
+  "morphing-text": {
+    "bytes": 2024,
+    "gzip": 945,
+    "deps": []
+  },
+  "number-ticker": {
+    "bytes": 2143,
+    "gzip": 948,
     "deps": [
       "motion/react"
     ]
   },
   "sparkles-text": {
-    "bytes": 1927,
-    "gzip": 903,
+    "bytes": 2266,
+    "gzip": 1056,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "text-highlighter": {
+    "bytes": 1550,
+    "gzip": 804,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "text-hover-effect": {
+    "bytes": 5830,
+    "gzip": 2321,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "text-reveal": {
+    "bytes": 1886,
+    "gzip": 866,
     "deps": [
       "motion/react"
     ]
   },
   "text-shimmer": {
-    "bytes": 706,
-    "gzip": 439,
+    "bytes": 718,
+    "gzip": 446,
     "deps": []
   },
-  "number-ticker": {
-    "bytes": 1877,
-    "gzip": 843,
+  "typewriter": {
+    "bytes": 3512,
+    "gzip": 1301,
     "deps": [
       "motion/react"
     ]
   },
-  "shimmer-button": {
-    "bytes": 1119,
-    "gzip": 595,
-    "deps": []
+  "word-rotate": {
+    "bytes": 2075,
+    "gzip": 947,
+    "deps": [
+      "motion/react"
+    ]
   },
   "confetti": {
-    "bytes": 3057,
-    "gzip": 1431,
+    "bytes": 3525,
+    "gzip": 1608,
+    "deps": []
+  },
+  "magnetic-button": {
+    "bytes": 2420,
+    "gzip": 1053,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "moving-border": {
+    "bytes": 2109,
+    "gzip": 994,
+    "deps": []
+  },
+  "rainbow-button": {
+    "bytes": 1692,
+    "gzip": 823,
+    "deps": []
+  },
+  "ripple-button": {
+    "bytes": 2849,
+    "gzip": 1258,
+    "deps": []
+  },
+  "shimmer-button": {
+    "bytes": 1139,
+    "gzip": 603,
+    "deps": []
+  },
+  "stateful-button": {
+    "bytes": 5712,
+    "gzip": 2088,
+    "deps": []
+  },
+  "theme-toggler": {
+    "bytes": 2743,
+    "gzip": 1267,
+    "deps": []
+  },
+  "animated-list": {
+    "bytes": 2722,
+    "gzip": 1171,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "animated-tooltip": {
+    "bytes": 3409,
+    "gzip": 1253,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "avatar-circles": {
+    "bytes": 1607,
+    "gzip": 705,
     "deps": []
   },
   "bento-grid": {
-    "bytes": 2632,
-    "gzip": 1000,
+    "bytes": 2917,
+    "gzip": 1067,
     "deps": [
       "lucide-react"
     ]
   },
+  "card-hover-effect": {
+    "bytes": 4780,
+    "gzip": 1731,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "card-stack": {
+    "bytes": 2593,
+    "gzip": 1202,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "compare-slider": {
+    "bytes": 2571,
+    "gzip": 1181,
+    "deps": []
+  },
+  "direction-aware-hover": {
+    "bytes": 3020,
+    "gzip": 1288,
+    "deps": []
+  },
+  "dock": {
+    "bytes": 3653,
+    "gzip": 1385,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "draggable-card": {
+    "bytes": 6008,
+    "gzip": 2488,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "evervault-card": {
+    "bytes": 4148,
+    "gzip": 1736,
+    "deps": []
+  },
+  "expandable-card": {
+    "bytes": 5676,
+    "gzip": 1899,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "file-tree": {
+    "bytes": 2487,
+    "gzip": 1089,
+    "deps": []
+  },
+  "focus-cards": {
+    "bytes": 3894,
+    "gzip": 1539,
+    "deps": []
+  },
+  "glare-card": {
+    "bytes": 1673,
+    "gzip": 843,
+    "deps": []
+  },
+  "layout-grid": {
+    "bytes": 6437,
+    "gzip": 2366,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "marquee": {
+    "bytes": 2045,
+    "gzip": 875,
+    "deps": []
+  },
+  "orbiting-circles": {
+    "bytes": 2369,
+    "gzip": 986,
+    "deps": []
+  },
   "spotlight-card": {
-    "bytes": 1630,
-    "gzip": 787,
+    "bytes": 1650,
+    "gzip": 794,
     "deps": []
   },
   "tilt-card": {
@@ -112,38 +321,175 @@
       "motion/react"
     ]
   },
-  "marquee": {
-    "bytes": 1668,
-    "gzip": 764,
-    "deps": []
-  },
-  "animated-list": {
-    "bytes": 1585,
-    "gzip": 746,
+  "wobble-card": {
+    "bytes": 3098,
+    "gzip": 1452,
     "deps": [
       "motion/react"
     ]
   },
-  "orbiting-circles": {
-    "bytes": 2193,
-    "gzip": 914,
+  "animated-sidebar": {
+    "bytes": 9143,
+    "gzip": 2950,
     "deps": []
   },
-  "avatar-circles": {
-    "bytes": 1349,
-    "gzip": 634,
-    "deps": []
-  },
-  "animated-tooltip": {
-    "bytes": 2596,
-    "gzip": 1021,
+  "animated-tabs": {
+    "bytes": 5112,
+    "gzip": 1960,
     "deps": [
       "motion/react"
     ]
   },
-  "dock": {
-    "bytes": 2760,
-    "gzip": 1070,
+  "floating-navbar": {
+    "bytes": 2509,
+    "gzip": 1185,
+    "deps": []
+  },
+  "navbar-menu": {
+    "bytes": 4427,
+    "gzip": 1687,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "resizable-navbar": {
+    "bytes": 7596,
+    "gzip": 2656,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "sticky-banner": {
+    "bytes": 2528,
+    "gzip": 1207,
+    "deps": []
+  },
+  "file-drop": {
+    "bytes": 3545,
+    "gzip": 1481,
+    "deps": []
+  },
+  "stepper": {
+    "bytes": 3564,
+    "gzip": 1397,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "vanish-input": {
+    "bytes": 3937,
+    "gzip": 1653,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "animated-modal": {
+    "bytes": 9036,
+    "gzip": 3027,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "loaders": {
+    "bytes": 4899,
+    "gzip": 1622,
+    "deps": []
+  },
+  "multi-step-loader": {
+    "bytes": 8738,
+    "gzip": 3034,
+    "deps": []
+  },
+  "animated-testimonials": {
+    "bytes": 6037,
+    "gzip": 2082,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "logo-cloud": {
+    "bytes": 1536,
+    "gzip": 788,
+    "deps": []
+  },
+  "tweet-card": {
+    "bytes": 2847,
+    "gzip": 1236,
+    "deps": []
+  },
+  "container-scroll": {
+    "bytes": 1767,
+    "gzip": 831,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "hero-parallax": {
+    "bytes": 5402,
+    "gzip": 2193,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "macbook-scroll": {
+    "bytes": 5541,
+    "gzip": 2080,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "parallax-grid": {
+    "bytes": 1559,
+    "gzip": 770,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "scroll-progress": {
+    "bytes": 909,
+    "gzip": 496,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "scroll-velocity": {
+    "bytes": 3352,
+    "gzip": 1401,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "sticky-scroll": {
+    "bytes": 3293,
+    "gzip": 1369,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "timeline": {
+    "bytes": 3199,
+    "gzip": 1347,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "tracing-beam": {
+    "bytes": 1685,
+    "gzip": 858,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "animated-beam": {
+    "bytes": 4422,
+    "gzip": 1521,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "blur-fade": {
+    "bytes": 2101,
+    "gzip": 1031,
     "deps": [
       "motion/react"
     ]
@@ -155,31 +501,91 @@
       "motion/react"
     ]
   },
-  "animated-beam": {
-    "bytes": 3920,
-    "gzip": 1422,
+  "glowing-effect": {
+    "bytes": 4762,
+    "gzip": 1894,
+    "deps": []
+  },
+  "3d-card": {
+    "bytes": 4480,
+    "gzip": 1622,
     "deps": [
       "motion/react"
     ]
   },
-  "blur-fade": {
-    "bytes": 1703,
-    "gzip": 828,
+  "3d-pin": {
+    "bytes": 5238,
+    "gzip": 1946,
+    "deps": []
+  },
+  "3d-marquee": {
+    "bytes": 4325,
+    "gzip": 1798,
+    "deps": []
+  },
+  "apple-cards-carousel": {
+    "bytes": 8835,
+    "gzip": 3130,
+    "deps": [
+      "react-dom",
+      "motion/react"
+    ]
+  },
+  "image-slider": {
+    "bytes": 7890,
+    "gzip": 3042,
     "deps": [
       "motion/react"
     ]
   },
-  "scroll-progress": {
-    "bytes": 781,
-    "gzip": 415,
+  "following-pointer": {
+    "bytes": 4217,
+    "gzip": 1718,
     "deps": [
       "motion/react"
     ]
+  },
+  "lens": {
+    "bytes": 4043,
+    "gzip": 1704,
+    "deps": []
+  },
+  "pointer-highlight": {
+    "bytes": 3134,
+    "gzip": 1278,
+    "deps": [
+      "motion/react"
+    ]
+  },
+  "smooth-cursor": {
+    "bytes": 5338,
+    "gzip": 1937,
+    "deps": [
+      "react-dom",
+      "motion/react"
+    ]
+  },
+  "globe": {
+    "bytes": 13233,
+    "gzip": 5349,
+    "deps": []
+  },
+  "world-map": {
+    "bytes": 8620,
+    "gzip": 3902,
+    "deps": []
   },
   "browser-mockup": {
     "bytes": 1141,
     "gzip": 554,
     "deps": []
+  },
+  "code-block": {
+    "bytes": 7336,
+    "gzip": 2983,
+    "deps": [
+      "lucide-react"
+    ]
   },
   "iphone-mockup": {
     "bytes": 1226,
@@ -187,196 +593,8 @@
     "deps": []
   },
   "terminal": {
-    "bytes": 3001,
-    "gzip": 1210,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "flickering-grid": {
-    "bytes": 1411,
-    "gzip": 731,
-    "deps": []
-  },
-  "ripple": {
-    "bytes": 1159,
-    "gzip": 630,
-    "deps": []
-  },
-  "light-rays": {
-    "bytes": 1272,
-    "gzip": 699,
-    "deps": []
-  },
-  "word-rotate": {
-    "bytes": 1507,
-    "gzip": 733,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "hyper-text": {
-    "bytes": 1844,
-    "gzip": 884,
-    "deps": []
-  },
-  "text-highlighter": {
-    "bytes": 1550,
-    "gzip": 804,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "morphing-text": {
-    "bytes": 1557,
-    "gzip": 771,
-    "deps": []
-  },
-  "rainbow-button": {
-    "bytes": 1660,
-    "gzip": 813,
-    "deps": []
-  },
-  "ripple-button": {
-    "bytes": 2652,
-    "gzip": 1182,
-    "deps": []
-  },
-  "magnetic-button": {
-    "bytes": 1950,
-    "gzip": 884,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "moving-border": {
-    "bytes": 1845,
-    "gzip": 879,
-    "deps": []
-  },
-  "theme-toggler": {
-    "bytes": 2743,
-    "gzip": 1267,
-    "deps": []
-  },
-  "card-stack": {
-    "bytes": 2101,
-    "gzip": 1031,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "glare-card": {
-    "bytes": 1667,
-    "gzip": 840,
-    "deps": []
-  },
-  "expandable-card": {
-    "bytes": 3782,
-    "gzip": 1279,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "direction-aware-hover": {
-    "bytes": 2200,
-    "gzip": 1023,
-    "deps": []
-  },
-  "compare-slider": {
-    "bytes": 2502,
-    "gzip": 1154,
-    "deps": []
-  },
-  "file-tree": {
-    "bytes": 2487,
-    "gzip": 1089,
-    "deps": []
-  },
-  "floating-navbar": {
-    "bytes": 1850,
-    "gzip": 930,
-    "deps": []
-  },
-  "navbar-menu": {
-    "bytes": 2741,
-    "gzip": 1054,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "sticky-banner": {
-    "bytes": 1793,
-    "gzip": 869,
-    "deps": []
-  },
-  "vanish-input": {
-    "bytes": 3237,
-    "gzip": 1417,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "file-drop": {
-    "bytes": 3462,
-    "gzip": 1433,
-    "deps": []
-  },
-  "stepper": {
-    "bytes": 2953,
-    "gzip": 1192,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "animated-testimonials": {
-    "bytes": 4079,
-    "gzip": 1508,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "tweet-card": {
-    "bytes": 2847,
-    "gzip": 1236,
-    "deps": []
-  },
-  "logo-cloud": {
-    "bytes": 1231,
-    "gzip": 653,
-    "deps": []
-  },
-  "sticky-scroll": {
-    "bytes": 2856,
-    "gzip": 1124,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "container-scroll": {
-    "bytes": 1738,
-    "gzip": 785,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "tracing-beam": {
-    "bytes": 1580,
-    "gzip": 811,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "scroll-velocity": {
-    "bytes": 1918,
-    "gzip": 907,
-    "deps": [
-      "motion/react"
-    ]
-  },
-  "parallax-grid": {
-    "bytes": 1544,
-    "gzip": 741,
+    "bytes": 3472,
+    "gzip": 1401,
     "deps": [
       "motion/react"
     ]

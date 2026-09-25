@@ -1,0 +1,22 @@
+{
+  "title": "Background Boxes",
+  "description": "An isometric grid whose cells light up in brand tints under the pointer.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The grid never moves. Cells still tint on hover and fade back through a colour transition, which involves no movement, so it is kept under reduced motion.",
+    "keyboard": null,
+    "screenReader": "Decorative; the grid is aria-hidden and has no focusable cells, so only the content above it is announced."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "headline",
+      "title": "Spotlight headline",
+      "description": "A headline section where a radial mask fades the grid out towards the edges."
+    }
+  ]
+}

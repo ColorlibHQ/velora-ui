@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wobble-card",
+  "title": "Wobble Card",
+  "description": "Colored card that drifts toward the pointer, with parallax content and grain.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/velora/wobble-card.tsx",
+      "content": "\"use client\";\n\nimport { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from \"motion/react\";\n\nimport { cn } from \"@/lib/utils\";\n\ninterface WobbleCardProps\n  extends Omit<React.HTMLAttributes<HTMLDivElement>, \"onAnimationStart\" | \"onDrag\" | \"onDragStart\" | \"onDragEnd\"> {\n  /** Furthest the card shifts toward the pointer, in px */\n  strength?: number;\n  /** How much further the content moves than the card (parallax), as a multiple */\n  depth?: number;\n  /** Show the film-grain texture */\n  grain?: boolean;\n  /** Classes for the inner content wrapper (padding lives here) */\n  contentClassName?: string;\n}\n\nconst NOISE = `url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")`;\n\nconst SPRING = { stiffness: 180, damping: 20, mass: 0.6 };\n\n/**\n * A large coloured card that drifts a few pixels toward the pointer while its\n * content drifts a little further, then springs back on leave. Colour it with\n * `className` (defaults to the brand colour); keyboard focus inside gives it a\n * gentle lift.\n */\nexport function WobbleCard({\n  strength = 10,\n  depth = 0.6,\n  grain = true,\n  contentClassName,\n  className,\n  children,\n  ...props\n}: WobbleCardProps) {\n  const reducedMotion = useReducedMotion();\n  const px = useMotionValue(0);\n  const py = useMotionValue(0);\n  const x = useSpring(px, SPRING);\n  const y = useSpring(py, SPRING);\n  const cx = useTransform(x, (v) => v * depth);\n  const cy = useTransform(y, (v) => v * depth);\n\n  const move = (e: React.PointerEvent<HTMLDivElement>) => {\n    if (reducedMotion || e.pointerType == \"touch\") return;\n    const r = e.currentTarget.getBoundingClientRect();\n    px.set(((e.clientX - r.left) / r.width - 0.5) * 2 * strength);\n    py.set(((e.clientY - r.top) / r.height - 0.5) * 2 * strength);\n  };\n  const leave = () => {\n    px.set(0);\n    py.set(0);\n  };\n\n  return (\n    <motion.div\n      {...props}\n      data-slot=\"wobble-card\"\n      onPointerMove={(e) => {\n        move(e);\n        props.onPointerMove?.(e);\n      }}\n      onPointerLeave={(e) => {\n        leave();\n        props.onPointerLeave?.(e);\n      }}\n      style={{ x, y, ...props.style }}\n      className={cn(\n        \"relative isolate overflow-hidden rounded-3xl bg-brand text-brand-foreground shadow-sm\",\n        \"has-[:focus-visible]:shadow-xl motion-safe:transition-[translate,box-shadow] motion-safe:duration-300 motion-safe:has-[:focus-visible]:-translate-y-1\",\n        className\n      )}\n    >\n      <motion.div style={{ x: cx, y: cy }} className={cn(\"relative h-full p-8 sm:p-10\", contentClassName)}>\n        {children}\n      </motion.div>\n      {grain && (\n        <div\n          aria-hidden\n          className=\"pointer-events-none absolute inset-0 opacity-40 mix-blend-overlay\"\n          style={{ backgroundImage: NOISE }}\n        />\n      )}\n    </motion.div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/velora/wobble-card.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

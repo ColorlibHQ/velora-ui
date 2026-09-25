@@ -3,10 +3,13 @@
   "name": "animated-gradient-text",
   "title": "Animated Gradient Text",
   "description": "Brand gradient sweeping continuously through text.",
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/animated-gradient-text.tsx",
-      "content": "import { cn } from \"@/lib/utils\";\n\ninterface AnimatedGradientTextProps\n  extends React.HTMLAttributes<HTMLSpanElement> {\n  children: React.ReactNode;\n}\n\nexport function AnimatedGradientText({\n  className,\n  children,\n  ...props\n}: AnimatedGradientTextProps) {\n  return (\n    <span\n      data-slot=\"animated-gradient-text\"\n      className={cn(\n        \"animate-gradient inline-block bg-gradient-to-r from-brand-from via-brand-via to-brand-to bg-[length:300%_auto] bg-clip-text text-transparent\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </span>\n  );\n}\n",
+      "content": "import { cn } from \"@/lib/utils\";\n\ninterface AnimatedGradientTextProps\n  extends React.HTMLAttributes<HTMLSpanElement> {\n  children: React.ReactNode;\n}\n\nexport function AnimatedGradientText({\n  className,\n  children,\n  ...props\n}: AnimatedGradientTextProps) {\n  return (\n    <span\n      data-slot=\"animated-gradient-text\"\n      className={cn(\n        \"motion-safe:animate-gradient inline-block bg-gradient-to-r from-brand-from via-brand-via to-brand-to bg-[length:300%_auto] bg-clip-text text-transparent\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </span>\n  );\n}\n",
       "type": "registry:ui",
       "target": "components/velora/animated-gradient-text.tsx"
     }

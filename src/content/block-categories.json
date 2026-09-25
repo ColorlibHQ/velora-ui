@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "hero-sections",
+    "title": "Hero Sections",
+    "heading": "React hero sections",
+    "description": "Free animated hero sections for React and Tailwind CSS: aurora, globe, product screenshot and split layouts. Copy the code or install with the shadcn CLI."
+  },
+  {
+    "slug": "feature-sections",
+    "title": "Feature Sections",
+    "heading": "React feature sections",
+    "description": "Free feature sections for React and Tailwind CSS: bento grids, icon grids, tabbed tours and screenshot splits that animate without hurting performance."
+  },
+  {
+    "slug": "pricing-sections",
+    "title": "Pricing Sections",
+    "heading": "React pricing sections",
+    "description": "Free pricing tables and pricing sections for React and Tailwind CSS, with monthly/yearly toggles, highlighted plans and comparison rows."
+  },
+  {
+    "slug": "testimonial-sections",
+    "title": "Testimonial Sections",
+    "heading": "React testimonial sections",
+    "description": "Free testimonial sections for React and Tailwind CSS: marquee walls, featured quotes and review grids — accessible, with motion that pauses."
+  },
+  {
+    "slug": "cta-sections",
+    "title": "CTA Sections",
+    "heading": "React call-to-action sections",
+    "description": "Free call-to-action sections for React and Tailwind CSS: banners, split CTAs and newsletter sign-ups with animated backgrounds."
+  },
+  {
+    "slug": "logo-clouds",
+    "title": "Logo Clouds",
+    "heading": "React logo clouds",
+    "description": "Free logo cloud sections for React and Tailwind CSS: scrolling marquees and static grids for customer and integration logos."
+  },
+  {
+    "slug": "faq-sections",
+    "title": "FAQ Sections",
+    "heading": "React FAQ sections",
+    "description": "Free FAQ sections for React and Tailwind CSS: accessible accordions and two-column layouts with a contact prompt."
+  },
+  {
+    "slug": "navbars",
+    "title": "Navbars",
+    "heading": "React navbars",
+    "description": "Free responsive navbars for React and Tailwind CSS with mobile menus, keyboard support and scroll-aware styling."
+  },
+  {
+    "slug": "footers",
+    "title": "Footers",
+    "heading": "React footers",
+    "description": "Free website footers for React and Tailwind CSS: link columns, newsletter sign-ups and oversized wordmarks."
+  },
+  {
+    "slug": "auth-sections",
+    "title": "Login & Sign-up",
+    "heading": "React login and sign-up pages",
+    "description": "Free login and sign-up screens for React and Tailwind CSS with social buttons, validation states and animated side panels."
+  }
+]

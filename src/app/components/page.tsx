@@ -1,8 +1,20 @@
 import Link from "next/link";
 
-import { componentDemos } from "@/components/demo/component-demos";
+import { ComponentCard } from "@/components/docs/component-card";
 import { AnimatedGradientText } from "@/components/velora/animated-gradient-text";
-import { categories, componentsMeta } from "@/lib/components-meta";
+import {
+  categories,
+  categorySlug,
+  componentsMeta,
+} from "@/lib/components-meta";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Components",
+  description: `${componentsMeta.length} free animated React components for landing pages. Copy the code or install with the shadcn CLI.`,
+  path: "/components",
+  image: "/components/opengraph-image",
+});
 
 export default function ComponentsPage() {
   return (
@@ -22,26 +34,17 @@ export default function ComponentsPage() {
         if (!items.length) return null;
         return (
           <section key={category} className="mt-14">
-            <h2 className="mb-6 text-xl font-semibold">{category}</h2>
-            <div className="grid gap-6 sm:grid-cols-2">
+            <h2 className="mb-6 text-xl font-semibold">
+              <Link
+                href={`/components/category/${categorySlug(category)}`}
+                className="hover:underline hover:underline-offset-4"
+              >
+                {category}
+              </Link>
+            </h2>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               {items.map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/components/${c.slug}`}
-                  className="group rounded-2xl border bg-card/50 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5"
-                >
-                  <div className="flex h-56 items-center justify-center overflow-hidden border-b border-border/60 p-6 [&_*]:pointer-events-none">
-                    {componentDemos[c.slug]}
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-medium transition-colors group-hover:text-primary">
-                      {c.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {c.description}
-                    </p>
-                  </div>
-                </Link>
+                <ComponentCard key={c.slug} component={c} />
               ))}
             </div>
           </section>

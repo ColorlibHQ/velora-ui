@@ -1,0 +1,24 @@
+{
+  "title": "Code Block",
+  "description": "Code panel with tabs, line numbers, highlighted lines and a copy button.",
+  "category": "Mockups",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "a11y": {
+    "motion": "Nothing animates, so there is no reduced-motion difference; the copy icon swaps to a check mark instantly.",
+    "keyboard": "The code area is focusable and scrolls with the arrow keys. With tabs, the tab list is one Tab stop: Left/Right arrows, Home and End switch files. The copy button is a native button.",
+    "screenReader": "The code region is labelled with the file name, line numbers are aria-hidden, tabs use tablist/tab/tabpanel roles, and a status region announces \"Copied to clipboard\"."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "tabs",
+      "title": "File tabs",
+      "description": "A component and its usage as two file tabs, each with its own highlighted lines."
+    }
+  ]
+}

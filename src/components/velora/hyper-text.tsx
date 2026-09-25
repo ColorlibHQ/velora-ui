@@ -25,7 +25,11 @@ export function HyperText({
   onHover = false,
   className,
 }: HyperTextProps) {
-  const [display, setDisplay] = useState(children);
+  // The scrambled frame, tagged with the text it was built from; null (or a
+  // stale tag after `children` changes) means "show the real text".
+  const [scrambled, setScrambled] = useState<{ of: string; text: string } | null>(
+    null
+  );
   const timer = useRef<number | undefined>(undefined);
 
   const scramble = () => {
@@ -34,8 +38,9 @@ export function HyperText({
     let tick = 0;
     timer.current = window.setInterval(() => {
       tick += 1;
-      setDisplay(
-        children
+      setScrambled({
+        of: children,
+        text: children
           .split("")
           .map((char, i) => {
             if (char === " ") return char;
@@ -43,11 +48,11 @@ export function HyperText({
             if (i < tick / 2) return children[i];
             return ALPHABET[Math.floor(Math.random() * ALPHABET.length)];
           })
-          .join("")
-      );
+          .join(""),
+      });
       if (tick / 2 >= children.length) {
         window.clearInterval(timer.current);
-        setDisplay(children);
+        setScrambled(null);
       }
     }, frame);
   };
@@ -64,7 +69,10 @@ export function HyperText({
       onMouseEnter={onHover ? scramble : undefined}
       className={cn("font-mono tabular-nums", className)}
     >
-      {display}
+      <span className="sr-only">{children}</span>
+      <span aria-hidden>
+        {scrambled?.of === children ? scrambled.text : children}
+      </span>
     </span>
   );
 }

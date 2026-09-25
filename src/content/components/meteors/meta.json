@@ -1,0 +1,17 @@
+{
+  "title": "Meteors",
+  "description": "Falling meteor streaks for dark hero and CTA sections.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The meteors are hidden entirely; no streaks are shown.",
+    "keyboard": null,
+    "screenReader": "Decorative; the wrapper is aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

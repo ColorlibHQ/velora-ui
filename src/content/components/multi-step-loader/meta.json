@@ -1,0 +1,22 @@
+{
+  "title": "Multi Step Loader",
+  "description": "Full-screen overlay that ticks through a list of steps, keeping the active one centred.",
+  "category": "Loaders",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The list jumps to the active step instead of scrolling, the spinner stands still and the overlay appears without a fade; steps still advance on schedule.",
+    "keyboard": "Built on a modal <dialog>: focus moves into it on open, Tab stays inside, and focus returns to the trigger on close. With onClose, Escape and a Close button dismiss it; a looping loader pauses while hovered or while its Close button has focus.",
+    "screenReader": "A polite live region announces each change (\"Step 2 of 5: Installing dependencies\"); the steps are an ordered list with aria-current=\"step\" on the active one and completed steps marked done."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "deploy",
+      "title": "Deploy flow",
+      "description": "A deploy card opens the loader; onComplete closes it and marks the site live."
+    }
+  ]
+}

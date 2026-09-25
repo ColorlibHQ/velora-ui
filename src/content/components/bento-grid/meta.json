@@ -1,0 +1,19 @@
+{
+  "title": "Bento Grid",
+  "description": "Feature bento with hover-reveal CTAs and rich backgrounds.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "a11y": {
+    "motion": "The hover transitions are removed: the CTA link is always shown at the bottom of the card, the text block rests lifted above it, and the background no longer scales on hover.",
+    "keyboard": "The CTA link (rendered when href is set) is reachable with Tab; focusing it reveals it the same way hover does and shows a focus ring.",
+    "screenReader": "Reads the card heading, description and CTA link; the gradient overlay is hidden, but any text inside the background node is read as well."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

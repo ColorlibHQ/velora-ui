@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "timeline",
+  "title": "Timeline",
+  "description": "Vertical timeline with sticky labels and a gradient beam that fills as you scroll.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/velora/timeline.tsx",
+      "content": "\"use client\";\n\nimport { useRef } from \"react\";\nimport { motion, useScroll, useSpring, useTransform } from \"motion/react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface TimelineItem {\n  /** Label pinned beside the entry, e.g. a date or version */\n  title: React.ReactNode;\n  /** Body shown to the right of the label */\n  content: React.ReactNode;\n}\n\ninterface TimelineProps extends React.HTMLAttributes<HTMLDivElement> {\n  /** Entries, rendered in order as an ordered list */\n  items: TimelineItem[];\n  /** Scrollable element to track instead of the window */\n  container?: React.RefObject<HTMLElement | null>;\n}\n\n/**\n * Vertical timeline: each entry's label sticks beside its content while a\n * gradient beam fills the track as you scroll. Sticky offsets use `cqh`, so\n * inside a `@container-size` scroll box they measure that box instead of the\n * viewport. Under `prefers-reduced-motion` the beam is drawn in full.\n */\nexport function Timeline({\n  items,\n  container,\n  className,\n  ...props\n}: TimelineProps) {\n  const ref = useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    container,\n    target: ref,\n    offset: [\"start 0.7\", \"end 0.7\"],\n  });\n  const progress = useSpring(scrollYProgress, { stiffness: 300, damping: 40 });\n  const top = useTransform(progress, (v) => `${v * 100}%`);\n\n  return (\n    <div\n      ref={ref}\n      data-slot=\"timeline\"\n      className={cn(\"relative @container/timeline\", className)}\n      {...props}\n    >\n      <div aria-hidden className=\"absolute inset-y-0 left-3 w-0.5 -translate-x-1/2\">\n        <div className=\"absolute inset-0 bg-border [mask-image:linear-gradient(to_bottom,transparent,black_4%,black_96%,transparent)]\">\n          <motion.div\n            style={{ scaleY: progress }}\n            className=\"absolute inset-0 origin-top bg-gradient-to-b from-transparent via-brand-from via-15% to-brand-to motion-reduce:transform-none!\"\n          />\n        </div>\n        <motion.div\n          style={{ top }}\n          className=\"absolute left-1/2 size-2 -translate-1/2 rounded-full bg-brand-to shadow-[0_0_12px_3px] shadow-brand-to/60 motion-reduce:hidden\"\n        />\n      </div>\n\n      <ol className=\"relative flex flex-col gap-14 @xl/timeline:gap-24\">\n        {items.map((item, i) => (\n          <li\n            key={i}\n            className=\"flex flex-col gap-4 @xl/timeline:flex-row @xl/timeline:gap-10\"\n          >\n            <div className=\"flex items-center gap-4 self-start @xl/timeline:sticky @xl/timeline:top-[16cqh] @xl/timeline:w-48 @xl/timeline:shrink-0\">\n              <span\n                aria-hidden\n                className=\"relative flex size-6 shrink-0 items-center justify-center rounded-full border bg-background shadow-sm\"\n              >\n                <span className=\"size-2 rounded-full bg-gradient-to-br from-brand-from to-brand-to\" />\n              </span>\n              <h3 className=\"text-lg font-semibold tracking-tight @xl/timeline:text-2xl\">\n                {item.title}\n              </h3>\n            </div>\n            <div className=\"min-w-0 flex-1 pl-10 @xl/timeline:pl-0\">\n              {item.content}\n            </div>\n          </li>\n        ))}\n      </ol>\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/velora/timeline.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

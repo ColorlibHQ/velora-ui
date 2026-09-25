@@ -1,0 +1,24 @@
+{
+  "title": "Macbook Scroll",
+  "description": "A CSS-drawn laptop pins in place and opens its lid as the screenshot scales up.",
+  "category": "Scroll",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The laptop renders open with the screenshot at full size, the section drops its extra scroll height, and nothing moves while scrolling.",
+    "keyboard": null,
+    "screenReader": "The title is an h2 and the screenshot uses the `alt` you pass (empty by default); the lid shell, keyboard and trackpad are aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "dashboard",
+      "title": "Custom screen",
+      "description": "A mock dashboard built from Tailwind as the screen content instead of an image."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Stepper",
+  "description": "Progress indicator for multi-step forms and checkouts.",
+  "category": "Forms",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The progress bar jumps to its new fill instead of animating. Marker colors still change with a short color transition.",
+    "keyboard": "With `onStepClick`, completed steps are buttons that Tab reaches and Enter or Space activates. Otherwise markers are plain text and not focusable.",
+    "screenReader": "An ordered list where each marker is named like \"Step 1: Account, complete\" and the current step's item has aria-current=\"step\"."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

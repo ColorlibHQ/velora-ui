@@ -1,0 +1,24 @@
+{
+  "title": "Smooth Cursor",
+  "description": "Dot-and-ring custom cursor; the ring trails on a spring and grows over links and buttons.",
+  "category": "Cursor & Pointer",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The ring snaps to the dot instead of trailing, and grows or shrinks without easing.",
+    "keyboard": null,
+    "screenReader": "The dot and ring are aria-hidden and never take pointer events; nothing is announced."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "cta-card",
+      "title": "CTA card",
+      "description": "A call-to-action card with buttons and links that make the ring grow."
+    }
+  ]
+}

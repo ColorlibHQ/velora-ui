@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pointer-highlight",
+  "title": "Pointer Highlight",
+  "description": "Draws an outline around a phrase on scroll, then glides a pointer icon to its corner.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/velora/pointer-highlight.tsx",
+      "content": "\"use client\";\n\nimport { useRef } from \"react\";\nimport { motion, useInView, useReducedMotion } from \"motion/react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst EASE = [0.22, 1, 0.36, 1] as const;\n\ninterface PointerHighlightProps extends React.HTMLAttributes<HTMLSpanElement> {\n  /** The phrase to frame */\n  children: React.ReactNode;\n  /** Classes for the drawn outline (border colour, width, radius, fill) */\n  rectangleClassName?: string;\n  /** Classes for the pointer icon (colour, size) */\n  pointerClassName?: string;\n  /** Play only the first time the phrase enters the viewport */\n  once?: boolean;\n}\n\n/**\n * Frames an inline phrase when it scrolls into view: an outline draws out\n * from the top-left corner, then a small pointer glides in to rest on its\n * bottom-right corner, like a selection someone just made. The phrase\n * becomes an inline-block, so keep it short enough not to wrap.\n */\nexport function PointerHighlight({\n  children,\n  rectangleClassName,\n  pointerClassName,\n  once = true,\n  className,\n  ...props\n}: PointerHighlightProps) {\n  const ref = useRef<HTMLSpanElement>(null);\n  const inView = useInView(ref, { once, amount: 0.6 });\n  const reducedMotion = useReducedMotion();\n  const instant = { duration: 0 };\n\n  return (\n    <span\n      ref={ref}\n      data-slot=\"pointer-highlight\"\n      className={cn(\"relative inline-block\", className)}\n      {...props}\n    >\n      {children}\n      {/* Reduced motion: the !important classes beat motion's inline styles,\n          so the finished frame shows from the first paint. */}\n      <span\n        aria-hidden\n        className=\"pointer-events-none absolute -inset-x-[0.2em] -inset-y-[0.06em]\"\n      >\n        <motion.span\n          initial={{ width: \"0%\", height: \"0%\", opacity: 0 }}\n          animate={\n            inView\n              ? { width: \"100%\", height: \"100%\", opacity: 1 }\n              : { width: \"0%\", height: \"0%\", opacity: 0 }\n          }\n          transition={\n            reducedMotion\n              ? instant\n              : { duration: 0.7, ease: EASE, opacity: { duration: 0.1 } }\n          }\n          className={cn(\n            \"absolute top-0 left-0 block border-2 border-primary bg-primary/5 motion-reduce:size-full! motion-reduce:opacity-100!\",\n            rectangleClassName\n          )}\n        />\n        <motion.svg\n          viewBox=\"0 0 20 20\"\n          initial={{ opacity: 0, x: 18, y: 18 }}\n          animate={inView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: 18, y: 18 }}\n          transition={\n            reducedMotion ? instant : { duration: 0.5, ease: EASE, delay: inView ? 0.55 : 0 }\n          }\n          className={cn(\n            \"absolute top-full left-full -mt-1 -ml-1 size-[clamp(1rem,0.45em,1.75rem)] text-primary drop-shadow-sm motion-reduce:transform-none! motion-reduce:opacity-100!\",\n            pointerClassName\n          )}\n        >\n          <path\n            d=\"M2.5 2.5 17 8.4l-6.4 2.2L8.4 17Z\"\n            fill=\"currentColor\"\n            stroke=\"var(--background)\"\n            strokeWidth=\"1.5\"\n            strokeLinejoin=\"round\"\n          />\n        </motion.svg>\n      </span>\n    </span>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/velora/pointer-highlight.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

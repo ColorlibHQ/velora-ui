@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
+
+const noopSubscribe = () => () => {};
 
 interface TypewriterProps extends React.HTMLAttributes<HTMLSpanElement> {
   words: string[];
@@ -27,13 +29,18 @@ export function Typewriter({
   className,
   ...props
 }: TypewriterProps) {
-  const reducedMotion = useReducedMotion();
+  // useReducedMotion() already knows the preference on the first client
+  // render, but the server can't — keep the animated markup until hydrated.
+  const hydrated = useSyncExternalStore(noopSubscribe, () => true, () => false);
+  const reducedMotion = useReducedMotion() === true && hydrated;
   const [wordIndex, setWordIndex] = useState(0);
   const [text, setText] = useState("");
   const [deleting, setDeleting] = useState(false);
+  // Paused while hovered or focused (WCAG 2.2.2)
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (reducedMotion || words.length === 0) return;
+    if (reducedMotion || paused || words.length === 0) return;
     const word = words[wordIndex % words.length];
 
     let timeout: ReturnType<typeof setTimeout>;
@@ -53,15 +60,7 @@ export function Typewriter({
       }, deleteSpeed);
     }
     return () => clearTimeout(timeout);
-  }, [text, deleting, wordIndex, words, typeSpeed, deleteSpeed, holdTime, loop, reducedMotion]);
-
-  if (reducedMotion) {
-    return (
-      <span className={cn(className)} {...props}>
-        {words[0]}
-      </span>
-    );
-  }
+  }, [text, deleting, wordIndex, words, typeSpeed, deleteSpeed, holdTime, loop, reducedMotion, paused]);
 
   const longest = words.reduce((a, b) => (b.length > a.length ? b : a), "");
 
@@ -72,16 +71,35 @@ export function Typewriter({
       data-slot="typewriter"
       className={cn("inline-grid text-left", className)}
       {...props}
+      onMouseEnter={(e) => {
+        setPaused(true);
+        props.onMouseEnter?.(e);
+      }}
+      onMouseLeave={(e) => {
+        setPaused(false);
+        props.onMouseLeave?.(e);
+      }}
+      onFocus={(e) => {
+        setPaused(true);
+        props.onFocus?.(e);
+      }}
+      onBlur={(e) => {
+        setPaused(false);
+        props.onBlur?.(e);
+      }}
     >
-      <span className="sr-only">{words[0]}</span>
+      <span className="sr-only">{words.join(", ")}</span>
       <span aria-hidden className="invisible col-start-1 row-start-1">
         {longest}
-        {cursor && <span className="font-light">|</span>}
+        {cursor && <span className="font-light motion-reduce:hidden">|</span>}
       </span>
       <span aria-hidden className="col-start-1 row-start-1">
-        {text}
+        {/* Reduced motion: the first word, static, without a cursor */}
+        {reducedMotion ? words[0] : text}
         {cursor && (
-          <span className="animate-pulse font-light">|</span>
+          <span className="font-light motion-safe:animate-pulse motion-reduce:hidden">
+            |
+          </span>
         )}
       </span>
     </span>

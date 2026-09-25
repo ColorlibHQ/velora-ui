@@ -31,7 +31,7 @@ export function Ripple({
         return (
           <span
             key={i}
-            className="absolute animate-ripple-ring rounded-full border border-brand/25"
+            className="absolute rounded-full border border-brand/25 motion-safe:animate-ripple-ring"
             style={{
               width: size,
               height: size,

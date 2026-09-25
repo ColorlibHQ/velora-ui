@@ -1,0 +1,24 @@
+{
+  "title": "Apple Cards Carousel",
+  "description": "Snap-scrolling row of tall image cards that morph into a full modal story.",
+  "category": "Carousels",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "Cards open and close instantly with no shared-element morph or backdrop fade, and the previous/next buttons jump instead of smooth-scrolling.",
+    "keyboard": "The row is a focusable region that arrow keys scroll; each card is a button that opens a modal dialog. Focus moves into the dialog, Tab and Shift+Tab stay inside it, Escape or Close dismisses it, and focus returns to the card. Previous/next buttons are disabled at either end.",
+    "screenReader": "The row is a labelled region containing a list of buttons named by category and title (aria-haspopup=\"dialog\", aria-expanded); the dialog is aria-modal and named by its heading, and card images are decorative."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "features",
+      "title": "Features you'll love",
+      "description": "A product section of five feature cards whose dialogs hold copy and key stats."
+    }
+  ]
+}

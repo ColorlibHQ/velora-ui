@@ -1,0 +1,19 @@
+{
+  "title": "Card Stack",
+  "description": "Deck that shuffles the top card to the back on a timer.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The deck does not auto-shuffle; the first card stays on top. With motion allowed, shuffling pauses while the pointer is over the deck, while focus is inside it, and while the tab is hidden.",
+    "keyboard": "Not interactive itself. Links or buttons inside buried cards stay in the tab order while visually covered.",
+    "screenReader": "All cards are in the DOM in source order and are read in full regardless of which is on top; nothing is announced on shuffle."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

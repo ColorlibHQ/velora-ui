@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
-
 import { Badge } from "@/components/ui/badge";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Changelog — Velora UI",
+export const metadata = pageMetadata({
+  title: "Changelog",
   description:
     "Every Velora UI release: new components, template pages and improvements.",
-};
+  path: "/changelog",
+});
 
 interface Release {
   date: string;
@@ -21,6 +21,82 @@ interface Release {
 }
 
 const releases: Release[] = [
+  {
+    date: "September 25, 2026",
+    version: "0.9.0",
+    title: "Findable: category pages, comparisons and a faster homepage",
+    tag: "Improved",
+    items: [
+      "A Get started page covering installation, the @velora registry namespace (npx shadcn add @velora/marquee) and setup for AI agents",
+      "16 component category pages, such as /components/category/backgrounds, each with its own introduction",
+      "Honest comparisons with Aceternity UI and Magic UI: measured the same way for all three, including where they're stronger, plus a table for switching over",
+      "Every page now has its own share card, title and description, plus structured data for search engines",
+      "llms-full.txt gives AI agents the props, accessibility notes and a working example for every component",
+      "Homepage Lighthouse score went from 61–90 to a steady 92 for performance and 100 for accessibility, best practices and SEO; the old '100 Lighthouse' claim was replaced with facts we've measured",
+      "Tracing Beam now respects reduced motion",
+    ],
+  },
+  {
+    date: "September 25, 2026",
+    version: "0.8.0",
+    title: "31 free blocks: complete sections, installable in one command",
+    tag: "New",
+    items: [
+      "Hero, feature, pricing, testimonial, CTA, logo cloud, FAQ, navbar, footer and login/sign-up sections, all free and MIT licensed",
+      "Preview every block at desktop, tablet and mobile widths, read the code, or install it with the shadcn CLI, which brings along every Velora component it uses",
+      "Each category has its own page (/blocks/hero-sections, /blocks/pricing-sections, …)",
+      "Accessible by default: labelled forms, a keyboard-operable billing toggle, a real comparison table, and motion that pauses",
+      "Fixed: the footer no longer prefetches llms.txt as a page; Resizable Navbar no longer uses hrefs as React keys",
+    ],
+  },
+  {
+    date: "September 25, 2026",
+    version: "0.7.0",
+    title: "100 components: loaders, overlays, cursors and more",
+    tag: "New",
+    items: [
+      "Overlays: an animated Modal built on the native <dialog> element, so focus trapping, Escape and the top layer come from the browser",
+      "Navigation: Animated Sidebar (rail on desktop, drawer on mobile), Animated Tabs with full WAI-ARIA keyboard support, and a Resizable Navbar",
+      "Loaders: a Multi-Step Loader that announces each step to screen readers, five compact loaders and a Stateful Button for async actions",
+      "Cursor & Pointer: Following Pointer, Smooth Cursor (fine pointers only, never hides the cursor on touch) and Pointer Highlight",
+      "Carousels & cards: Image Slider with a visible pause button, 3D Marquee, Draggable Cards, Layout Grid and Wobble Card",
+      "Code Block with tabs, line highlights and dependency-free syntax highlighting in under 3 KB",
+      "Backgrounds: Dotted Glow and Noise, both paused offscreen, in hidden tabs and under reduced motion",
+      "51 of the 100 components have zero runtime dependencies",
+    ],
+  },
+  {
+    date: "September 25, 2026",
+    version: "0.6.0",
+    title: "18 new components: globes, 3D cards and scroll showpieces",
+    tag: "New",
+    items: [
+      "Data & Maps: a dependency-free canvas Globe with markers, arcs and drag-to-spin, and an SVG World Map with animated connections",
+      "3D: 3D Card with layered depth and 3D Pin with a rising label",
+      "Scroll: Hero Parallax, MacBook Scroll and a Timeline whose beam fills as you read",
+      "Backgrounds: Wavy Background, Vortex, Shooting Stars and Background Boxes",
+      "Cards & effects: Glowing Effect, Evervault Card, Focus Cards and Card Hover Effect",
+      "Plus Text Hover Effect, an Apple-style Cards Carousel with an accessible dialog, and a Lens magnifier",
+      "Every new component ships with two examples, a props table and documented reduced-motion, keyboard and screen-reader behavior",
+      "No Three.js, no WebGL: the Globe draws on a 2D canvas and carries its own land map in 5.2 KB",
+    ],
+  },
+  {
+    date: "September 25, 2026",
+    version: "0.5.0",
+    title:
+      "Docs you can build from, and an accessibility pass on every component",
+    tag: "Improved",
+    items: [
+      "Every component page now has Preview/Code tabs, CLI and manual install (pnpm, npm, yarn, bun), a props table generated from the TypeScript source, and an Accessibility section",
+      "Copy prompt hands an AI agent the install command, a working example and the props; Open in v0 loads the component straight into v0",
+      "⌘K search across all components and pages",
+      "Audited all 64 components: fixed 60 accessibility defects across 38 of them — keyboard-operable dock, tooltip, menu and dialogs, screen-reader text for animated copy, pause on hover and focus for anything that loops",
+      "Reduced motion now travels with the component: CSS animations use motion-safe: instead of a kill switch that only lived in this site's stylesheet, so CLI installs respect it too",
+      "No more hydration mismatches under reduced motion, and every static state looks intentional (orbits rest on their ring, meteors disappear)",
+      "Components are 0.3–2.0 KB gzipped after the fixes; 33 of 64 still have zero runtime dependencies",
+    ],
+  },
   {
     date: "September 5, 2026",
     version: "0.4.0",

@@ -39,7 +39,7 @@ export function GlareCard({ children, className }: GlareCardProps) {
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
       className={cn(
-        "group relative overflow-hidden rounded-2xl border bg-card p-6 [--glare-x:50%] [--glare-y:50%]",
+        "group/glare relative overflow-hidden rounded-2xl border bg-card p-6 [--glare-x:50%] [--glare-y:50%]",
         className
       )}
     >

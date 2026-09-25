@@ -1,0 +1,22 @@
+{
+  "title": "Animated Modal",
+  "description": "Native dialog whose panel springs in with a tilt over a blurred backdrop.",
+  "category": "Overlays",
+  "dependencies": ["motion"],
+  "a11y": {
+    "motion": "The spring, scale and tilt are dropped; the panel and backdrop fade in and out over 150–200ms.",
+    "keyboard": "The trigger is a native button. Opening moves focus into the dialog and Tab stays inside it (native showModal); Escape, the × button and ModalClose close it, and focus returns to the element that opened it.",
+    "screenReader": "A native modal <dialog> named by its title (or aria-labelledby) and described by its description; the page behind is inert while it is open."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "book-trip",
+      "title": "Book your trip",
+      "description": "A travel booking modal with a photo strip, trip details and a CTA footer."
+    }
+  ]
+}

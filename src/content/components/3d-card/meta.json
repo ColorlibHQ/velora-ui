@@ -1,0 +1,24 @@
+{
+  "title": "3D Card",
+  "description": "Perspective card that turns toward the pointer while its layers lift to different depths.",
+  "category": "3D",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The card stays flat and its layers stay on the surface; pointer movement and focus change nothing.",
+    "keyboard": "The card is not focusable itself; when a link or button inside it gets keyboard focus, the layers rise to 40% of their depth without tilting.",
+    "screenReader": "A transparent wrapper; the children are read in source order."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "product-card",
+      "title": "Product card",
+      "description": "A shop tile whose product, title, price and add-to-cart button sit at different depths."
+    }
+  ]
+}

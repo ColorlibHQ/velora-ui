@@ -42,12 +42,14 @@ export function MovingBorder({
         className
       )}
     >
+      {/* Under reduced motion the light is replaced by a static glow on two
+          opposite corners, showing through the same 1px gap. */}
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 motion-reduce:hidden"
+        className="pointer-events-none absolute inset-0 motion-reduce:bg-[linear-gradient(135deg,var(--brand-via),transparent_35%,transparent_65%,var(--brand-via))]"
       >
         <span
-          className="absolute aspect-square w-(--mb-size) animate-moving-border bg-[radial-gradient(circle,var(--brand-via),transparent_65%)]"
+          className="absolute aspect-square w-(--mb-size) bg-[radial-gradient(circle,var(--brand-via),transparent_65%)] motion-safe:animate-moving-border motion-reduce:hidden"
           style={{
             offsetPath: `rect(0 auto auto 0 round var(--mb-radius))`,
           }}

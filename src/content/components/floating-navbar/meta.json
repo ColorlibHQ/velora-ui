@@ -1,0 +1,17 @@
+{
+  "title": "Floating Navbar",
+  "description": "Hides on scroll down, returns the moment you scroll up.",
+  "category": "Navigation",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The bar still hides on scroll down and returns on scroll up, but it jumps instead of sliding over 300ms.",
+    "keyboard": "Links inside stay in the tab order. Moving focus into the bar brings it back on screen, and it does not hide while focus is inside it.",
+    "screenReader": "Renders a <header> (a banner landmark at the top level of the page) and adds no ARIA of its own."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

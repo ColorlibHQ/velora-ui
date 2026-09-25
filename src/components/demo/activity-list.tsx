@@ -31,7 +31,7 @@ const notifications = [
     icon: StarIcon,
     tone: "bg-amber-500/15 text-amber-500",
     title: "GitHub star",
-    description: "velora-ui hit 2,400 stars",
+    description: "Someone starred your repo",
     time: "5m ago",
   },
   {

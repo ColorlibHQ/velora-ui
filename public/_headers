@@ -1,6 +1,10 @@
-# Cloudflare Pages headers. The OG image is exported without a file
-# extension, so set its MIME explicitly for social scrapers.
+# Cloudflare Pages headers. OG images are exported without a file
+# extension, so set their MIME explicitly for social scrapers.
 /opengraph-image
+  Content-Type: image/png
+  Cache-Control: public, max-age=3600
+
+/*/opengraph-image
   Content-Type: image/png
   Cache-Control: public, max-age=3600
 
@@ -9,8 +13,12 @@
   Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=3600
 
-# AI-agent discovery file.
+# AI-agent discovery files.
 /llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/llms-full.txt
   Content-Type: text/plain; charset=utf-8
   Access-Control-Allow-Origin: *
 

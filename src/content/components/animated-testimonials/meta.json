@@ -1,0 +1,19 @@
+{
+  "title": "Animated Testimonials",
+  "description": "Crossfades portraits behind a rotating quote.",
+  "category": "Social Proof",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "Autoplay is off and the pause button is hidden. Changing slides with the dots swaps the portrait and quote instantly, with no scale, rotate or slide.",
+    "keyboard": "The pause/play button and the dots are native buttons with visible focus rings and 24px hit areas. Autoplay also pauses while the pointer or focus is inside the component.",
+    "screenReader": "Each dot is named \"Show testimonial from {name}\" with aria-current on the shown one, the quote is a blockquote, and slide changes are not announced."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

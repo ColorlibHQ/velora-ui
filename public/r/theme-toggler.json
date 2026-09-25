@@ -3,6 +3,9 @@
   "name": "theme-toggler",
   "title": "Theme Toggler",
   "description": "Wipes the new theme in as a circle using View Transitions.",
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/theme-toggler.tsx",

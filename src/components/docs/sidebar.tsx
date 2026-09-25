@@ -3,19 +3,43 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { categories, componentsMeta } from "@/lib/components-meta";
+import { categories, categorySlug, componentsMeta } from "@/lib/components-meta";
 import { cn } from "@/lib/utils";
 
 export function DocsSidebar() {
   const pathname = usePathname();
 
   return (
-    <nav className="space-y-6">
+    <nav aria-label="Components" className="space-y-6">
+      <ul className="space-y-0.5 border-l border-border/60">
+        {[
+          { href: "/components/get-started", label: "Get started" },
+          { href: "/components", label: "All components" },
+        ].map((link) => (
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              aria-current={pathname === link.href ? "page" : undefined}
+              className={cn(
+                "-ml-px block border-l py-1 pl-4 text-sm transition-colors",
+                pathname === link.href
+                  ? "border-primary font-medium text-foreground"
+                  : "border-transparent text-muted-foreground hover:border-border hover:text-foreground"
+              )}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
       {categories.map((category) => (
         <div key={category}>
-          <p className="mb-2 text-xs font-semibold tracking-wide text-foreground uppercase">
+          <Link
+            href={`/components/category/${categorySlug(category)}`}
+            className="mb-2 block text-xs font-semibold tracking-wide text-foreground uppercase hover:text-primary"
+          >
             {category}
-          </p>
+          </Link>
           <ul className="space-y-0.5 border-l border-border/60">
             {componentsMeta
               .filter((c) => c.category === category)

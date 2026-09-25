@@ -10,6 +10,8 @@ interface VanishInputProps {
   placeholders: string[];
   /** Seconds each placeholder is held */
   interval?: number;
+  /** Accessible name for the input */
+  label?: string;
   onSubmit?: (value: string) => void;
   className?: string;
 }
@@ -17,38 +19,53 @@ interface VanishInputProps {
 /**
  * Search or prompt field whose placeholder cycles while empty. Built on a real
  * `form` and `input`, so Enter, autofill and screen readers behave normally.
+ * The cycling pauses on hover and focus, and stays on the first placeholder
+ * under `prefers-reduced-motion`.
  */
 export function VanishInput({
   placeholders,
   interval = 3,
+  label = "Search",
   onSubmit,
   className,
 }: VanishInputProps) {
   const [index, setIndex] = useState(0);
   const [value, setValue] = useState("");
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
-    if (placeholders.length < 2 || value) return;
+    if (placeholders.length < 2 || value || reducedMotion || hovered || focused)
+      return;
     const id = window.setInterval(
       () => setIndex((i) => (i + 1) % placeholders.length),
       interval * 1000
     );
     return () => window.clearInterval(id);
-  }, [placeholders.length, interval, value]);
+  }, [placeholders.length, interval, value, reducedMotion, hovered, focused]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (!value.trim()) return;
     onSubmit?.(value);
     setValue("");
-    inputRef.current?.blur();
+    // Clearing disables the submit button, so keep focus in the field.
+    inputRef.current?.focus();
   };
 
   return (
     <form
       onSubmit={handleSubmit}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setFocused(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setFocused(false);
+        }
+      }}
       data-slot="vanish-input"
       className={cn(
         "relative flex h-12 w-full max-w-lg items-center rounded-full border bg-background pr-1.5 pl-5 transition-shadow focus-within:ring-2 focus-within:ring-ring",
@@ -59,7 +76,7 @@ export function VanishInput({
         ref={inputRef}
         value={value}
         onChange={(event) => setValue(event.target.value)}
-        aria-label={placeholders[0] ?? "Search"}
+        aria-label={label}
         className="peer h-full flex-1 bg-transparent text-sm outline-none"
       />
 

@@ -1,0 +1,19 @@
+{
+  "title": "Lamp",
+  "description": "A glowing lamp-line header that expands into view.",
+  "category": "Backgrounds",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The cones and lamp line appear at full width and opacity when scrolled into view, with no expansion.",
+    "keyboard": null,
+    "screenReader": "Every lamp layer is aria-hidden; only the children are exposed, as normal content."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

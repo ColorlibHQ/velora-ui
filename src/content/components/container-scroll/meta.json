@@ -1,0 +1,19 @@
+{
+  "title": "Container Scroll",
+  "description": "Screenshot panel that rotates flat as it scrolls into view.",
+  "category": "Scroll",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "A CSS override keeps the panel flat and the header in place: no 26° tilt, no scale, no scroll offset.",
+    "keyboard": null,
+    "screenReader": "Plain wrapper divs; the header and children pass through unchanged."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

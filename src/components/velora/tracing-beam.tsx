@@ -51,7 +51,8 @@ export function TracingBeam({ children, className }: TracingBeamProps) {
       >
         <motion.div
           style={{ height: drawn }}
-          className="w-px bg-gradient-to-b from-brand-from via-brand-via to-brand-to"
+          // Reduced motion: show the beam fully drawn instead of tracking scroll.
+          className="w-px bg-gradient-to-b from-brand-from via-brand-via to-brand-to motion-reduce:h-full!"
         />
       </div>
       {children}

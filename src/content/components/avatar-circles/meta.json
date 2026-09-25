@@ -1,0 +1,17 @@
+{
+  "title": "Avatar Circles",
+  "description": "Stacked initials avatars with a +N badge — zero images.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "a11y": {
+    "motion": "Static; no animation.",
+    "keyboard": null,
+    "screenReader": "Each avatar is read by its full name, with the initials hidden, and the badge is read as \"and 2,400 more\" (the exact extra count)."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Tweet Card",
+  "description": "Static social-proof card — props, not an API call.",
+  "category": "Social Proof",
+  "dependencies": [],
+  "a11y": {
+    "motion": "Nothing animates beyond a background-color change on hover.",
+    "keyboard": null,
+    "screenReader": "A figure with name, @handle and time followed by a blockquote; the avatar is decorative and the verified badge is announced as \"Verified account\"."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Confetti",
+  "description": "Dependency-free confetti burst, fired from anywhere.",
+  "category": "Buttons",
+  "dependencies": [],
+  "a11y": {
+    "motion": "confettiBurst does nothing, so clicking shows no burst; the button's own onClick still runs.",
+    "keyboard": "Native <button>: reachable with Tab, Enter or Space fires it (the burst starts from the button's centre), and focus-visible shows a 2px outline in the ring colour.",
+    "screenReader": "Named by its children; the temporary burst canvas is decorative and not exposed."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

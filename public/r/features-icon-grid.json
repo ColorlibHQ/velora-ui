@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "features-icon-grid",
+  "title": "Icon feature grid",
+  "description": "Heading and six icon feature cards in a three-column grid, each border lit by a cursor-following glow.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils",
+    "https://velora.colorlib.com/r/blur-fade.json",
+    "https://velora.colorlib.com/r/glowing-effect.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/features-icon-grid.tsx",
+      "content": "import {\n  ArrowRightIcon,\n  ChartColumnIcon,\n  LockIcon,\n  PlugIcon,\n  UsersIcon,\n  WorkflowIcon,\n  ZapIcon,\n} from \"lucide-react\";\n\nimport { BlurFade } from \"@/components/velora/blur-fade\";\nimport { GlowingEffect } from \"@/components/velora/glowing-effect\";\n\nconst HEADING = {\n  eyebrow: \"Features\",\n  title: \"Built for teams that move fast\",\n  description:\n    \"Every part of Acme is designed to remove a step, not add one. Here is what you get on day one.\",\n};\n\nconst FEATURES = [\n  {\n    icon: ZapIcon,\n    title: \"Instant sync\",\n    description:\n      \"Changes land on every device in milliseconds, even on patchy connections. Offline edits merge on reconnect.\",\n  },\n  {\n    icon: WorkflowIcon,\n    title: \"Automations\",\n    description:\n      \"Build if-this-then-that rules in plain language. Assign, label, notify and close without lifting a finger.\",\n  },\n  {\n    icon: UsersIcon,\n    title: \"Real-time collaboration\",\n    description:\n      \"See who is viewing, editing and typing. Comments, mentions and reactions keep threads out of your inbox.\",\n  },\n  {\n    icon: ChartColumnIcon,\n    title: \"Insights\",\n    description:\n      \"Cycle time, throughput and burndown charts that build themselves from the work you are already doing.\",\n  },\n  {\n    icon: LockIcon,\n    title: \"Secure by default\",\n    description:\n      \"SSO, SCIM, audit logs and encryption at rest on every plan. SOC 2 Type II reports on request.\",\n  },\n  {\n    icon: PlugIcon,\n    title: \"API and webhooks\",\n    description:\n      \"A typed REST and GraphQL API with webhooks for every event, so Acme fits into the stack you already have.\",\n  },\n];\n\nconst FOOTNOTE = { text: \"Need something we don't cover?\", link: \"Talk to our team\" };\n\n/**\n * Six feature cards in a three-column grid. Each card's border lights up\n * along the side nearest the pointer. Swap the icons and copy in FEATURES.\n */\nexport function FeaturesIconGrid() {\n  return (\n    <section className=\"px-6 py-24 sm:py-32 lg:px-8\">\n      <div className=\"mx-auto max-w-7xl\">\n        <BlurFade>\n          <div className=\"mx-auto max-w-2xl text-center\">\n            <p className=\"text-sm font-semibold text-primary\">{HEADING.eyebrow}</p>\n            <h2 className=\"mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-5xl\">\n              {HEADING.title}\n            </h2>\n            <p className=\"mt-5 text-lg text-pretty text-muted-foreground\">\n              {HEADING.description}\n            </p>\n          </div>\n        </BlurFade>\n\n        <ul className=\"mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3\">\n          {FEATURES.map(({ icon: Icon, title, description }, i) => (\n            <li key={title}>\n              <BlurFade delay={0.05 * i} className=\"h-full\">\n                <div className=\"relative h-full rounded-2xl border p-1.5\">\n                  <GlowingEffect proximity={80} spread={70} />\n                  <div className=\"relative flex h-full flex-col gap-4 overflow-hidden rounded-xl border bg-card p-6 shadow-sm\">\n                    <div\n                      aria-hidden\n                      className=\"absolute -top-16 -right-16 size-40 rounded-full bg-brand/5 blur-2xl\"\n                    />\n                    <div className=\"relative grid size-11 place-items-center rounded-lg border bg-gradient-to-br from-brand-from/15 to-brand-to/5 text-primary\">\n                      <Icon aria-hidden className=\"size-5\" />\n                    </div>\n                    <h3 className=\"relative text-lg font-semibold tracking-tight\">{title}</h3>\n                    <p className=\"relative text-sm leading-relaxed text-muted-foreground\">\n                      {description}\n                    </p>\n                  </div>\n                </div>\n              </BlurFade>\n            </li>\n          ))}\n        </ul>\n\n        <p className=\"mt-12 text-center text-sm text-muted-foreground\">\n          {FOOTNOTE.text}{\" \"}\n          <a\n            href=\"#\"\n            className=\"inline-flex items-center gap-1 rounded-sm font-medium text-primary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring\"\n          >\n            {FOOTNOTE.link}\n            <ArrowRightIcon aria-hidden className=\"size-3.5\" />\n          </a>\n        </p>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/features-icon-grid.tsx"
+    }
+  ],
+  "categories": [
+    "feature-sections"
+  ],
+  "type": "registry:block"
+}

@@ -3,6 +3,9 @@
   "name": "iphone-mockup",
   "title": "iPhone Mockup",
   "description": "iPhone frame with dynamic island — pure CSS.",
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/iphone-mockup.tsx",

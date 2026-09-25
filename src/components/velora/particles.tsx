@@ -99,7 +99,11 @@ export function Particles({ className, quantity = 60, color }: ParticlesProps) {
       raf = requestAnimationFrame(tick);
     }
 
-    const resizeObserver = new ResizeObserver(resize);
+    // Resizing clears the canvas, so redraw the static frame when reduced
+    const resizeObserver = new ResizeObserver(() => {
+      resize();
+      if (reduced) draw();
+    });
     resizeObserver.observe(canvas);
 
     // Re-resolve the color when the theme class changes on <html>

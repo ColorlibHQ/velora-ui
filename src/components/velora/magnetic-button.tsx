@@ -5,12 +5,14 @@ import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/reac
 
 import { cn } from "@/lib/utils";
 
-interface MagneticButtonProps {
+// style and the drag/animation handlers are owned by motion.button, whose
+// signatures differ from the DOM ones.
+interface MagneticButtonProps
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "style" | "onAnimationStart" | "onDrag" | "onDragStart" | "onDragEnd"> {
   children: React.ReactNode;
   className?: string;
   /** How far the button is allowed to travel toward the cursor, in px */
   strength?: number;
-  onClick?: () => void;
 }
 
 /**
@@ -21,7 +23,11 @@ export function MagneticButton({
   children,
   className,
   strength = 14,
-  onClick,
+  type = "button",
+  onMouseMove,
+  onMouseLeave,
+  onBlur,
+  ...props
 }: MagneticButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const reducedMotion = useReducedMotion();
@@ -32,6 +38,7 @@ export function MagneticButton({
   const springY = useSpring(y, { stiffness: 260, damping: 16, mass: 0.4 });
 
   const handleMouseMove = (event: React.MouseEvent<HTMLButtonElement>) => {
+    onMouseMove?.(event);
     if (reducedMotion) return;
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
@@ -47,16 +54,22 @@ export function MagneticButton({
 
   return (
     <motion.button
+      {...props}
       ref={ref}
-      type="button"
+      type={type}
       data-slot="magnetic-button"
-      onClick={onClick}
       onMouseMove={handleMouseMove}
-      onMouseLeave={reset}
-      onBlur={reset}
+      onMouseLeave={(event) => {
+        reset();
+        onMouseLeave?.(event);
+      }}
+      onBlur={(event) => {
+        reset();
+        onBlur?.(event);
+      }}
       style={{ x: springX, y: springY }}
       className={cn(
-        "inline-flex h-11 cursor-pointer items-center justify-center rounded-xl bg-primary px-6 text-sm font-medium text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+        "inline-flex h-11 cursor-pointer items-center justify-center rounded-xl bg-primary px-6 text-sm font-medium text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50",
         className
       )}
     >

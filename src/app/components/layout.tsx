@@ -1,13 +1,5 @@
-import type { Metadata } from "next";
-
 import { DocsSidebar } from "@/components/docs/sidebar";
 import { SiteHeader } from "@/components/site-header";
-
-export const metadata: Metadata = {
-  title: "Components — Velora UI",
-  description:
-    "32+ free animated React components for landing pages. Copy the code or install with the shadcn CLI.",
-};
 
 export default function ComponentsLayout({
   children,
@@ -17,7 +9,7 @@ export default function ComponentsLayout({
   return (
     <>
       <SiteHeader />
-      <div className="mx-auto flex max-w-7xl gap-10 px-4 pt-24 pb-20 lg:px-8">
+      <div className="mx-auto flex w-full min-w-0 max-w-7xl gap-10 px-4 pt-24 pb-20 lg:px-8">
         <aside className="sticky top-24 hidden h-[calc(100vh-8rem)] w-56 shrink-0 overflow-y-auto pr-2 lg:block">
           <DocsSidebar />
         </aside>

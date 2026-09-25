@@ -1,0 +1,19 @@
+{
+  "title": "Text Highlighter",
+  "description": "Marker-pen sweep that draws in when the phrase scrolls into view.",
+  "category": "Text",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The marker wash appears instantly at full width once the phrase scrolls into view, with no sweep.",
+    "keyboard": null,
+    "screenReader": "The text is read normally; the highlight bar is aria-hidden and the emphasis is visual only (no <mark> or <strong> semantics)."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

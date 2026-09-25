@@ -57,10 +57,12 @@ export function OrbitingCircles({
                 "--duration": calculatedDuration,
                 "--radius": radius,
                 "--angle": angle,
+                // Resting position on the ring; the orbit animation overrides it
+                transform: `rotate(${angle}deg) translateY(${-radius}px) rotate(${-angle}deg)`,
               } as React.CSSProperties
             }
             className={cn(
-              "animate-orbit absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 transform-gpu items-center justify-center rounded-full",
+              "motion-safe:animate-orbit absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full",
               reverse && "[animation-direction:reverse]",
               className
             )}

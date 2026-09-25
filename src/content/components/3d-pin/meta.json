@@ -1,0 +1,22 @@
+{
+  "title": "3D Pin",
+  "description": "Card that tilts back as a glowing pin rises with a label chip and rippling rings.",
+  "category": "3D",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The card never tilts and the pin does not rise; on hover or focus the pin, chip and three static rings simply appear over the flat card.",
+    "keyboard": "With href the whole card is one link; without it the root is a plain div and the effect shows while a link or button inside it has keyboard focus. The focused card gets a visible ring.",
+    "screenReader": "The chip's title is real text read with the card content (it forms part of the link name when href is set); the beam, dot and rings are aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "project-showcase",
+      "title": "Project showcase",
+      "description": "A portfolio card with a dashboard screenshot built from Tailwind and a link inside."
+    }
+  ]
+}

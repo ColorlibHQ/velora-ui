@@ -13,7 +13,7 @@ export function TextShimmer({ className, children, ...props }: TextShimmerProps)
     <span
       data-slot="text-shimmer"
       className={cn(
-        "animate-shimmer inline-block bg-[linear-gradient(110deg,var(--color-muted-foreground)_35%,var(--color-foreground)_50%,var(--color-muted-foreground)_65%)] bg-[length:250%_100%] bg-clip-text text-transparent",
+        "motion-safe:animate-shimmer inline-block bg-[linear-gradient(110deg,var(--color-muted-foreground)_35%,var(--color-foreground)_50%,var(--color-muted-foreground)_65%)] bg-[length:250%_100%] bg-clip-text text-transparent",
         className
       )}
       {...props}

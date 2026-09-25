@@ -1,0 +1,19 @@
+{
+  "title": "Number Ticker",
+  "description": "Springs a number up when it enters the viewport.",
+  "category": "Text",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The final value appears at once when the element scrolls into view, with no count-up.",
+    "keyboard": null,
+    "screenReader": "The final formatted value is always in an sr-only span; the animating digits are aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

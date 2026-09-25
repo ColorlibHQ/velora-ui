@@ -1,0 +1,19 @@
+{
+  "title": "Sticky Scroll",
+  "description": "Copy scrolls past a pinned panel that swaps per section.",
+  "category": "Scroll",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The pinned panel swaps instantly with no crossfade or scale, and titles switch between full and 60% opacity without fading.",
+    "keyboard": "Nothing is interactive by default. Interactive `content` in inactive panels is inert, so only the visible panel's controls take focus.",
+    "screenReader": "Titles are h3 headings with a paragraph each; inactive panels are aria-hidden and inert, and the panel column is hidden below the lg breakpoint."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

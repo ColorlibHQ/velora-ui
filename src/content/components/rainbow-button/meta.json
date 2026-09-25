@@ -1,0 +1,17 @@
+{
+  "title": "Rainbow Button",
+  "description": "CTA cycling the brand ramp, with a matching glow beneath.",
+  "category": "Buttons",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The colour cycle and glow freeze, leaving a static brand gradient with a still glow beneath; the hover glow and press scale remain.",
+    "keyboard": "A native <button>: focusable, activates with Enter or Space, with a visible focus-visible outline.",
+    "screenReader": "Announced as a button named by its text content."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

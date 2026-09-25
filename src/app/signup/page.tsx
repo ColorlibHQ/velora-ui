@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
-
 import { AuthForm } from "@/components/template/auth-form";
 import { AuthVisual } from "@/components/template/auth-visual";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Sign up — Velora UI",
+export const metadata = pageMetadata({
+  title: "Sign up",
   description: "Create your Velora UI account.",
-};
+  path: "/signup",
+  noindex: true,
+});
 
 export default function SignupPage() {
   return (

@@ -3,6 +3,9 @@
   "name": "tweet-card",
   "title": "Tweet Card",
   "description": "Static social-proof card — props, not an API call.",
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
       "path": "src/components/velora/tweet-card.tsx",

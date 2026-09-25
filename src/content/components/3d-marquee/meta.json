@@ -1,0 +1,22 @@
+{
+  "title": "3D Marquee",
+  "description": "A tilted 3D grid of images whose columns scroll up and down in an endless loop.",
+  "category": "Carousels",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The columns stop scrolling and the grid rests as a static tilted wall. Scrolling also pauses on hover and while offscreen.",
+    "keyboard": null,
+    "screenReader": "Images are decorative (empty alt) unless you pass alt text, in which case each is read once; duplicated copies are aria-hidden and inert."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "showcase-wall",
+      "title": "Showcase wall",
+      "description": "A \"Built with Velora\" wall of screenshots behind centered headline copy."
+    }
+  ]
+}

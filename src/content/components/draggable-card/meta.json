@@ -1,0 +1,24 @@
+{
+  "title": "Draggable Card",
+  "description": "Scattered photo cards you can fling around with inertia, tilt and bounds.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "Cards still drag, but stop where they are released: no momentum, overshoot, lift or tilt.",
+    "keyboard": "Each card is focusable; arrow keys nudge it 12px (48px with Shift) without leaving the board, and Enter or Space brings it to the front.",
+    "screenReader": "Each card is a focusable group (aria-roledescription \"draggable card\") named by its label and described by a hidden hint listing the keyboard controls."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "moodboard",
+      "title": "Moodboard",
+      "description": "Six captioned photos pinned to a board, ready to be rearranged."
+    }
+  ]
+}

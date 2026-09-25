@@ -1,0 +1,24 @@
+{
+  "title": "Pointer Highlight",
+  "description": "Draws an outline around a phrase on scroll, then glides a pointer icon to its corner.",
+  "category": "Cursor & Pointer",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The outline and pointer are shown in their final place as soon as the phrase is on screen, with no drawing or glide.",
+    "keyboard": null,
+    "screenReader": "The text is read normally; the outline and pointer icon are aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "hero",
+      "title": "Hero headline",
+      "description": "A hero headline with one highlighted phrase, a subtitle and two buttons."
+    }
+  ]
+}

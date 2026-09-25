@@ -1,0 +1,22 @@
+{
+  "title": "Animated Tabs",
+  "description": "Tabs with a gliding pill and panels stacked like cards that peek behind.",
+  "category": "Navigation",
+  "dependencies": ["motion"],
+  "a11y": {
+    "motion": "The pill jumps to the selected tab and the panels swap places instantly; the stacked, offset layout stays as a static picture.",
+    "keyboard": "One Tab stop for the tab list (roving tabindex). Arrow Left/Right move and select with wrap-around, Home and End jump to the first and last tab, and Tab then moves into the active panel.",
+    "screenReader": "Uses tablist, tab and tabpanel roles with aria-selected, aria-controls and aria-labelledby; the peeking inactive panels are aria-hidden and inert."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "feature-tour",
+      "title": "Product feature tour",
+      "description": "Four tabs of rich content, each with copy, a checklist and a mock UI."
+    }
+  ]
+}

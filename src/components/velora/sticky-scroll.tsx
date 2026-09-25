@@ -1,7 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import {
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+} from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -14,17 +19,24 @@ export interface StickyScrollItem {
 
 interface StickyScrollProps {
   items: StickyScrollItem[];
+  /** Scrollable element to track instead of the window */
+  container?: React.RefObject<HTMLElement | null>;
   className?: string;
 }
 
 /**
  * Long-form copy that scrolls past a pinned panel; the panel swaps as each
- * section takes over. The classic "how it works" section.
+ * section takes over. The classic "how it works" section. Heights use `cqh`,
+ * which resolves against the viewport unless an ancestor is a size container
+ * (e.g. a fixed-height scroll box with `@container-size`).
  */
-export function StickyScroll({ items, className }: StickyScrollProps) {
+export function StickyScroll({ items, container, className }: StickyScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const reducedMotion = useReducedMotion();
+  const duration = reducedMotion ? 0 : 0.3;
   const { scrollYProgress } = useScroll({
+    container,
     target: ref,
     offset: ["start start", "end end"],
   });
@@ -47,28 +59,26 @@ export function StickyScroll({ items, className }: StickyScrollProps) {
       data-slot="sticky-scroll"
       className={cn("relative flex gap-12", className)}
     >
-      <div className="flex-1 py-[30vh]">
+      <div className="flex-1 py-[30cqh]">
         {items.map((item, i) => (
-          <div key={item.title} className="flex min-h-[60vh] flex-col justify-center">
+          <div key={item.title} className="flex min-h-[60cqh] flex-col justify-center">
+            {/* Only the large title dims, and only to a level that keeps
+                3:1 contrast; the description stays at full strength. */}
             <motion.h3
-              animate={{ opacity: active === i ? 1 : 0.35 }}
-              transition={{ duration: 0.3 }}
+              animate={{ opacity: active === i ? 1 : 0.6 }}
+              transition={{ duration }}
               className="text-2xl font-semibold"
             >
               {item.title}
             </motion.h3>
-            <motion.p
-              animate={{ opacity: active === i ? 1 : 0.35 }}
-              transition={{ duration: 0.3 }}
-              className="mt-3 max-w-md text-muted-foreground"
-            >
+            <p className="mt-3 max-w-md text-muted-foreground">
               {item.description}
-            </motion.p>
+            </p>
           </div>
         ))}
       </div>
 
-      <div className="sticky top-[20vh] hidden h-[60vh] flex-1 lg:block">
+      <div className="sticky top-[20cqh] hidden h-[60cqh] flex-1 lg:block">
         <div className="relative size-full overflow-hidden rounded-2xl border bg-gradient-to-br from-brand-from/10 to-brand-to/10">
           {items.map((item, i) => (
             <motion.div
@@ -78,8 +88,9 @@ export function StickyScroll({ items, className }: StickyScrollProps) {
                 opacity: active === i ? 1 : 0,
                 scale: active === i ? 1 : 0.97,
               }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ duration, ease: "easeOut" }}
               aria-hidden={active !== i}
+              inert={active !== i}
               className="absolute inset-0 flex items-center justify-center p-8"
             >
               {item.content ?? (

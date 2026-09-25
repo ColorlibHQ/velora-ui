@@ -1,0 +1,24 @@
+{
+  "title": "Text Hover Effect",
+  "description": "Giant outlined word that draws in, then glows in brand colours under the pointer.",
+  "category": "Text",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The outline appears fully drawn with no draw-in, and the spotlight does not track the pointer: hovering fades in the gradient version around the centre of the word.",
+    "keyboard": null,
+    "screenReader": "The SVG is a role=\"img\" named by the text, so the word is read once; the stacked outline and gradient copies are not announced."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "footer-wordmark",
+      "title": "Footer wordmark",
+      "description": "A site footer that ends in a giant, cropped hover wordmark."
+    }
+  ]
+}

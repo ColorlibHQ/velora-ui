@@ -1,0 +1,17 @@
+{
+  "title": "Logo Cloud",
+  "description": "Customer logos muted until hovered, so they read as texture.",
+  "category": "Social Proof",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The 300ms fade is removed, so a hovered logo switches straight from dimmed grayscale to full color.",
+    "keyboard": null,
+    "screenReader": "A list with one item per logo, each announced by its `name`; the logo node itself is aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

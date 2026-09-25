@@ -1,0 +1,17 @@
+{
+  "title": "Theme Toggler",
+  "description": "Wipes the new theme in as a circle using View Transitions.",
+  "category": "Buttons",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The circular View Transition wipe is skipped and the theme switches instantly.",
+    "keyboard": "A native <button type=\"button\">: Enter or Space toggle the theme, with a visible focus-visible outline.",
+    "screenReader": "Named by an aria-label describing the action (\"Switch to light theme\" or \"Switch to dark theme\") that updates after each toggle; the icon is aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -29,7 +29,8 @@ const initials = (name: string) =>
 
 /**
  * Testimonial carousel that crossfades portraits behind the quote.
- * Autoplay stops under `prefers-reduced-motion`; the controls still work.
+ * Autoplay pauses on hover and focus, has a pause button, and is off under
+ * `prefers-reduced-motion`; the controls still work.
  */
 export function AnimatedTestimonials({
   testimonials,
@@ -37,17 +38,21 @@ export function AnimatedTestimonials({
   className,
 }: AnimatedTestimonialsProps) {
   const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
   const reducedMotion = useReducedMotion();
   const count = testimonials.length;
+  const autoplay = Boolean(interval) && count > 1;
 
   useEffect(() => {
-    if (!interval || count < 2 || reducedMotion) return;
+    if (!autoplay || reducedMotion || paused || hovered || focused) return;
     const id = window.setInterval(
       () => setIndex((i) => (i + 1) % count),
       interval * 1000
     );
     return () => window.clearInterval(id);
-  }, [interval, count, reducedMotion]);
+  }, [autoplay, interval, count, reducedMotion, paused, hovered, focused]);
 
   if (!count) return null;
   const active = testimonials[index];
@@ -56,6 +61,14 @@ export function AnimatedTestimonials({
   return (
     <div
       data-slot="animated-testimonials"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setFocused(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setFocused(false);
+        }
+      }}
       className={cn("flex flex-col gap-6 sm:flex-row sm:items-center", className)}
     >
       <div className="relative size-24 shrink-0 sm:size-32">
@@ -105,7 +118,31 @@ export function AnimatedTestimonials({
         </AnimatePresence>
 
         {count > 1 && (
-          <div className="mt-5 flex gap-2">
+          <div className="mt-4 flex items-center">
+            {autoplay && (
+              // Hidden by CSS under reduced motion, where autoplay is off.
+              <button
+                type="button"
+                onClick={() => setPaused((value) => !value)}
+                aria-label={paused ? "Play testimonials" : "Pause testimonials"}
+                className="mr-2 grid size-6 place-items-center rounded-full text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:hidden"
+              >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="currentColor"
+                  aria-hidden
+                >
+                  {paused ? (
+                    <path d="M3 1.5v9l7.5-4.5z" />
+                  ) : (
+                    <path d="M2.5 1.5h2.5v9H2.5zM7 1.5h2.5v9H7z" />
+                  )}
+                </svg>
+              </button>
+            )}
+            {/* Each 24px button is the hit area; the pill inside is visual. */}
             {testimonials.map((testimonial, i) => (
               <button
                 key={testimonial.name}
@@ -113,13 +150,17 @@ export function AnimatedTestimonials({
                 onClick={() => setIndex(i)}
                 aria-label={`Show testimonial from ${testimonial.name}`}
                 aria-current={i === index}
-                className={cn(
-                  "h-1.5 rounded-full transition-all",
-                  i === index
-                    ? "w-6 bg-brand"
-                    : "w-1.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"
-                )}
-              />
+                className="group/dot grid h-6 min-w-6 place-items-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <span
+                  className={cn(
+                    "h-1.5 rounded-full transition-all motion-reduce:transition-none",
+                    i === index
+                      ? "w-6 bg-brand"
+                      : "w-1.5 bg-muted-foreground/30 group-hover/dot:bg-muted-foreground/60"
+                  )}
+                />
+              </button>
             ))}
           </div>
         )}

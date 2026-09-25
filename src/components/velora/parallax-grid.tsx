@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -15,7 +15,8 @@ interface ParallaxGridProps {
 
 /**
  * Image or card grid whose columns drift at different rates as the page
- * scrolls, giving a gallery a sense of depth.
+ * scrolls, giving a gallery a sense of depth. Under `prefers-reduced-motion`
+ * a CSS override pins every tile in place.
  */
 export function ParallaxGrid({
   children,
@@ -23,7 +24,6 @@ export function ParallaxGrid({
   className,
 }: ParallaxGridProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const reducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -44,8 +44,8 @@ export function ParallaxGrid({
       {children.map((child, i) => (
         <motion.div
           key={i}
-          style={reducedMotion ? undefined : { y: tracks[i % 3] }}
-          className="will-change-transform"
+          style={{ y: tracks[i % 3] }}
+          className="will-change-transform motion-reduce:transform-none!"
         >
           {child}
         </motion.div>

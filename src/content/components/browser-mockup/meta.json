@@ -1,0 +1,17 @@
+{
+  "title": "Browser Mockup",
+  "description": "Browser window frame for product screenshots.",
+  "category": "Mockups",
+  "dependencies": [],
+  "a11y": {
+    "motion": "Static; no animation.",
+    "keyboard": null,
+    "screenReader": "The URL text is read as plain text, then the children; the window dots are empty."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

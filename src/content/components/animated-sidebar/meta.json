@@ -1,0 +1,27 @@
+{
+  "title": "Animated Sidebar",
+  "description": "Icon rail that expands on hover or focus and turns into a drawer on narrow screens.",
+  "category": "Navigation",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The rail snaps between its collapsed and expanded widths, labels appear without fading and the drawer opens without sliding.",
+    "keyboard": "Links are native anchors; tabbing into the rail expands it. In the narrow layout the menu button opens a modal drawer that keeps Tab inside, closes on Escape or a backdrop click, and returns focus to the button.",
+    "screenReader": "A nav landmark (label prop) of links with aria-current on the active page; collapsed labels are only faded, so every link keeps its name, and the menu button reports aria-expanded."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "dashboard",
+      "title": "Dashboard shell",
+      "description": "A pinned-capable rail beside a dashboard with stats, a chart and recent orders."
+    },
+    {
+      "name": "narrow",
+      "title": "Narrow container",
+      "description": "Below a 42rem container width the rail becomes a top bar with a drawer."
+    }
+  ]
+}

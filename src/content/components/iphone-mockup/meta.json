@@ -1,0 +1,17 @@
+{
+  "title": "iPhone Mockup",
+  "description": "iPhone frame with dynamic island — pure CSS.",
+  "category": "Mockups",
+  "dependencies": [],
+  "a11y": {
+    "motion": "Static; no animation.",
+    "keyboard": null,
+    "screenReader": "The frame parts are empty elements; only the children are read."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}
