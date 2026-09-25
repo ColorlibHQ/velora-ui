@@ -1,0 +1,22 @@
+{
+  "title": "Noise Background",
+  "description": "Drifting brand-gradient blobs under a static film-grain overlay; wraps its content.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The blobs never move; the gradient wash and grain render as a still backdrop.",
+    "keyboard": "The wrapper is not focusable. The drift stops while focus is inside it (and while hovered, unless pauseOnHover is false); it also stops offscreen and in hidden tabs.",
+    "screenReader": "The blob and grain layers are aria-hidden; only the children are announced."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "newsletter",
+      "title": "Newsletter card",
+      "description": "An email signup card with heavier grain; the drift stops while the field has focus."
+    }
+  ]
+}

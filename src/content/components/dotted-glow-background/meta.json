@@ -1,0 +1,22 @@
+{
+  "title": "Dotted Glow Background",
+  "description": "Canvas dot grid where drifting glows brighten dots and tint them toward the brand.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "a11y": {
+    "motion": "No animation runs: one still frame with the glows at fixed positions is drawn, and redrawn on resize and theme change.",
+    "keyboard": "Not focusable. The glows stop while focus is inside the parent element (and while it is hovered, unless pauseOnHover is false); they also stop offscreen and in hidden tabs.",
+    "screenReader": "Decorative; the wrapper and canvas are aria-hidden, so only the content layered above is announced."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "pricing-card",
+      "title": "Pricing card",
+      "description": "A pricing card with a finer, dimmer grid and two glows behind the plan details."
+    }
+  ]
+}
