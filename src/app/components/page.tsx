@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { componentDemos } from "@/components/demo/component-demos";
 import { AnimatedGradientText } from "@/components/velora/animated-gradient-text";
 import { categories, componentsMeta } from "@/lib/components-meta";
+
+export const metadata: Metadata = {
+  title: "Components",
+  alternates: { canonical: "/components" },
+  description: `${componentsMeta.length} free animated React components for landing pages. Copy the code or install with the shadcn CLI.`,
+};
 
 export default function ComponentsPage() {
   return (

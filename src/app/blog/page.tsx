@@ -10,7 +10,8 @@ import { BlurFade } from "@/components/velora/blur-fade";
 import { blogPosts } from "@/lib/blog-posts";
 
 export const metadata: Metadata = {
-  title: "Blog — Velora UI",
+  title: "Blog",
+  alternates: { canonical: "/blog" },
   description:
     "Engineering notes, design decisions and announcements from Velora UI.",
 };

@@ -4,7 +4,10 @@ import { AuthForm } from "@/components/template/auth-form";
 import { AuthVisual } from "@/components/template/auth-visual";
 
 export const metadata: Metadata = {
-  title: "Sign up — Velora UI",
+  title: "Sign up",
+  alternates: { canonical: "/signup" },
+  // Demo form page — no real accounts behind it.
+  robots: { index: false, follow: true },
   description: "Create your Velora UI account.",
 };
 

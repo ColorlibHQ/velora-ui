@@ -8,7 +8,8 @@ import { BlurFade } from "@/components/velora/blur-fade";
 import { ContactForm } from "@/components/template/contact-form";
 
 export const metadata: Metadata = {
-  title: "Contact — Velora UI",
+  title: "Contact",
+  alternates: { canonical: "/contact" },
   description:
     "Questions about Velora UI, the registry or the upcoming Pro tier? Get in touch.",
 };

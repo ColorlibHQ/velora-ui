@@ -17,7 +17,8 @@ import { BorderBeam } from "@/components/velora/border-beam";
 import { ShimmerButton } from "@/components/velora/shimmer-button";
 
 export const metadata: Metadata = {
-  title: "Pricing — Velora UI",
+  title: "Pricing",
+  alternates: { canonical: "/pricing" },
   description:
     "Every component and the complete landing template are free forever. Pro adds more niches, more variants and more shortcuts — one-time payment.",
 };

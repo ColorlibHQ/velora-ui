@@ -1,13 +1,5 @@
-import type { Metadata } from "next";
-
 import { DocsSidebar } from "@/components/docs/sidebar";
 import { SiteHeader } from "@/components/site-header";
-
-export const metadata: Metadata = {
-  title: "Components — Velora UI",
-  description:
-    "32+ free animated React components for landing pages. Copy the code or install with the shadcn CLI.",
-};
 
 export default function ComponentsLayout({
   children,

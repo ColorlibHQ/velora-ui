@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   CheckIcon,
   GaugeIcon,
@@ -132,6 +133,10 @@ const proFeatures = [
   "Waitlist, newsletter & Stripe wiring",
   "Private registry + lifetime updates",
 ];
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

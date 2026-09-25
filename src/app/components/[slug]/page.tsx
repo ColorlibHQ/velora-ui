@@ -28,7 +28,8 @@ export async function generateMetadata({
   const meta = componentsMeta.find((c) => c.slug === slug);
   if (!meta) return {};
   return {
-    title: `${meta.title} — Velora UI`,
+    title: meta.title,
+    alternates: { canonical: `/components/${slug}` },
     description: meta.description,
   };
 }

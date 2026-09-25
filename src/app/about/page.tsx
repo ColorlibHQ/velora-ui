@@ -14,7 +14,8 @@ import { NumberTicker } from "@/components/velora/number-ticker";
 import { SpotlightCard } from "@/components/velora/spotlight-card";
 
 export const metadata: Metadata = {
-  title: "About — Velora UI",
+  title: "About",
+  alternates: { canonical: "/about" },
   description:
     "Why Velora UI exists: landing-page polish shouldn't cost $199. Free, accessible, token-driven animated components for React.",
 };

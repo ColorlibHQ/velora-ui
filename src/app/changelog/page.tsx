@@ -7,7 +7,8 @@ import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 
 export const metadata: Metadata = {
-  title: "Changelog — Velora UI",
+  title: "Changelog",
+  alternates: { canonical: "/changelog" },
   description:
     "Every Velora UI release: new components, template pages and improvements.",
 };

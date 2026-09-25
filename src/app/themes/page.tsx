@@ -7,7 +7,8 @@ import { BlurFade } from "@/components/velora/blur-fade";
 import { ThemePicker } from "@/components/template/theme-picker";
 
 export const metadata: Metadata = {
-  title: "Themes — Velora UI",
+  title: "Themes",
+  alternates: { canonical: "/themes" },
   description:
     "Six ready-made brand ramps for Velora UI. Preview live, copy seven CSS variables, rebrand your whole landing page.",
 };
