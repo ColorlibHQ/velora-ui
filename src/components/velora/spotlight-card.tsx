@@ -35,7 +35,7 @@ export function SpotlightCard({
       data-slot="spotlight-card"
       onMouseMove={handleMouseMove}
       className={cn(
-        "group relative overflow-hidden rounded-2xl border bg-card",
+        "group/spotlight relative overflow-hidden rounded-2xl border bg-card",
         className
       )}
       style={
@@ -48,7 +48,7 @@ export function SpotlightCard({
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/spotlight:opacity-100"
         style={{
           background:
             "radial-gradient(var(--spot-radius) circle at var(--spot-x, 50%) var(--spot-y, 50%), var(--spot-color), transparent 65%)",

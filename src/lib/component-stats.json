@@ -140,8 +140,8 @@
     "deps": []
   },
   "rainbow-button": {
-    "bytes": 1684,
-    "gzip": 822,
+    "bytes": 1692,
+    "gzip": 823,
     "deps": []
   },
   "ripple-button": {
@@ -150,8 +150,8 @@
     "deps": []
   },
   "shimmer-button": {
-    "bytes": 1131,
-    "gzip": 601,
+    "bytes": 1139,
+    "gzip": 603,
     "deps": []
   },
   "theme-toggler": {
@@ -167,8 +167,8 @@
     ]
   },
   "animated-tooltip": {
-    "bytes": 3385,
-    "gzip": 1247,
+    "bytes": 3409,
+    "gzip": 1253,
     "deps": [
       "motion/react"
     ]
@@ -179,8 +179,8 @@
     "deps": []
   },
   "bento-grid": {
-    "bytes": 2869,
-    "gzip": 1060,
+    "bytes": 2917,
+    "gzip": 1067,
     "deps": [
       "lucide-react"
     ]
@@ -222,13 +222,13 @@
     "deps": []
   },
   "glare-card": {
-    "bytes": 1667,
-    "gzip": 840,
+    "bytes": 1673,
+    "gzip": 843,
     "deps": []
   },
   "marquee": {
-    "bytes": 2021,
-    "gzip": 871,
+    "bytes": 2045,
+    "gzip": 875,
     "deps": []
   },
   "orbiting-circles": {
@@ -237,8 +237,8 @@
     "deps": []
   },
   "spotlight-card": {
-    "bytes": 1630,
-    "gzip": 787,
+    "bytes": 1650,
+    "gzip": 794,
     "deps": []
   },
   "tilt-card": {
@@ -285,8 +285,8 @@
     ]
   },
   "animated-testimonials": {
-    "bytes": 6029,
-    "gzip": 2076,
+    "bytes": 6037,
+    "gzip": 2082,
     "deps": [
       "motion/react"
     ]

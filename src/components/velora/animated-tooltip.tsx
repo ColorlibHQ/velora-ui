@@ -42,7 +42,7 @@ export function AnimatedTooltip({ items, className }: AnimatedTooltipProps) {
         return (
           <div
             key={item.name}
-            className="group relative"
+            className="group/tooltip relative"
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
           >
@@ -79,7 +79,7 @@ export function AnimatedTooltip({ items, className }: AnimatedTooltipProps) {
                 if (e.key === "Escape") setHovered(null);
               }}
               className={cn(
-                "relative flex size-11 cursor-default items-center justify-center rounded-full bg-gradient-to-br text-xs font-semibold text-white ring-2 ring-background transition-transform duration-200 group-hover:z-30 group-hover:scale-110 focus-visible:z-30 focus-visible:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none",
+                "relative flex size-11 cursor-default items-center justify-center rounded-full bg-gradient-to-br text-xs font-semibold text-white ring-2 ring-background transition-transform duration-200 group-hover/tooltip:z-30 group-hover/tooltip:scale-110 focus-visible:z-30 focus-visible:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none",
                 gradients[i % gradients.length]
               )}
             >

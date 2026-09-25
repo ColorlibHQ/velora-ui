@@ -150,14 +150,14 @@ export function AnimatedTestimonials({
                 onClick={() => setIndex(i)}
                 aria-label={`Show testimonial from ${testimonial.name}`}
                 aria-current={i === index}
-                className="group grid h-6 min-w-6 place-items-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="group/dot grid h-6 min-w-6 place-items-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <span
                   className={cn(
                     "h-1.5 rounded-full transition-all motion-reduce:transition-none",
                     i === index
                       ? "w-6 bg-brand"
-                      : "w-1.5 bg-muted-foreground/30 group-hover:bg-muted-foreground/60"
+                      : "w-1.5 bg-muted-foreground/30 group-hover/dot:bg-muted-foreground/60"
                   )}
                 />
               </button>
