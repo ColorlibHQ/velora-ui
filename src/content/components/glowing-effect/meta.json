@@ -1,0 +1,22 @@
+{
+  "title": "Glowing Effect",
+  "description": "Border glow that follows the pointer around a card's edge as it comes near.",
+  "category": "Effects",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The arc stops following the pointer; hovering the card shows a soft glow around the whole border instead.",
+    "keyboard": "The effect is not focusable; the full border lights up while the card or anything inside it has keyboard focus.",
+    "screenReader": "The glow layer is aria-hidden and ignores pointer events; only the card content is read."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "feature-grid",
+      "title": "Feature grid",
+      "description": "Six feature cards in a three-column grid, each lighting up as the pointer nears it."
+    }
+  ]
+}
