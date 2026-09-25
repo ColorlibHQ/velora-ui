@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   motion,
-  useAnimationFrame,
   useMotionValue,
   useReducedMotion,
   useScroll,
@@ -42,22 +41,52 @@ export function ScrollVelocity({
     clamp: false,
   });
 
-  useAnimationFrame((_, delta) => {
-    if (reducedMotion || hovered.current || focused.current) return;
-    let moveBy = direction.current * baseVelocity * (delta / 1000);
-    const factor = velocityFactor.get();
-    // Scrolling backwards flips the marquee's direction.
-    if (factor < 0) direction.current = -1;
-    else if (factor > 0) direction.current = 1;
-    moveBy += direction.current * moveBy * Math.abs(factor);
-    // One copy is 25% of the four-copy track, so wrap there.
-    baseX.set(((baseX.get() + moveBy) % 25) - 25);
-  });
+  const root = useRef<HTMLDivElement>(null);
+
+  // Own rAF loop (not useAnimationFrame) so nothing ticks under reduced
+  // motion or while the marquee is offscreen.
+  useEffect(() => {
+    const el = root.current;
+    if (reducedMotion !== false || !el) return;
+    let frame = 0;
+    let last = 0;
+    let visible = false;
+
+    const tick = (now: number) => {
+      const delta = last ? now - last : 0;
+      last = now;
+      if (!hovered.current && !focused.current) {
+        let moveBy = direction.current * baseVelocity * (delta / 1000);
+        const factor = velocityFactor.get();
+        // Scrolling backwards flips the marquee's direction.
+        if (factor < 0) direction.current = -1;
+        else if (factor > 0) direction.current = 1;
+        moveBy += direction.current * moveBy * Math.abs(factor);
+        // One copy is 25% of the four-copy track, so wrap there.
+        baseX.set(((baseX.get() + moveBy) % 25) - 25);
+      }
+      frame = visible ? requestAnimationFrame(tick) : 0;
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible && !frame) {
+        last = 0;
+        frame = requestAnimationFrame(tick);
+      }
+    });
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
+  }, [reducedMotion, baseVelocity, baseX, velocityFactor]);
 
   const x = useTransform(baseX, (value) => `${value}%`);
 
   return (
     <div
+      ref={root}
       data-slot="scroll-velocity"
       onMouseEnter={() => (hovered.current = true)}
       onMouseLeave={() => (hovered.current = false)}
