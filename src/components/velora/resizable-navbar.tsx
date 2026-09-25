@@ -144,8 +144,8 @@ export function ResizableNavbar({
               className="absolute inset-y-0 left-0 rounded-full bg-muted"
             />
             <ul className="flex items-center gap-1">
-              {items.map((item) => (
-                <li key={item.href}>{link(item, false)}</li>
+              {items.map((item, i) => (
+                <li key={`${i}-${item.label}`}>{link(item, false)}</li>
               ))}
             </ul>
           </div>
@@ -177,8 +177,8 @@ export function ResizableNavbar({
               className="absolute inset-x-0 top-full mt-2 rounded-2xl border bg-popover p-2 text-popover-foreground shadow-xl @3xl/navbar:hidden"
             >
               <ul>
-                {items.map((item) => (
-                  <li key={item.href}>{link(item, true)}</li>
+                {items.map((item, i) => (
+                  <li key={`${i}-${item.label}`}>{link(item, true)}</li>
                 ))}
               </ul>
               {cta && <div className="mt-2 border-t p-2 pt-3">{cta}</div>}
