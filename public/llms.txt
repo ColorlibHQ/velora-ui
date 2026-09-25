@@ -182,6 +182,7 @@ Complete sections built from the components above. Installing a block also insta
 
 - [Components](https://velora.colorlib.com/components): All components with live previews, install commands and source.
 - [Blocks](https://velora.colorlib.com/blocks): Free sections — heroes, features, pricing, testimonials, CTAs and more.
+- [llms-full.txt](https://velora.colorlib.com/llms-full.txt): This index plus props, accessibility notes and a working example for every component.
 - [Themes](https://velora.colorlib.com/themes): Brand ramp presets — rebrand every effect by copying seven CSS variables.
 - [Pricing](https://velora.colorlib.com/pricing): Free forever (MIT); Pro adds niche templates and variants.
 - [Blog](https://velora.colorlib.com/blog): Engineering notes and announcements (MDX pipeline is part of the free template).
