@@ -1,0 +1,24 @@
+{
+  "title": "Card Hover Effect",
+  "description": "Link-card grid with a highlight that glides to whichever card you hover or focus.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The highlight appears on the hovered or focused card and disappears instantly, without gliding or fading; the arrow nudge is removed.",
+    "keyboard": "Each card is a native link in Tab order; focusing one moves the highlight to it, and it clears when focus leaves the grid.",
+    "screenReader": "Cards are links in a list, named by their title and description text; icons, the arrow and the highlight are aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "integrations",
+      "title": "Integrations grid",
+      "description": "Four columns of service cards with lucide icons."
+    }
+  ]
+}

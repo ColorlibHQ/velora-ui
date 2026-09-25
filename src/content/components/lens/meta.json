@@ -1,0 +1,22 @@
+{
+  "title": "Lens",
+  "description": "Circular magnifier that follows the pointer or arrow keys to zoom into an image.",
+  "category": "Cursor & Pointer",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The lens tracks the pointer directly with no easing, and appears and hides without a fade or scale.",
+    "keyboard": "The wrapper is a tab stop; keyboard focus shows the lens at its last position, arrow keys move it (Shift for larger steps) and Escape hides it. With staticPosition the lens stays pinned.",
+    "screenReader": "Content is read once from the original children; the magnified copy is aria-hidden and inert, so its links and images are neither announced nor focusable."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "product-inspector",
+      "title": "Product inspector",
+      "description": "A product photo with a stronger zoom, a caption and a buy box."
+    }
+  ]
+}
