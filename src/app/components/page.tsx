@@ -34,23 +34,33 @@ export default function ComponentsPage() {
               {items.map((c) => {
                 const Demo = componentExamples[c.slug]?.[0]?.Component;
                 return (
-                  <Link
+                  // Demos can contain links and buttons, so the card is not a
+                  // link itself: the title link stretches over the whole card
+                  // and the preview is inert.
+                  <div
                     key={c.slug}
-                    href={`/components/${c.slug}`}
-                    className="group min-w-0 rounded-2xl border bg-card/50 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5"
+                    className="group relative min-w-0 rounded-2xl border bg-card/50 transition-all focus-within:ring-2 focus-within:ring-ring hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5"
                   >
-                    <div className="flex h-56 items-center justify-center overflow-hidden border-b border-border/60 p-6 [&_*]:pointer-events-none">
+                    <div
+                      inert
+                      className="flex h-56 items-center justify-center overflow-hidden border-b border-border/60 p-6"
+                    >
                       {Demo && <Demo />}
                     </div>
                     <div className="p-5">
                       <h3 className="font-medium transition-colors group-hover:text-primary">
-                        {c.title}
+                        <Link
+                          href={`/components/${c.slug}`}
+                          className="outline-none after:absolute after:inset-0 after:rounded-2xl"
+                        >
+                          {c.title}
+                        </Link>
                       </h3>
                       <p className="mt-1 text-sm text-muted-foreground">
                         {c.description}
                       </p>
                     </div>
-                  </Link>
+                  </div>
                 );
               })}
             </div>
