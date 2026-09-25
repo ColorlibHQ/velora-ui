@@ -474,8 +474,8 @@
     ]
   },
   "tracing-beam": {
-    "bytes": 1580,
-    "gzip": 811,
+    "bytes": 1685,
+    "gzip": 858,
     "deps": [
       "motion/react"
     ]

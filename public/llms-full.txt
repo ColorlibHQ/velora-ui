@@ -3824,7 +3824,7 @@ Gradient line that draws itself down long-form content. (0.8 KB gzipped, deps: m
 - Install: `npx shadcn@latest add https://velora.colorlib.com/r/tracing-beam.json` (creates `components/velora/tracing-beam.tsx`)
 
 **Accessibility**
-- Reduced motion: Unchanged: the line still grows with scroll progress, easing slightly behind the scroll position. It only moves when you scroll and is hidden below md.
+- Reduced motion: The beam is drawn at full length from the start instead of following your scroll.
 - Keyboard: Decorative; nothing to operate.
 - Screen readers: The beam is aria-hidden; children render unchanged.
 

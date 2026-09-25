@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 
 import { blockCategories, blocksIn } from "@/lib/blocks-meta";
 import { categories, categorySlug, componentsMeta } from "@/lib/components-meta";
+import { comparisons } from "@/content/compare";
 import { blogPosts } from "@/lib/blog-posts";
 import { siteConfig } from "@/lib/site-config";
 
@@ -79,6 +80,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
+  const comparePages = comparisons.map((c) => ({
+    url: `${BASE}/compare/${c.slug}`,
+    lastModified: lastCommit("src/content/compare.ts"),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   const postPages = blogPosts.map((p) => ({
     url: `${BASE}/blog/${p.slug}`,
     lastModified: p.dateISO,
@@ -91,6 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blockPages,
     ...componentCategoryPages,
     ...componentPages,
+    ...comparePages,
     ...postPages,
   ];
 }

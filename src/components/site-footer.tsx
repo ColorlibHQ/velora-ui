@@ -30,6 +30,8 @@ const groups = [
     links: [
       { text: "GitHub", href: siteConfig.github },
       { text: "llms.txt", href: "/llms.txt" },
+      { text: "vs Aceternity UI", href: "/compare/aceternity-ui" },
+      { text: "vs Magic UI", href: "/compare/magic-ui" },
       { text: "shadcn registry", href: "/components" },
     ],
   },
