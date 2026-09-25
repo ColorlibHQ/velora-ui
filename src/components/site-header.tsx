@@ -2,8 +2,17 @@ import Link from "next/link";
 import { SparklesIcon, StarIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { MobileNav } from "@/components/mobile-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { siteConfig } from "@/lib/site-config";
+
+const navLinks = [
+  { href: "/components", label: "Components" },
+  { href: "/themes", label: "Themes" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/blog", label: "Blog" },
+  { href: "/changelog", label: "Changelog" },
+] as const;
 
 export function SiteHeader() {
   return (
@@ -14,30 +23,30 @@ export function SiteHeader() {
           Velora UI
         </Link>
         <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-          <Link href="/components" className="transition-colors hover:text-foreground">
-            Components
-          </Link>
-          <Link href="/themes" className="transition-colors hover:text-foreground">
-            Themes
-          </Link>
-          <Link href="/pricing" className="transition-colors hover:text-foreground">
-            Pricing
-          </Link>
-          <Link href="/blog" className="transition-colors hover:text-foreground">
-            Blog
-          </Link>
-          <Link href="/changelog" className="transition-colors hover:text-foreground">
-            Changelog
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="transition-colors hover:text-foreground"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <Button variant="outline" size="sm" asChild>
-            <a href={siteConfig.github} rel="noopener" target="_blank">
+            <a
+              href={siteConfig.github}
+              rel="noopener"
+              target="_blank"
+              aria-label="Star on GitHub"
+            >
               <StarIcon />
-              Star on GitHub
+              <span className="hidden sm:inline">Star on GitHub</span>
             </a>
           </Button>
+          <MobileNav links={navLinks} />
         </div>
       </div>
     </header>
