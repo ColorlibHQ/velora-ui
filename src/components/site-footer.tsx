@@ -8,6 +8,7 @@ const groups = [
     title: "Product",
     links: [
       { text: "Components", href: "/components" },
+      { text: "Blocks", href: "/blocks" },
       { text: "Themes", href: "/themes" },
       { text: "Pricing", href: "/pricing" },
       { text: "Changelog", href: "/changelog" },
@@ -58,7 +59,8 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               {group.links.map((link) => (
                 <li key={link.text}>
-                  {link.href.startsWith("http") ? (
+                  {/* External URLs and files (llms.txt) aren't Next routes. */}
+                  {/^https?:|\.\w+$/.test(link.href) ? (
                     <a
                       href={link.href}
                       rel="noopener"
@@ -69,6 +71,8 @@ export function SiteFooter() {
                   ) : (
                     <Link
                       href={link.href}
+                      // The 404 demo intentionally points at a missing route.
+                      prefetch={link.href === "/404-demo" ? false : undefined}
                       className="transition-colors hover:text-foreground"
                     >
                       {link.text}
