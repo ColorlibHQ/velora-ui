@@ -1,0 +1,24 @@
+{
+  "title": "Image Slider",
+  "description": "Full-bleed image slider with crossfade-zoom, autoplay, dots, arrows and swipe.",
+  "category": "Carousels",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "Autoplay never starts on its own and slides change instantly with no fade or zoom; pressing Play opts in to autoplay with instant changes.",
+    "keyboard": "Previous, next, pause/play and dot buttons are native buttons; Left/Right arrows (and Home/End) change slides while focus is inside the slider. Autoplay pauses while hovered or while focus is inside.",
+    "screenReader": "A region with aria-roledescription=\"carousel\" whose current slide is a group labelled \"n of N\"; image alt text is read, and slide changes are announced politely only while autoplay is not running."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "hero",
+      "title": "Hero",
+      "description": "A landing hero with a headline and call-to-action layered over an autoplaying slider."
+    }
+  ]
+}
