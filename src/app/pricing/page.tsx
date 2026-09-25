@@ -15,6 +15,7 @@ import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { BorderBeam } from "@/components/velora/border-beam";
 import { ShimmerButton } from "@/components/velora/shimmer-button";
+import { componentsMeta } from "@/lib/components-meta";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 const freeFeatures = [
-  "64+ animated components",
+  `${componentsMeta.length} animated components`,
   "Complete multi-page SaaS template",
   "Blog, auth, changelog & contact pages",
   "Dark mode + full accessibility",
@@ -48,7 +49,7 @@ const comparison: {
   free: boolean | string;
   pro: boolean | string;
 }[] = [
-  { feature: "Animated components", free: "64+", pro: "All + variants" },
+  { feature: "Animated components", free: `${componentsMeta.length}`, pro: "All + variants" },
   { feature: "SaaS landing template", free: true, pro: true },
   { feature: "Blog, auth & changelog pages", free: true, pro: true },
   { feature: "Niche templates (AI, dev tool, mobile…)", free: false, pro: "5+" },

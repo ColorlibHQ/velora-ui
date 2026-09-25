@@ -24,6 +24,22 @@ interface Release {
 const releases: Release[] = [
   {
     date: "September 25, 2026",
+    version: "0.6.0",
+    title: "18 new components: globes, 3D cards and scroll showpieces",
+    tag: "New",
+    items: [
+      "Data & Maps: a dependency-free canvas Globe with markers, arcs and drag-to-spin, and an SVG World Map with animated connections",
+      "3D: 3D Card with layered depth and 3D Pin with a rising label",
+      "Scroll: Hero Parallax, MacBook Scroll and a Timeline whose beam fills as you read",
+      "Backgrounds: Wavy Background, Vortex, Shooting Stars and Background Boxes",
+      "Cards & effects: Glowing Effect, Evervault Card, Focus Cards and Card Hover Effect",
+      "Plus Text Hover Effect, an Apple-style Cards Carousel with an accessible dialog, and a Lens magnifier",
+      "Every new component ships with two examples, a props table and documented reduced-motion, keyboard and screen-reader behavior",
+      "No Three.js, no WebGL: the Globe draws on a 2D canvas and carries its own land map in 5.2 KB",
+    ],
+  },
+  {
+    date: "September 25, 2026",
     version: "0.5.0",
     title: "Docs you can build from, and an accessibility pass on every component",
     tag: "Improved",

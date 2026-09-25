@@ -2,6 +2,28 @@
 
 All notable changes to Velora UI. Also published at [/changelog](https://velora.colorlib.com/changelog).
 
+## 0.6.0 — 2026-09-25
+
+### Added
+
+- **18 new components — 82 in total.** Four new categories: 3D, Carousels, Cursor & Pointer
+  and Data & Maps.
+  - **Data & Maps** — Globe (2D canvas, no WebGL; markers, great-circle arcs, drag with inertia,
+    arrow keys) and World Map (SVG, animated connections, generated accessible description).
+    Land mask derived from Natural Earth (public domain), embedded — no map dependency
+  - **3D** — 3D Card (`Card3D` + `Card3DItem` depth layers), 3D Pin
+  - **Scroll** — Hero Parallax, MacBook Scroll, Timeline
+  - **Backgrounds** — Wavy Background, Vortex, Shooting Stars (+ Stars Background), Background Boxes
+  - **Cards & Layout / Effects** — Glowing Effect, Evervault Card, Focus Cards, Card Hover Effect
+  - **Text** — Text Hover Effect; **Carousels** — Apple Cards Carousel (focus-trapped dialog,
+    portalled to `<body>`); **Cursor & Pointer** — Lens (keyboard-movable)
+- Every new component has two examples, generated props and an Accessibility section
+
+### Fixed
+
+- Scroll Velocity ran a requestAnimationFrame loop every frame for its whole life, including
+  under reduced motion and offscreen; it now runs only while visible and motion is allowed
+
 ## 0.5.0 — 2026-09-25
 
 ### Added
