@@ -8,7 +8,7 @@ interface StepperProps {
   steps: string[];
   /** Zero-based index of the step in progress */
   current: number;
-  /** Make completed steps clickable */
+  /** Make completed steps clickable; other markers render as plain text */
   onStepClick?: (index: number) => void;
   className?: string;
 }
@@ -48,41 +48,58 @@ export function Stepper({
         const done = i < current;
         const active = i === current;
         const interactive = Boolean(onStepClick) && done;
+        const name = `Step ${i + 1}: ${step}${done ? ", complete" : ""}`;
+        const markerClass = cn(
+          "relative grid size-8 place-items-center rounded-full border-2 bg-background text-xs font-medium transition-colors",
+          done && "border-brand bg-brand text-brand-foreground",
+          active && "border-brand text-brand",
+          !done && !active && "border-border text-muted-foreground"
+        );
+        const glyph = done ? (
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 14 14"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.25"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
+          >
+            <path d="M2.5 7.5l3 3 6-6" />
+          </svg>
+        ) : (
+          <span aria-hidden>{i + 1}</span>
+        );
 
         return (
-          <li key={step} className="flex flex-col items-center gap-2">
-            <button
-              type="button"
-              disabled={!interactive}
-              onClick={() => onStepClick?.(i)}
-              aria-current={active ? "step" : undefined}
-              className={cn(
-                "grid size-8 place-items-center rounded-full border-2 bg-background text-xs font-medium transition-colors",
-                done && "border-brand bg-brand text-brand-foreground",
-                active && "border-brand text-brand",
-                !done && !active && "border-border text-muted-foreground",
-                interactive && "cursor-pointer"
-              )}
-            >
-              {done ? (
-                <svg
-                  width="13"
-                  height="13"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.25"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden
-                >
-                  <path d="M2.5 7.5l3 3 6-6" />
-                </svg>
-              ) : (
-                i + 1
-              )}
-            </button>
+          <li
+            key={step}
+            aria-current={active ? "step" : undefined}
+            className="flex flex-col items-center gap-2"
+          >
+            {interactive ? (
+              <button
+                type="button"
+                onClick={() => onStepClick?.(i)}
+                aria-label={name}
+                className={cn(
+                  markerClass,
+                  "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                )}
+              >
+                {glyph}
+              </button>
+            ) : (
+              <span className={markerClass}>
+                <span className="sr-only">{name}</span>
+                {glyph}
+              </span>
+            )}
+            {/* The marker carries the full name; this is the visual copy. */}
             <span
+              aria-hidden
               className={cn(
                 "text-xs whitespace-nowrap",
                 active ? "font-medium text-foreground" : "text-muted-foreground"

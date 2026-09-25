@@ -3,6 +3,11 @@
   "description": "Before/after wipe with a keyboard-accessible divider.",
   "category": "Cards & Layout",
   "dependencies": [],
+  "a11y": {
+    "motion": "Nothing animates: the divider and clip jump straight to the slider value, so reduced-motion users see the same thing as everyone else.",
+    "keyboard": "The handle is a native range input covering the panel. Tab focuses it (the panel shows a focus ring), and Arrow keys, Home, End, PageUp and PageDown move the divider.",
+    "screenReader": "A native slider (0 to 100, position announced) named by the `label` prop, default \"Compare before and after\"; the visual divider is aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

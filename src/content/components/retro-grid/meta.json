@@ -3,6 +3,11 @@
   "description": "Perspective grid scrolling forever toward the horizon.",
   "category": "Backgrounds",
   "dependencies": [],
+  "a11y": {
+    "motion": "The scroll animation is off; the perspective grid plane shows as a still grid under the top and bottom fades.",
+    "keyboard": null,
+    "screenReader": "Decorative; the wrapper is aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

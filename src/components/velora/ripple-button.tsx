@@ -40,10 +40,12 @@ export function RippleButton({
       const rect = event.currentTarget.getBoundingClientRect();
       // Diameter that reaches the furthest corner from the press point.
       const size = Math.max(rect.width, rect.height) * 2;
+      // Keyboard activation (detail 0) has no pointer position: use the centre.
+      const keyboard = event.detail === 0;
       const ripple: Ripple = {
         id: Date.now() + Math.random(),
-        x: event.clientX - rect.left - size / 2,
-        y: event.clientY - rect.top - size / 2,
+        x: (keyboard ? rect.width / 2 : event.clientX - rect.left) - size / 2,
+        y: (keyboard ? rect.height / 2 : event.clientY - rect.top) - size / 2,
         size,
       };
       setRipples((current) => [...current, ripple]);
@@ -70,7 +72,7 @@ export function RippleButton({
         {ripples.map((ripple) => (
           <span
             key={ripple.id}
-            className="absolute animate-ripple rounded-full opacity-30"
+            className="absolute rounded-full opacity-30 motion-safe:animate-ripple"
             style={{
               left: ripple.x,
               top: ripple.y,

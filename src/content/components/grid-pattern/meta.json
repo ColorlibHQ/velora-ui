@@ -3,6 +3,11 @@
   "description": "SVG grid and dot backdrops with maskable depth.",
   "category": "Backgrounds",
   "dependencies": [],
+  "a11y": {
+    "motion": "Nothing changes: GridPattern and DotPattern are static SVG patterns with no animation.",
+    "keyboard": null,
+    "screenReader": "Decorative; both SVGs are aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

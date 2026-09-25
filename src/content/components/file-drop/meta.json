@@ -3,6 +3,11 @@
   "description": "Upload zone that lifts and glows while a file is over it.",
   "category": "Forms",
   "dependencies": [],
+  "a11y": {
+    "motion": "The 200ms transition is removed, so on drag-over the zone snaps to its lifted, brand-bordered state instead of easing into it.",
+    "keyboard": "Tab reaches the visually hidden file input, the zone shows a focus ring, and Enter or Space opens the file picker.",
+    "screenReader": "The file input is wrapped in a label, so it is announced with the zone's text (the instruction plus the accepted types); the selected-file list is not a live region."
+  },
   "examples": [
     {
       "name": "default",

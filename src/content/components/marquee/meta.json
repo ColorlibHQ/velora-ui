@@ -3,6 +3,11 @@
   "description": "Seamless scrolling loop — horizontal, vertical, hover-pause.",
   "category": "Cards & Layout",
   "dependencies": [],
+  "a11y": {
+    "motion": "Scrolling stops and only the first copy is shown, without the edge fade; horizontal items wrap onto extra rows and a vertical marquee becomes scrollable, so no item is clipped out of reach.",
+    "keyboard": "The marquee itself is not focusable; scrolling pauses while focus is inside it (and on hover with pauseOnHover), and the duplicate copies are inert, so Tab only visits the first copy's links or buttons.",
+    "screenReader": "The content is read once; copies 2 and up are aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

@@ -46,17 +46,36 @@ export function DirectionAwareHover({
   return (
     <div
       ref={ref}
+      // Focusable so keyboard users can reveal the overlay too.
+      tabIndex={0}
       data-slot="direction-aware-hover"
-      onMouseEnter={(event) => {
+      onPointerEnter={(event) => {
+        if (event.pointerType !== "mouse") return;
         setEdge(edgeFrom(event));
         setHovered(true);
       }}
-      onMouseLeave={(event) => {
+      onPointerLeave={(event) => {
+        if (event.pointerType !== "mouse") return;
         setEdge(edgeFrom(event));
         setHovered(false);
       }}
+      // Touch and pen have no hover: a tap toggles the overlay instead.
+      onPointerUp={(event) => {
+        if (event.pointerType !== "mouse") setHovered((value) => !value);
+      }}
+      onFocus={(event) => {
+        // Keyboard focus only; a tap is already handled by onPointerUp.
+        if ((event.target as HTMLElement).matches(":focus-visible")) {
+          setHovered(true);
+        }
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setHovered(false);
+        }
+      }}
       className={cn(
-        "relative overflow-hidden rounded-2xl border bg-card",
+        "relative overflow-hidden rounded-2xl border bg-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
         className
       )}
     >

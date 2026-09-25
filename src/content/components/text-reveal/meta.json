@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "All words are visible immediately, including before hydration, with no fade, blur or slide.",
+    "keyboard": null,
+    "screenReader": "The full sentence is read once from an sr-only span; the per-word animated spans are aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

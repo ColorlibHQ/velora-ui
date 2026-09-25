@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "The bar follows the scroll position directly, with no spring easing or overshoot.",
+    "keyboard": null,
+    "screenReader": "Decorative; aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

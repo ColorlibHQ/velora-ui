@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "The pulse stops; each connection shows a still gradient stroke along the full path.",
+    "keyboard": null,
+    "screenReader": "Decorative; the svg is aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

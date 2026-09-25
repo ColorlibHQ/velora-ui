@@ -96,11 +96,21 @@ export function ConfettiButton({
     <button
       data-slot="confetti-button"
       className={cn(
-        "inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-full border bg-card px-6 text-sm font-medium transition-transform hover:scale-[1.03] active:scale-[0.97]",
+        "inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-full border bg-card px-6 text-sm font-medium transition-transform hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring active:scale-[0.97]",
         className
       )}
       onClick={(e) => {
-        confettiBurst({ x: e.clientX, y: e.clientY });
+        // Keyboard clicks (detail 0) have no pointer position; burst
+        // from the button's centre instead of the viewport corner
+        if (e.detail === 0) {
+          const rect = e.currentTarget.getBoundingClientRect();
+          confettiBurst({
+            x: rect.left + rect.width / 2,
+            y: rect.top + rect.height / 2,
+          });
+        } else {
+          confettiBurst({ x: e.clientX, y: e.clientY });
+        }
         onClick?.(e);
       }}
       {...props}

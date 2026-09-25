@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "The row stays still at its starting position and does not react to scrolling.",
+    "keyboard": "Nothing is interactive by default. If children contain links, only the first copy is focusable, and the marquee pauses while the pointer or focus is inside it.",
+    "screenReader": "Only the first copy of the children is exposed; the three duplicates are aria-hidden and inert."
+  },
   "examples": [
     {
       "name": "default",

@@ -3,6 +3,11 @@
   "description": "Concentric rings pulsing outward — calm 'listening' backdrop.",
   "category": "Backgrounds",
   "dependencies": [],
+  "a11y": {
+    "motion": "The rings stop pulsing and sit still as concentric circles at their nominal sizes, fading outward.",
+    "keyboard": null,
+    "screenReader": "Decorative: the rings are aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

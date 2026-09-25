@@ -3,6 +3,11 @@
   "description": "A radial glow that follows the cursor across the card.",
   "category": "Cards & Layout",
   "dependencies": [],
+  "a11y": {
+    "motion": "Unchanged: the radial glow still fades in on hover and follows the pointer, as a color highlight with no element movement.",
+    "keyboard": null,
+    "screenReader": "The glow layer is aria-hidden; only the children are read."
+  },
   "examples": [
     {
       "name": "default",

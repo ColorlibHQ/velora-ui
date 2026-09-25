@@ -40,7 +40,8 @@ export function FlickeringGrid({
       {Array.from({ length: cells }).map((_, i) => (
         <span
           key={i}
-          className="animate-flicker rounded-[1px] bg-current"
+          // Static under reduced motion: rest halfway between the two flicker levels.
+          className="rounded-[1px] bg-current motion-safe:animate-flicker motion-reduce:opacity-[calc((var(--flicker-max,0.45)_+_var(--flicker-min,0.08))/2)]"
           style={{
             width: squareSize,
             height: squareSize,

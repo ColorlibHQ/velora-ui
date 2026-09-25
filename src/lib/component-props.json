@@ -766,8 +766,10 @@
       {
         "name": "MagneticButton",
         "description": "Button that leans toward the cursor while it is nearby and springs back when the pointer leaves.",
-        "extends": [],
-        "forwardsRest": false,
+        "extends": [
+          "Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, \"style\" | \"onAnimationStart\" | \"onDrag\" | \"onDragStart\" | \"onDragEnd\">"
+        ],
+        "forwardsRest": true,
         "props": [
           {
             "name": "children",
@@ -785,11 +787,6 @@
             "required": false,
             "default": "14",
             "description": "How far the button is allowed to travel toward the cursor, in px"
-          },
-          {
-            "name": "onClick",
-            "type": "() => void",
-            "required": false
           }
         ]
       }
@@ -951,7 +948,7 @@
     "components": [
       {
         "name": "AnimatedList",
-        "description": "Reveals children one by one, newest on top, then loops. Wrap in a fixed-height container with a bottom mask for a feed effect.",
+        "description": "Reveals children one by one, newest on top, then loops. Wrap in a fixed-height container with a bottom mask for a feed effect. The loop pauses while hovered or focused; under reduced motion all items are shown at once.",
         "extends": [],
         "forwardsRest": false,
         "props": [
@@ -981,7 +978,7 @@
     "components": [
       {
         "name": "AnimatedTooltip",
-        "description": "Avatar row with springy name tooltips on hover.",
+        "description": "Avatar row with springy name tooltips on hover and keyboard focus.",
         "extends": [],
         "forwardsRest": false,
         "props": [
@@ -1258,7 +1255,20 @@
           {
             "name": "label",
             "type": "string",
-            "required": false
+            "required": false,
+            "description": "Accessible name; also used as the tooltip title"
+          },
+          {
+            "name": "href",
+            "type": "string",
+            "required": false,
+            "description": "Render as a link to this URL instead of a button"
+          },
+          {
+            "name": "onClick",
+            "type": "React.MouseEventHandler<HTMLElement>",
+            "required": false,
+            "description": "Click handler for the button (or link)"
           }
         ]
       }
@@ -1377,7 +1387,7 @@
             "type": "boolean",
             "required": false,
             "default": "false",
-            "description": "Pause the animation while hovered"
+            "description": "Pause the animation while hovered (it always pauses while focus is inside)"
           },
           {
             "name": "vertical",
@@ -1537,7 +1547,7 @@
     "components": [
       {
         "name": "FloatingNavbar",
-        "description": "Header that slides away as you scroll down and returns the moment you scroll back up. Renders visible on the server, so there is no flash.",
+        "description": "Header that slides away as you scroll down and returns the moment you scroll back up. Renders visible on the server, so there is no flash, and slides back in whenever focus moves into it.",
         "extends": [
           "React.HTMLAttributes<HTMLElement>"
         ],
@@ -1549,6 +1559,12 @@
             "required": false,
             "default": "120",
             "description": "Pixels scrolled before the bar is allowed to hide"
+          },
+          {
+            "name": "scrollContainer",
+            "type": "React.RefObject<HTMLElement | null>",
+            "required": false,
+            "description": "Scrollable element to watch instead of the window"
           },
           {
             "name": "children",
@@ -1564,7 +1580,7 @@
     "components": [
       {
         "name": "NavbarMenu",
-        "description": "Hover-driven navigation menu whose panel morphs between items. Wrap `MenuItem`s in `NavbarMenu`; the panel closes when the pointer leaves.",
+        "description": "Hover-driven navigation menu whose panel morphs between items. Wrap `MenuItem`s in `NavbarMenu`. The panel closes when the pointer or keyboard focus leaves the menu, and on Escape.",
         "extends": [],
         "forwardsRest": false,
         "props": [
@@ -1591,6 +1607,12 @@
             "required": true
           },
           {
+            "name": "href",
+            "type": "string",
+            "required": false,
+            "description": "Renders the item as a link; ignored when the item has a panel"
+          },
+          {
             "name": "children",
             "type": "React.ReactNode",
             "required": false
@@ -1609,7 +1631,7 @@
     "components": [
       {
         "name": "StickyBanner",
-        "description": "Announcement bar that pins to the top of the page and can be dismissed. Sits above a sticky header when both are present.",
+        "description": "Announcement bar that pins to the top of the page and can be dismissed. Sits above a sticky header when both are present. Dismissing moves focus to the next focusable element on the page instead of dropping it.",
         "extends": [
           "React.HTMLAttributes<HTMLDivElement>"
         ],
@@ -1626,7 +1648,7 @@
             "name": "onDismiss",
             "type": "() => void",
             "required": false,
-            "description": "Called after the banner is dismissed"
+            "description": "Called after the banner is dismissed; focus has already moved to the next focusable element"
           },
           {
             "name": "children",
@@ -1642,7 +1664,7 @@
     "components": [
       {
         "name": "FileDrop",
-        "description": "Drag-and-drop upload zone that lifts and glows while a file is over it. Wraps a real file input, so clicking and keyboard both work.",
+        "description": "Drag-and-drop upload zone that lifts and glows while a file is over it. The zone is a `label` wrapping a real file input, so clicking, keyboard and screen readers all work.",
         "extends": [],
         "forwardsRest": false,
         "props": [
@@ -1696,7 +1718,7 @@
             "name": "onStepClick",
             "type": "(index: number) => void",
             "required": false,
-            "description": "Make completed steps clickable"
+            "description": "Make completed steps clickable; other markers render as plain text"
           },
           {
             "name": "className",
@@ -1712,7 +1734,7 @@
     "components": [
       {
         "name": "VanishInput",
-        "description": "Search or prompt field whose placeholder cycles while empty. Built on a real `form` and `input`, so Enter, autofill and screen readers behave normally.",
+        "description": "Search or prompt field whose placeholder cycles while empty. Built on a real `form` and `input`, so Enter, autofill and screen readers behave normally. The cycling pauses on hover and focus, and stays on the first placeholder under `prefers-reduced-motion`.",
         "extends": [],
         "forwardsRest": false,
         "props": [
@@ -1728,6 +1750,13 @@
             "required": false,
             "default": "3",
             "description": "Seconds each placeholder is held"
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "required": false,
+            "default": "\"Search\"",
+            "description": "Accessible name for the input"
           },
           {
             "name": "onSubmit",
@@ -1748,7 +1777,7 @@
     "components": [
       {
         "name": "AnimatedTestimonials",
-        "description": "Testimonial carousel that crossfades portraits behind the quote. Autoplay stops under `prefers-reduced-motion`; the controls still work.",
+        "description": "Testimonial carousel that crossfades portraits behind the quote. Autoplay pauses on hover and focus, has a pause button, and is off under `prefers-reduced-motion`; the controls still work.",
         "extends": [],
         "forwardsRest": false,
         "props": [
@@ -1783,7 +1812,7 @@
     "components": [
       {
         "name": "LogoCloud",
-        "description": "Customer or integration logos on a responsive grid, muted until hovered so they read as texture rather than competing with the headline.",
+        "description": "Customer or integration logos on a responsive grid, muted until hovered so they read as texture rather than competing with the headline. Exposed as a list, with each logo announced by its `name`.",
         "extends": [
           "React.HTMLAttributes<HTMLDivElement>"
         ],
@@ -1859,7 +1888,7 @@
     "components": [
       {
         "name": "ContainerScroll",
-        "description": "Screenshot panel that starts tilted back in 3D and rotates flat as it scrolls into view — the standard \"here is the product\" hero moment.",
+        "description": "Screenshot panel that starts tilted back in 3D and rotates flat as it scrolls into view — the standard \"here is the product\" hero moment. Under `prefers-reduced-motion` a CSS override keeps both parts flat and still, so server and client render identical markup.",
         "extends": [],
         "forwardsRest": false,
         "props": [
@@ -1888,7 +1917,7 @@
     "components": [
       {
         "name": "ParallaxGrid",
-        "description": "Image or card grid whose columns drift at different rates as the page scrolls, giving a gallery a sense of depth.",
+        "description": "Image or card grid whose columns drift at different rates as the page scrolls, giving a gallery a sense of depth. Under `prefers-reduced-motion` a CSS override pins every tile in place.",
         "extends": [],
         "forwardsRest": false,
         "props": [
@@ -1926,6 +1955,12 @@
             "name": "className",
             "type": "string",
             "required": false
+          },
+          {
+            "name": "container",
+            "type": "React.RefObject<HTMLElement | null>",
+            "required": false,
+            "description": "Track this scroll box instead of the window"
           }
         ]
       }
@@ -1936,7 +1971,7 @@
     "components": [
       {
         "name": "ScrollVelocity",
-        "description": "A marquee whose speed and direction respond to how fast you are scrolling. Holds a steady drift when the page is still.",
+        "description": "A marquee whose speed and direction respond to how fast you are scrolling. Holds a steady drift when the page is still, pauses while hovered or focused, and stays still under `prefers-reduced-motion`.",
         "extends": [],
         "forwardsRest": false,
         "props": [
@@ -1966,7 +2001,7 @@
     "components": [
       {
         "name": "StickyScroll",
-        "description": "Long-form copy that scrolls past a pinned panel; the panel swaps as each section takes over. The classic \"how it works\" section.",
+        "description": "Long-form copy that scrolls past a pinned panel; the panel swaps as each section takes over. The classic \"how it works\" section. Heights use `cqh`, which resolves against the viewport unless an ancestor is a size container (e.g. a fixed-height scroll box with `@container-size`).",
         "extends": [],
         "forwardsRest": false,
         "props": [
@@ -1974,6 +2009,12 @@
             "name": "items",
             "type": "StickyScrollItem[]",
             "required": true
+          },
+          {
+            "name": "container",
+            "type": "React.RefObject<HTMLElement | null>",
+            "required": false,
+            "description": "Scrollable element to track instead of the window"
           },
           {
             "name": "className",

@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "The first word stays on screen and the words don't cycle. With motion allowed, cycling pauses while the pointer is over the word or focus is inside it.",
+    "keyboard": null,
+    "screenReader": "All words are exposed once, comma-separated, in an sr-only span; the rotating visual word is aria-hidden, so nothing is announced on change."
+  },
   "examples": [
     {
       "name": "default",

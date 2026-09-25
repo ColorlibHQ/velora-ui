@@ -6,10 +6,12 @@ import { cn } from "@/lib/utils";
 
 interface ScrollProgressProps {
   className?: string;
+  /** Track this scroll box instead of the window */
+  container?: React.RefObject<HTMLElement | null>;
 }
 
-export function ScrollProgress({ className }: ScrollProgressProps) {
-  const { scrollYProgress } = useScroll();
+export function ScrollProgress({ className, container }: ScrollProgressProps) {
+  const { scrollYProgress } = useScroll({ container });
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 180,
     damping: 32,

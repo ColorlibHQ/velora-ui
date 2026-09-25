@@ -1,8 +1,11 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
+
+const noopSubscribe = () => () => {};
 
 interface SparklesTextProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: React.ReactNode;
@@ -22,7 +25,10 @@ export function SparklesText({
   count = 9,
   ...props
 }: SparklesTextProps) {
-  const reducedMotion = useReducedMotion();
+  // useReducedMotion() already knows the preference on the first client
+  // render, but the server can't — keep the animated markup until hydrated.
+  const hydrated = useSyncExternalStore(noopSubscribe, () => true, () => false);
+  const reducedMotion = useReducedMotion() === true && hydrated;
 
   const sparkles = Array.from({ length: count }, (_, i) => ({
     top: `${(i * 41 + 7) % 100}%`,

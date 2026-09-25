@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -25,6 +25,15 @@ export function MorphingText({
 }: MorphingTextProps) {
   const [index, setIndex] = useState(0);
   const [blurred, setBlurred] = useState(false);
+  // Held while hovered or focused so the phrase can be read (WCAG 2.2.2).
+  const paused = useRef(false);
+
+  const pause = () => {
+    paused.current = true;
+  };
+  const resume = () => {
+    paused.current = false;
+  };
 
   useEffect(() => {
     if (texts.length < 2) return;
@@ -32,6 +41,7 @@ export function MorphingText({
 
     const cycle = window.setInterval(
       () => {
+        if (paused.current || document.hidden) return;
         setBlurred(true);
         window.setTimeout(() => {
           setIndex((i) => (i + 1) % texts.length);
@@ -46,6 +56,10 @@ export function MorphingText({
   return (
     <span
       data-slot="morphing-text"
+      onMouseEnter={pause}
+      onMouseLeave={resume}
+      onFocus={pause}
+      onBlur={resume}
       style={{ transitionDuration: `${morph * 500}ms` }}
       className={cn(
         "inline-block transition-all ease-in-out will-change-[filter,opacity] motion-reduce:transition-none motion-reduce:blur-none motion-reduce:opacity-100",
@@ -53,7 +67,8 @@ export function MorphingText({
         className
       )}
     >
-      {texts[index]}
+      <span className="sr-only">{texts.join(", ")}</span>
+      <span aria-hidden>{texts[index]}</span>
     </span>
   );
 }

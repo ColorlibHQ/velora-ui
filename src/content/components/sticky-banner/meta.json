@@ -3,6 +3,11 @@
   "description": "Dismissible announcement bar pinned above the header.",
   "category": "Navigation",
   "dependencies": [],
+  "a11y": {
+    "motion": "Nothing animates, so reduced-motion users see the same banner.",
+    "keyboard": "The dismiss button is a native button with a visible focus outline. Dismissing moves focus to the next focusable element after the banner.",
+    "screenReader": "The dismiss button is named \"Dismiss announcement\"; the banner itself is a plain div with no landmark role."
+  },
   "examples": [
     {
       "name": "default",

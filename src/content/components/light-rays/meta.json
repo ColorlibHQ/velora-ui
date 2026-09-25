@@ -3,6 +3,11 @@
   "description": "God rays fanning down from the top of a section.",
   "category": "Backgrounds",
   "dependencies": [],
+  "a11y": {
+    "motion": "No change: the rays are static gradients with no animation.",
+    "keyboard": null,
+    "screenReader": "Decorative: the rays are aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

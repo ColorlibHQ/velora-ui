@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "The tooltip appears and disappears instantly instead of springing in, and the avatar's hover scale no longer transitions.",
+    "keyboard": "Each avatar is focusable with Tab and shows its tooltip and a focus ring while focused; Escape hides the tooltip.",
+    "screenReader": "Each avatar is read as its name and role from visually hidden text; the visual tooltip and initials are aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

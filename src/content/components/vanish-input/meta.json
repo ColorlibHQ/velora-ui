@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "The placeholder does not cycle: it stays on the first entry, with no slide or fade.",
+    "keyboard": "A native form: the input is focusable, Enter submits, and focus stays in the input after submitting. The placeholder stops cycling while the field is hovered or focused.",
+    "screenReader": "The input is named by the `label` prop (default \"Search\"); the rotating placeholder is aria-hidden and the icon button is named \"Submit\"."
+  },
   "examples": [
     {
       "name": "default",

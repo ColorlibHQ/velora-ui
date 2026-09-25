@@ -22,7 +22,8 @@ interface ScrollVelocityProps {
 
 /**
  * A marquee whose speed and direction respond to how fast you are scrolling.
- * Holds a steady drift when the page is still.
+ * Holds a steady drift when the page is still, pauses while hovered or
+ * focused, and stays still under `prefers-reduced-motion`.
  */
 export function ScrollVelocity({
   children,
@@ -32,6 +33,8 @@ export function ScrollVelocity({
   const baseX = useMotionValue(0);
   const direction = useRef(1);
   const reducedMotion = useReducedMotion();
+  const hovered = useRef(false);
+  const focused = useRef(false);
 
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -40,7 +43,7 @@ export function ScrollVelocity({
   });
 
   useAnimationFrame((_, delta) => {
-    if (reducedMotion) return;
+    if (reducedMotion || hovered.current || focused.current) return;
     let moveBy = direction.current * baseVelocity * (delta / 1000);
     const factor = velocityFactor.get();
     // Scrolling backwards flips the marquee's direction.
@@ -56,11 +59,24 @@ export function ScrollVelocity({
   return (
     <div
       data-slot="scroll-velocity"
+      onMouseEnter={() => (hovered.current = true)}
+      onMouseLeave={() => (hovered.current = false)}
+      onFocus={() => (focused.current = true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          focused.current = false;
+        }
+      }}
       className={cn("w-full overflow-hidden whitespace-nowrap", className)}
     >
       <motion.div style={{ x }} className="flex w-max gap-8">
         {Array.from({ length: 4 }).map((_, i) => (
-          <span key={i} aria-hidden={i > 0 || undefined} className="shrink-0">
+          <span
+            key={i}
+            aria-hidden={i > 0 || undefined}
+            inert={i > 0}
+            className="shrink-0"
+          >
             {children}
           </span>
         ))}

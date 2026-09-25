@@ -3,6 +3,11 @@
   "description": "Drifting, twinkling particle field on a lightweight canvas.",
   "category": "Backgrounds",
   "dependencies": [],
+  "a11y": {
+    "motion": "The drift and twinkle loop does not run; the canvas draws one still frame of dots and redraws it on resize and theme change.",
+    "keyboard": null,
+    "screenReader": "Decorative; the canvas is aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

@@ -3,6 +3,11 @@
   "description": "A light laps the button's border via offset-path.",
   "category": "Buttons",
   "dependencies": [],
+  "a11y": {
+    "motion": "The travelling light is replaced by a static glow on the top-left and bottom-right corners of the border.",
+    "keyboard": "A native <button>: Enter or Space activate it, with a visible focus-visible outline.",
+    "screenReader": "Announced as a button named by its text; the light layer is aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

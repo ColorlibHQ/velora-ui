@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "The first word shows as static text with no typing, deleting or cursor. With motion allowed, typing pauses while the pointer is over the text or focus is inside it.",
+    "keyboard": null,
+    "screenReader": "All words are exposed once, comma-separated, in an sr-only span; the typed text and cursor are aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

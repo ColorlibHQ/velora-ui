@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "Only the faint static base curves render; the coloured beams and their gradient animations are not mounted.",
+    "keyboard": null,
+    "screenReader": "Decorative; the wrapper is aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

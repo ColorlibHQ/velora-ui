@@ -3,6 +3,11 @@
   "description": "CTA button with a continuous light sweep.",
   "category": "Buttons",
   "dependencies": [],
+  "a11y": {
+    "motion": "The sweep is off; a faint static sheen rests on the right side of the button. The hover scale still applies.",
+    "keyboard": "Native <button>: reachable with Tab, activated with Enter or Space, and focus-visible shows a 2px outline in the ring colour.",
+    "screenReader": "Named by its children; the shimmer overlay is aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

@@ -3,6 +3,11 @@
   "description": "Brand gradient sweeping continuously through text.",
   "category": "Text",
   "dependencies": [],
+  "a11y": {
+    "motion": "The pan animation is off; the text keeps a fixed gradient (the brand-from to brand-via section).",
+    "keyboard": null,
+    "screenReader": "Children are read as normal text; the gradient is a background-clip effect and adds nothing to the accessible text."
+  },
   "examples": [
     {
       "name": "default",

@@ -3,6 +3,11 @@
   "description": "A soft light sweep — great for AI loading states.",
   "category": "Text",
   "dependencies": [],
+  "a11y": {
+    "motion": "The sweep is off; the text rests in the muted foreground colour with a slight brightening at the right edge and stays fully readable.",
+    "keyboard": null,
+    "screenReader": "Children are read as normal text. It is not a live region, so add role=\"status\" yourself if you use it as a loading indicator."
+  },
   "examples": [
     {
       "name": "default",

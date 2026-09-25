@@ -43,7 +43,7 @@ export function CompareSlider({
         if (event.buttons === 1) moveTo(event.clientX);
       }}
       className={cn(
-        "relative aspect-video w-full touch-none overflow-hidden rounded-2xl border select-none",
+        "relative aspect-video w-full touch-none overflow-hidden rounded-2xl border select-none has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-ring",
         className
       )}
     >

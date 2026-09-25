@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "A CSS override pins every tile in its grid cell, so the columns do not drift.",
+    "keyboard": null,
+    "screenReader": "Plain divs, one wrapper per child, with no list or grid semantics beyond what the children provide."
+  },
   "examples": [
     {
       "name": "default",

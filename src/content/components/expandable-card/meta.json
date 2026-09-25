@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "The card snaps straight into the centred panel with no shared-layout spring; the backdrop keeps a short opacity fade.",
+    "keyboard": "The card is a button that opens a modal dialog with Enter or Space. Focus moves into the dialog, Tab and Shift+Tab stay inside it, Escape or Close dismisses it, and focus returns to the card.",
+    "screenReader": "The card is announced as a button with aria-haspopup=\"dialog\" and aria-expanded; the panel is a role=\"dialog\" with aria-modal, named by its heading."
+  },
   "examples": [
     {
       "name": "default",

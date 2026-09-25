@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "The highlight pill jumps between items and the panel appears and disappears instantly, with no fade, rise or scale.",
+    "keyboard": "Tabbing to an item with a panel opens it, and Tab continues into the panel. Escape closes it and returns focus to the item, focus leaving the menu closes it, and Enter or Space reopens it. Items with `href` are ordinary links.",
+    "screenReader": "A <nav> of buttons and links; only items with a panel carry aria-expanded, plus aria-controls while open."
+  },
   "examples": [
     {
       "name": "default",

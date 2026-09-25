@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "The beam is hidden entirely; only the parent's normal border remains.",
+    "keyboard": null,
+    "screenReader": "Decorative; aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

@@ -51,7 +51,7 @@ export function BentoCard({
       {...props}
     >
       {background && (
-        <div className="absolute inset-0 overflow-hidden transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none">
+        <div className="absolute inset-0 overflow-hidden transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
           {background}
         </div>
       )}
@@ -62,7 +62,8 @@ export function BentoCard({
       <div
         className={cn(
           "pointer-events-none relative z-10 flex flex-col gap-1 p-6 transition-transform duration-300 ease-out motion-reduce:transition-none",
-          href && "group-hover:-translate-y-7"
+          href &&
+            "group-focus-within:-translate-y-7 group-hover:-translate-y-7 motion-reduce:-translate-y-7"
         )}
       >
         {icon && (
@@ -72,10 +73,10 @@ export function BentoCard({
         <p className="text-sm text-muted-foreground">{description}</p>
       </div>
       {href && (
-        <div className="absolute inset-x-0 bottom-0 z-10 translate-y-full p-6 pt-0 transition-transform duration-300 ease-out group-hover:translate-y-0 motion-reduce:translate-y-0">
+        <div className="absolute inset-x-0 bottom-0 z-10 translate-y-full p-6 pt-0 transition-transform duration-300 ease-out group-focus-within:translate-y-0 group-hover:translate-y-0 motion-reduce:translate-y-0">
           <a
             href={href}
-            className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+            className="inline-flex items-center gap-1 rounded-sm text-sm font-medium text-primary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           >
             {cta}
             <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />

@@ -24,7 +24,7 @@ export function ShimmerButton({
       </span>
       <span
         aria-hidden
-        className="animate-shimmer absolute inset-0 bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.35)_50%,transparent_70%)] bg-[length:250%_100%]"
+        className="motion-safe:animate-shimmer absolute inset-0 bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.35)_50%,transparent_70%)] bg-[length:250%_100%]"
       />
     </button>
   );

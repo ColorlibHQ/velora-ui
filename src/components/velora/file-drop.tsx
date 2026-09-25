@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -20,7 +20,8 @@ const formatSize = (bytes: number) => {
 
 /**
  * Drag-and-drop upload zone that lifts and glows while a file is over it.
- * Wraps a real file input, so clicking and keyboard both work.
+ * The zone is a `label` wrapping a real file input, so clicking, keyboard and
+ * screen readers all work.
  */
 export function FileDrop({
   onFiles,
@@ -30,7 +31,6 @@ export function FileDrop({
 }: FileDropProps) {
   const [over, setOver] = useState(false);
   const [files, setFiles] = useState<File[]>([]);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const accept_ = (list: FileList | null) => {
     if (!list?.length) return;
@@ -41,7 +41,7 @@ export function FileDrop({
 
   return (
     <div className={cn("w-full", className)} data-slot="file-drop">
-      <div
+      <label
         onDragOver={(event) => {
           event.preventDefault();
           setOver(true);
@@ -52,9 +52,8 @@ export function FileDrop({
           setOver(false);
           accept_(event.dataTransfer.files);
         }}
-        onClick={() => inputRef.current?.click()}
         className={cn(
-          "flex cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed p-10 text-center transition-all duration-200 motion-reduce:transition-none",
+          "flex cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed p-10 text-center transition-all duration-200 motion-reduce:transition-none has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-ring",
           over
             ? "-translate-y-0.5 border-brand bg-brand/5 shadow-lg shadow-brand/10"
             : "border-border hover:border-muted-foreground/50 hover:bg-muted/40"
@@ -78,22 +77,22 @@ export function FileDrop({
           <path d="M12 15V3M8 7l4-4 4 4" />
           <path d="M3 15v4a2 2 0 002 2h14a2 2 0 002-2v-4" />
         </svg>
-        <p className="text-sm font-medium">
+        {/* Spans, not paragraphs: a label only allows phrasing content. */}
+        <span className="block text-sm font-medium">
           {over ? "Drop to upload" : "Drag files here, or click to browse"}
-        </p>
-        <p className="text-xs text-muted-foreground">
+        </span>
+        <span className="block text-xs text-muted-foreground">
           {accept ? accept.replace(/,/g, ", ") : "Any file type"}
-        </p>
+        </span>
 
         <input
-          ref={inputRef}
           type="file"
           accept={accept}
           multiple={multiple}
           onChange={(event) => accept_(event.target.files)}
           className="sr-only"
         />
-      </div>
+      </label>
 
       {files.length > 0 && (
         <ul className="mt-3 flex flex-col gap-1.5">

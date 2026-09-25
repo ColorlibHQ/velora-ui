@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "No sparkles render; only the plain text is shown.",
+    "keyboard": null,
+    "screenReader": "Children are read normally; each sparkle SVG is aria-hidden."
+  },
   "examples": [
     {
       "name": "default",

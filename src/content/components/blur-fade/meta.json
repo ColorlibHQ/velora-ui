@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "Content still starts hidden and appears instantly, with no blur or slide, once it scrolls 10% into view.",
+    "keyboard": null,
+    "screenReader": "Children stay in the DOM before they are revealed, so they are always read."
+  },
   "examples": [
     {
       "name": "default",

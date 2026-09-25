@@ -4,10 +4,21 @@ export default function NavbarMenuDemo() {
   return (
     <NavbarMenu>
       <MenuItem label="Product">
-        <p className="w-40 text-sm text-muted-foreground">Components, themes</p>
+        <ul className="flex w-40 flex-col gap-1 text-sm">
+          <li>
+            <a href="#components" className="text-muted-foreground hover:text-foreground">
+              Components
+            </a>
+          </li>
+          <li>
+            <a href="#themes" className="text-muted-foreground hover:text-foreground">
+              Themes
+            </a>
+          </li>
+        </ul>
       </MenuItem>
-      <MenuItem label="Docs" />
-      <MenuItem label="Pricing" />
+      <MenuItem label="Docs" href="#docs" />
+      <MenuItem label="Pricing" href="#pricing" />
     </NavbarMenu>
   );
 }

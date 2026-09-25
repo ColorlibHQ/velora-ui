@@ -5,6 +5,11 @@
   "dependencies": [
     "motion"
   ],
+  "a11y": {
+    "motion": "The card never tilts; it stays flat while the pointer moves over it.",
+    "keyboard": null,
+    "screenReader": "A transparent wrapper; only the children are read."
+  },
   "examples": [
     {
       "name": "default",
