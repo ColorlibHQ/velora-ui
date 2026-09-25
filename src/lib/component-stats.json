@@ -353,8 +353,8 @@
     ]
   },
   "resizable-navbar": {
-    "bytes": 7568,
-    "gzip": 2646,
+    "bytes": 7596,
+    "gzip": 2656,
     "deps": [
       "motion/react"
     ]

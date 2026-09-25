@@ -2472,6 +2472,778 @@
           "target": "components/blocks/hero-aurora.tsx"
         }
       ]
+    },
+    {
+      "name": "hero-globe",
+      "type": "registry:block",
+      "title": "Globe split hero",
+      "description": "Split hero with copy, CTAs and live stats beside an interactive dotted globe with arcs.",
+      "categories": [
+        "hero-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/globe.json",
+        "https://velora.colorlib.com/r/number-ticker.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/hero-globe.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/hero-globe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-screenshot",
+      "type": "registry:block",
+      "title": "Product screenshot hero",
+      "description": "Centered headline above a dashboard in a browser frame with a border beam and a logo row.",
+      "categories": [
+        "hero-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/border-beam.json",
+        "https://velora.colorlib.com/r/browser-mockup.json",
+        "https://velora.colorlib.com/r/logo-cloud.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/hero-screenshot.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/hero-screenshot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-split-phone",
+      "type": "registry:block",
+      "title": "Phone split hero",
+      "description": "App launch hero with an email capture on the left and an app screen in an iPhone frame.",
+      "categories": [
+        "hero-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "input",
+        "label",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/iphone-mockup.json",
+        "https://velora.colorlib.com/r/ripple.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/hero-split-phone.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/hero-split-phone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-waves",
+      "type": "registry:block",
+      "title": "Wavy hero",
+      "description": "Bold centered hero over flowing waves, with a rotating headline word and avatar social proof.",
+      "categories": [
+        "hero-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "https://velora.colorlib.com/r/avatar-circles.json",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/flip-words.json",
+        "https://velora.colorlib.com/r/shimmer-button.json",
+        "https://velora.colorlib.com/r/wavy-background.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/hero-waves.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/hero-waves.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-grid-minimal",
+      "type": "registry:block",
+      "title": "Developer tool hero",
+      "description": "Minimal hero on a retro grid with a typed headline accent, an install terminal and two CTAs.",
+      "categories": [
+        "hero-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/retro-grid.json",
+        "https://velora.colorlib.com/r/terminal.json",
+        "https://velora.colorlib.com/r/typewriter.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/hero-grid-minimal.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/hero-grid-minimal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-bento",
+      "type": "registry:block",
+      "title": "Bento feature grid",
+      "description": "Five-card bento grid with live visuals: integration beams, orbiting icons, a chart, a tag marquee and a globe.",
+      "categories": [
+        "feature-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://velora.colorlib.com/r/animated-beam.json",
+        "https://velora.colorlib.com/r/bento-grid.json",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/globe.json",
+        "https://velora.colorlib.com/r/marquee.json",
+        "https://velora.colorlib.com/r/number-ticker.json",
+        "https://velora.colorlib.com/r/orbiting-circles.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/features-bento.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/features-bento.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-icon-grid",
+      "type": "registry:block",
+      "title": "Icon feature grid",
+      "description": "Heading and six icon feature cards in a three-column grid, each border lit by a cursor-following glow.",
+      "categories": [
+        "feature-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/glowing-effect.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/features-icon-grid.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/features-icon-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-tabs",
+      "type": "registry:block",
+      "title": "Tabbed product tour",
+      "description": "Product tour with animated tabs; each tab pairs short copy and a checklist with a Tailwind-built app mock.",
+      "categories": [
+        "feature-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://velora.colorlib.com/r/animated-tabs.json",
+        "https://velora.colorlib.com/r/blur-fade.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/features-tabs.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/features-tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-split-screenshot",
+      "type": "registry:block",
+      "title": "Alternating screenshot rows",
+      "description": "Two alternating rows of copy with a checklist beside a browser-framed dashboard mock, sides swapped.",
+      "categories": [
+        "feature-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/border-beam.json",
+        "https://velora.colorlib.com/r/browser-mockup.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/features-split-screenshot.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/features-split-screenshot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-steps",
+      "type": "registry:block",
+      "title": "Numbered steps",
+      "description": "How-it-works section with four numbered steps on a gradient connector line, each with a small UI visual.",
+      "categories": [
+        "feature-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://velora.colorlib.com/r/avatar-circles.json",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/border-beam.json",
+        "https://velora.colorlib.com/r/number-ticker.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/features-steps.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/features-steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-three-tiers",
+      "type": "registry:block",
+      "title": "Three-tier pricing",
+      "description": "Three plan cards with a monthly/yearly switch, a savings badge and a highlighted middle plan.",
+      "categories": [
+        "pricing-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "badge",
+        "button",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/border-beam.json",
+        "https://velora.colorlib.com/r/grid-pattern.json",
+        "https://velora.colorlib.com/r/number-ticker.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/pricing-three-tiers.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/pricing-three-tiers.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-single-plan",
+      "type": "registry:block",
+      "title": "Single plan pricing",
+      "description": "One all-inclusive plan card beside a benefit list and short reassurance answers.",
+      "categories": [
+        "pricing-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "badge",
+        "button",
+        "https://velora.colorlib.com/r/avatar-circles.json",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/glowing-effect.json",
+        "https://velora.colorlib.com/r/grid-pattern.json",
+        "https://velora.colorlib.com/r/spotlight-card.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/pricing-single-plan.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/pricing-single-plan.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-comparison",
+      "type": "registry:block",
+      "title": "Pricing comparison table",
+      "description": "Grouped feature comparison table with a sticky plan header, and per-plan tabs on mobile.",
+      "categories": [
+        "pricing-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "badge",
+        "button",
+        "tabs",
+        "https://velora.colorlib.com/r/blur-fade.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/pricing-comparison.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/pricing-comparison.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonials-marquee",
+      "type": "registry:block",
+      "title": "Testimonial marquee",
+      "description": "Two rows of review cards scrolling in opposite directions, with faded edges and pause on hover or focus.",
+      "categories": [
+        "testimonial-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "avatar",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/marquee.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/testimonials-marquee.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/testimonials-marquee.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonials-featured",
+      "type": "registry:block",
+      "title": "Featured testimonial",
+      "description": "One rotating quote with crossfading portraits, framed by a beam card over a row of counting stats.",
+      "categories": [
+        "testimonial-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://velora.colorlib.com/r/animated-testimonials.json",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/border-beam.json",
+        "https://velora.colorlib.com/r/grid-pattern.json",
+        "https://velora.colorlib.com/r/number-ticker.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/testimonials-featured.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/testimonials-featured.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonials-grid",
+      "type": "registry:block",
+      "title": "Testimonial grid",
+      "description": "Masonry wall of social posts and quote cards, led by a wide case-study quote with a headline metric.",
+      "categories": [
+        "testimonial-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "avatar",
+        "button",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/text-highlighter.json",
+        "https://velora.colorlib.com/r/tweet-card.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/testimonials-grid.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/testimonials-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-vortex",
+      "type": "registry:block",
+      "title": "Vortex CTA band",
+      "description": "Dark rounded call-to-action band over a brand-tinted particle vortex, with two actions and fine print.",
+      "categories": [
+        "cta-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "https://velora.colorlib.com/r/vortex.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/cta-vortex.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/cta-vortex.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-split-image",
+      "type": "registry:block",
+      "title": "Split CTA with product visual",
+      "description": "Two-column CTA card with a benefit list and a dashboard mock-up, traced by an animated border beam.",
+      "categories": [
+        "cta-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "https://velora.colorlib.com/r/border-beam.json",
+        "https://velora.colorlib.com/r/grid-pattern.json",
+        "https://velora.colorlib.com/r/meteors.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/cta-split-image.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/cta-split-image.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-newsletter",
+      "type": "registry:block",
+      "title": "Newsletter sign-up",
+      "description": "Newsletter card over a glowing dot grid with a labelled email field, subscriber avatars and a privacy note.",
+      "categories": [
+        "cta-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "input",
+        "label",
+        "https://velora.colorlib.com/r/avatar-circles.json",
+        "https://velora.colorlib.com/r/dotted-glow-background.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/cta-newsletter.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/cta-newsletter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logos-marquee",
+      "type": "registry:block",
+      "title": "Logo marquee",
+      "description": "A “Trusted by” line over a scrolling strip of grayscale logos that take their colour on hover.",
+      "categories": [
+        "logo-clouds"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://velora.colorlib.com/r/marquee.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/logos-marquee.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/logos-marquee.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logos-grid",
+      "type": "registry:block",
+      "title": "Logo grid",
+      "description": "Bordered grid of customer logos with a cursor spotlight per cell, beside a heading and stories link.",
+      "categories": [
+        "logo-clouds"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/spotlight-card.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/logos-grid.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/logos-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-accordion",
+      "type": "registry:block",
+      "title": "Centered FAQ accordion",
+      "description": "Centered heading over an accordion of eight questions, closed by a contact row.",
+      "categories": [
+        "faq-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "accordion",
+        "button",
+        "https://velora.colorlib.com/r/avatar-circles.json",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/grid-pattern.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/faq-accordion.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/faq-accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-two-column",
+      "type": "registry:block",
+      "title": "Two-column FAQ",
+      "description": "Sticky intro and contact card on the left, an accordion of questions on the right.",
+      "categories": [
+        "faq-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "accordion",
+        "https://velora.colorlib.com/r/blur-fade.json",
+        "https://velora.colorlib.com/r/spotlight-card.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/faq-two-column.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/faq-two-column.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-floating",
+      "type": "registry:block",
+      "title": "Floating pill navbar",
+      "description": "Full-width navbar that shrinks into a blurred floating pill on scroll, with a CTA and mobile menu.",
+      "categories": [
+        "navbars"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "https://velora.colorlib.com/r/resizable-navbar.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/navbar-floating.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/navbar-floating.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-mega",
+      "type": "registry:block",
+      "title": "Mega menu navbar",
+      "description": "Top bar with a keyboard-accessible Product mega menu, search, sign-in and a slide-over mobile menu.",
+      "categories": [
+        "navbars"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "accordion",
+        "button",
+        "dropdown-menu",
+        "sheet"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/navbar-mega.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/navbar-mega.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-columns",
+      "type": "registry:block",
+      "title": "Link columns footer",
+      "description": "Footer with logo, tagline and social links, four link columns and a copyright bar with legal links.",
+      "categories": [
+        "footers"
+      ],
+      "registryDependencies": [
+        "utils",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/footer-columns.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/footer-columns.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-wordmark",
+      "type": "registry:block",
+      "title": "Giant wordmark footer",
+      "description": "Minimal footer that ends in an oversized outlined wordmark lighting up in brand colours under the pointer.",
+      "categories": [
+        "footers"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://velora.colorlib.com/r/text-hover-effect.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/footer-wordmark.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/footer-wordmark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-newsletter",
+      "type": "registry:block",
+      "title": "Newsletter footer",
+      "description": "Footer with a newsletter sign-up row, link columns and a live “All systems normal” status badge.",
+      "categories": [
+        "footers"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "input",
+        "label",
+        "https://velora.colorlib.com/r/stateful-button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/footer-newsletter.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/footer-newsletter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-login-split",
+      "type": "registry:block",
+      "title": "Split login page",
+      "description": "Login form with password reveal, remember-me and social sign-in beside an aurora testimonial panel.",
+      "categories": [
+        "auth-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "input",
+        "label",
+        "https://velora.colorlib.com/r/aurora-background.json",
+        "https://velora.colorlib.com/r/grid-pattern.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/auth-login-split.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/auth-login-split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-signup-card",
+      "type": "registry:block",
+      "title": "Sign-up card",
+      "description": "Centered sign-up card over a grid and light beams, with live password rules, terms and social sign-up.",
+      "categories": [
+        "auth-sections"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "input",
+        "label",
+        "https://velora.colorlib.com/r/background-beams.json",
+        "https://velora.colorlib.com/r/grid-pattern.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/auth-signup-card.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/auth-signup-card.tsx"
+        }
+      ]
     }
   ]
 }

@@ -19,5 +19,559 @@
     "dependencies": [
       "lucide-react"
     ]
+  },
+  {
+    "slug": "hero-globe",
+    "title": "Globe split hero",
+    "description": "Split hero with copy, CTAs and live stats beside an interactive dotted globe with arcs.",
+    "category": "hero-sections",
+    "order": 2,
+    "exportName": "HeroGlobe",
+    "components": [
+      "blur-fade",
+      "globe",
+      "number-ticker"
+    ],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "hero-screenshot",
+    "title": "Product screenshot hero",
+    "description": "Centered headline above a dashboard in a browser frame with a border beam and a logo row.",
+    "category": "hero-sections",
+    "order": 3,
+    "exportName": "HeroScreenshot",
+    "components": [
+      "blur-fade",
+      "border-beam",
+      "browser-mockup",
+      "logo-cloud"
+    ],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "hero-split-phone",
+    "title": "Phone split hero",
+    "description": "App launch hero with an email capture on the left and an app screen in an iPhone frame.",
+    "category": "hero-sections",
+    "order": 4,
+    "exportName": "HeroSplitPhone",
+    "components": [
+      "blur-fade",
+      "iphone-mockup",
+      "ripple"
+    ],
+    "ui": [
+      "button",
+      "input",
+      "label"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "hero-waves",
+    "title": "Wavy hero",
+    "description": "Bold centered hero over flowing waves, with a rotating headline word and avatar social proof.",
+    "category": "hero-sections",
+    "order": 5,
+    "exportName": "HeroWaves",
+    "components": [
+      "avatar-circles",
+      "blur-fade",
+      "flip-words",
+      "shimmer-button",
+      "wavy-background"
+    ],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "hero-grid-minimal",
+    "title": "Developer tool hero",
+    "description": "Minimal hero on a retro grid with a typed headline accent, an install terminal and two CTAs.",
+    "category": "hero-sections",
+    "order": 6,
+    "exportName": "HeroGridMinimal",
+    "components": [
+      "blur-fade",
+      "retro-grid",
+      "terminal",
+      "typewriter"
+    ],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "features-bento",
+    "title": "Bento feature grid",
+    "description": "Five-card bento grid with live visuals: integration beams, orbiting icons, a chart, a tag marquee and a globe.",
+    "category": "feature-sections",
+    "order": 1,
+    "exportName": "FeaturesBento",
+    "components": [
+      "animated-beam",
+      "bento-grid",
+      "blur-fade",
+      "globe",
+      "marquee",
+      "number-ticker",
+      "orbiting-circles"
+    ],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "features-icon-grid",
+    "title": "Icon feature grid",
+    "description": "Heading and six icon feature cards in a three-column grid, each border lit by a cursor-following glow.",
+    "category": "feature-sections",
+    "order": 2,
+    "exportName": "FeaturesIconGrid",
+    "components": [
+      "blur-fade",
+      "glowing-effect"
+    ],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "features-tabs",
+    "title": "Tabbed product tour",
+    "description": "Product tour with animated tabs; each tab pairs short copy and a checklist with a Tailwind-built app mock.",
+    "category": "feature-sections",
+    "order": 3,
+    "exportName": "FeaturesTabs",
+    "components": [
+      "animated-tabs",
+      "blur-fade"
+    ],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "features-split-screenshot",
+    "title": "Alternating screenshot rows",
+    "description": "Two alternating rows of copy with a checklist beside a browser-framed dashboard mock, sides swapped.",
+    "category": "feature-sections",
+    "order": 4,
+    "exportName": "FeaturesSplitScreenshot",
+    "components": [
+      "blur-fade",
+      "border-beam",
+      "browser-mockup"
+    ],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "features-steps",
+    "title": "Numbered steps",
+    "description": "How-it-works section with four numbered steps on a gradient connector line, each with a small UI visual.",
+    "category": "feature-sections",
+    "order": 5,
+    "exportName": "FeaturesSteps",
+    "components": [
+      "avatar-circles",
+      "blur-fade",
+      "border-beam",
+      "number-ticker"
+    ],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "pricing-three-tiers",
+    "title": "Three-tier pricing",
+    "description": "Three plan cards with a monthly/yearly switch, a savings badge and a highlighted middle plan.",
+    "category": "pricing-sections",
+    "order": 1,
+    "exportName": "PricingThreeTiers",
+    "components": [
+      "blur-fade",
+      "border-beam",
+      "grid-pattern",
+      "number-ticker"
+    ],
+    "ui": [
+      "badge",
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "pricing-single-plan",
+    "title": "Single plan pricing",
+    "description": "One all-inclusive plan card beside a benefit list and short reassurance answers.",
+    "category": "pricing-sections",
+    "order": 2,
+    "exportName": "PricingSinglePlan",
+    "components": [
+      "avatar-circles",
+      "blur-fade",
+      "glowing-effect",
+      "grid-pattern",
+      "spotlight-card"
+    ],
+    "ui": [
+      "badge",
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "pricing-comparison",
+    "title": "Pricing comparison table",
+    "description": "Grouped feature comparison table with a sticky plan header, and per-plan tabs on mobile.",
+    "category": "pricing-sections",
+    "order": 3,
+    "exportName": "PricingComparison",
+    "components": [
+      "blur-fade"
+    ],
+    "ui": [
+      "badge",
+      "button",
+      "tabs"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "testimonials-marquee",
+    "title": "Testimonial marquee",
+    "description": "Two rows of review cards scrolling in opposite directions, with faded edges and pause on hover or focus.",
+    "category": "testimonial-sections",
+    "order": 1,
+    "exportName": "TestimonialsMarquee",
+    "components": [
+      "blur-fade",
+      "marquee"
+    ],
+    "ui": [
+      "avatar"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "testimonials-featured",
+    "title": "Featured testimonial",
+    "description": "One rotating quote with crossfading portraits, framed by a beam card over a row of counting stats.",
+    "category": "testimonial-sections",
+    "order": 2,
+    "exportName": "TestimonialsFeatured",
+    "components": [
+      "animated-testimonials",
+      "blur-fade",
+      "border-beam",
+      "grid-pattern",
+      "number-ticker"
+    ],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "testimonials-grid",
+    "title": "Testimonial grid",
+    "description": "Masonry wall of social posts and quote cards, led by a wide case-study quote with a headline metric.",
+    "category": "testimonial-sections",
+    "order": 3,
+    "exportName": "TestimonialsGrid",
+    "components": [
+      "blur-fade",
+      "text-highlighter",
+      "tweet-card"
+    ],
+    "ui": [
+      "avatar",
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "cta-vortex",
+    "title": "Vortex CTA band",
+    "description": "Dark rounded call-to-action band over a brand-tinted particle vortex, with two actions and fine print.",
+    "category": "cta-sections",
+    "order": 1,
+    "exportName": "CtaVortex",
+    "components": [
+      "vortex"
+    ],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "cta-split-image",
+    "title": "Split CTA with product visual",
+    "description": "Two-column CTA card with a benefit list and a dashboard mock-up, traced by an animated border beam.",
+    "category": "cta-sections",
+    "order": 2,
+    "exportName": "CtaSplitImage",
+    "components": [
+      "border-beam",
+      "grid-pattern",
+      "meteors"
+    ],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "cta-newsletter",
+    "title": "Newsletter sign-up",
+    "description": "Newsletter card over a glowing dot grid with a labelled email field, subscriber avatars and a privacy note.",
+    "category": "cta-sections",
+    "order": 3,
+    "exportName": "CtaNewsletter",
+    "components": [
+      "avatar-circles",
+      "dotted-glow-background"
+    ],
+    "ui": [
+      "button",
+      "input",
+      "label"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "logos-marquee",
+    "title": "Logo marquee",
+    "description": "A “Trusted by” line over a scrolling strip of grayscale logos that take their colour on hover.",
+    "category": "logo-clouds",
+    "order": 1,
+    "exportName": "LogosMarquee",
+    "components": [
+      "marquee"
+    ],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "logos-grid",
+    "title": "Logo grid",
+    "description": "Bordered grid of customer logos with a cursor spotlight per cell, beside a heading and stories link.",
+    "category": "logo-clouds",
+    "order": 2,
+    "exportName": "LogosGrid",
+    "components": [
+      "blur-fade",
+      "spotlight-card"
+    ],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "faq-accordion",
+    "title": "Centered FAQ accordion",
+    "description": "Centered heading over an accordion of eight questions, closed by a contact row.",
+    "category": "faq-sections",
+    "order": 1,
+    "exportName": "FaqAccordion",
+    "components": [
+      "avatar-circles",
+      "blur-fade",
+      "grid-pattern"
+    ],
+    "ui": [
+      "accordion",
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "faq-two-column",
+    "title": "Two-column FAQ",
+    "description": "Sticky intro and contact card on the left, an accordion of questions on the right.",
+    "category": "faq-sections",
+    "order": 2,
+    "exportName": "FaqTwoColumn",
+    "components": [
+      "blur-fade",
+      "spotlight-card"
+    ],
+    "ui": [
+      "accordion"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "navbar-floating",
+    "title": "Floating pill navbar",
+    "description": "Full-width navbar that shrinks into a blurred floating pill on scroll, with a CTA and mobile menu.",
+    "category": "navbars",
+    "order": 1,
+    "exportName": "NavbarFloating",
+    "components": [
+      "resizable-navbar"
+    ],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "navbar-mega",
+    "title": "Mega menu navbar",
+    "description": "Top bar with a keyboard-accessible Product mega menu, search, sign-in and a slide-over mobile menu.",
+    "category": "navbars",
+    "order": 2,
+    "exportName": "NavbarMega",
+    "components": [],
+    "ui": [
+      "accordion",
+      "button",
+      "dropdown-menu",
+      "sheet"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "footer-columns",
+    "title": "Link columns footer",
+    "description": "Footer with logo, tagline and social links, four link columns and a copyright bar with legal links.",
+    "category": "footers",
+    "order": 1,
+    "exportName": "FooterColumns",
+    "components": [],
+    "ui": [
+      "badge"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "footer-wordmark",
+    "title": "Giant wordmark footer",
+    "description": "Minimal footer that ends in an oversized outlined wordmark lighting up in brand colours under the pointer.",
+    "category": "footers",
+    "order": 2,
+    "exportName": "FooterWordmark",
+    "components": [
+      "text-hover-effect"
+    ],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "footer-newsletter",
+    "title": "Newsletter footer",
+    "description": "Footer with a newsletter sign-up row, link columns and a live “All systems normal” status badge.",
+    "category": "footers",
+    "order": 3,
+    "exportName": "FooterNewsletter",
+    "components": [
+      "stateful-button"
+    ],
+    "ui": [
+      "input",
+      "label"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "auth-login-split",
+    "title": "Split login page",
+    "description": "Login form with password reveal, remember-me and social sign-in beside an aurora testimonial panel.",
+    "category": "auth-sections",
+    "order": 1,
+    "exportName": "AuthLoginSplit",
+    "components": [
+      "aurora-background",
+      "grid-pattern"
+    ],
+    "ui": [
+      "button",
+      "input",
+      "label"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "auth-signup-card",
+    "title": "Sign-up card",
+    "description": "Centered sign-up card over a grid and light beams, with live password rules, terms and social sign-up.",
+    "category": "auth-sections",
+    "order": 2,
+    "exportName": "AuthSignupCard",
+    "components": [
+      "background-beams",
+      "grid-pattern"
+    ],
+    "ui": [
+      "button",
+      "input",
+      "label"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
   }
 ]

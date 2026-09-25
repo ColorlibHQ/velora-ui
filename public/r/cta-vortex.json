@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-vortex",
+  "title": "Vortex CTA band",
+  "description": "Dark rounded call-to-action band over a brand-tinted particle vortex, with two actions and fine print.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils",
+    "button",
+    "https://velora.colorlib.com/r/vortex.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/cta-vortex.tsx",
+      "content": "import { ArrowRightIcon, CheckIcon, SparklesIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Vortex } from \"@/components/velora/vortex\";\n\nconst EYEBROW = \"Ready when you are\";\nconst TITLE = \"Ship your next release in an afternoon\";\nconst COPY =\n  \"Bring your roadmap, docs and deploys into one calm workspace. Acme sets up in minutes and grows with your team.\";\nconst PRIMARY = { label: \"Start for free\", href: \"#\" };\nconst SECONDARY = { label: \"Talk to sales\", href: \"#\" };\nconst PERKS = [\"Free for teams up to 10\", \"No credit card required\", \"Cancel anytime\"];\n\n/**\n * Dark call-to-action band with a brand-tinted particle vortex swirling\n * behind the copy. The `dark` class scopes the dark theme tokens to the\n * band, so it stays dark on light pages and lifts off dark ones.\n */\nexport function CtaVortex() {\n  return (\n    <section className=\"px-6 py-24 sm:py-32 lg:px-8\">\n      <div className=\"dark relative isolate mx-auto max-w-6xl overflow-hidden rounded-3xl border bg-card px-6 py-20 text-center text-foreground shadow-2xl shadow-brand/10 sm:px-12 sm:py-28\">\n        <Vortex particles={900} speed={0.8} range={0.95} />\n        {/* Calms the bright centre of the swirl so the copy stays readable. */}\n        <div\n          aria-hidden\n          className=\"pointer-events-none absolute inset-0 bg-radial from-card/85 from-10% via-card/40 via-35% to-transparent to-65%\"\n        />\n        {/* On narrow screens the copy spans the full width of the swirl. */}\n        <div aria-hidden className=\"pointer-events-none absolute inset-0 bg-card/60 sm:hidden\" />\n        <div\n          aria-hidden\n          className=\"pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-to/60 to-transparent\"\n        />\n\n        <div className=\"relative mx-auto max-w-2xl\">\n          <p className=\"inline-flex items-center gap-2 rounded-full border bg-background/60 px-3 py-1 text-sm text-muted-foreground backdrop-blur\">\n            <SparklesIcon aria-hidden className=\"size-4 text-brand-to\" />\n            {EYEBROW}\n          </p>\n          <h2 className=\"mt-6 text-3xl font-semibold tracking-tight text-balance sm:text-5xl\">\n            {TITLE}\n          </h2>\n          <p className=\"mx-auto mt-5 max-w-xl text-base text-pretty text-muted-foreground sm:text-lg\">\n            {COPY}\n          </p>\n\n          <div className=\"mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row\">\n            <Button\n              asChild\n              size=\"lg\"\n              className=\"h-11 w-full rounded-full bg-foreground px-6 text-background hover:bg-foreground/90 sm:w-auto\"\n            >\n              <a href={PRIMARY.href}>\n                {PRIMARY.label}\n                <ArrowRightIcon aria-hidden />\n              </a>\n            </Button>\n            <Button\n              asChild\n              size=\"lg\"\n              variant=\"outline\"\n              className=\"h-11 w-full rounded-full bg-background/40 px-6 backdrop-blur sm:w-auto\"\n            >\n              <a href={SECONDARY.href}>{SECONDARY.label}</a>\n            </Button>\n          </div>\n\n          <ul className=\"mt-10 flex flex-col items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground sm:flex-row\">\n            {PERKS.map((perk) => (\n              <li key={perk} className=\"flex items-center gap-2\">\n                <CheckIcon aria-hidden className=\"size-4 text-brand-to\" />\n                {perk}\n              </li>\n            ))}\n          </ul>\n        </div>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/cta-vortex.tsx"
+    }
+  ],
+  "categories": [
+    "cta-sections"
+  ],
+  "type": "registry:block"
+}

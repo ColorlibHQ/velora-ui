@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-waves",
+  "title": "Wavy hero",
+  "description": "Bold centered hero over flowing waves, with a rotating headline word and avatar social proof.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils",
+    "button",
+    "https://velora.colorlib.com/r/avatar-circles.json",
+    "https://velora.colorlib.com/r/blur-fade.json",
+    "https://velora.colorlib.com/r/flip-words.json",
+    "https://velora.colorlib.com/r/shimmer-button.json",
+    "https://velora.colorlib.com/r/wavy-background.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/hero-waves.tsx",
+      "content": "import { ArrowRightIcon, StarIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { AvatarCircles } from \"@/components/velora/avatar-circles\";\nimport { BlurFade } from \"@/components/velora/blur-fade\";\nimport { FlipWords } from \"@/components/velora/flip-words\";\nimport { ShimmerButton } from \"@/components/velora/shimmer-button\";\nimport { WavyBackground } from \"@/components/velora/wavy-background\";\n\nconst WORDS = [\"alive\", \"effortless\", \"yours\"];\n\n// Sample social proof — replace with your own customers and numbers.\nconst SAMPLE_PEOPLE = [\n  \"Ava Moreno\",\n  \"Kenji Sato\",\n  \"Lena Fischer\",\n  \"Omar Haddad\",\n  \"Priya Nair\",\n];\nconst SAMPLE_EXTRA = 12400;\nconst SAMPLE_RATING = \"4.9/5\";\n\n/**\n * Bold centered hero over flowing ribbons of brand colour. The last word of\n * the headline flips through a short list; an avatar row and rating carry\n * the social proof. Everything re-themes from your brand tokens.\n */\nexport function HeroWaves() {\n  return (\n    <section className=\"relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:px-8\">\n      {/* Waves sit in the lower part and fade out towards the headline */}\n      <div\n        aria-hidden\n        className=\"absolute inset-x-0 top-[38%] bottom-0 -z-10 [mask-image:linear-gradient(to_bottom,transparent,black_50%)]\"\n      >\n        <WavyBackground waves={6} blur={20} opacity={0.45} />\n      </div>\n\n      <div className=\"relative mx-auto max-w-4xl text-center\">\n        <BlurFade>\n          <p className=\"text-sm font-medium tracking-wide text-muted-foreground uppercase\">\n            Lumen Studio · Website builder\n          </p>\n        </BlurFade>\n\n        <BlurFade delay={0.1}>\n          <h1 className=\"mt-6 text-5xl font-bold tracking-tighter text-balance sm:text-7xl lg:text-8xl\">\n            Websites that feel\n            {/* Own line: the slot is sized for the longest word, so centring\n                it there keeps short words from leaving a gap mid-sentence. */}\n            <span className=\"block\">\n              <FlipWords words={WORDS} className=\"text-center text-brand\" />\n            </span>\n          </h1>\n        </BlurFade>\n\n        <BlurFade delay={0.2}>\n          <p className=\"mx-auto mt-8 max-w-2xl text-lg text-pretty text-muted-foreground sm:text-xl\">\n            Drag in a section, pick a motion preset, publish. Lumen writes the\n            clean, fast code you would have written — and keeps it responsive on\n            every screen.\n          </p>\n        </BlurFade>\n\n        <BlurFade delay={0.3}>\n          <div className=\"mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row\">\n            <ShimmerButton>\n              Start building free <ArrowRightIcon className=\"size-4\" />\n            </ShimmerButton>\n            <Button\n              variant=\"outline\"\n              size=\"lg\"\n              className=\"h-12 rounded-full bg-background/70 px-7 backdrop-blur\"\n              asChild\n            >\n              <a href=\"#\">Browse templates</a>\n            </Button>\n          </div>\n        </BlurFade>\n\n        <BlurFade delay={0.4}>\n          <div className=\"mx-auto mt-14 flex w-fit flex-col items-center gap-3 rounded-3xl border bg-background/70 p-3 backdrop-blur sm:gap-4 sm:rounded-full sm:p-2 sm:flex-row sm:pr-6\">\n            <AvatarCircles people={SAMPLE_PEOPLE} extra={SAMPLE_EXTRA} />\n            <div className=\"flex flex-col items-center pb-2 text-sm sm:items-start sm:pb-0\">\n              <div className=\"flex items-center gap-1.5\">\n                <span className=\"flex text-brand\" aria-hidden>\n                  {Array.from({ length: 5 }, (_, i) => (\n                    <StarIcon key={i} className=\"size-3.5 fill-current\" />\n                  ))}\n                </span>\n                <span className=\"font-semibold\">{SAMPLE_RATING}</span>\n                <span className=\"sr-only\">average rating</span>\n              </div>\n              <p className=\"text-muted-foreground\">\n                from 12,000+ makers and studios\n              </p>\n            </div>\n          </div>\n        </BlurFade>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/hero-waves.tsx"
+    }
+  ],
+  "categories": [
+    "hero-sections"
+  ],
+  "type": "registry:block"
+}
