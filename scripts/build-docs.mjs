@@ -74,8 +74,9 @@ writeFileSync(
 // Example index — static imports so every demo is prerendered.
 // ---------------------------------------------------------------------------
 
+// Slugs like "3d-pin" start with a digit, so prefix to keep a valid identifier.
 const ident = (slug, name) =>
-  `${slug}-${name}`.replace(/(^|-)([a-z0-9])/g, (_, __, c) => c.toUpperCase());
+  `example-${slug}-${name}`.replace(/(^|-)([a-z0-9])/g, (_, __, c) => c.toUpperCase());
 
 const importLines = [];
 const entries = [];
