@@ -1,0 +1,24 @@
+{
+  "title": "Following Pointer",
+  "description": "Swaps the cursor for an arrow and a name tag that trail the pointer inside a region.",
+  "category": "Cursor & Pointer",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The arrow and tag track the pointer 1:1 with no spring, and appear and hide without a scale or fade.",
+    "keyboard": null,
+    "screenReader": "The arrow and tag are aria-hidden; the wrapped content is read and focused as normal."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "blog-grid",
+      "title": "Blog grid",
+      "description": "A grid of post cards where hovering shows a \"Read post\" tag."
+    }
+  ]
+}
