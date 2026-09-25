@@ -44,6 +44,7 @@ import { SpotlightCard } from "@/components/velora/spotlight-card";
 import { TextReveal } from "@/components/velora/text-reveal";
 import { TiltCard } from "@/components/velora/tilt-card";
 import { Typewriter } from "@/components/velora/typewriter";
+import { blocksMeta } from "@/lib/blocks-meta";
 import { componentsMeta } from "@/lib/components-meta";
 import { JsonLd, publisher } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
@@ -66,7 +67,7 @@ const stats = [
     prefix: "",
     label: "Animated components",
   },
-  { value: 100, suffix: "", prefix: "", label: "Lighthouse performance" },
+  { value: blocksMeta.length, suffix: "", prefix: "", label: "Free blocks" },
   { value: 0, suffix: "", prefix: "$", label: "Forever. MIT licensed" },
   { value: 5, suffix: " min", prefix: "", label: "To your first page" },
 ];
@@ -193,14 +194,14 @@ export default function Home() {
             </AnimatedGradientText>
           </h1>
 
-          <BlurFade delay={0.35}>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground text-pretty">
-              Free, open-source animated components and complete landing
-              templates for React. Built on Next.js 16, Tailwind CSS 4 and
-              shadcn/ui — accessible, reduced-motion friendly and tuned for
-              perfect Lighthouse scores.
-            </p>
-          </BlurFade>
+          {/* Not faded in: this is the Largest Contentful Paint element, and
+              hiding it until hydration costs seconds of LCP on mobile. */}
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground text-pretty">
+            Free, open-source animated components and complete landing
+            templates for React. Built on Next.js 16, Tailwind CSS 4 and
+            shadcn/ui — accessible, reduced-motion friendly and light: most
+            components weigh under 3 KB.
+          </p>
 
           <BlurFade delay={0.5}>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -267,7 +268,7 @@ export default function Home() {
             {stack.map((logo) => (
               <span
                 key={logo}
-                className="mx-8 text-xl font-semibold tracking-tight text-muted-foreground/60 transition-colors hover:text-foreground"
+                className="mx-8 text-xl font-semibold tracking-tight text-muted-foreground transition-colors hover:text-foreground"
               >
                 {logo}
               </span>
@@ -335,7 +336,7 @@ export default function Home() {
                         "“Shipped our launch page in an afternoon.”",
                         "“The animations are buttery smooth.”",
                         "“Finally, free components that feel premium.”",
-                        "“Lighthouse 100 out of the box.”",
+                        "“Our docs finally feel alive.”",
                       ].map((quote) => (
                         <div
                           key={quote}

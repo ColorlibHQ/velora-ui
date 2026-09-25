@@ -11,6 +11,9 @@ import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { NumberTicker } from "@/components/velora/number-ticker";
 import { SpotlightCard } from "@/components/velora/spotlight-card";
+import { blocksMeta } from "@/lib/blocks-meta";
+import componentStats from "@/lib/component-stats.json";
+import { componentsMeta } from "@/lib/components-meta";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -43,10 +46,14 @@ const principles = [
   },
 ];
 
+const zeroDependency = Object.values(
+  componentStats as Record<string, { deps: string[] }>
+).filter((s) => s.deps.length === 0).length;
+
 const stats = [
-  { value: 32, suffix: "+", label: "Animated components" },
-  { value: 100, suffix: "", label: "Lighthouse performance" },
-  { value: 0, suffix: "", label: "Runtime deps beyond Motion" },
+  { value: componentsMeta.length, suffix: "", label: "Animated components" },
+  { value: blocksMeta.length, suffix: "", label: "Free blocks" },
+  { value: zeroDependency, suffix: "", label: "With zero dependencies" },
   { value: 10, suffix: "+", label: "Template pages" },
 ];
 

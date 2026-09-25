@@ -46,25 +46,21 @@ export function HeroGridMinimal() {
           </a>
         </BlurFade>
 
-        <BlurFade delay={0.1}>
-          <h1 className="mt-8 text-4xl font-semibold tracking-tight sm:text-6xl">
-            Zero-config builds
-            <br />
-            for{" "}
-            <Typewriter
-              words={ACCENTS}
-              className="bg-gradient-to-r from-brand-from to-brand-to bg-clip-text text-transparent"
-            />
-          </h1>
-        </BlurFade>
+        <h1 className="mt-8 text-4xl font-semibold tracking-tight sm:text-6xl">
+          Zero-config builds
+          <br />
+          for{" "}
+          <Typewriter
+            words={ACCENTS}
+            className="bg-gradient-to-r from-brand-from to-brand-to bg-clip-text text-transparent"
+          />
+        </h1>
 
-        <BlurFade delay={0.2}>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-pretty text-muted-foreground">
-            Tachyon caches every task, runs only what changed and shares the
-            results with your team and CI. Drop it into any JavaScript repo — no
-            config file required.
-          </p>
-        </BlurFade>
+        <p className="mx-auto mt-6 max-w-xl text-lg text-pretty text-muted-foreground">
+          Tachyon caches every task, runs only what changed and shares the
+          results with your team and CI. Drop it into any JavaScript repo — no
+          config file required.
+        </p>
 
         <BlurFade delay={0.3}>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

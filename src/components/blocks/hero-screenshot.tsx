@@ -274,17 +274,13 @@ export function HeroScreenshot() {
         <BlurFade>
           <p className="text-sm font-medium text-brand">Lumen Analytics 3.0</p>
         </BlurFade>
-        <BlurFade delay={0.1}>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
-            Every number your team needs, on one calm screen
-          </h1>
-        </BlurFade>
-        <BlurFade delay={0.2}>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-pretty text-muted-foreground">
-            Connect your product, billing and marketing data in minutes. Lumen
-            turns it into a live dashboard your whole team actually opens.
-          </p>
-        </BlurFade>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
+          Every number your team needs, on one calm screen
+        </h1>
+        <p className="mx-auto mt-6 max-w-xl text-lg text-pretty text-muted-foreground">
+          Connect your product, billing and marketing data in minutes. Lumen
+          turns it into a live dashboard your whole team actually opens.
+        </p>
         <BlurFade delay={0.3}>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button

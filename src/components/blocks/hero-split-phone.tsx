@@ -180,19 +180,15 @@ export function HeroSplitPhone() {
             </p>
           </BlurFade>
 
-          <BlurFade delay={0.1}>
-            <h1 className="mt-8 text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
-              Your savings, <span className="text-brand">on autopilot.</span>
-            </h1>
-          </BlurFade>
+          <h1 className="mt-8 text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
+            Your savings, <span className="text-brand">on autopilot.</span>
+          </h1>
 
-          <BlurFade delay={0.2}>
-            <p className="mt-6 text-lg text-pretty text-muted-foreground">
-              Halcyon rounds up every purchase, sets aside part of each payday
-              and nudges you before you overspend. Set your rules once — the app
-              does the rest.
-            </p>
-          </BlurFade>
+          <p className="mt-6 text-lg text-pretty text-muted-foreground">
+            Halcyon rounds up every purchase, sets aside part of each payday
+            and nudges you before you overspend. Set your rules once — the app
+            does the rest.
+          </p>
 
           <BlurFade delay={0.3}>
             <form

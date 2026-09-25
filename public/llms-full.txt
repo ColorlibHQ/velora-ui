@@ -4023,7 +4023,7 @@ export default function AnimatedBeamDemo() {
 
 ### Blur Fade
 
-The workhorse entrance — blur, fade and drift into view. (0.8 KB gzipped, deps: motion/react)
+The workhorse entrance — blur, fade and drift into view. (1.0 KB gzipped, deps: motion/react)
 
 - Docs: https://velora.colorlib.com/components/blur-fade
 - Category: Effects
@@ -4044,7 +4044,7 @@ The workhorse entrance — blur, fade and drift into view. (0.8 KB gzipped, deps
 - `direction?: "up" | "down" | "left" | "right" | "none"` (default `"up"`) — Direction the element enters from
 - `offset?: number` (default `16`) — Distance travelled in px
 - `once?: boolean` (default `true`) — Animate only the first time it enters the viewport
-- `inView?: boolean`
+- `inView?: boolean` — Start animating immediately instead of waiting to scroll into view
 
 **Example**
 

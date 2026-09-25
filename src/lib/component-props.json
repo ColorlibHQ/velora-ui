@@ -3409,6 +3409,7 @@
     "components": [
       {
         "name": "BlurFade",
+        "description": "Fades and un-blurs its children in as they scroll into view. Content starts invisible until JavaScript runs, so don't wrap your page's largest above-the-fold element (usually the hero headline or intro): it delays Largest Contentful Paint. Fade the badges, buttons and visuals around it instead.",
         "extends": [],
         "forwardsRest": false,
         "props": [
@@ -3459,7 +3460,8 @@
           {
             "name": "inView",
             "type": "boolean",
-            "required": false
+            "required": false,
+            "description": "Start animating immediately instead of waiting to scroll into view"
           }
         ]
       }

@@ -488,8 +488,8 @@
     ]
   },
   "blur-fade": {
-    "bytes": 1703,
-    "gzip": 828,
+    "bytes": 2101,
+    "gzip": 1031,
     "deps": [
       "motion/react"
     ]

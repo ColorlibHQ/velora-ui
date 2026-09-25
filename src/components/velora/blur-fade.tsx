@@ -16,12 +16,21 @@ interface BlurFadeProps {
   offset?: number;
   /** Animate only the first time it enters the viewport */
   once?: boolean;
+  /** Start animating immediately instead of waiting to scroll into view */
   inView?: boolean;
 }
 
 const axis = { up: "y", down: "y", left: "x", right: "x" } as const;
 const sign = { up: 1, down: -1, left: 1, right: -1 } as const;
 
+/**
+ * Fades and un-blurs its children in as they scroll into view.
+ *
+ * Content starts invisible until JavaScript runs, so don't wrap your page's
+ * largest above-the-fold element (usually the hero headline or intro): it
+ * delays Largest Contentful Paint. Fade the badges, buttons and visuals
+ * around it instead.
+ */
 export function BlurFade({
   children,
   className,

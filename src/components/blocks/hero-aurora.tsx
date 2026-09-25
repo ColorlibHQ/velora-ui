@@ -33,19 +33,15 @@ export function HeroAurora() {
           </a>
         </BlurFade>
 
-        <BlurFade delay={0.1}>
-          <h1 className="mt-8 text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
-            The workspace where{" "}
-            <AnimatedGradientText>ideas ship</AnimatedGradientText>
-          </h1>
-        </BlurFade>
+        <h1 className="mt-8 text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
+          The workspace where{" "}
+          <AnimatedGradientText>ideas ship</AnimatedGradientText>
+        </h1>
 
-        <BlurFade delay={0.2}>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-pretty text-muted-foreground">
-            Plan, build and launch in one calm place. Acme keeps your roadmap,
-            docs and releases in sync — so your team can focus on the work.
-          </p>
-        </BlurFade>
+        <p className="mx-auto mt-6 max-w-xl text-lg text-pretty text-muted-foreground">
+          Plan, build and launch in one calm place. Acme keeps your roadmap,
+          docs and releases in sync — so your team can focus on the work.
+        </p>
 
         <BlurFade delay={0.3}>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

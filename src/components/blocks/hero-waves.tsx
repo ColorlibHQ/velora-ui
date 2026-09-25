@@ -43,24 +43,20 @@ export function HeroWaves() {
           </p>
         </BlurFade>
 
-        <BlurFade delay={0.1}>
-          <h1 className="mt-6 text-5xl font-bold tracking-tighter text-balance sm:text-7xl lg:text-8xl">
-            Websites that feel
-            {/* Own line: the slot is sized for the longest word, so centring
-                it there keeps short words from leaving a gap mid-sentence. */}
-            <span className="block">
-              <FlipWords words={WORDS} className="text-center text-brand" />
-            </span>
-          </h1>
-        </BlurFade>
+        <h1 className="mt-6 text-5xl font-bold tracking-tighter text-balance sm:text-7xl lg:text-8xl">
+          Websites that feel
+          {/* Own line: the slot is sized for the longest word, so centring
+              it there keeps short words from leaving a gap mid-sentence. */}
+          <span className="block">
+            <FlipWords words={WORDS} className="text-center text-brand" />
+          </span>
+        </h1>
 
-        <BlurFade delay={0.2}>
-          <p className="mx-auto mt-8 max-w-2xl text-lg text-pretty text-muted-foreground sm:text-xl">
-            Drag in a section, pick a motion preset, publish. Lumen writes the
-            clean, fast code you would have written — and keeps it responsive on
-            every screen.
-          </p>
-        </BlurFade>
+        <p className="mx-auto mt-8 max-w-2xl text-lg text-pretty text-muted-foreground sm:text-xl">
+          Drag in a section, pick a motion preset, publish. Lumen writes the
+          clean, fast code you would have written — and keeps it responsive on
+          every screen.
+        </p>
 
         <BlurFade delay={0.3}>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

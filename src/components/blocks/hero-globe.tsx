@@ -64,22 +64,18 @@ export function HeroGlobe() {
             </a>
           </BlurFade>
 
-          <BlurFade delay={0.1}>
-            <h1 className="mt-8 text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
-              Deploy once. Run{" "}
-              <span className="bg-gradient-to-r from-brand-from via-brand-via to-brand-to bg-clip-text text-transparent">
-                next to every user.
-              </span>
-            </h1>
-          </BlurFade>
+          <h1 className="mt-8 text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
+            Deploy once. Run{" "}
+            <span className="bg-gradient-to-r from-brand-from via-brand-via to-brand-to bg-clip-text text-transparent">
+              next to every user.
+            </span>
+          </h1>
 
-          <BlurFade delay={0.2}>
-            <p className="mt-6 text-lg text-pretty text-muted-foreground">
-              Orbit pushes your app, data and cache to 42 regions in a single
-              command, then routes every request to the closest one. No servers
-              to size, no regions to pick.
-            </p>
-          </BlurFade>
+          <p className="mt-6 text-lg text-pretty text-muted-foreground">
+            Orbit pushes your app, data and cache to 42 regions in a single
+            command, then routes every request to the closest one. No servers
+            to size, no regions to pick.
+          </p>
 
           <BlurFade delay={0.3}>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

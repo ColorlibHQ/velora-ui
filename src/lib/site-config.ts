@@ -13,5 +13,5 @@ export const siteConfig = {
     "https://github.com/ColorlibHQ/velora-ui",
   tagline: "Free animated React components & landing templates",
   description:
-    "A free, MIT-licensed library of animated shadcn/ui components and complete landing page templates. Built with Next.js 16, Tailwind CSS 4 and Motion — accessible, reduced-motion friendly and tuned for perfect Lighthouse scores.",
+    "A free, MIT-licensed library of animated shadcn/ui components and complete landing page templates. Built with Next.js 16, Tailwind CSS 4 and Motion — accessible, reduced-motion friendly and light — most components weigh under 3 KB.",
 } as const;
