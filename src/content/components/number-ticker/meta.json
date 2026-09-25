@@ -1,0 +1,14 @@
+{
+  "title": "Number Ticker",
+  "description": "Springs a number up when it enters the viewport.",
+  "category": "Text",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Navbar Menu",
+  "description": "Hover-driven menu whose pill and panel morph between items.",
+  "category": "Navigation",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

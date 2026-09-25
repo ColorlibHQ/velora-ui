@@ -3,17 +3,28 @@ import path from "node:path";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChevronLeftIcon } from "lucide-react";
-import { codeToHtml } from "shiki";
+import { ChevronLeftIcon, ChevronRightIcon, SparklesIcon } from "lucide-react";
 
+import { componentExamples } from "@/content/components";
+import { ComponentPreview } from "@/components/docs/component-preview";
 import { CopyButton } from "@/components/docs/copy-button";
-import { componentDemos } from "@/components/demo/component-demos";
-import { componentsMeta } from "@/lib/components-meta";
+import { InstallTabs } from "@/components/docs/install-tabs";
+import { PropsTable } from "@/components/docs/props-table";
+import { componentProps } from "@/lib/component-props";
 import componentStats from "@/lib/component-stats.json";
+import { componentsMeta } from "@/lib/components-meta";
+import { buildCopyPrompt } from "@/lib/copy-prompt";
+import { highlight } from "@/lib/highlight";
+import { manualCss } from "@/lib/registry-css";
 import { siteConfig } from "@/lib/site-config";
 
 const REGISTRY_BASE =
   process.env.NEXT_PUBLIC_REGISTRY_URL ?? `${siteConfig.url}/r`;
+
+const stats = componentStats as Record<
+  string,
+  { bytes: number; gzip: number; deps: string[] }
+>;
 
 export function generateStaticParams() {
   return componentsMeta.map((c) => ({ slug: c.slug }));
@@ -34,97 +45,214 @@ export async function generateMetadata({
   };
 }
 
+const readExample = (slug: string, name: string) =>
+  fs.readFile(
+    path.join(process.cwd(), "src/content/components", slug, "examples", `${name}.tsx`),
+    "utf8"
+  );
+
+function SectionHeading({ id, children }: { id: string; children: React.ReactNode }) {
+  return (
+    <h2 id={id} className="mt-14 mb-4 scroll-mt-24 text-xl font-semibold tracking-tight">
+      <a href={`#${id}`} className="hover:underline hover:underline-offset-4">
+        {children}
+      </a>
+    </h2>
+  );
+}
+
 export default async function ComponentPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const meta = componentsMeta.find((c) => c.slug === slug);
+  const index = componentsMeta.findIndex((c) => c.slug === slug);
+  const meta = componentsMeta[index];
   if (!meta) notFound();
 
-  const installCommand = `npx shadcn@latest add ${REGISTRY_BASE}/${slug}.json`;
+  const registryUrl = `${REGISTRY_BASE}/${slug}.json`;
+  const target = `components/velora/${slug}.tsx`;
   const source = await fs.readFile(
     path.join(process.cwd(), "src/components/velora", `${slug}.tsx`),
     "utf8"
   );
-  const highlighted = await codeToHtml(source, {
-    lang: "tsx",
-    theme: "github-dark-default",
-  });
+  const css = manualCss(slug);
+  const props = componentProps[slug];
+
+  const examples = await Promise.all(
+    meta.examples.map(async (ex) => {
+      const code = await readExample(slug, ex.name);
+      const Demo = componentExamples[slug]?.find((e) => e.name === ex.name)?.Component;
+      return { ...ex, code, html: await highlight(code), Demo };
+    })
+  );
+  const [primary, ...more] = examples;
+
+  const [sourceHtml, cssHtml, typeHtml] = await Promise.all([
+    highlight(source),
+    css ? highlight(css, "css") : null,
+    Promise.all(
+      (props?.types ?? []).map(async (t) => ({
+        name: t.name,
+        html: await highlight(t.source, "ts"),
+      }))
+    ),
+  ]);
+
+  const prompt = buildCopyPrompt({ meta, props, registryUrl, example: primary.code });
+  const s = stats[slug];
+  const chips = [
+    s && `${(s.gzip / 1024).toFixed(1)} KB gzipped`,
+    s && (s.deps.length === 0 ? "Zero dependencies" : `Deps: ${s.deps.join(", ")}`),
+    meta.a11y && "Reduced-motion safe",
+    "Base UI & Radix compatible",
+  ].filter(Boolean) as string[];
+
+  const prev = componentsMeta[index - 1];
+  const next = componentsMeta[index + 1];
+  const hasProps = !!props?.components.length;
 
   return (
     <article>
-      <Link
-        href="/components"
-        className="mb-6 inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
-      >
-        <ChevronLeftIcon className="size-4" />
-        All components
-      </Link>
+      <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
+        <ol className="flex flex-wrap items-center gap-1.5">
+          <li>
+            <Link href="/components" className="transition-colors hover:text-foreground">
+              Components
+            </Link>
+          </li>
+          <li aria-hidden>/</li>
+          <li>{meta.category}</li>
+        </ol>
+      </nav>
 
       <h1 className="text-3xl font-semibold tracking-tight">{meta.title}</h1>
       <p className="mt-2 max-w-2xl text-muted-foreground">{meta.description}</p>
 
       {/* Receipts — generated at build time by scripts/component-stats.mjs */}
-      {(() => {
-        const stats = (
-          componentStats as Record<
-            string,
-            { bytes: number; gzip: number; deps: string[] }
+      <ul className="mt-5 flex flex-wrap gap-2">
+        {chips.map((chip) => (
+          <li
+            key={chip}
+            className="rounded-full border border-border/60 bg-card px-3 py-1 text-xs font-medium text-muted-foreground"
           >
-        )[slug];
-        if (!stats) return null;
-        const chips = [
-          `${(stats.gzip / 1024).toFixed(1)} KB gzipped`,
-          stats.deps.length === 0
-            ? "Zero dependencies"
-            : `Deps: ${stats.deps.join(", ")}`,
-          "Reduced-motion safe",
-          "Base UI & Radix compatible",
-        ];
-        return (
-          <div className="mt-5 flex flex-wrap gap-2">
-            {chips.map((chip) => (
-              <span
-                key={chip}
-                className="rounded-full border border-border/60 bg-card px-3 py-1 text-xs font-medium text-muted-foreground"
-              >
-                {chip}
-              </span>
+            {chip}
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        <CopyButton text={prompt} label="Copy prompt for AI agents">
+          Copy prompt
+        </CopyButton>
+        <a
+          href={`https://v0.app/chat/api/open?url=${encodeURIComponent(registryUrl)}`}
+          target="_blank"
+          rel="noopener"
+          className="inline-flex h-8 items-center gap-1.5 rounded-md border bg-card px-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <SparklesIcon className="size-4" />
+          Open in v0
+        </a>
+      </div>
+
+      <ComponentPreview
+        className="mt-8"
+        title={meta.title}
+        code={primary.code}
+        highlighted={primary.html}
+      >
+        {primary.Demo ? <primary.Demo /> : null}
+      </ComponentPreview>
+
+      <SectionHeading id="installation">Installation</SectionHeading>
+      <InstallTabs
+        registryUrl={registryUrl}
+        dependencies={meta.dependencies}
+        target={target}
+        source={source}
+        sourceHtml={sourceHtml}
+        css={css}
+        cssHtml={cssHtml}
+      />
+
+      {more.length > 0 && (
+        <>
+          <SectionHeading id="examples">Examples</SectionHeading>
+          <div className="space-y-12">
+            {more.map((ex) => (
+              <section key={ex.name} aria-labelledby={`example-${ex.name}`}>
+                <h3 id={`example-${ex.name}`} className="font-semibold">
+                  {ex.title}
+                </h3>
+                {ex.description && (
+                  <p className="mt-1 text-sm text-muted-foreground">{ex.description}</p>
+                )}
+                <ComponentPreview
+                  className="mt-4"
+                  title={`${meta.title}: ${ex.title}`}
+                  code={ex.code}
+                  highlighted={ex.html}
+                >
+                  {ex.Demo ? <ex.Demo /> : null}
+                </ComponentPreview>
+              </section>
             ))}
           </div>
-        );
-      })()}
-
-      {/* Preview */}
-      <div className="relative mt-8 flex min-h-80 items-center justify-center overflow-hidden rounded-2xl border bg-background p-8">
-        {componentDemos[slug] ?? (
-          <p className="text-sm text-muted-foreground">Preview coming soon</p>
-        )}
-      </div>
-
-      {/* Install */}
-      <h2 className="mt-12 text-lg font-semibold">Installation</h2>
-      <div className="mt-3 flex items-center justify-between gap-3 rounded-xl border bg-neutral-950 px-4 py-3 font-mono text-sm text-neutral-200">
-        <code className="truncate">{installCommand}</code>
-        <CopyButton text={installCommand} className="border-white/15 bg-white/5" />
-      </div>
-      {meta.dependencies.length > 0 && (
-        <p className="mt-3 text-sm text-muted-foreground">
-          Installs with: {meta.dependencies.join(", ")}
-        </p>
+        </>
       )}
 
-      {/* Source */}
-      <div className="mt-12 flex items-center justify-between">
-        <h2 className="text-lg font-semibold">Source</h2>
-        <CopyButton text={source} />
-      </div>
-      <div
-        className="mt-3 overflow-x-auto rounded-xl border text-sm [&_pre]:max-h-[36rem] [&_pre]:overflow-auto [&_pre]:p-5"
-        dangerouslySetInnerHTML={{ __html: highlighted }}
-      />
+      {hasProps && (
+        <>
+          <SectionHeading id="props">Props</SectionHeading>
+          <PropsTable doc={props} highlightedTypes={typeHtml} />
+        </>
+      )}
+
+      {meta.a11y && (
+        <>
+          <SectionHeading id="accessibility">Accessibility</SectionHeading>
+          <dl className="divide-y rounded-xl border text-sm">
+            {[
+              ["Reduced motion", meta.a11y.motion],
+              ["Keyboard", meta.a11y.keyboard ?? "Decorative — nothing to operate."],
+              ["Screen readers", meta.a11y.screenReader],
+            ].map(([term, detail]) => (
+              <div key={term} className="grid gap-1 px-4 py-3 sm:grid-cols-[10rem_1fr]">
+                <dt className="font-medium">{term}</dt>
+                <dd className="text-muted-foreground">{detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </>
+      )}
+
+      <nav
+        aria-label="More components"
+        className="mt-16 flex items-center justify-between gap-4 border-t pt-6 text-sm"
+      >
+        {prev ? (
+          <Link
+            href={`/components/${prev.slug}`}
+            className="inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ChevronLeftIcon className="size-4" />
+            {prev.title}
+          </Link>
+        ) : (
+          <span />
+        )}
+        {next && (
+          <Link
+            href={`/components/${next.slug}`}
+            className="inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground"
+          >
+            {next.title}
+            <ChevronRightIcon className="size-4" />
+          </Link>
+        )}
+      </nav>
     </article>
   );
 }

@@ -1,0 +1,12 @@
+{
+  "title": "Grid & Dot Pattern",
+  "description": "SVG grid and dot backdrops with maskable depth.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Text Highlighter",
+  "description": "Marker-pen sweep that draws in when the phrase scrolls into view.",
+  "category": "Text",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Compare Slider",
+  "description": "Before/after wipe with a keyboard-accessible divider.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

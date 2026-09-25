@@ -1,0 +1,12 @@
+{
+  "title": "Ripple Button",
+  "description": "Expands a ripple from the exact point you pressed.",
+  "category": "Buttons",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

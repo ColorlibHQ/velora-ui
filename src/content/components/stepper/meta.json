@@ -1,0 +1,14 @@
+{
+  "title": "Stepper",
+  "description": "Progress indicator for multi-step forms and checkouts.",
+  "category": "Forms",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

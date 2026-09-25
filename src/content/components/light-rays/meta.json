@@ -1,0 +1,12 @@
+{
+  "title": "Light Rays",
+  "description": "God rays fanning down from the top of a section.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

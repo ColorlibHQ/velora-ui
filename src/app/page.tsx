@@ -23,7 +23,7 @@ import { ActivityList } from "@/components/demo/activity-list";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { HeroMockup } from "@/components/demo/hero-mockup";
-import { IntegrationsBeam } from "@/components/demo/integrations-beam";
+import IntegrationsBeam from "@/content/components/animated-beam/examples/default";
 import { AnimatedGradientText } from "@/components/velora/animated-gradient-text";
 import { AuroraBackground } from "@/components/velora/aurora-background";
 import { AvatarCircles } from "@/components/velora/avatar-circles";

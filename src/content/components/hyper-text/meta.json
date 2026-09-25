@@ -1,0 +1,12 @@
+{
+  "title": "Hyper Text",
+  "description": "Scrambles through letters and resolves into the real text.",
+  "category": "Text",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

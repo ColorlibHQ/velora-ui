@@ -1,0 +1,12 @@
+{
+  "title": "Browser Mockup",
+  "description": "Browser window frame for product screenshots.",
+  "category": "Mockups",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

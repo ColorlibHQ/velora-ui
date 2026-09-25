@@ -1,0 +1,14 @@
+{
+  "title": "Animated Tooltip",
+  "description": "Avatar row with springy name tooltips on hover.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

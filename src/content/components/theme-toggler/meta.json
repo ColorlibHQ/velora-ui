@@ -1,0 +1,12 @@
+{
+  "title": "Theme Toggler",
+  "description": "Wipes the new theme in as a circle using View Transitions.",
+  "category": "Buttons",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

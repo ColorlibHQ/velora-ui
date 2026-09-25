@@ -1,0 +1,14 @@
+{
+  "title": "Parallax Grid",
+  "description": "Gallery columns drifting at different rates for depth.",
+  "category": "Scroll",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

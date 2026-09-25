@@ -1,0 +1,12 @@
+{
+  "title": "Direction Aware Hover",
+  "description": "Overlay enters from the edge the cursor actually crossed.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

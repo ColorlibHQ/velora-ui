@@ -1,0 +1,12 @@
+{
+  "title": "Moving Border",
+  "description": "A light laps the button's border via offset-path.",
+  "category": "Buttons",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

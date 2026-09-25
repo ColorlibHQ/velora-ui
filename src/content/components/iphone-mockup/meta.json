@@ -1,0 +1,12 @@
+{
+  "title": "iPhone Mockup",
+  "description": "iPhone frame with dynamic island — pure CSS.",
+  "category": "Mockups",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

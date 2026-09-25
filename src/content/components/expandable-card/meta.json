@@ -1,0 +1,14 @@
+{
+  "title": "Expandable Card",
+  "description": "Expands into a centred panel with shared-layout transitions.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

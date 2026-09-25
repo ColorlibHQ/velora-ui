@@ -1,0 +1,12 @@
+{
+  "title": "Avatar Circles",
+  "description": "Stacked initials avatars with a +N badge — zero images.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

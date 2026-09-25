@@ -1,0 +1,12 @@
+{
+  "title": "Marquee",
+  "description": "Seamless scrolling loop — horizontal, vertical, hover-pause.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Tweet Card",
+  "description": "Static social-proof card — props, not an API call.",
+  "category": "Social Proof",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

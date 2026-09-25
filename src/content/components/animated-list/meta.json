@@ -1,0 +1,14 @@
+{
+  "title": "Animated List",
+  "description": "Looping feed that springs each item in, newest on top.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Glare Card",
+  "description": "Sheet of light tracking the cursor, like a foil trading card.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

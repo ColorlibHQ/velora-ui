@@ -1,0 +1,12 @@
+{
+  "title": "Animated Gradient Text",
+  "description": "Brand gradient sweeping continuously through text.",
+  "category": "Text",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

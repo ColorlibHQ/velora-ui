@@ -1,0 +1,12 @@
+{
+  "title": "Morphing Text",
+  "description": "Blurs one phrase out as the next resolves in.",
+  "category": "Text",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

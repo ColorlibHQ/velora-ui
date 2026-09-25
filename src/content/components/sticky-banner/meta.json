@@ -1,0 +1,12 @@
+{
+  "title": "Sticky Banner",
+  "description": "Dismissible announcement bar pinned above the header.",
+  "category": "Navigation",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

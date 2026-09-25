@@ -1,0 +1,14 @@
+{
+  "title": "Magnetic Button",
+  "description": "Leans toward the cursor and springs back on leave.",
+  "category": "Buttons",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

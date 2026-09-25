@@ -1,0 +1,14 @@
+{
+  "title": "Border Beam",
+  "description": "A beam of light traveling around any border.",
+  "category": "Effects",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

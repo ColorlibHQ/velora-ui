@@ -1,0 +1,14 @@
+{
+  "title": "Scroll Progress",
+  "description": "Gradient page-progress bar pinned to the top.",
+  "category": "Scroll",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Dock",
+  "description": "macOS-style dock with cursor magnification.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

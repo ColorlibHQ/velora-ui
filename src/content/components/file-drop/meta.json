@@ -1,0 +1,12 @@
+{
+  "title": "File Drop",
+  "description": "Upload zone that lifts and glows while a file is over it.",
+  "category": "Forms",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

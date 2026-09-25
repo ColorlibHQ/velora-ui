@@ -1,0 +1,12 @@
+{
+  "title": "File Tree",
+  "description": "Collapsible tree for documenting project structure.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

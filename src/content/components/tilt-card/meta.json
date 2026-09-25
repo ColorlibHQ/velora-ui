@@ -1,0 +1,14 @@
+{
+  "title": "Tilt Card",
+  "description": "3D perspective tilt that tracks the cursor.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

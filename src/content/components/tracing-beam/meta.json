@@ -1,0 +1,14 @@
+{
+  "title": "Tracing Beam",
+  "description": "Gradient line that draws itself down long-form content.",
+  "category": "Scroll",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

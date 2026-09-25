@@ -1,0 +1,12 @@
+{
+  "title": "Orbiting Circles",
+  "description": "Items evenly distributed on rotating orbital rings.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

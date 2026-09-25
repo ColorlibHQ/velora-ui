@@ -1,0 +1,12 @@
+{
+  "title": "Ripple",
+  "description": "Concentric rings pulsing outward — calm 'listening' backdrop.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Text Reveal",
+  "description": "Word-by-word blur reveal on scroll.",
+  "category": "Text",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

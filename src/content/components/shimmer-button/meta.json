@@ -1,0 +1,12 @@
+{
+  "title": "Shimmer Button",
+  "description": "CTA button with a continuous light sweep.",
+  "category": "Buttons",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

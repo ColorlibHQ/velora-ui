@@ -1,0 +1,14 @@
+{
+  "title": "Lamp",
+  "description": "A glowing lamp-line header that expands into view.",
+  "category": "Backgrounds",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

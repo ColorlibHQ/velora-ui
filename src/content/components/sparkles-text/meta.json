@@ -1,0 +1,14 @@
+{
+  "title": "Sparkles Text",
+  "description": "Twinkling stars orbiting your headline.",
+  "category": "Text",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

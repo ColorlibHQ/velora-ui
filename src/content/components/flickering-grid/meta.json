@@ -1,0 +1,12 @@
+{
+  "title": "Flickering Grid",
+  "description": "Grid of squares fading in and out on staggered timers.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

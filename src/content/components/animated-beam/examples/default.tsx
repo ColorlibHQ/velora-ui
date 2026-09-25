@@ -28,7 +28,7 @@ function Node({
       ref={ref}
       className={cn(
         "z-10 flex size-13 items-center justify-center rounded-full border bg-card shadow-lg [&_svg]:size-5",
-        className
+        className,
       )}
     >
       {children}
@@ -36,11 +36,8 @@ function Node({
   );
 }
 
-/**
- * Six service nodes beaming into a central hub — the classic
- * integrations diagram, built from <AnimatedBeam />.
- */
-export function IntegrationsBeam({ className }: { className?: string }) {
+/** Six service nodes beaming into a central hub. */
+export default function AnimatedBeamDemo() {
   const containerRef = useRef<HTMLDivElement>(null);
   const centerRef = useRef<HTMLDivElement>(null);
   const left1 = useRef<HTMLDivElement>(null);
@@ -53,10 +50,7 @@ export function IntegrationsBeam({ className }: { className?: string }) {
   return (
     <div
       ref={containerRef}
-      className={cn(
-        "relative flex h-96 w-full items-center justify-between px-2 sm:px-8",
-        className
-      )}
+      className="relative flex h-80 w-full items-center justify-between px-2 sm:px-8"
     >
       <div className="flex h-full flex-col justify-between py-6">
         <Node ref={left1}>
@@ -89,12 +83,48 @@ export function IntegrationsBeam({ className }: { className?: string }) {
         </Node>
       </div>
 
-      <AnimatedBeam containerRef={containerRef} fromRef={left1} toRef={centerRef} curvature={-60} />
-      <AnimatedBeam containerRef={containerRef} fromRef={left2} toRef={centerRef} delay={1} />
-      <AnimatedBeam containerRef={containerRef} fromRef={left3} toRef={centerRef} curvature={60} delay={2} />
-      <AnimatedBeam containerRef={containerRef} fromRef={right1} toRef={centerRef} curvature={-60} reverse delay={0.5} />
-      <AnimatedBeam containerRef={containerRef} fromRef={right2} toRef={centerRef} reverse delay={1.5} />
-      <AnimatedBeam containerRef={containerRef} fromRef={right3} toRef={centerRef} curvature={60} reverse delay={2.5} />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={left1}
+        toRef={centerRef}
+        curvature={-60}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={left2}
+        toRef={centerRef}
+        delay={1}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={left3}
+        toRef={centerRef}
+        curvature={60}
+        delay={2}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={right1}
+        toRef={centerRef}
+        curvature={-60}
+        reverse
+        delay={0.5}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={right2}
+        toRef={centerRef}
+        reverse
+        delay={1.5}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={right3}
+        toRef={centerRef}
+        curvature={60}
+        reverse
+        delay={2.5}
+      />
     </div>
   );
 }

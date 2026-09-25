@@ -1,0 +1,12 @@
+{
+  "title": "Confetti",
+  "description": "Dependency-free confetti burst, fired from anywhere.",
+  "category": "Buttons",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

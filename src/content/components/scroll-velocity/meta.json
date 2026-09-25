@@ -1,0 +1,14 @@
+{
+  "title": "Scroll Velocity",
+  "description": "Marquee whose speed and direction follow your scrolling.",
+  "category": "Scroll",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

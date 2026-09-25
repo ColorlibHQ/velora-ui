@@ -1,0 +1,14 @@
+{
+  "title": "Typewriter",
+  "description": "Types, holds and deletes through a list of words.",
+  "category": "Text",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Terminal",
+  "description": "A terminal window that types its lines in view.",
+  "category": "Mockups",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

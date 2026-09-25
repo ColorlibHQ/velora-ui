@@ -1,0 +1,12 @@
+{
+  "title": "Spotlight Card",
+  "description": "A radial glow that follows the cursor across the card.",
+  "category": "Cards & Layout",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

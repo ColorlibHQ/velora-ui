@@ -1,0 +1,14 @@
+{
+  "title": "Flip Words",
+  "description": "Cycles words with a springy blur-flip transition.",
+  "category": "Text",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

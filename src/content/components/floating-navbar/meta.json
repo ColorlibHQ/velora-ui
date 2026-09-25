@@ -1,0 +1,12 @@
+{
+  "title": "Floating Navbar",
+  "description": "Hides on scroll down, returns the moment you scroll up.",
+  "category": "Navigation",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

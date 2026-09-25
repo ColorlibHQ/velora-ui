@@ -5,21 +5,28 @@ import { CheckIcon, CopyIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+/** Icon button by default; pass `children` for a labelled text button. */
 export function CopyButton({
   text,
+  label = "Copy to clipboard",
   className,
+  children,
 }: {
   text: string;
+  label?: string;
   className?: string;
+  children?: React.ReactNode;
 }) {
   const [copied, setCopied] = useState(false);
 
   return (
     <button
       type="button"
-      aria-label="Copy to clipboard"
+      aria-label={children ? undefined : label}
+      title={children ? undefined : label}
       className={cn(
-        "inline-flex size-8 cursor-pointer items-center justify-center rounded-md border bg-card text-muted-foreground transition-colors hover:text-foreground",
+        "inline-flex h-8 cursor-pointer items-center justify-center gap-1.5 rounded-md border bg-card text-muted-foreground transition-colors hover:text-foreground",
+        children ? "px-3 text-sm font-medium" : "w-8",
         className
       )}
       onClick={async () => {
@@ -33,6 +40,10 @@ export function CopyButton({
       ) : (
         <CopyIcon className="size-4" />
       )}
+      {children}
+      <span className="sr-only" aria-live="polite">
+        {copied ? "Copied" : ""}
+      </span>
     </button>
   );
 }

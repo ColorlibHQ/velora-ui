@@ -1,0 +1,12 @@
+{
+  "title": "Rainbow Button",
+  "description": "CTA cycling the brand ramp, with a matching glow beneath.",
+  "category": "Buttons",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Logo Cloud",
+  "description": "Customer logos muted until hovered, so they read as texture.",
+  "category": "Social Proof",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

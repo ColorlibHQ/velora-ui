@@ -1,0 +1,2299 @@
+{
+  "aurora-background": {
+    "components": [
+      {
+        "name": "AuroraBackground",
+        "description": "Velora's signature animated aurora backdrop. Absolutely positioned — place inside a `relative overflow-hidden` section.",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "intensity",
+            "type": "\"subtle\" | \"medium\" | \"vivid\"",
+            "required": false,
+            "default": "\"medium\"",
+            "description": "Overall opacity of the aurora blobs"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "background-beams": {
+    "components": [
+      {
+        "name": "BackgroundBeams",
+        "description": "Decorative light beams flowing along curved paths — a full-section background. Place inside a `relative overflow-hidden` container.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "count",
+            "type": "number",
+            "required": false,
+            "default": "7",
+            "description": "Number of beams"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "flickering-grid": {
+    "components": [
+      {
+        "name": "FlickeringGrid",
+        "description": "Grid of squares that fade in and out on staggered timers. Rendered as a plain DOM grid with CSS animation delays — no canvas, no dependency.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "squareSize",
+            "type": "number",
+            "required": false,
+            "default": "4",
+            "description": "Square size in px"
+          },
+          {
+            "name": "gap",
+            "type": "number",
+            "required": false,
+            "default": "6",
+            "description": "Gap between squares in px"
+          },
+          {
+            "name": "columns",
+            "type": "number",
+            "required": false,
+            "default": "40",
+            "description": "Number of columns and rows to render"
+          },
+          {
+            "name": "rows",
+            "type": "number",
+            "required": false,
+            "default": "20"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "grid-pattern": {
+    "components": [
+      {
+        "name": "GridPattern",
+        "extends": [
+          "React.SVGProps<SVGSVGElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "width",
+            "type": "number",
+            "required": false,
+            "default": "40"
+          },
+          {
+            "name": "height",
+            "type": "number",
+            "required": false,
+            "default": "40"
+          },
+          {
+            "name": "x",
+            "type": "number",
+            "required": false,
+            "default": "-1"
+          },
+          {
+            "name": "y",
+            "type": "number",
+            "required": false,
+            "default": "-1"
+          },
+          {
+            "name": "squares",
+            "type": "Array<[number, number]>",
+            "required": false,
+            "description": "Cells to fill, as [col, row] pairs"
+          },
+          {
+            "name": "strokeDasharray",
+            "type": "string",
+            "required": false,
+            "default": "\"0\""
+          }
+        ]
+      },
+      {
+        "name": "DotPattern",
+        "extends": [
+          "React.SVGProps<SVGSVGElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "width",
+            "type": "number",
+            "required": false,
+            "default": "20"
+          },
+          {
+            "name": "height",
+            "type": "number",
+            "required": false,
+            "default": "20"
+          },
+          {
+            "name": "cx",
+            "type": "number",
+            "required": false,
+            "default": "1"
+          },
+          {
+            "name": "cy",
+            "type": "number",
+            "required": false,
+            "default": "1"
+          },
+          {
+            "name": "cr",
+            "type": "number",
+            "required": false,
+            "default": "1"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "lamp": {
+    "components": [
+      {
+        "name": "Lamp",
+        "description": "A glowing lamp-line header. The light cone expands as it scrolls into view; children render beneath the glow.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "light-rays": {
+    "components": [
+      {
+        "name": "LightRays",
+        "description": "God rays fanning down from the top of a section. Pure CSS gradients on skewed elements — nothing paints per frame.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "count",
+            "type": "number",
+            "required": false,
+            "default": "9",
+            "description": "Number of rays fanning out from the origin"
+          },
+          {
+            "name": "spread",
+            "type": "number",
+            "required": false,
+            "default": "70",
+            "description": "Total spread of the fan, in degrees"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "meteors": {
+    "components": [
+      {
+        "name": "Meteors",
+        "description": "Falling meteor streaks. Values are derived from the index (not random) so server and client markup always match.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "number",
+            "type": "number",
+            "required": false,
+            "default": "12"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "particles": {
+    "components": [
+      {
+        "name": "Particles",
+        "description": "Drifting, twinkling particle field on a lightweight canvas. Renders a single static frame when reduced motion is preferred.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "quantity",
+            "type": "number",
+            "required": false,
+            "default": "60"
+          },
+          {
+            "name": "color",
+            "type": "string",
+            "required": false,
+            "description": "\"r, g, b\" string. Defaults to the inherited text color, so it adapts to the theme."
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "retro-grid": {
+    "components": [
+      {
+        "name": "RetroGrid",
+        "description": "Scrolling perspective grid backdrop. Place inside a `relative overflow-hidden` section.",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "angle",
+            "type": "number",
+            "required": false,
+            "default": "55",
+            "description": "Perspective angle of the grid plane"
+          },
+          {
+            "name": "cellSize",
+            "type": "number",
+            "required": false,
+            "default": "56"
+          },
+          {
+            "name": "opacity",
+            "type": "number",
+            "required": false,
+            "default": "0.4"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "ripple": {
+    "components": [
+      {
+        "name": "Ripple",
+        "description": "Concentric rings pulsing outward from the centre — a calm backdrop for \"connected\" or \"listening\" states.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "circles",
+            "type": "number",
+            "required": false,
+            "default": "6",
+            "description": "Number of concentric rings"
+          },
+          {
+            "name": "baseSize",
+            "type": "number",
+            "required": false,
+            "default": "180",
+            "description": "Diameter of the innermost ring, in px"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "animated-gradient-text": {
+    "components": [
+      {
+        "name": "AnimatedGradientText",
+        "extends": [
+          "React.HTMLAttributes<HTMLSpanElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "flip-words": {
+    "components": [
+      {
+        "name": "FlipWords",
+        "description": "Cycles through words with a blur-flip transition.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "words",
+            "type": "string[]",
+            "required": true
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "required": false,
+            "default": "2600",
+            "description": "ms each word stays on screen"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "hyper-text": {
+    "components": [
+      {
+        "name": "HyperText",
+        "description": "Scrambles through random letters and resolves into the real text, one character at a time. Renders the final text on the server.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "frame",
+            "type": "number",
+            "required": false,
+            "default": "40",
+            "description": "Milliseconds between scramble frames"
+          },
+          {
+            "name": "onHover",
+            "type": "boolean",
+            "required": false,
+            "default": "false",
+            "description": "Scramble on hover instead of on mount"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "morphing-text": {
+    "components": [
+      {
+        "name": "MorphingText",
+        "description": "Blurs one phrase out while the next resolves in, so the two appear to melt through each other. Pure CSS filters — no runtime dependency.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "texts",
+            "type": "string[]",
+            "required": true
+          },
+          {
+            "name": "hold",
+            "type": "number",
+            "required": false,
+            "default": "2",
+            "description": "Seconds each phrase is held at full clarity"
+          },
+          {
+            "name": "morph",
+            "type": "number",
+            "required": false,
+            "default": "0.8",
+            "description": "Seconds spent blurring between phrases"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "number-ticker": {
+    "components": [
+      {
+        "name": "NumberTicker",
+        "extends": [
+          "React.HTMLAttributes<HTMLSpanElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "value",
+            "type": "number",
+            "required": true
+          },
+          {
+            "name": "startValue",
+            "type": "number",
+            "required": false,
+            "default": "0"
+          },
+          {
+            "name": "delay",
+            "type": "number",
+            "required": false,
+            "default": "0",
+            "description": "Seconds to wait after entering the viewport"
+          },
+          {
+            "name": "decimalPlaces",
+            "type": "number",
+            "required": false,
+            "default": "0"
+          },
+          {
+            "name": "prefix",
+            "type": "string",
+            "required": false,
+            "default": "\"\""
+          },
+          {
+            "name": "suffix",
+            "type": "string",
+            "required": false,
+            "default": "\"\""
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "sparkles-text": {
+    "components": [
+      {
+        "name": "SparklesText",
+        "description": "Text with twinkling stars around it. Positions are derived from the index so server and client markup match.",
+        "extends": [
+          "React.HTMLAttributes<HTMLSpanElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "count",
+            "type": "number",
+            "required": false,
+            "default": "9",
+            "description": "Number of sparkles"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "text-highlighter": {
+    "components": [
+      {
+        "name": "TextHighlighter",
+        "description": "Marker-pen sweep that draws behind the text when it scrolls into view. Useful for the one phrase in a paragraph that has to land.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "color",
+            "type": "string",
+            "required": false,
+            "default": "\"color-mix(in oklch, var(--brand) 30%, transparent)\"",
+            "description": "Any CSS colour; defaults to a translucent brand wash"
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "required": false,
+            "default": "0.7",
+            "description": "Seconds for the sweep"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "text-reveal": {
+    "components": [
+      {
+        "name": "TextReveal",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "text",
+            "type": "string",
+            "required": true,
+            "description": "Plain text — revealed word by word"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "as",
+            "type": "\"h1\" | \"h2\" | \"h3\" | \"p\" | \"span\"",
+            "required": false,
+            "default": "\"span\""
+          },
+          {
+            "name": "delay",
+            "type": "number",
+            "required": false,
+            "default": "0"
+          },
+          {
+            "name": "stagger",
+            "type": "number",
+            "required": false,
+            "default": "0.045",
+            "description": "Seconds between each word"
+          },
+          {
+            "name": "once",
+            "type": "boolean",
+            "required": false,
+            "default": "true"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "text-shimmer": {
+    "components": [
+      {
+        "name": "TextShimmer",
+        "description": "A soft light sweep across the text — great for \"AI thinking\" states and subtle emphasis.",
+        "extends": [
+          "React.HTMLAttributes<HTMLSpanElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "typewriter": {
+    "components": [
+      {
+        "name": "Typewriter",
+        "extends": [
+          "React.HTMLAttributes<HTMLSpanElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "words",
+            "type": "string[]",
+            "required": true
+          },
+          {
+            "name": "typeSpeed",
+            "type": "number",
+            "required": false,
+            "default": "70",
+            "description": "ms per typed character"
+          },
+          {
+            "name": "deleteSpeed",
+            "type": "number",
+            "required": false,
+            "default": "40",
+            "description": "ms per deleted character"
+          },
+          {
+            "name": "holdTime",
+            "type": "number",
+            "required": false,
+            "default": "1800",
+            "description": "ms to hold a completed word"
+          },
+          {
+            "name": "loop",
+            "type": "boolean",
+            "required": false,
+            "default": "true"
+          },
+          {
+            "name": "cursor",
+            "type": "boolean",
+            "required": false,
+            "default": "true"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "word-rotate": {
+    "components": [
+      {
+        "name": "WordRotate",
+        "description": "Swaps a single word on a vertical roll. Lighter than Flip Words — no blur, no spring — for headlines that need the effect to stay quiet.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "words",
+            "type": "string[]",
+            "required": true
+          },
+          {
+            "name": "interval",
+            "type": "number",
+            "required": false,
+            "default": "2.5",
+            "description": "Seconds each word is held"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "confetti": {
+    "components": [
+      {
+        "name": "ConfettiButton",
+        "extends": [
+          "React.ButtonHTMLAttributes<HTMLButtonElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "magnetic-button": {
+    "components": [
+      {
+        "name": "MagneticButton",
+        "description": "Button that leans toward the cursor while it is nearby and springs back when the pointer leaves.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "strength",
+            "type": "number",
+            "required": false,
+            "default": "14",
+            "description": "How far the button is allowed to travel toward the cursor, in px"
+          },
+          {
+            "name": "onClick",
+            "type": "() => void",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "moving-border": {
+    "components": [
+      {
+        "name": "MovingBorder",
+        "description": "Button with a light that laps its border, driven by `offset-path`. Zero dependencies — one keyframe does the whole thing.",
+        "extends": [
+          "React.ButtonHTMLAttributes<HTMLButtonElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "duration",
+            "type": "number",
+            "required": false,
+            "default": "4",
+            "description": "Seconds for one lap of the border"
+          },
+          {
+            "name": "size",
+            "type": "number",
+            "required": false,
+            "default": "90",
+            "description": "Length of the travelling light, in px"
+          },
+          {
+            "name": "radius",
+            "type": "number",
+            "required": false,
+            "default": "12",
+            "description": "Corner radius of the border path, in px"
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "rainbow-button": {
+    "components": [
+      {
+        "name": "RainbowButton",
+        "description": "CTA with a colour ramp that cycles through the brand gradient and casts a matching glow beneath it. Zero dependencies — the motion is one keyframe.",
+        "extends": [
+          "React.ButtonHTMLAttributes<HTMLButtonElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "speed",
+            "type": "number",
+            "required": false,
+            "default": "4",
+            "description": "Seconds for one full colour cycle"
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "ripple-button": {
+    "components": [
+      {
+        "name": "RippleButton",
+        "description": "Button that expands a ripple from the exact point you pressed. Ripples are skipped entirely under `prefers-reduced-motion`.",
+        "extends": [
+          "React.ButtonHTMLAttributes<HTMLButtonElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "duration",
+            "type": "number",
+            "required": false,
+            "default": "600",
+            "description": "Milliseconds for a ripple to finish expanding"
+          },
+          {
+            "name": "rippleColor",
+            "type": "string",
+            "required": false,
+            "default": "\"currentColor\"",
+            "description": "Any CSS colour; defaults to a translucent version of the text colour"
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "shimmer-button": {
+    "components": [
+      {
+        "name": "ShimmerButton",
+        "extends": [
+          "React.ButtonHTMLAttributes<HTMLButtonElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "theme-toggler": {
+    "components": [
+      {
+        "name": "ThemeToggler",
+        "description": "Light/dark switch that wipes the new theme in as an expanding circle from the button itself, using the View Transitions API where it exists and falling back to a plain toggle everywhere else.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "isDark",
+            "type": "boolean",
+            "required": true,
+            "description": "Current theme; drives the icon and the accessible label"
+          },
+          {
+            "name": "onToggle",
+            "type": "() => void",
+            "required": true,
+            "description": "Apply the theme change. Called inside a View Transition when supported."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "animated-list": {
+    "components": [
+      {
+        "name": "AnimatedList",
+        "description": "Reveals children one by one, newest on top, then loops. Wrap in a fixed-height container with a bottom mask for a feed effect.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "delay",
+            "type": "number",
+            "required": false,
+            "default": "2000",
+            "description": "ms between items appearing"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "animated-tooltip": {
+    "components": [
+      {
+        "name": "AnimatedTooltip",
+        "description": "Avatar row with springy name tooltips on hover.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "items",
+            "type": "TooltipItem[]",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": [
+      {
+        "name": "TooltipItem",
+        "source": "interface TooltipItem {\n  name: string;\n  role?: string;\n}"
+      }
+    ]
+  },
+  "avatar-circles": {
+    "components": [
+      {
+        "name": "AvatarCircles",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "people",
+            "type": "string[]",
+            "required": true,
+            "description": "Names rendered as initials"
+          },
+          {
+            "name": "extra",
+            "type": "number",
+            "required": false,
+            "description": "\"+N\" badge count"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "bento-grid": {
+    "components": [
+      {
+        "name": "BentoGrid",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "BentoCard",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "background",
+            "type": "React.ReactNode",
+            "required": false,
+            "description": "Visual filling the card behind the text (chart, image, animation…)"
+          },
+          {
+            "name": "icon",
+            "type": "React.ReactNode",
+            "required": false
+          },
+          {
+            "name": "href",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "cta",
+            "type": "string",
+            "required": false,
+            "default": "\"Learn more\""
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "card-stack": {
+    "components": [
+      {
+        "name": "CardStack",
+        "description": "Deck of cards that shuffles the top card to the back. Good for rotating quotes or tips in a fixed-height slot.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "items",
+            "type": "{ id: string | number; content: React.ReactNode }[]",
+            "required": true,
+            "description": "Each entry becomes one card; the first is on top"
+          },
+          {
+            "name": "interval",
+            "type": "number",
+            "required": false,
+            "default": "4",
+            "description": "Seconds between automatic shuffles; 0 disables"
+          },
+          {
+            "name": "offset",
+            "type": "number",
+            "required": false,
+            "default": "12",
+            "description": "Vertical offset per card, in px"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "compare-slider": {
+    "components": [
+      {
+        "name": "CompareSlider",
+        "description": "Before/after wipe with a draggable divider. The handle is a real range input, so it works with arrow keys and screen readers for free.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "before",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "after",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "initial",
+            "type": "number",
+            "required": false,
+            "default": "50",
+            "description": "Starting divider position, 0–100"
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "required": false,
+            "default": "\"Compare before and after\"",
+            "description": "Announced by the slider handle"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "direction-aware-hover": {
+    "components": [
+      {
+        "name": "DirectionAwareHover",
+        "description": "Overlay that enters from the edge the cursor actually crossed and leaves the same way. Zero dependencies — the maths is one arctangent.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "overlay",
+            "type": "React.ReactNode",
+            "required": true,
+            "description": "Slides in from whichever edge the cursor crossed"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "dock": {
+    "components": [
+      {
+        "name": "Dock",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "baseSize",
+            "type": "number",
+            "required": false,
+            "default": "40",
+            "description": "Icon size at rest, px"
+          },
+          {
+            "name": "magnification",
+            "type": "number",
+            "required": false,
+            "default": "64",
+            "description": "Icon size under the cursor, px"
+          },
+          {
+            "name": "distance",
+            "type": "number",
+            "required": false,
+            "default": "140",
+            "description": "Cursor influence radius, px"
+          }
+        ]
+      },
+      {
+        "name": "DockIcon",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "expandable-card": {
+    "components": [
+      {
+        "name": "ExpandableCard",
+        "description": "Card that expands into a centred panel, with the title and media animating between the two positions via a shared layout id.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "title",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "subtitle",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true,
+            "description": "Shown only once the card is expanded"
+          },
+          {
+            "name": "media",
+            "type": "React.ReactNode",
+            "required": false,
+            "description": "Rendered in both the collapsed card and the expanded panel"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "file-tree": {
+    "components": [
+      {
+        "name": "FileTree",
+        "description": "Collapsible file tree for documenting project structure. Renders as nested lists, so it stays readable with CSS off.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "tree",
+            "type": "FileNode[]",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": [
+      {
+        "name": "FileNode",
+        "source": "interface FileNode {\n  name: string;\n  /** Presence of `children` makes the node a folder */\n  children?: FileNode[];\n  /** Folders start open unless this is false */\n  defaultOpen?: boolean;\n}"
+      }
+    ]
+  },
+  "glare-card": {
+    "components": [
+      {
+        "name": "GlareCard",
+        "description": "Card with a sheet of light that tracks the cursor across its surface, like a foil trading card. CSS custom properties do the work — no dependency.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "marquee": {
+    "components": [
+      {
+        "name": "Marquee",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "reverse",
+            "type": "boolean",
+            "required": false,
+            "default": "false",
+            "description": "Reverse the scroll direction"
+          },
+          {
+            "name": "pauseOnHover",
+            "type": "boolean",
+            "required": false,
+            "default": "false",
+            "description": "Pause the animation while hovered"
+          },
+          {
+            "name": "vertical",
+            "type": "boolean",
+            "required": false,
+            "default": "false",
+            "description": "Scroll vertically instead of horizontally"
+          },
+          {
+            "name": "repeat",
+            "type": "number",
+            "required": false,
+            "default": "4",
+            "description": "Number of content copies (keep >=2 for a seamless loop)"
+          },
+          {
+            "name": "fade",
+            "type": "boolean",
+            "required": false,
+            "default": "true",
+            "description": "Fade the edges with a mask"
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "orbiting-circles": {
+    "components": [
+      {
+        "name": "OrbitingCircles",
+        "description": "Evenly distributes children around a circular orbit and rotates them. Place inside a `relative` container; stack multiple instances with different radii for multi-ring layouts.",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "required": false,
+            "default": "20",
+            "description": "Seconds per revolution"
+          },
+          {
+            "name": "radius",
+            "type": "number",
+            "required": false,
+            "default": "160",
+            "description": "Orbit radius in px"
+          },
+          {
+            "name": "reverse",
+            "type": "boolean",
+            "required": false,
+            "default": "false"
+          },
+          {
+            "name": "path",
+            "type": "boolean",
+            "required": false,
+            "default": "true",
+            "description": "Show the orbit ring"
+          },
+          {
+            "name": "iconSize",
+            "type": "number",
+            "required": false,
+            "default": "32",
+            "description": "Diameter of each orbiting item in px"
+          },
+          {
+            "name": "speed",
+            "type": "number",
+            "required": false,
+            "default": "1"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "spotlight-card": {
+    "components": [
+      {
+        "name": "SpotlightCard",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "radius",
+            "type": "number",
+            "required": false,
+            "default": "320",
+            "description": "Radius of the spotlight in px"
+          },
+          {
+            "name": "color",
+            "type": "string",
+            "required": false,
+            "default": "\"color-mix(in oklab, var(--brand) 14%, transparent)\"",
+            "description": "Any CSS color for the glow"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "tilt-card": {
+    "components": [
+      {
+        "name": "TiltCard",
+        "description": "3D perspective tilt that follows the cursor.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "maxTilt",
+            "type": "number",
+            "required": false,
+            "default": "8",
+            "description": "Maximum tilt in degrees"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "floating-navbar": {
+    "components": [
+      {
+        "name": "FloatingNavbar",
+        "description": "Header that slides away as you scroll down and returns the moment you scroll back up. Renders visible on the server, so there is no flash.",
+        "extends": [
+          "React.HTMLAttributes<HTMLElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "revealAfter",
+            "type": "number",
+            "required": false,
+            "default": "120",
+            "description": "Pixels scrolled before the bar is allowed to hide"
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "navbar-menu": {
+    "components": [
+      {
+        "name": "NavbarMenu",
+        "description": "Hover-driven navigation menu whose panel morphs between items. Wrap `MenuItem`s in `NavbarMenu`; the panel closes when the pointer leaves.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      {
+        "name": "MenuItem",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "label",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": false
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "sticky-banner": {
+    "components": [
+      {
+        "name": "StickyBanner",
+        "description": "Announcement bar that pins to the top of the page and can be dismissed. Sits above a sticky header when both are present.",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "dismissible",
+            "type": "boolean",
+            "required": false,
+            "default": "true",
+            "description": "Hide the dismiss button for banners that must stay put"
+          },
+          {
+            "name": "onDismiss",
+            "type": "() => void",
+            "required": false,
+            "description": "Called after the banner is dismissed"
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "file-drop": {
+    "components": [
+      {
+        "name": "FileDrop",
+        "description": "Drag-and-drop upload zone that lifts and glows while a file is over it. Wraps a real file input, so clicking and keyboard both work.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "onFiles",
+            "type": "(files: File[]) => void",
+            "required": false
+          },
+          {
+            "name": "accept",
+            "type": "string",
+            "required": false,
+            "description": "Passed straight to the underlying input"
+          },
+          {
+            "name": "multiple",
+            "type": "boolean",
+            "required": false,
+            "default": "true"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "stepper": {
+    "components": [
+      {
+        "name": "Stepper",
+        "description": "Horizontal progress indicator for multi-step forms and checkouts. The connecting bar fills as steps complete.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "steps",
+            "type": "string[]",
+            "required": true
+          },
+          {
+            "name": "current",
+            "type": "number",
+            "required": true,
+            "description": "Zero-based index of the step in progress"
+          },
+          {
+            "name": "onStepClick",
+            "type": "(index: number) => void",
+            "required": false,
+            "description": "Make completed steps clickable"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "vanish-input": {
+    "components": [
+      {
+        "name": "VanishInput",
+        "description": "Search or prompt field whose placeholder cycles while empty. Built on a real `form` and `input`, so Enter, autofill and screen readers behave normally.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "placeholders",
+            "type": "string[]",
+            "required": true,
+            "description": "Cycled through while the field is empty"
+          },
+          {
+            "name": "interval",
+            "type": "number",
+            "required": false,
+            "default": "3",
+            "description": "Seconds each placeholder is held"
+          },
+          {
+            "name": "onSubmit",
+            "type": "(value: string) => void",
+            "required": false
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "animated-testimonials": {
+    "components": [
+      {
+        "name": "AnimatedTestimonials",
+        "description": "Testimonial carousel that crossfades portraits behind the quote. Autoplay stops under `prefers-reduced-motion`; the controls still work.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "testimonials",
+            "type": "Testimonial[]",
+            "required": true
+          },
+          {
+            "name": "interval",
+            "type": "number",
+            "required": false,
+            "default": "6",
+            "description": "Seconds between slides; 0 disables autoplay"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": [
+      {
+        "name": "Testimonial",
+        "source": "interface Testimonial {\n  quote: string;\n  name: string;\n  role: string;\n  /** Optional image URL; falls back to the person's initials */\n  src?: string;\n}"
+      }
+    ]
+  },
+  "logo-cloud": {
+    "components": [
+      {
+        "name": "LogoCloud",
+        "description": "Customer or integration logos on a responsive grid, muted until hovered so they read as texture rather than competing with the headline.",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "logos",
+            "type": "{ name: string; logo: React.ReactNode }[]",
+            "required": true,
+            "description": "One entry per logo — pass SVGs, `img` elements or plain wordmarks"
+          },
+          {
+            "name": "dimUntilHover",
+            "type": "boolean",
+            "required": false,
+            "default": "true",
+            "description": "Show logos muted until hovered"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "tweet-card": {
+    "components": [
+      {
+        "name": "TweetCard",
+        "description": "Static social-proof card in the shape of a tweet. Takes props rather than calling an API — no network request, no rate limit, no runtime dependency.",
+        "extends": [
+          "Omit<React.HTMLAttributes<HTMLElement>, \"content\">"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "handle",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "content",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "avatar",
+            "type": "string",
+            "required": false,
+            "description": "Optional avatar URL; falls back to the author's initial"
+          },
+          {
+            "name": "time",
+            "type": "string",
+            "required": false,
+            "description": "Free-form, e.g. \"2h\" or \"Mar 14\""
+          },
+          {
+            "name": "verified",
+            "type": "boolean",
+            "required": false,
+            "default": "false"
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "container-scroll": {
+    "components": [
+      {
+        "name": "ContainerScroll",
+        "description": "Screenshot panel that starts tilted back in 3D and rotates flat as it scrolls into view — the standard \"here is the product\" hero moment.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "header",
+            "type": "React.ReactNode",
+            "required": false,
+            "description": "Headline area above the panel"
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "parallax-grid": {
+    "components": [
+      {
+        "name": "ParallaxGrid",
+        "description": "Image or card grid whose columns drift at different rates as the page scrolls, giving a gallery a sense of depth.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode[]",
+            "required": true,
+            "description": "Each child becomes one tile; columns drift at different speeds"
+          },
+          {
+            "name": "depth",
+            "type": "number",
+            "required": false,
+            "default": "90",
+            "description": "Maximum vertical drift in px"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "scroll-progress": {
+    "components": [
+      {
+        "name": "ScrollProgress",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "scroll-velocity": {
+    "components": [
+      {
+        "name": "ScrollVelocity",
+        "description": "A marquee whose speed and direction respond to how fast you are scrolling. Holds a steady drift when the page is still.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "baseVelocity",
+            "type": "number",
+            "required": false,
+            "default": "4",
+            "description": "Base speed in percent of content width per second"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "sticky-scroll": {
+    "components": [
+      {
+        "name": "StickyScroll",
+        "description": "Long-form copy that scrolls past a pinned panel; the panel swaps as each section takes over. The classic \"how it works\" section.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "items",
+            "type": "StickyScrollItem[]",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": [
+      {
+        "name": "StickyScrollItem",
+        "source": "interface StickyScrollItem {\n  title: string;\n  description: string;\n  /** Rendered in the pinned panel while this item is active */\n  content?: React.ReactNode;\n}"
+      }
+    ]
+  },
+  "tracing-beam": {
+    "components": [
+      {
+        "name": "TracingBeam",
+        "description": "A gradient line that draws itself down the side of long-form content as you read. Pairs well with blog posts and changelogs.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "animated-beam": {
+    "components": [
+      {
+        "name": "AnimatedBeam",
+        "description": "Animated gradient beam connecting two elements inside a shared `relative` container. Pass refs to the container and both endpoints.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "containerRef",
+            "type": "RefObject<HTMLElement | null>",
+            "required": true
+          },
+          {
+            "name": "fromRef",
+            "type": "RefObject<HTMLElement | null>",
+            "required": true
+          },
+          {
+            "name": "toRef",
+            "type": "RefObject<HTMLElement | null>",
+            "required": true
+          },
+          {
+            "name": "curvature",
+            "type": "number",
+            "required": false,
+            "default": "0",
+            "description": "Vertical bend of the beam in px (positive bends up)"
+          },
+          {
+            "name": "reverse",
+            "type": "boolean",
+            "required": false,
+            "default": "false"
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "required": false,
+            "default": "5"
+          },
+          {
+            "name": "delay",
+            "type": "number",
+            "required": false,
+            "default": "0"
+          },
+          {
+            "name": "pathWidth",
+            "type": "number",
+            "required": false,
+            "default": "2"
+          },
+          {
+            "name": "pathOpacity",
+            "type": "number",
+            "required": false,
+            "default": "0.15"
+          },
+          {
+            "name": "gradientStartColor",
+            "type": "string",
+            "required": false,
+            "default": "\"#8b5cf6\""
+          },
+          {
+            "name": "gradientStopColor",
+            "type": "string",
+            "required": false,
+            "default": "\"#22d3ee\""
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "blur-fade": {
+    "components": [
+      {
+        "name": "BlurFade",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "delay",
+            "type": "number",
+            "required": false,
+            "default": "0",
+            "description": "Seconds before the animation starts"
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "required": false,
+            "default": "0.5"
+          },
+          {
+            "name": "direction",
+            "type": "\"up\" | \"down\" | \"left\" | \"right\" | \"none\"",
+            "required": false,
+            "default": "\"up\"",
+            "description": "Direction the element enters from"
+          },
+          {
+            "name": "offset",
+            "type": "number",
+            "required": false,
+            "default": "16",
+            "description": "Distance travelled in px"
+          },
+          {
+            "name": "once",
+            "type": "boolean",
+            "required": false,
+            "default": "true",
+            "description": "Animate only the first time it enters the viewport"
+          },
+          {
+            "name": "inView",
+            "type": "boolean",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "border-beam": {
+    "components": [
+      {
+        "name": "BorderBeam",
+        "description": "Animated beam that travels around the border of its nearest positioned ancestor. Parent needs `position: relative` and a border.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "size",
+            "type": "number",
+            "required": false,
+            "default": "64",
+            "description": "Size of the beam in px"
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "required": false,
+            "default": "6",
+            "description": "Seconds for one full loop"
+          },
+          {
+            "name": "delay",
+            "type": "number",
+            "required": false,
+            "default": "0",
+            "description": "Seconds of delay before starting"
+          },
+          {
+            "name": "reverse",
+            "type": "boolean",
+            "required": false,
+            "default": "false"
+          },
+          {
+            "name": "colorFrom",
+            "type": "string",
+            "required": false,
+            "default": "\"var(--brand-from)\""
+          },
+          {
+            "name": "colorTo",
+            "type": "string",
+            "required": false,
+            "default": "\"var(--brand-to)\""
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "browser-mockup": {
+    "components": [
+      {
+        "name": "BrowserMockup",
+        "description": "Browser window frame — traffic lights, URL bar, your content inside.",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "url",
+            "type": "string",
+            "required": false,
+            "default": "\"velora.dev\""
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "iphone-mockup": {
+    "components": [
+      {
+        "name": "IphoneMockup",
+        "description": "iPhone frame with dynamic island and side buttons — drop any screen content inside.",
+        "extends": [
+          "React.HTMLAttributes<HTMLDivElement>"
+        ],
+        "forwardsRest": true,
+        "props": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "types": []
+  },
+  "terminal": {
+    "components": [
+      {
+        "name": "Terminal",
+        "description": "A terminal window that types its lines when scrolled into view.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "lines",
+            "type": "string[]",
+            "required": true,
+            "description": "Lines to type. Prefix with \"$ \" to render a prompt-colored command."
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "required": false,
+            "default": "\"bash\""
+          },
+          {
+            "name": "speed",
+            "type": "number",
+            "required": false,
+            "default": "18",
+            "description": "ms per character"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": []
+  }
+}

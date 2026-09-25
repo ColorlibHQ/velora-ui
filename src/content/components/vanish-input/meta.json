@@ -1,0 +1,14 @@
+{
+  "title": "Vanish Input",
+  "description": "Search field whose placeholder cycles while empty.",
+  "category": "Forms",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

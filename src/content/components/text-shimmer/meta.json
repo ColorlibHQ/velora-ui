@@ -1,0 +1,12 @@
+{
+  "title": "Text Shimmer",
+  "description": "A soft light sweep — great for AI loading states.",
+  "category": "Text",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

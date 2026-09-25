@@ -1,0 +1,12 @@
+{
+  "title": "Meteors",
+  "description": "Falling meteor streaks for dark hero and CTA sections.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

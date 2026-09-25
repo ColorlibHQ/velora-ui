@@ -1,0 +1,12 @@
+{
+  "title": "Particles",
+  "description": "Drifting, twinkling particle field on a lightweight canvas.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

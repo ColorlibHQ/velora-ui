@@ -1,0 +1,14 @@
+{
+  "title": "Animated Beam",
+  "description": "Draws an animated connection between any two elements.",
+  "category": "Effects",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Retro Grid",
+  "description": "Perspective grid scrolling forever toward the horizon.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

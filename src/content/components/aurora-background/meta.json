@@ -1,0 +1,12 @@
+{
+  "title": "Aurora Background",
+  "description": "Velora's signature drifting aurora gradient backdrop.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

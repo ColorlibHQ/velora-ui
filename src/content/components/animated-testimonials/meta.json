@@ -1,0 +1,14 @@
+{
+  "title": "Animated Testimonials",
+  "description": "Crossfades portraits behind a rotating quote.",
+  "category": "Social Proof",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

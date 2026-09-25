@@ -1,0 +1,14 @@
+{
+  "title": "Background Beams",
+  "description": "Light beams flowing along curved paths behind content.",
+  "category": "Backgrounds",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

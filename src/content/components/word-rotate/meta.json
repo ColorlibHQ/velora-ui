@@ -1,0 +1,14 @@
+{
+  "title": "Word Rotate",
+  "description": "Swaps a single word on a quiet vertical roll.",
+  "category": "Text",
+  "dependencies": [
+    "motion"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}

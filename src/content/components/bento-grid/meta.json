@@ -1,0 +1,14 @@
+{
+  "title": "Bento Grid",
+  "description": "Feature bento with hover-reveal CTAs and rich backgrounds.",
+  "category": "Cards & Layout",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    }
+  ]
+}
