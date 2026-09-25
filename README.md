@@ -4,7 +4,7 @@
 
 **Free, MIT-licensed animated components and complete landing templates for React.**
 
-82 animated shadcn/ui components and a full multi-page SaaS template — home, pricing, blog (MDX), auth, changelog, contact and 404 — built with Next.js 16, Tailwind CSS 4 and Motion. The free tier isn't a teaser: everything on the site ships under MIT, commercial use included.
+100 animated shadcn/ui components and a full multi-page SaaS template — home, pricing, blog (MDX), auth, changelog, contact and 404 — built with Next.js 16, Tailwind CSS 4 and Motion. The free tier isn't a teaser: everything on the site ships under MIT, commercial use included.
 
 [![Live demo](https://img.shields.io/badge/Live_demo-velora.colorlib.com-2563eb?style=for-the-badge&logo=vercel&logoColor=white)](https://velora.colorlib.com)
 &nbsp;
@@ -12,7 +12,7 @@
 &nbsp;
 [![Stars](https://img.shields.io/github/stars/ColorlibHQ/velora-ui?style=for-the-badge&color=eab308)](https://github.com/ColorlibHQ/velora-ui/stargazers)
 
-![Components](https://img.shields.io/badge/components-82-2563eb?style=flat-square)
+![Components](https://img.shields.io/badge/components-100-2563eb?style=flat-square)
 ![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=next.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?style=flat-square&logo=tailwindcss&logoColor=white)
 ![Motion](https://img.shields.io/badge/Motion-13-ff0088?style=flat-square)
@@ -29,8 +29,8 @@
 <table>
 <tr>
 <td width="50%" align="center">
-  <a href="https://velora.colorlib.com/components"><img src=".github/screenshots/components.webp" alt="Component catalog — 82 animated components grouped by category"></a>
-  <br><sub><b>Component catalog</b> — 82 components, grouped by category, one CLI command to install.</sub>
+  <a href="https://velora.colorlib.com/components"><img src=".github/screenshots/components.webp" alt="Component catalog — 100 animated components grouped by category"></a>
+  <br><sub><b>Component catalog</b> — 100 components, grouped by category, one CLI command to install.</sub>
 </td>
 <td width="50%" align="center">
   <a href="https://velora.colorlib.com/themes"><img src=".github/screenshots/themes.webp" alt="Themes — rebrand from one token block"></a>
@@ -52,31 +52,33 @@
 ## Why Velora
 
 - **The free tier is the whole product.** Complete assembled pages, not just isolated components. The kind of template that costs $149–$299 elsewhere is the baseline here.
-- **Animations with receipts.** Every component's docs page shows its gzipped size (0.3–3 KB for almost all of them; the dependency-free Globe carries its own land map at 5.2 KB — no Three.js, no WebGL) and dependency count. 44 of 82 components have zero runtime dependencies; the rest use Motion and nothing else.
+- **Animations with receipts.** Every component's docs page shows its gzipped size (0.3–3 KB for 97 of them; the dependency-free Globe carries its own land map at 5.2 KB — no Three.js, no WebGL) and dependency count. 51 of 100 components have zero runtime dependencies; the rest use Motion and nothing else.
 - **Tokens, not hardcoded hues.** Components read your shadcn CSS variables. Rebrand every gradient, beam and glow by editing seven variables — ready-made presets on the [themes page](https://velora.colorlib.com/themes).
 - **Motion that asks permission.** Every component handles `prefers-reduced-motion` itself — so it still does after you install it — and documents what reduced-motion, keyboard and screen-reader users get on its docs page.
 - **Primitive-agnostic.** Velora components import neither Radix nor Base UI — they work in any shadcn project, whichever primitive layer you use.
 
 ## What's inside
 
-### 82 animated components
+### 100 animated components
 
 | Category | Components |
 |----------|-----------|
-| **Backgrounds** | Aurora Background · Background Beams · Background Boxes · Flickering Grid · Grid & Dot Pattern · Lamp · Light Rays · Meteors · Particles · Retro Grid · Ripple · Shooting Stars · Vortex · Wavy Background |
+| **Backgrounds** | Aurora Background · Background Beams · Background Boxes · Dotted Glow Background · Flickering Grid · Grid & Dot Pattern · Lamp · Light Rays · Meteors · Noise Background · Particles · Retro Grid · Ripple · Shooting Stars · Vortex · Wavy Background |
 | **Text** | Animated Gradient Text · Flip Words · Hyper Text · Morphing Text · Number Ticker · Sparkles Text · Text Highlighter · Text Hover Effect · Text Reveal · Text Shimmer · Typewriter · Word Rotate |
-| **Buttons** | Confetti · Magnetic Button · Moving Border · Rainbow Button · Ripple Button · Shimmer Button · Theme Toggler |
-| **Cards & Layout** | Animated List · Animated Tooltip · Avatar Circles · Bento Grid · Card Hover Effect · Card Stack · Compare Slider · Direction Aware Hover · Dock · Evervault Card · Expandable Card · File Tree · Focus Cards · Glare Card · Marquee · Orbiting Circles · Spotlight Card · Tilt Card |
-| **Navigation** | Floating Navbar · Navbar Menu · Sticky Banner |
+| **Buttons** | Confetti · Magnetic Button · Moving Border · Rainbow Button · Ripple Button · Shimmer Button · Stateful Button · Theme Toggler |
+| **Cards & Layout** | Animated List · Animated Tooltip · Avatar Circles · Bento Grid · Card Hover Effect · Card Stack · Compare Slider · Direction Aware Hover · Dock · Draggable Card · Evervault Card · Expandable Card · File Tree · Focus Cards · Glare Card · Layout Grid · Marquee · Orbiting Circles · Spotlight Card · Tilt Card · Wobble Card |
+| **Navigation** | Animated Sidebar · Animated Tabs · Floating Navbar · Navbar Menu · Resizable Navbar · Sticky Banner |
 | **Forms** | File Drop · Stepper · Vanish Input |
+| **Overlays** | Animated Modal |
+| **Loaders** | Loaders · Multi Step Loader |
 | **Social Proof** | Animated Testimonials · Logo Cloud · Tweet Card |
 | **Scroll** | Container Scroll · Hero Parallax · Macbook Scroll · Parallax Grid · Scroll Progress · Scroll Velocity · Sticky Scroll · Timeline · Tracing Beam |
 | **Effects** | Animated Beam · Blur Fade · Border Beam · Glowing Effect |
 | **3D** | 3D Card · 3D Pin |
-| **Carousels** | Apple Cards Carousel |
-| **Cursor & Pointer** | Lens |
+| **Carousels** | 3D Marquee · Apple Cards Carousel · Image Slider |
+| **Cursor & Pointer** | Following Pointer · Lens · Pointer Highlight · Smooth Cursor |
 | **Data & Maps** | Globe · World Map |
-| **Mockups** | Browser Mockup · iPhone Mockup · Terminal |
+| **Mockups** | Browser Mockup · Code Block · iPhone Mockup · Terminal |
 
 Browse them all — with live demos, props, install commands and source — at [velora.colorlib.com/components](https://velora.colorlib.com/components).
 

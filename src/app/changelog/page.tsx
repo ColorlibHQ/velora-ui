@@ -24,6 +24,22 @@ interface Release {
 const releases: Release[] = [
   {
     date: "September 25, 2026",
+    version: "0.7.0",
+    title: "100 components: loaders, overlays, cursors and more",
+    tag: "New",
+    items: [
+      "Overlays: an animated Modal built on the native <dialog> element, so focus trapping, Escape and the top layer come from the browser",
+      "Navigation: Animated Sidebar (rail on desktop, drawer on mobile), Animated Tabs with full WAI-ARIA keyboard support, and a Resizable Navbar",
+      "Loaders: a Multi-Step Loader that announces each step to screen readers, five compact loaders and a Stateful Button for async actions",
+      "Cursor & Pointer: Following Pointer, Smooth Cursor (fine pointers only, never hides the cursor on touch) and Pointer Highlight",
+      "Carousels & cards: Image Slider with a visible pause button, 3D Marquee, Draggable Cards, Layout Grid and Wobble Card",
+      "Code Block with tabs, line highlights and dependency-free syntax highlighting in under 3 KB",
+      "Backgrounds: Dotted Glow and Noise, both paused offscreen, in hidden tabs and under reduced motion",
+      "51 of the 100 components have zero runtime dependencies",
+    ],
+  },
+  {
+    date: "September 25, 2026",
     version: "0.6.0",
     title: "18 new components: globes, 3D cards and scroll showpieces",
     tag: "New",

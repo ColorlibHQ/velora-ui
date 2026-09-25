@@ -2,6 +2,24 @@
 
 All notable changes to Velora UI. Also published at [/changelog](https://velora.colorlib.com/changelog).
 
+## 0.7.0 — 2026-09-25
+
+### Added
+
+- **18 new components — 100 in total.** New categories: Overlays and Loaders.
+  - **Overlays** — Animated Modal (`Modal`, `ModalTrigger`, `ModalContent`, `ModalFooter`,
+    `ModalClose`) on the native `<dialog>`: top layer, focus trap, Escape, exit animation before close
+  - **Navigation** — Animated Sidebar (collapsible rail; native-dialog drawer below 42rem),
+    Animated Tabs (WAI-ARIA tabs with roving tabindex), Resizable Navbar
+  - **Loaders** — Multi-Step Loader (live-region progress), Loaders (`DotsLoader`, `PulseLoader`,
+    `OrbitLoader`, `BarsLoader`, `SpinnerLoader`), Stateful Button (promise-aware, stable width)
+  - **Cursor & Pointer** — Following Pointer, Smooth Cursor, Pointer Highlight
+  - **Carousels** — Image Slider (visible pause, swipe, arrow keys), 3D Marquee
+  - **Cards & Layout** — Draggable Card, Layout Grid, Wobble Card
+  - **Mockups** — Code Block (tabs, line numbers, highlighted lines, zero-dependency tokenizer)
+  - **Backgrounds** — Dotted Glow Background, Noise Background
+- Registry: 3D Marquee ships the `marquee-vertical` keyframes it uses
+
 ## 0.6.0 — 2026-09-25
 
 ### Added
