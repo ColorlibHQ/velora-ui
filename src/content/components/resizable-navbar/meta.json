@@ -1,0 +1,22 @@
+{
+  "title": "Resizable Navbar",
+  "description": "Full-width navbar that shrinks into a floating, blurred pill once you scroll.",
+  "category": "Navigation",
+  "dependencies": ["motion"],
+  "a11y": {
+    "motion": "The bar still narrows into the pill past the threshold, but it snaps to size instead of springing; the link highlight jumps rather than glides and the mobile menu appears without sliding.",
+    "keyboard": "Links are native anchors and the highlight follows keyboard focus. In the narrow layout a Menu button toggles the link list; Escape closes it and returns focus to the button, and choosing a link or clicking outside closes it too.",
+    "screenReader": "A header containing a nav landmark (label prop) with aria-current on the active link; the menu button reports aria-expanded and aria-controls, and the highlight is aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "landing-page",
+      "title": "Landing page shell",
+      "description": "A full landing page in a scroll box: hero, logos, features and a closing CTA."
+    }
+  ]
+}
