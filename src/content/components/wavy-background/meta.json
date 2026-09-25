@@ -1,0 +1,22 @@
+{
+  "title": "Wavy Background",
+  "description": "Blurred, translucent ribbons of brand colour flowing sideways on a canvas.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The waves do not move: the canvas paints one still frame of the ribbons and repaints it on resize and theme change.",
+    "keyboard": null,
+    "screenReader": "Decorative; the wrapper is aria-hidden, so only the content layered above is announced."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "hero",
+      "title": "Hero",
+      "description": "A landing hero with a badge, headline and two calls to action over the waves."
+    }
+  ]
+}

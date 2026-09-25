@@ -1,0 +1,22 @@
+{
+  "title": "Shooting Stars",
+  "description": "A twinkling star field with brand-tinted streaks shooting across at random.",
+  "category": "Backgrounds",
+  "dependencies": [],
+  "a11y": {
+    "motion": "Stars stop twinkling and no streaks launch; one streak is painted frozen mid-flight. Both canvases repaint that still frame on resize and theme change.",
+    "keyboard": null,
+    "screenReader": "Decorative; both layers are aria-hidden, so only the content above them is announced."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "night-sky",
+      "title": "Night sky hero",
+      "description": "A dark hero with a horizon glow, dense stars, frequent streaks and a call to action."
+    }
+  ]
+}
