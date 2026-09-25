@@ -23,6 +23,21 @@ interface Release {
 
 const releases: Release[] = [
   {
+    date: "September 25, 2026",
+    version: "0.5.0",
+    title: "Docs you can build from, and an accessibility pass on every component",
+    tag: "Improved",
+    items: [
+      "Every component page now has Preview/Code tabs, CLI and manual install (pnpm, npm, yarn, bun), a props table generated from the TypeScript source, and an Accessibility section",
+      "Copy prompt hands an AI agent the install command, a working example and the props; Open in v0 loads the component straight into v0",
+      "⌘K search across all components and pages",
+      "Audited all 64 components: fixed 60 accessibility defects across 38 of them — keyboard-operable dock, tooltip, menu and dialogs, screen-reader text for animated copy, pause on hover and focus for anything that loops",
+      "Reduced motion now travels with the component: CSS animations use motion-safe: instead of a kill switch that only lived in this site's stylesheet, so CLI installs respect it too",
+      "No more hydration mismatches under reduced motion, and every static state looks intentional (orbits rest on their ring, meteors disappear)",
+      "Components are 0.3–2.0 KB gzipped after the fixes; 33 of 64 still have zero runtime dependencies",
+    ],
+  },
+  {
     date: "September 5, 2026",
     version: "0.4.0",
     title: "The catalogue doubles to 64 components",

@@ -2,6 +2,38 @@
 
 All notable changes to Velora UI. Also published at [/changelog](https://velora.colorlib.com/changelog).
 
+## 0.5.0 — 2026-09-25
+
+### Added
+
+- Component pages: Preview/Code tabs with replay and full screen, CLI and manual install tabs
+  (pnpm/npm/yarn/bun, plus the exact CSS the registry merges), props tables generated from each
+  component's TypeScript interfaces, an Accessibility section, breadcrumbs and prev/next links
+- **Copy prompt** (install command, working example and props for AI agents) and **Open in v0**
+- ⌘K search across components and pages
+- `DockIcon` accepts `href` and `onClick`; `NavbarMenu` items accept `href`; `VanishInput` takes a
+  `label`; `ScrollProgress`, `StickyScroll` and `FloatingNavbar` can track a scroll container
+- Registry items declare `registryDependencies: ["utils"]` so installs work outside shadcn projects
+
+### Fixed
+
+- Accessibility audit of all 64 components: 60 defects fixed across 38 of them. Highlights:
+  keyboard-operable Dock, Animated Tooltip, Navbar Menu (Escape, focus return) and Expandable Card
+  (focus trap, Escape, focus restore); screen-reader text for typed, scrambled and rotating copy;
+  pause on hover and focus for everything that loops (WCAG 2.2.2); named Stepper markers,
+  labelled File Drop, 24px testimonial dots
+- CSS keyframe animations use `motion-safe:` so reduced motion works in projects that install
+  components with the CLI — previously the guard lived only in this site's `globals.css`
+- Hydration mismatches under reduced motion (Typewriter, Text Reveal, Background Beams, Sparkles
+  Text, Animated List, Terminal, Container Scroll, Parallax Grid)
+- Number Ticker still counted up under reduced motion; Orbiting Circles collapsed to the centre
+
+### Changed
+
+- Demos live in `src/content/components/<slug>/examples/`; `scripts/build-docs.mjs` generates the
+  catalogue, example index and props data before every dev and build
+- Components are 0.3–2.0 KB gzipped after the accessibility work (was 0.3–1.5 KB)
+
 ## 0.4.0 — 2026-09-05
 
 ### Added

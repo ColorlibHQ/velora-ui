@@ -52,7 +52,7 @@
 ## Why Velora
 
 - **The free tier is the whole product.** Complete assembled pages, not just isolated components. The kind of template that costs $149–$299 elsewhere is the baseline here.
-- **Animations with receipts.** Every component's docs page shows its gzipped size (0.3–1.5 KB — no Three.js payloads) and dependency count. 33 of 64 components have zero runtime dependencies; the rest use Motion and nothing else.
+- **Animations with receipts.** Every component's docs page shows its gzipped size (0.3–2.0 KB — no Three.js payloads) and dependency count. 33 of 64 components have zero runtime dependencies; the rest use Motion and nothing else.
 - **Tokens, not hardcoded hues.** Components read your shadcn CSS variables. Rebrand every gradient, beam and glow by editing seven variables — ready-made presets on the [themes page](https://velora.colorlib.com/themes).
 - **Motion that asks permission.** A global `prefers-reduced-motion` kill switch covers every animation. Keyboard focus stays visible, markup stays semantic.
 - **Primitive-agnostic.** Velora components import neither Radix nor Base UI — they work in any shadcn project, whichever primitive layer you use.
