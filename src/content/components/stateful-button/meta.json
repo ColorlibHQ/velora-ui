@@ -1,0 +1,22 @@
+{
+  "title": "Stateful Button",
+  "description": "Button that morphs through loading, success and error states while a Promise settles.",
+  "category": "Buttons",
+  "dependencies": [],
+  "a11y": {
+    "motion": "The pill no longer shrinks to a circle, the spinner stands still and the labels swap instantly; colour changes remain.",
+    "keyboard": "A native button with a visible focus ring. While pending it uses aria-disabled rather than disabled, so focus stays put and repeat presses are ignored.",
+    "screenReader": "The accessible name stays the button's own label in every state; aria-busy is set while pending and a polite status region announces the success or error text."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "form",
+      "title": "Save form",
+      "description": "A profile form where Save changes succeeds and Sync to CRM fails."
+    }
+  ]
+}
