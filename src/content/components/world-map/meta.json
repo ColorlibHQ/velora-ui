@@ -1,0 +1,22 @@
+{
+  "title": "World Map",
+  "description": "Dotted SVG world map with markers, pulsing hubs and animated connection arcs.",
+  "category": "Data & Maps",
+  "dependencies": [],
+  "a11y": {
+    "motion": "Arcs are drawn in full with no travelling highlight and markers do not pulse. The server render is this static state too; animation is added after hydration.",
+    "keyboard": null,
+    "screenReader": "Exposed as one image (role=\"img\") whose name lists each connection by marker label (or coordinates), or uses the label prop; the SVG and label pills are aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "remote-team",
+      "title": "Remote team across timezones",
+      "description": "Team card with labelled city markers, arcs from HQ and a member list with UTC offsets."
+    }
+  ]
+}

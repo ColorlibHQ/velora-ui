@@ -1,0 +1,22 @@
+{
+  "title": "Globe",
+  "description": "Dotted canvas globe with markers, great-circle arcs, drag and keyboard rotation.",
+  "category": "Data & Maps",
+  "dependencies": [],
+  "a11y": {
+    "motion": "Auto-rotation, marker pulses and travelling arc highlights stop; one static frame is drawn with arcs shown in full. Dragging and arrow keys still rotate it, arrow keys in instant 15° steps.",
+    "keyboard": "The globe is a single Tab stop with a focus ring; Left/Right arrows turn it west/east and Up/Down tilt it north/south. Auto-rotation pauses while it has focus or is hovered.",
+    "screenReader": "Exposed as one image (role=\"img\") named from the marker labels and arc count, or from the label prop; the canvas is aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "edge-network",
+      "title": "Global edge network",
+      "description": "Marketing section pairing copy and stats with a globe of edge locations and arcs from the origin."
+    }
+  ]
+}
