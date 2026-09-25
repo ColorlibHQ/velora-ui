@@ -1,0 +1,24 @@
+{
+  "title": "Hero Parallax",
+  "description": "Hero copy over three card rows that slide apart as a tilted block flattens.",
+  "category": "Scroll",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The block renders flat with no tilt, slide or fade, and the rows wrap so every card is visible without scrolling sideways.",
+    "keyboard": "Cards with an href are links in the Tab order with a visible focus ring; a focused card that has drifted past the edge slides its row back into view.",
+    "screenReader": "Cards are announced as three lists; each card's accessible name is its visible title, and the image uses empty alt text."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "agency",
+      "title": "Agency portfolio",
+      "description": "Twelve smaller cards with a shorter drift for a studio's project showcase."
+    }
+  ]
+}

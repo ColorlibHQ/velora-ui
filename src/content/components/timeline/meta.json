@@ -1,0 +1,24 @@
+{
+  "title": "Timeline",
+  "description": "Vertical timeline with sticky labels and a gradient beam that fills as you scroll.",
+  "category": "Scroll",
+  "dependencies": [
+    "motion"
+  ],
+  "a11y": {
+    "motion": "The beam is drawn in full from the start and its glowing head is hidden; labels still stick, which is layout rather than animation.",
+    "keyboard": null,
+    "screenReader": "Entries are an ordered list; each label is an h3 followed by its content, and the track, beam and dots are aria-hidden."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Default"
+    },
+    {
+      "name": "changelog",
+      "title": "Product changelog",
+      "description": "Release notes with version labels, change badges and chart previews drawn in Tailwind."
+    }
+  ]
+}
