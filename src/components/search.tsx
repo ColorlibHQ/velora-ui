@@ -17,6 +17,7 @@ import { categories, componentsMeta, type ComponentMeta } from "@/lib/components
 const blockGroups = blockCategories.filter((c) => blocksIn(c.slug).length);
 
 const pages = [
+  { href: "/components/get-started", title: "Get started" },
   { href: "/components", title: "All components" },
   { href: "/blocks", title: "All blocks" },
   { href: "/themes", title: "Themes" },

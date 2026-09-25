@@ -10,7 +10,28 @@ export function DocsSidebar() {
   const pathname = usePathname();
 
   return (
-    <nav className="space-y-6">
+    <nav aria-label="Components" className="space-y-6">
+      <ul className="space-y-0.5 border-l border-border/60">
+        {[
+          { href: "/components/get-started", label: "Get started" },
+          { href: "/components", label: "All components" },
+        ].map((link) => (
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              aria-current={pathname === link.href ? "page" : undefined}
+              className={cn(
+                "-ml-px block border-l py-1 pl-4 text-sm transition-colors",
+                pathname === link.href
+                  ? "border-primary font-medium text-foreground"
+                  : "border-transparent text-muted-foreground hover:border-border hover:text-foreground"
+              )}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
       {categories.map((category) => (
         <div key={category}>
           <Link
