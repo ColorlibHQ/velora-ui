@@ -30,12 +30,12 @@ export default function ComponentsPage() {
         return (
           <section key={category} className="mt-14">
             <h2 className="mb-6 text-xl font-semibold">{category}</h2>
-            <div className="grid gap-6 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               {items.map((c) => (
                 <Link
                   key={c.slug}
                   href={`/components/${c.slug}`}
-                  className="group rounded-2xl border bg-card/50 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5"
+                  className="group min-w-0 rounded-2xl border bg-card/50 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5"
                 >
                   <div className="flex h-56 items-center justify-center overflow-hidden border-b border-border/60 p-6 [&_*]:pointer-events-none">
                     {componentDemos[c.slug]}
