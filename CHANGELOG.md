@@ -2,6 +2,25 @@
 
 All notable changes to Velora UI. Also published at [/changelog](https://velora.colorlib.com/changelog).
 
+## 0.8.0 — 2026-09-25
+
+### Added
+
+- **31 free blocks** in 10 categories: Hero Sections (6), Feature Sections (5), Pricing
+  Sections (3), Testimonial Sections (3), CTA Sections (3), Logo Clouds (2), FAQ Sections (2),
+  Navbars (2), Footers (3) and Login & Sign-up (2)
+- `/blocks` and one page per category, with iframe previews at desktop, tablet and mobile widths
+- Blocks are `registry:block` items: `npx shadcn add …/r/<block>.json` installs the section and
+  every Velora component it uses (pulled in by URL)
+- `scripts/build-docs.mjs` derives each block's components, shadcn primitives and npm
+  dependencies from its imports and rejects site-only imports
+- Blocks in the header, footer, sitemap, ⌘K search and llms.txt
+
+### Fixed
+
+- The footer prefetched `/llms.txt` and the 404 demo as routes, logging 404s on every page
+- Resizable Navbar keyed items by `href`, so duplicate links collided
+
 ## 0.7.0 — 2026-09-25
 
 ### Added

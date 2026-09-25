@@ -82,6 +82,27 @@
 
 Browse them all — with live demos, props, install commands and source — at [velora.colorlib.com/components](https://velora.colorlib.com/components).
 
+### 31 free blocks
+
+Complete sections built from Velora components — preview them at desktop, tablet and mobile widths, copy the code, or install one with the shadcn CLI and it brings every component it uses along:
+
+```bash
+npx shadcn@latest add https://velora.colorlib.com/r/hero-globe.json
+```
+
+| Category | Blocks |
+|----------|--------|
+| **[Hero Sections](https://velora.colorlib.com/blocks/hero-sections)** | Aurora hero · Globe split hero · Product screenshot hero · Phone split hero · Wavy hero · Developer tool hero |
+| **[Feature Sections](https://velora.colorlib.com/blocks/feature-sections)** | Bento feature grid · Icon feature grid · Tabbed product tour · Alternating screenshot rows · Numbered steps |
+| **[Pricing Sections](https://velora.colorlib.com/blocks/pricing-sections)** | Three-tier pricing · Single plan pricing · Pricing comparison table |
+| **[Testimonial Sections](https://velora.colorlib.com/blocks/testimonial-sections)** | Testimonial marquee · Featured testimonial · Testimonial grid |
+| **[CTA Sections](https://velora.colorlib.com/blocks/cta-sections)** | Vortex CTA band · Split CTA with product visual · Newsletter sign-up |
+| **[Logo Clouds](https://velora.colorlib.com/blocks/logo-clouds)** | Logo marquee · Logo grid |
+| **[FAQ Sections](https://velora.colorlib.com/blocks/faq-sections)** | Centered FAQ accordion · Two-column FAQ |
+| **[Navbars](https://velora.colorlib.com/blocks/navbars)** | Floating pill navbar · Mega menu navbar |
+| **[Footers](https://velora.colorlib.com/blocks/footers)** | Link columns footer · Giant wordmark footer · Newsletter footer |
+| **[Login & Sign-up](https://velora.colorlib.com/blocks/auth-sections)** | Split login page · Sign-up card |
+
 ### The complete template
 
 A production landing site, not a component sandbox. Every page is real, static-rendered and yours to keep:

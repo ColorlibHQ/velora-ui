@@ -24,6 +24,19 @@ interface Release {
 const releases: Release[] = [
   {
     date: "September 25, 2026",
+    version: "0.8.0",
+    title: "31 free blocks: complete sections, installable in one command",
+    tag: "New",
+    items: [
+      "Hero, feature, pricing, testimonial, CTA, logo cloud, FAQ, navbar, footer and login/sign-up sections, all free and MIT licensed",
+      "Preview every block at desktop, tablet and mobile widths, read the code, or install it with the shadcn CLI, which brings along every Velora component it uses",
+      "Each category has its own page (/blocks/hero-sections, /blocks/pricing-sections, …)",
+      "Accessible by default: labelled forms, a keyboard-operable billing toggle, a real comparison table, and motion that pauses",
+      "Fixed: the footer no longer prefetches llms.txt as a page; Resizable Navbar no longer uses hrefs as React keys",
+    ],
+  },
+  {
+    date: "September 25, 2026",
     version: "0.7.0",
     title: "100 components: loaders, overlays, cursors and more",
     tag: "New",
