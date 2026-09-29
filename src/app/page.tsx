@@ -45,6 +45,7 @@ import { TextReveal } from "@/components/velora/text-reveal";
 import { TiltCard } from "@/components/velora/tilt-card";
 import { Typewriter } from "@/components/velora/typewriter";
 import { blocksMeta } from "@/lib/blocks-meta";
+import { WaitlistForm } from "@/components/template/waitlist-form";
 import { componentsMeta } from "@/lib/components-meta";
 import { JsonLd, publisher } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
@@ -601,9 +602,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <ShimmerButton className="mt-8 w-full">
-                  Join the waitlist
-                </ShimmerButton>
+                <WaitlistForm className="mt-8" />
               </div>
             </BlurFade>
           </div>

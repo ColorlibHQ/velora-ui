@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckIcon, MinusIcon, RocketIcon } from "lucide-react";
+import { CheckIcon, MinusIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -13,7 +13,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { BorderBeam } from "@/components/velora/border-beam";
-import { ShimmerButton } from "@/components/velora/shimmer-button";
+import { WaitlistForm } from "@/components/template/waitlist-form";
 import { componentsMeta } from "@/lib/components-meta";
 import { pageMetadata } from "@/lib/seo";
 
@@ -155,7 +155,10 @@ export default function PricingPage() {
           </BlurFade>
 
           <BlurFade delay={0.12}>
-            <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border bg-card p-8">
+            <div
+              id="waitlist"
+              className="relative flex h-full scroll-mt-24 flex-col overflow-hidden rounded-2xl border bg-card p-8"
+            >
               <BorderBeam size={80} duration={8} />
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-primary">Pro</h2>
@@ -183,10 +186,7 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <ShimmerButton className="mt-8 w-full">
-                <RocketIcon className="size-4" />
-                Join the waitlist
-              </ShimmerButton>
+              <WaitlistForm className="mt-8" />
             </div>
           </BlurFade>
         </div>
