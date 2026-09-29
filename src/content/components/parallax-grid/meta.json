@@ -2,6 +2,7 @@
   "title": "Parallax Grid",
   "description": "Gallery columns drifting at different rates for depth.",
   "category": "Scroll",
+  "since": "0.4.0",
   "dependencies": [
     "motion"
   ],

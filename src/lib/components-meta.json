@@ -4,6 +4,7 @@
     "title": "Aurora Background",
     "description": "Velora's signature drifting aurora gradient backdrop.",
     "category": "Backgrounds",
+    "since": "0.1.0",
     "dependencies": [],
     "a11y": {
       "motion": "The drift animation is off; the three blurred colour blobs rest at their default positions, so the glow is unchanged but static.",
@@ -22,6 +23,7 @@
     "title": "Background Beams",
     "description": "Light beams flowing along curved paths behind content.",
     "category": "Backgrounds",
+    "since": "0.1.2",
     "dependencies": [
       "motion"
     ],
@@ -42,6 +44,7 @@
     "title": "Background Boxes",
     "description": "An isometric grid whose cells light up in brand tints under the pointer.",
     "category": "Backgrounds",
+    "since": "0.6.0",
     "dependencies": [],
     "a11y": {
       "motion": "The grid never moves. Cells still tint on hover and fade back through a colour transition, which involves no movement, so it is kept under reduced motion.",
@@ -65,6 +68,7 @@
     "title": "Dotted Glow Background",
     "description": "Canvas dot grid where drifting glows brighten dots and tint them toward the brand.",
     "category": "Backgrounds",
+    "since": "0.7.0",
     "dependencies": [],
     "a11y": {
       "motion": "No animation runs: one still frame with the glows at fixed positions is drawn, and redrawn on resize and theme change.",
@@ -88,6 +92,7 @@
     "title": "Flickering Grid",
     "description": "Grid of squares fading in and out on staggered timers.",
     "category": "Backgrounds",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "The flicker stops and every square rests at a fixed opacity halfway between --flicker-min and --flicker-max (about 0.27 by default), leaving an even, dim dot pattern.",
@@ -106,6 +111,7 @@
     "title": "Grid & Dot Pattern",
     "description": "SVG grid and dot backdrops with maskable depth.",
     "category": "Backgrounds",
+    "since": "0.1.0",
     "dependencies": [],
     "a11y": {
       "motion": "Nothing changes: GridPattern and DotPattern are static SVG patterns with no animation.",
@@ -124,6 +130,7 @@
     "title": "Lamp",
     "description": "A glowing lamp-line header that expands into view.",
     "category": "Backgrounds",
+    "since": "0.1.2",
     "dependencies": [
       "motion"
     ],
@@ -144,6 +151,7 @@
     "title": "Light Rays",
     "description": "God rays fanning down from the top of a section.",
     "category": "Backgrounds",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "No change: the rays are static gradients with no animation.",
@@ -162,6 +170,7 @@
     "title": "Meteors",
     "description": "Falling meteor streaks for dark hero and CTA sections.",
     "category": "Backgrounds",
+    "since": "0.1.1",
     "dependencies": [],
     "a11y": {
       "motion": "The meteors are hidden entirely; no streaks are shown.",
@@ -180,6 +189,7 @@
     "title": "Noise Background",
     "description": "Drifting brand-gradient blobs under a static film-grain overlay; wraps its content.",
     "category": "Backgrounds",
+    "since": "0.7.0",
     "dependencies": [],
     "a11y": {
       "motion": "The blobs never move; the gradient wash and grain render as a still backdrop.",
@@ -203,6 +213,7 @@
     "title": "Particles",
     "description": "Drifting, twinkling particle field on a lightweight canvas.",
     "category": "Backgrounds",
+    "since": "0.1.1",
     "dependencies": [],
     "a11y": {
       "motion": "The drift and twinkle loop does not run; the canvas draws one still frame of dots and redraws it on resize and theme change.",
@@ -221,6 +232,7 @@
     "title": "Retro Grid",
     "description": "Perspective grid scrolling forever toward the horizon.",
     "category": "Backgrounds",
+    "since": "0.1.1",
     "dependencies": [],
     "a11y": {
       "motion": "The scroll animation is off; the perspective grid plane shows as a still grid under the top and bottom fades.",
@@ -239,6 +251,7 @@
     "title": "Ripple",
     "description": "Concentric rings pulsing outward — calm 'listening' backdrop.",
     "category": "Backgrounds",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "The rings stop pulsing and sit still as concentric circles at their nominal sizes, fading outward.",
@@ -257,6 +270,7 @@
     "title": "Shooting Stars",
     "description": "A twinkling star field with brand-tinted streaks shooting across at random.",
     "category": "Backgrounds",
+    "since": "0.6.0",
     "dependencies": [],
     "a11y": {
       "motion": "Stars stop twinkling and no streaks launch; one streak is painted frozen mid-flight. Both canvases repaint that still frame on resize and theme change.",
@@ -280,6 +294,7 @@
     "title": "Vortex",
     "description": "Brand-tinted particles spiralling into the centre, leaving soft fading trails.",
     "category": "Backgrounds",
+    "since": "0.6.0",
     "dependencies": [],
     "a11y": {
       "motion": "No animation runs: the canvas pre-computes a short burst of motion and shows it as one frozen swirl, redrawn on resize and theme change.",
@@ -303,6 +318,7 @@
     "title": "Wavy Background",
     "description": "Blurred, translucent ribbons of brand colour flowing sideways on a canvas.",
     "category": "Backgrounds",
+    "since": "0.6.0",
     "dependencies": [],
     "a11y": {
       "motion": "The waves do not move: the canvas paints one still frame of the ribbons and repaints it on resize and theme change.",
@@ -326,6 +342,7 @@
     "title": "Animated Gradient Text",
     "description": "Brand gradient sweeping continuously through text.",
     "category": "Text",
+    "since": "0.1.0",
     "dependencies": [],
     "a11y": {
       "motion": "The pan animation is off; the text keeps a fixed gradient (the brand-from to brand-via section).",
@@ -344,6 +361,7 @@
     "title": "Flip Words",
     "description": "Cycles words with a springy blur-flip transition.",
     "category": "Text",
+    "since": "0.1.2",
     "dependencies": [
       "motion"
     ],
@@ -364,6 +382,7 @@
     "title": "Hyper Text",
     "description": "Scrambles through letters and resolves into the real text.",
     "category": "Text",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "No scramble runs, on mount or on hover; the text renders as-is.",
@@ -382,6 +401,7 @@
     "title": "Morphing Text",
     "description": "Blurs one phrase out as the next resolves in.",
     "category": "Text",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "Only the first phrase is shown, statically, with no blur. With motion allowed, cycling pauses while the pointer is over the text, while focus is inside it, and while the tab is hidden.",
@@ -400,6 +420,7 @@
     "title": "Number Ticker",
     "description": "Springs a number up when it enters the viewport.",
     "category": "Text",
+    "since": "0.1.0",
     "dependencies": [
       "motion"
     ],
@@ -420,6 +441,7 @@
     "title": "Sparkles Text",
     "description": "Twinkling stars orbiting your headline.",
     "category": "Text",
+    "since": "0.1.2",
     "dependencies": [
       "motion"
     ],
@@ -440,6 +462,7 @@
     "title": "Text Highlighter",
     "description": "Marker-pen sweep that draws in when the phrase scrolls into view.",
     "category": "Text",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -460,6 +483,7 @@
     "title": "Text Hover Effect",
     "description": "Giant outlined word that draws in, then glows in brand colours under the pointer.",
     "category": "Text",
+    "since": "0.6.0",
     "dependencies": [
       "motion"
     ],
@@ -485,6 +509,7 @@
     "title": "Text Reveal",
     "description": "Word-by-word blur reveal on scroll.",
     "category": "Text",
+    "since": "0.1.0",
     "dependencies": [
       "motion"
     ],
@@ -505,6 +530,7 @@
     "title": "Text Shimmer",
     "description": "A soft light sweep — great for AI loading states.",
     "category": "Text",
+    "since": "0.1.2",
     "dependencies": [],
     "a11y": {
       "motion": "The sweep is off; the text rests in the muted foreground colour with a slight brightening at the right edge and stays fully readable.",
@@ -523,6 +549,7 @@
     "title": "Typewriter",
     "description": "Types, holds and deletes through a list of words.",
     "category": "Text",
+    "since": "0.1.0",
     "dependencies": [
       "motion"
     ],
@@ -543,6 +570,7 @@
     "title": "Word Rotate",
     "description": "Swaps a single word on a quiet vertical roll.",
     "category": "Text",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -563,6 +591,7 @@
     "title": "Confetti",
     "description": "Dependency-free confetti burst, fired from anywhere.",
     "category": "Buttons",
+    "since": "0.1.2",
     "dependencies": [],
     "a11y": {
       "motion": "confettiBurst does nothing, so clicking shows no burst; the button's own onClick still runs.",
@@ -581,6 +610,7 @@
     "title": "Magnetic Button",
     "description": "Leans toward the cursor and springs back on leave.",
     "category": "Buttons",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -601,6 +631,7 @@
     "title": "Moving Border",
     "description": "A light laps the button's border via offset-path.",
     "category": "Buttons",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "The travelling light is replaced by a static glow on the top-left and bottom-right corners of the border.",
@@ -619,6 +650,7 @@
     "title": "Rainbow Button",
     "description": "CTA cycling the brand ramp, with a matching glow beneath.",
     "category": "Buttons",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "The colour cycle and glow freeze, leaving a static brand gradient with a still glow beneath; the hover glow and press scale remain.",
@@ -637,6 +669,7 @@
     "title": "Ripple Button",
     "description": "Expands a ripple from the exact point you pressed.",
     "category": "Buttons",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "No ripple is created on click; the button keeps its hover background change only.",
@@ -655,6 +688,7 @@
     "title": "Shimmer Button",
     "description": "CTA button with a continuous light sweep.",
     "category": "Buttons",
+    "since": "0.1.0",
     "dependencies": [],
     "a11y": {
       "motion": "The sweep is off; a faint static sheen rests on the right side of the button. The hover scale still applies.",
@@ -673,6 +707,7 @@
     "title": "Stateful Button",
     "description": "Button that morphs through loading, success and error states while a Promise settles.",
     "category": "Buttons",
+    "since": "0.7.0",
     "dependencies": [],
     "a11y": {
       "motion": "The pill no longer shrinks to a circle, the spinner stands still and the labels swap instantly; colour changes remain.",
@@ -696,6 +731,7 @@
     "title": "Theme Toggler",
     "description": "Wipes the new theme in as a circle using View Transitions.",
     "category": "Buttons",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "The circular View Transition wipe is skipped and the theme switches instantly.",
@@ -714,6 +750,7 @@
     "title": "Animated List",
     "description": "Looping feed that springs each item in, newest on top.",
     "category": "Cards & Layout",
+    "since": "0.1.1",
     "dependencies": [
       "motion"
     ],
@@ -734,6 +771,7 @@
     "title": "Animated Tooltip",
     "description": "Avatar row with springy name tooltips on hover.",
     "category": "Cards & Layout",
+    "since": "0.1.2",
     "dependencies": [
       "motion"
     ],
@@ -754,6 +792,7 @@
     "title": "Avatar Circles",
     "description": "Stacked initials avatars with a +N badge — zero images.",
     "category": "Cards & Layout",
+    "since": "0.1.1",
     "dependencies": [],
     "a11y": {
       "motion": "Static; no animation.",
@@ -772,6 +811,7 @@
     "title": "Bento Grid",
     "description": "Feature bento with hover-reveal CTAs and rich backgrounds.",
     "category": "Cards & Layout",
+    "since": "0.1.0",
     "dependencies": [
       "lucide-react"
     ],
@@ -792,6 +832,7 @@
     "title": "Card Hover Effect",
     "description": "Link-card grid with a highlight that glides to whichever card you hover or focus.",
     "category": "Cards & Layout",
+    "since": "0.6.0",
     "dependencies": [
       "motion"
     ],
@@ -817,6 +858,7 @@
     "title": "Card Stack",
     "description": "Deck that shuffles the top card to the back on a timer.",
     "category": "Cards & Layout",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -837,6 +879,7 @@
     "title": "Compare Slider",
     "description": "Before/after wipe with a keyboard-accessible divider.",
     "category": "Cards & Layout",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "Nothing animates: the divider and clip jump straight to the slider value, so reduced-motion users see the same thing as everyone else.",
@@ -855,6 +898,7 @@
     "title": "Direction Aware Hover",
     "description": "Overlay enters from the edge the cursor actually crossed.",
     "category": "Cards & Layout",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "The overlay appears and disappears instantly instead of sliding in from the entry edge.",
@@ -873,6 +917,7 @@
     "title": "Dock",
     "description": "macOS-style dock with cursor magnification.",
     "category": "Cards & Layout",
+    "since": "0.1.1",
     "dependencies": [
       "motion"
     ],
@@ -893,6 +938,7 @@
     "title": "Draggable Card",
     "description": "Scattered photo cards you can fling around with inertia, tilt and bounds.",
     "category": "Cards & Layout",
+    "since": "0.7.0",
     "dependencies": [
       "motion"
     ],
@@ -918,6 +964,7 @@
     "title": "Evervault Card",
     "description": "Card that reveals shuffling brand-tinted characters through a mask following the pointer.",
     "category": "Cards & Layout",
+    "since": "0.6.0",
     "dependencies": [],
     "a11y": {
       "motion": "The characters are drawn once and never reshuffle, and the reveal stays centred instead of following the pointer.",
@@ -941,6 +988,7 @@
     "title": "Expandable Card",
     "description": "Expands into a centred panel with shared-layout transitions.",
     "category": "Cards & Layout",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -961,6 +1009,7 @@
     "title": "File Tree",
     "description": "Collapsible tree for documenting project structure.",
     "category": "Cards & Layout",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "The chevron snaps between closed and open instead of rotating. Child lists appear and disappear instantly for everyone.",
@@ -979,6 +1028,7 @@
     "title": "Focus Cards",
     "description": "Image grid where the hovered card stays sharp while the others blur and step back.",
     "category": "Cards & Layout",
+    "since": "0.6.0",
     "dependencies": [],
     "a11y": {
       "motion": "Cards no longer shrink or zoom, and the blur and title fade switch instantly instead of transitioning.",
@@ -1002,6 +1052,7 @@
     "title": "Glare Card",
     "description": "Sheet of light tracking the cursor, like a foil trading card.",
     "category": "Cards & Layout",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "The glare still follows the cursor, since it is pointer-driven, but it appears and disappears without the fade.",
@@ -1020,6 +1071,7 @@
     "title": "Layout Grid",
     "description": "Bento grid of image tiles that expand in place to reveal rich content.",
     "category": "Cards & Layout",
+    "since": "0.7.0",
     "dependencies": [
       "motion"
     ],
@@ -1045,6 +1097,7 @@
     "title": "Marquee",
     "description": "Seamless scrolling loop — horizontal, vertical, hover-pause.",
     "category": "Cards & Layout",
+    "since": "0.1.0",
     "dependencies": [],
     "a11y": {
       "motion": "Scrolling stops and only the first copy is shown, without the edge fade; horizontal items wrap onto extra rows and a vertical marquee becomes scrollable, so no item is clipped out of reach.",
@@ -1063,6 +1116,7 @@
     "title": "Orbiting Circles",
     "description": "Items evenly distributed on rotating orbital rings.",
     "category": "Cards & Layout",
+    "since": "0.1.0",
     "dependencies": [],
     "a11y": {
       "motion": "The rotation stops; the items rest evenly spaced on the ring.",
@@ -1081,6 +1135,7 @@
     "title": "Spotlight Card",
     "description": "A radial glow that follows the cursor across the card.",
     "category": "Cards & Layout",
+    "since": "0.1.0",
     "dependencies": [],
     "a11y": {
       "motion": "Unchanged: the radial glow still fades in on hover and follows the pointer, as a color highlight with no element movement.",
@@ -1099,6 +1154,7 @@
     "title": "Tilt Card",
     "description": "3D perspective tilt that tracks the cursor.",
     "category": "Cards & Layout",
+    "since": "0.1.1",
     "dependencies": [
       "motion"
     ],
@@ -1119,6 +1175,7 @@
     "title": "Wobble Card",
     "description": "Colored card that drifts toward the pointer, with parallax content and grain.",
     "category": "Cards & Layout",
+    "since": "0.7.0",
     "dependencies": [
       "motion"
     ],
@@ -1144,6 +1201,7 @@
     "title": "Animated Sidebar",
     "description": "Icon rail that expands on hover or focus and turns into a drawer on narrow screens.",
     "category": "Navigation",
+    "since": "0.7.0",
     "dependencies": [],
     "a11y": {
       "motion": "The rail snaps between its collapsed and expanded widths, labels appear without fading and the drawer opens without sliding.",
@@ -1172,6 +1230,7 @@
     "title": "Animated Tabs",
     "description": "Tabs with a gliding pill and panels stacked like cards that peek behind.",
     "category": "Navigation",
+    "since": "0.7.0",
     "dependencies": [
       "motion"
     ],
@@ -1197,6 +1256,7 @@
     "title": "Floating Navbar",
     "description": "Hides on scroll down, returns the moment you scroll up.",
     "category": "Navigation",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "The bar still hides on scroll down and returns on scroll up, but it jumps instead of sliding over 300ms.",
@@ -1215,6 +1275,7 @@
     "title": "Navbar Menu",
     "description": "Hover-driven menu whose pill and panel morph between items.",
     "category": "Navigation",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -1235,6 +1296,7 @@
     "title": "Resizable Navbar",
     "description": "Full-width navbar that shrinks into a floating, blurred pill once you scroll.",
     "category": "Navigation",
+    "since": "0.7.0",
     "dependencies": [
       "motion"
     ],
@@ -1260,6 +1322,7 @@
     "title": "Sticky Banner",
     "description": "Dismissible announcement bar pinned above the header.",
     "category": "Navigation",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "Nothing animates, so reduced-motion users see the same banner.",
@@ -1278,6 +1341,7 @@
     "title": "File Drop",
     "description": "Upload zone that lifts and glows while a file is over it.",
     "category": "Forms",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "The 200ms transition is removed, so on drag-over the zone snaps to its lifted, brand-bordered state instead of easing into it.",
@@ -1296,6 +1360,7 @@
     "title": "Stepper",
     "description": "Progress indicator for multi-step forms and checkouts.",
     "category": "Forms",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -1316,6 +1381,7 @@
     "title": "Vanish Input",
     "description": "Search field whose placeholder cycles while empty.",
     "category": "Forms",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -1336,6 +1402,7 @@
     "title": "Animated Modal",
     "description": "Native dialog whose panel springs in with a tilt over a blurred backdrop.",
     "category": "Overlays",
+    "since": "0.7.0",
     "dependencies": [
       "motion"
     ],
@@ -1361,6 +1428,7 @@
     "title": "Loaders",
     "description": "Five tiny CSS loading indicators — dots, pulse, orbit, bars and spinner.",
     "category": "Loaders",
+    "since": "0.7.0",
     "dependencies": [],
     "a11y": {
       "motion": "Bouncing, spinning and rippling stop; each loader holds its shape and fades gently in and out on a 2-second cycle instead.",
@@ -1384,6 +1452,7 @@
     "title": "Multi Step Loader",
     "description": "Full-screen overlay that ticks through a list of steps, keeping the active one centred.",
     "category": "Loaders",
+    "since": "0.7.0",
     "dependencies": [],
     "a11y": {
       "motion": "The list jumps to the active step instead of scrolling, the spinner stands still and the overlay appears without a fade; steps still advance on schedule.",
@@ -1407,6 +1476,7 @@
     "title": "Animated Testimonials",
     "description": "Crossfades portraits behind a rotating quote.",
     "category": "Social Proof",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -1427,6 +1497,7 @@
     "title": "Logo Cloud",
     "description": "Customer logos muted until hovered, so they read as texture.",
     "category": "Social Proof",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "The 300ms fade is removed, so a hovered logo switches straight from dimmed grayscale to full color.",
@@ -1445,6 +1516,7 @@
     "title": "Tweet Card",
     "description": "Static social-proof card — props, not an API call.",
     "category": "Social Proof",
+    "since": "0.4.0",
     "dependencies": [],
     "a11y": {
       "motion": "Nothing animates beyond a background-color change on hover.",
@@ -1463,6 +1535,7 @@
     "title": "Container Scroll",
     "description": "Screenshot panel that rotates flat as it scrolls into view.",
     "category": "Scroll",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -1483,6 +1556,7 @@
     "title": "Hero Parallax",
     "description": "Hero copy over three card rows that slide apart as a tilted block flattens.",
     "category": "Scroll",
+    "since": "0.6.0",
     "dependencies": [
       "motion"
     ],
@@ -1508,6 +1582,7 @@
     "title": "Macbook Scroll",
     "description": "A CSS-drawn laptop pins in place and opens its lid as the screenshot scales up.",
     "category": "Scroll",
+    "since": "0.6.0",
     "dependencies": [
       "motion"
     ],
@@ -1533,6 +1608,7 @@
     "title": "Parallax Grid",
     "description": "Gallery columns drifting at different rates for depth.",
     "category": "Scroll",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -1553,6 +1629,7 @@
     "title": "Scroll Progress",
     "description": "Gradient page-progress bar pinned to the top.",
     "category": "Scroll",
+    "since": "0.1.0",
     "dependencies": [
       "motion"
     ],
@@ -1573,6 +1650,7 @@
     "title": "Scroll Velocity",
     "description": "Marquee whose speed and direction follow your scrolling.",
     "category": "Scroll",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -1593,6 +1671,7 @@
     "title": "Sticky Scroll",
     "description": "Copy scrolls past a pinned panel that swaps per section.",
     "category": "Scroll",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -1613,6 +1692,7 @@
     "title": "Timeline",
     "description": "Vertical timeline with sticky labels and a gradient beam that fills as you scroll.",
     "category": "Scroll",
+    "since": "0.6.0",
     "dependencies": [
       "motion"
     ],
@@ -1638,6 +1718,7 @@
     "title": "Tracing Beam",
     "description": "Gradient line that draws itself down long-form content.",
     "category": "Scroll",
+    "since": "0.4.0",
     "dependencies": [
       "motion"
     ],
@@ -1658,6 +1739,7 @@
     "title": "Animated Beam",
     "description": "Draws an animated connection between any two elements.",
     "category": "Effects",
+    "since": "0.1.1",
     "dependencies": [
       "motion"
     ],
@@ -1678,6 +1760,7 @@
     "title": "Blur Fade",
     "description": "The workhorse entrance — blur, fade and drift into view.",
     "category": "Effects",
+    "since": "0.1.0",
     "dependencies": [
       "motion"
     ],
@@ -1698,6 +1781,7 @@
     "title": "Border Beam",
     "description": "A beam of light traveling around any border.",
     "category": "Effects",
+    "since": "0.1.0",
     "dependencies": [
       "motion"
     ],
@@ -1718,6 +1802,7 @@
     "title": "Glowing Effect",
     "description": "Border glow that follows the pointer around a card's edge as it comes near.",
     "category": "Effects",
+    "since": "0.6.0",
     "dependencies": [],
     "a11y": {
       "motion": "The arc stops following the pointer; hovering the card shows a soft glow around the whole border instead.",
@@ -1741,6 +1826,7 @@
     "title": "3D Card",
     "description": "Perspective card that turns toward the pointer while its layers lift to different depths.",
     "category": "3D",
+    "since": "0.6.0",
     "dependencies": [
       "motion"
     ],
@@ -1766,6 +1852,7 @@
     "title": "3D Pin",
     "description": "Card that tilts back as a glowing pin rises with a label chip and rippling rings.",
     "category": "3D",
+    "since": "0.6.0",
     "dependencies": [],
     "a11y": {
       "motion": "The card never tilts and the pin does not rise; on hover or focus the pin, chip and three static rings simply appear over the flat card.",
@@ -1789,6 +1876,7 @@
     "title": "3D Marquee",
     "description": "A tilted 3D grid of images whose columns scroll up and down in an endless loop.",
     "category": "Carousels",
+    "since": "0.7.0",
     "dependencies": [],
     "a11y": {
       "motion": "The columns stop scrolling and the grid rests as a static tilted wall. Scrolling also pauses on hover and while offscreen.",
@@ -1812,6 +1900,7 @@
     "title": "Apple Cards Carousel",
     "description": "Snap-scrolling row of tall image cards that morph into a full modal story.",
     "category": "Carousels",
+    "since": "0.6.0",
     "dependencies": [
       "motion"
     ],
@@ -1837,6 +1926,7 @@
     "title": "Image Slider",
     "description": "Full-bleed image slider with crossfade-zoom, autoplay, dots, arrows and swipe.",
     "category": "Carousels",
+    "since": "0.7.0",
     "dependencies": [
       "motion"
     ],
@@ -1862,6 +1952,7 @@
     "title": "Following Pointer",
     "description": "Swaps the cursor for an arrow and a name tag that trail the pointer inside a region.",
     "category": "Cursor & Pointer",
+    "since": "0.7.0",
     "dependencies": [
       "motion"
     ],
@@ -1887,6 +1978,7 @@
     "title": "Lens",
     "description": "Circular magnifier that follows the pointer or arrow keys to zoom into an image.",
     "category": "Cursor & Pointer",
+    "since": "0.6.0",
     "dependencies": [],
     "a11y": {
       "motion": "The lens tracks the pointer directly with no easing, and appears and hides without a fade or scale.",
@@ -1910,6 +2002,7 @@
     "title": "Pointer Highlight",
     "description": "Draws an outline around a phrase on scroll, then glides a pointer icon to its corner.",
     "category": "Cursor & Pointer",
+    "since": "0.7.0",
     "dependencies": [
       "motion"
     ],
@@ -1935,6 +2028,7 @@
     "title": "Smooth Cursor",
     "description": "Dot-and-ring custom cursor; the ring trails on a spring and grows over links and buttons.",
     "category": "Cursor & Pointer",
+    "since": "0.7.0",
     "dependencies": [
       "motion"
     ],
@@ -1960,6 +2054,7 @@
     "title": "Globe",
     "description": "Dotted canvas globe with markers, great-circle arcs, drag and keyboard rotation.",
     "category": "Data & Maps",
+    "since": "0.6.0",
     "dependencies": [],
     "credits": "Land mask derived from Natural Earth (public domain).",
     "a11y": {
@@ -1984,6 +2079,7 @@
     "title": "World Map",
     "description": "Dotted SVG world map with markers, pulsing hubs and animated connection arcs.",
     "category": "Data & Maps",
+    "since": "0.6.0",
     "dependencies": [],
     "credits": "Land mask derived from Natural Earth (public domain).",
     "a11y": {
@@ -2008,6 +2104,7 @@
     "title": "Browser Mockup",
     "description": "Browser window frame for product screenshots.",
     "category": "Mockups",
+    "since": "0.1.2",
     "dependencies": [],
     "a11y": {
       "motion": "Static; no animation.",
@@ -2026,6 +2123,7 @@
     "title": "Code Block",
     "description": "Code panel with tabs, line numbers, highlighted lines and a copy button.",
     "category": "Mockups",
+    "since": "0.7.0",
     "dependencies": [
       "lucide-react"
     ],
@@ -2051,6 +2149,7 @@
     "title": "iPhone Mockup",
     "description": "iPhone frame with dynamic island — pure CSS.",
     "category": "Mockups",
+    "since": "0.1.2",
     "dependencies": [],
     "a11y": {
       "motion": "Static; no animation.",
@@ -2069,6 +2168,7 @@
     "title": "Terminal",
     "description": "A terminal window that types its lines in view.",
     "category": "Mockups",
+    "since": "0.1.2",
     "dependencies": [
       "motion"
     ],

@@ -2,6 +2,7 @@
   "title": "Globe",
   "description": "Dotted canvas globe with markers, great-circle arcs, drag and keyboard rotation.",
   "category": "Data & Maps",
+  "since": "0.6.0",
   "dependencies": [],
   "credits": "Land mask derived from Natural Earth (public domain).",
   "a11y": {

@@ -2,6 +2,7 @@
   "title": "Dotted Glow Background",
   "description": "Canvas dot grid where drifting glows brighten dots and tint them toward the brand.",
   "category": "Backgrounds",
+  "since": "0.7.0",
   "dependencies": [],
   "a11y": {
     "motion": "No animation runs: one still frame with the glows at fixed positions is drawn, and redrawn on resize and theme change.",

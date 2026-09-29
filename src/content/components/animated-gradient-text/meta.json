@@ -2,6 +2,7 @@
   "title": "Animated Gradient Text",
   "description": "Brand gradient sweeping continuously through text.",
   "category": "Text",
+  "since": "0.1.0",
   "dependencies": [],
   "a11y": {
     "motion": "The pan animation is off; the text keeps a fixed gradient (the brand-from to brand-via section).",

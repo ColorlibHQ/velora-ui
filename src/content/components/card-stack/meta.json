@@ -2,6 +2,7 @@
   "title": "Card Stack",
   "description": "Deck that shuffles the top card to the back on a timer.",
   "category": "Cards & Layout",
+  "since": "0.4.0",
   "dependencies": [
     "motion"
   ],

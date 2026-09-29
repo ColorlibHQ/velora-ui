@@ -2,6 +2,7 @@
   "title": "Animated Tabs",
   "description": "Tabs with a gliding pill and panels stacked like cards that peek behind.",
   "category": "Navigation",
+  "since": "0.7.0",
   "dependencies": ["motion"],
   "a11y": {
     "motion": "The pill jumps to the selected tab and the panels swap places instantly; the stacked, offset layout stays as a static picture.",

@@ -2,6 +2,7 @@
   "title": "Layout Grid",
   "description": "Bento grid of image tiles that expand in place to reveal rich content.",
   "category": "Cards & Layout",
+  "since": "0.7.0",
   "dependencies": [
     "motion"
   ],

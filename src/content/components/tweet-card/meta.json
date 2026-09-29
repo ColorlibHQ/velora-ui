@@ -2,6 +2,7 @@
   "title": "Tweet Card",
   "description": "Static social-proof card — props, not an API call.",
   "category": "Social Proof",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "Nothing animates beyond a background-color change on hover.",

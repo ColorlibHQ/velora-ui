@@ -2,6 +2,7 @@
   "title": "Grid & Dot Pattern",
   "description": "SVG grid and dot backdrops with maskable depth.",
   "category": "Backgrounds",
+  "since": "0.1.0",
   "dependencies": [],
   "a11y": {
     "motion": "Nothing changes: GridPattern and DotPattern are static SVG patterns with no animation.",

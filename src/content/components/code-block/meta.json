@@ -2,6 +2,7 @@
   "title": "Code Block",
   "description": "Code panel with tabs, line numbers, highlighted lines and a copy button.",
   "category": "Mockups",
+  "since": "0.7.0",
   "dependencies": [
     "lucide-react"
   ],

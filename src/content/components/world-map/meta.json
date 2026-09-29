@@ -2,6 +2,7 @@
   "title": "World Map",
   "description": "Dotted SVG world map with markers, pulsing hubs and animated connection arcs.",
   "category": "Data & Maps",
+  "since": "0.6.0",
   "dependencies": [],
   "credits": "Land mask derived from Natural Earth (public domain).",
   "a11y": {

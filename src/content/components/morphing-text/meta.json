@@ -2,6 +2,7 @@
   "title": "Morphing Text",
   "description": "Blurs one phrase out as the next resolves in.",
   "category": "Text",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "Only the first phrase is shown, statically, with no blur. With motion allowed, cycling pauses while the pointer is over the text, while focus is inside it, and while the tab is hidden.",

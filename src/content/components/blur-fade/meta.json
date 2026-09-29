@@ -2,6 +2,7 @@
   "title": "Blur Fade",
   "description": "The workhorse entrance — blur, fade and drift into view.",
   "category": "Effects",
+  "since": "0.1.0",
   "dependencies": [
     "motion"
   ],

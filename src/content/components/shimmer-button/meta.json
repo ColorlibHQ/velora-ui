@@ -2,6 +2,7 @@
   "title": "Shimmer Button",
   "description": "CTA button with a continuous light sweep.",
   "category": "Buttons",
+  "since": "0.1.0",
   "dependencies": [],
   "a11y": {
     "motion": "The sweep is off; a faint static sheen rests on the right side of the button. The hover scale still applies.",

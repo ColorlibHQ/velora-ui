@@ -2,6 +2,7 @@
   "title": "Typewriter",
   "description": "Types, holds and deletes through a list of words.",
   "category": "Text",
+  "since": "0.1.0",
   "dependencies": [
     "motion"
   ],

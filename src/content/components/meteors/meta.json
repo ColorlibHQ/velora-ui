@@ -2,6 +2,7 @@
   "title": "Meteors",
   "description": "Falling meteor streaks for dark hero and CTA sections.",
   "category": "Backgrounds",
+  "since": "0.1.1",
   "dependencies": [],
   "a11y": {
     "motion": "The meteors are hidden entirely; no streaks are shown.",

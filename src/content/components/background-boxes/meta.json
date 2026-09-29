@@ -2,6 +2,7 @@
   "title": "Background Boxes",
   "description": "An isometric grid whose cells light up in brand tints under the pointer.",
   "category": "Backgrounds",
+  "since": "0.6.0",
   "dependencies": [],
   "a11y": {
     "motion": "The grid never moves. Cells still tint on hover and fade back through a colour transition, which involves no movement, so it is kept under reduced motion.",

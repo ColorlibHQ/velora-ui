@@ -2,6 +2,7 @@
   "title": "iPhone Mockup",
   "description": "iPhone frame with dynamic island — pure CSS.",
   "category": "Mockups",
+  "since": "0.1.2",
   "dependencies": [],
   "a11y": {
     "motion": "Static; no animation.",

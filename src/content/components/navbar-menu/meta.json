@@ -2,6 +2,7 @@
   "title": "Navbar Menu",
   "description": "Hover-driven menu whose pill and panel morph between items.",
   "category": "Navigation",
+  "since": "0.4.0",
   "dependencies": [
     "motion"
   ],

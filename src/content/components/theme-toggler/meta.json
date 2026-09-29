@@ -2,6 +2,7 @@
   "title": "Theme Toggler",
   "description": "Wipes the new theme in as a circle using View Transitions.",
   "category": "Buttons",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "The circular View Transition wipe is skipped and the theme switches instantly.",

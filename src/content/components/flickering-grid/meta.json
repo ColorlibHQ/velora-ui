@@ -2,6 +2,7 @@
   "title": "Flickering Grid",
   "description": "Grid of squares fading in and out on staggered timers.",
   "category": "Backgrounds",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "The flicker stops and every square rests at a fixed opacity halfway between --flicker-min and --flicker-max (about 0.27 by default), leaving an even, dim dot pattern.",

@@ -2,6 +2,7 @@
   "title": "Number Ticker",
   "description": "Springs a number up when it enters the viewport.",
   "category": "Text",
+  "since": "0.1.0",
   "dependencies": [
     "motion"
   ],

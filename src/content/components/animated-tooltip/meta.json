@@ -2,6 +2,7 @@
   "title": "Animated Tooltip",
   "description": "Avatar row with springy name tooltips on hover.",
   "category": "Cards & Layout",
+  "since": "0.1.2",
   "dependencies": [
     "motion"
   ],

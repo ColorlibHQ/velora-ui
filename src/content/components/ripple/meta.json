@@ -2,6 +2,7 @@
   "title": "Ripple",
   "description": "Concentric rings pulsing outward — calm 'listening' backdrop.",
   "category": "Backgrounds",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "The rings stop pulsing and sit still as concentric circles at their nominal sizes, fading outward.",
