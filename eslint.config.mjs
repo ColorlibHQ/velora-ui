@@ -17,6 +17,11 @@ const eslintConfig = defineConfig([
     ".wrangler/**",
   ]),
   {
+    // eslint-plugin-react auto-detects the React version via an API that
+    // ESLint 10 removed (context.getFilename); stating it skips that path.
+    settings: { react: { version: "19.3" } },
+  },
+  {
     // shadcn/ui generated components are kept as upstream ships them
     files: ["src/components/ui/**"],
     rules: {
