@@ -25,6 +25,8 @@ export interface ComponentMeta {
   dependencies: string[];
   examples: ComponentExampleMeta[];
   a11y?: ComponentA11y;
+  /** Attribution for third-party data or assets, shown under the description */
+  credits?: string;
 }
 
 /**

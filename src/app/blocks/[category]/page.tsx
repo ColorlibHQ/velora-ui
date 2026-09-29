@@ -164,6 +164,7 @@ export default async function BlockCategoryPage({
               <div className="mt-5">
                 <BlockPreview
                   src={`/blocks/preview/${block.slug}`}
+                  registryUrl={`${REGISTRY_BASE}/${block.slug}.json`}
                   title={block.title}
                   code={code}
                   highlighted={html}
