@@ -245,7 +245,7 @@ export default async function ComponentPage({
           {meta.description}
         </p>
         {meta.credits && (
-          <p className="mt-1.5 max-w-2xl text-xs text-muted-foreground/80">
+          <p className="mt-1.5 max-w-2xl text-xs text-muted-foreground">
             {meta.credits}
           </p>
         )}

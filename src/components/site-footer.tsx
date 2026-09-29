@@ -59,6 +59,7 @@ const groups = [
   {
     title: "Template demo",
     links: [
+      { text: "SaaS landing", href: "/templates/saas" },
       { text: "About", href: "/about" },
       { text: "Contact", href: "/contact" },
       { text: "Log in", href: "/login" },

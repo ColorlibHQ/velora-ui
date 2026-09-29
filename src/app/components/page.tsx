@@ -29,7 +29,7 @@ const groups = categories
 
 const chip =
   "inline-flex h-8 shrink-0 items-center gap-1.5 rounded-full border bg-background px-3 text-sm whitespace-nowrap text-muted-foreground transition-colors outline-none hover:border-foreground/20 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring";
-const chipCount = "text-xs text-muted-foreground/80 tabular-nums";
+const chipCount = "text-xs text-muted-foreground tabular-nums";
 
 export default function ComponentsPage() {
   return (

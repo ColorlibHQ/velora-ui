@@ -10,9 +10,9 @@ import { siteConfig } from "@/lib/site-config";
 const navLinks = [
   { href: "/components", label: "Components" },
   { href: "/blocks", label: "Blocks" },
+  { href: "/templates", label: "Templates" },
   { href: "/themes", label: "Themes" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/blog", label: "Blog" },
   { href: "/changelog", label: "Changelog" },
 ] as const;
 

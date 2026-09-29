@@ -597,10 +597,14 @@ export default function Home() {
               also compared ourselves with{" "}
               <Link href="/compare/aceternity-ui" className="text-foreground underline underline-offset-4">
                 Aceternity UI
-              </Link>{" "}
-              and{" "}
+              </Link>
+              ,{" "}
               <Link href="/compare/magic-ui" className="text-foreground underline underline-offset-4">
                 Magic UI
+              </Link>{" "}
+              and{" "}
+              <Link href="/compare/react-bits" className="text-foreground underline underline-offset-4">
+                React Bits
               </Link>
               , measured the same way, including where they&apos;re stronger.
             </SectionHeading>
@@ -645,6 +649,9 @@ export default function Home() {
                   </Link>
                   <Link href="/compare/magic-ui" className="text-primary underline-offset-4 hover:underline">
                     vs Magic UI
+                  </Link>
+                  <Link href="/compare/react-bits" className="text-primary underline-offset-4 hover:underline">
+                    vs React Bits
                   </Link>
                 </div>
               </li>

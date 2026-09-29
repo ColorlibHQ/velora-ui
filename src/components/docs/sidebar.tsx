@@ -33,6 +33,7 @@ export function DocsSidebar() {
       <ul className="space-y-0.5 border-l border-border/60">
         {[
           { href: "/components/get-started", label: "Get started" },
+          { href: "/components/ai", label: "AI & MCP" },
           { href: "/components", label: "All components" },
         ].map((link) => (
           <li key={link.href}>
