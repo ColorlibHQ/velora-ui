@@ -17,7 +17,7 @@ export default function DraggableCardDemo() {
       {cards.map((card) => (
         <DraggableCard key={card.title} label={card.title} className="w-40 sm:w-48">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <img loading="lazy" decoding="async"
             src={card.src}
             alt=""
             draggable={false}

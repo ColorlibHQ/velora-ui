@@ -83,7 +83,7 @@ export function AnimatedTestimonials({
           >
             {active.src ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img
+              <img loading="lazy" decoding="async"
                 src={active.src}
                 alt={active.name}
                 className="size-full object-cover"

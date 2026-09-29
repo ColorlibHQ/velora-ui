@@ -42,7 +42,7 @@ export default function AnimatedModalBookTripDemo() {
         <div className="grid grid-cols-3 gap-2 px-6 pt-5">
           {photos.map((photo, i) => (
             // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <img loading="lazy" decoding="async"
               key={photo.src}
               src={photo.src}
               alt={photo.alt}

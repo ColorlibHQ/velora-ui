@@ -23,7 +23,7 @@ export default function DraggableCardMoodboardDemo() {
         {pins.map((pin) => (
           <DraggableCard key={pin.caption} label={`${pin.caption}, ${pin.note}`} className="w-36 sm:w-44">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <img loading="lazy" decoding="async"
               src={pin.src}
               alt=""
               draggable={false}

@@ -84,7 +84,7 @@ export function MacbookScroll({
                   {children ??
                     (src && (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={src} alt={alt} className="size-full object-cover object-top" />
+                      <img loading="lazy" decoding="async" src={src} alt={alt} className="size-full object-cover object-top" />
                     ))}
                 </motion.div>
               </div>

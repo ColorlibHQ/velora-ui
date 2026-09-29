@@ -40,7 +40,7 @@ export function TweetCard({
       <header className="flex items-center gap-3">
         {avatar ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <img loading="lazy" decoding="async"
             src={avatar}
             alt=""
             className="size-10 shrink-0 rounded-full object-cover"

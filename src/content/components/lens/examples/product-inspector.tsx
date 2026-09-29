@@ -12,7 +12,7 @@ export default function LensProductInspectorDemo() {
       <figure className="space-y-3">
         <Lens zoomFactor={2.5} radius={72} className="aspect-square w-full shadow-lg">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <img loading="lazy" decoding="async"
             src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1600&q=75&auto=format&fit=crop"
             alt="Black over-ear headphones on a yellow background"
             className="size-full object-cover"

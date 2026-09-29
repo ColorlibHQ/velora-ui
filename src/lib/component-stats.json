@@ -401,8 +401,8 @@
     "deps": []
   },
   "animated-testimonials": {
-    "bytes": 6037,
-    "gzip": 2082,
+    "bytes": 6069,
+    "gzip": 2101,
     "deps": [
       "motion/react"
     ]
@@ -413,8 +413,8 @@
     "deps": []
   },
   "tweet-card": {
-    "bytes": 2847,
-    "gzip": 1236,
+    "bytes": 2879,
+    "gzip": 1256,
     "deps": []
   },
   "container-scroll": {
@@ -432,8 +432,8 @@
     ]
   },
   "macbook-scroll": {
-    "bytes": 5541,
-    "gzip": 2080,
+    "bytes": 5573,
+    "gzip": 2098,
     "deps": [
       "motion/react"
     ]
