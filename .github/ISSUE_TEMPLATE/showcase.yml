@@ -1,0 +1,73 @@
+name: Showcase submission
+description: Built something with Velora UI? Submit it for the "Built with Velora" showcase.
+title: "[Showcase]: "
+labels: ["showcase"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing what you built! We review every submission and add the ones that use Velora visibly to https://velora.colorlib.com/showcase, with a link back to your site.
+
+  - type: input
+    id: url
+    attributes:
+      label: Site URL
+      description: The live, publicly reachable page that uses Velora.
+      placeholder: https://example.com
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Project name
+      description: How the project should be named on the showcase.
+      placeholder: Acme Analytics
+    validations:
+      required: true
+
+  - type: input
+    id: author
+    attributes:
+      label: Made by
+      description: Your name, studio or company, and a link if you'd like one.
+      placeholder: Jane Doe — https://janedoe.dev
+    validations:
+      required: false
+
+  - type: textarea
+    id: uses
+    attributes:
+      label: Velora components and blocks used
+      description: Which ones, and where on the page they appear. Names or links from velora.colorlib.com are fine.
+      placeholder: |
+        - Aurora Background and Typewriter in the hero
+        - Bento feature grid block
+        - Marquee for the logo strip
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: Drag and drop a screenshot of the page here — ideally 1280×800 (16:10) and taken in the browser, not a mockup.
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source code
+      description: Optional. A public repository, if there is one.
+      placeholder: https://github.com/you/project
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: permission
+    attributes:
+      label: Permission
+      options:
+        - label: I own this site or have permission to submit it, and I agree to it being featured on velora.colorlib.com with its name, screenshot and a link.
+          required: true
