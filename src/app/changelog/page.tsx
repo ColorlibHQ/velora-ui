@@ -22,6 +22,21 @@ interface Release {
 
 const releases: Release[] = [
   {
+    date: "September 29, 2026",
+    version: "0.10.0",
+    title: "A homepage about the library, templates, showcase and AI docs",
+    tag: "Improved",
+    items: [
+      "A new homepage: a live showcase of real components above the fold, category and block overviews, and claims you can check",
+      "The SaaS landing template moved to /templates/saas, with a new Templates section",
+      "A denser components index: category chips, a New in v0.7.0 panel and New badges in the sidebar",
+      "Component pages gain an On this page table of contents plus Edit on GitHub and Report an issue links",
+      "New pages: AI & MCP setup, a Built with Velora showcase you can submit to, and a measured comparison with React Bits",
+      "The Pro waitlist works, with double opt-in email confirmation",
+      "The site follows your system's light or dark setting, dark-mode buttons meet WCAG contrast, and the homepage no longer downloads 1.4 MB of demo photos",
+    ],
+  },
+  {
     date: "September 25, 2026",
     version: "0.9.0",
     title: "Findable: category pages, comparisons and a faster homepage",

@@ -2,6 +2,40 @@
 
 All notable changes to Velora UI. Also published at [/changelog](https://velora.colorlib.com/changelog).
 
+## 0.10.0 — 2026-09-29
+
+### Added
+
+- A library-first homepage with a live showcase of real components, category tiles, block previews,
+  "claims you can check" and install instructions
+- `/templates` and `/templates/saas`: the SaaS landing template moved off the homepage
+- `/showcase` (Built with Velora) with a GitHub issue form for submissions
+- `/components/ai`: shadcn MCP setup for Claude Code, Cursor, VS Code and Windsurf, the `@velora`
+  namespace, llms.txt and Copy prompt
+- `/compare/react-bits`, measured the same way as the other comparisons
+- A working Pro waitlist: `/api/waitlist` (Cloudflare Pages Function) subscribes to a double opt-in
+  Sendy list; confirmed subscribers land on `/waitlist/confirmed`
+- Components record the release they first shipped in (`since`); New badges in the index and sidebar
+- Component pages: On this page table of contents with scroll-spy, Edit on GitHub, Edit docs and
+  Report an issue links; data credits (Globe, World Map)
+- Open in v0 on block previews; real stack logos on the homepage
+
+### Changed
+
+- Denser components index: 3 columns, category chips with counts, a New panel, 34% shorter
+- Footer regrouped into Product, Resources, Compare, Categories and Template demo, with a Colorlib byline
+- The site follows the system colour scheme instead of forcing dark
+- Improved thumbnails for Aurora, Lamp, Grid & Dot Pattern, Ripple, Background Beams, Glare Card,
+  Tilt Card and Retro Grid
+
+### Fixed
+
+- Dark-mode primary buttons had white text at 3.6:1 contrast; they now use dark text (5.3:1)
+- The homepage downloaded 1.4 MB of demo photos while prefetching /components; content images are
+  now lazy-loaded
+- Blocks pages overflowed horizontally at phone widths
+- The docs sidebar now scrolls to the current component and marks it with aria-current
+
 ## 0.9.0 — 2026-09-25
 
 ### Added
