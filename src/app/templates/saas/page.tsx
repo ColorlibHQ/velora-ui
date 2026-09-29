@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   CheckIcon,
   GaugeIcon,
@@ -48,8 +47,7 @@ import { blocksMeta } from "@/lib/blocks-meta";
 import { StackLogo, stackNames } from "@/components/template/stack-logos";
 import { WaitlistForm } from "@/components/template/waitlist-form";
 import { componentsMeta } from "@/lib/components-meta";
-import { JsonLd, publisher } from "@/lib/seo";
-import { siteConfig } from "@/lib/site-config";
+import { pageMetadata } from "@/lib/seo";
 
 const stats = [
   {
@@ -137,25 +135,16 @@ const proFeatures = [
   "Private registry + lifetime updates",
 ];
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+export const metadata = pageMetadata({
+  title: "Free SaaS landing page template",
+  description:
+    "A free, MIT-licensed SaaS landing page built entirely from Velora UI components: animated hero, bento features, integrations, testimonials, pricing and FAQ. Clone the repo and make it yours.",
+  path: "/templates/saas",
+});
 
-export default function Home() {
+export default function SaasTemplate() {
   return (
     <main className="relative">
-      <JsonLd
-        data={[
-          {
-            "@type": "WebSite",
-            name: siteConfig.name,
-            url: siteConfig.url,
-            description: siteConfig.description,
-            publisher,
-          },
-          { ...publisher, sameAs: [siteConfig.github] },
-        ]}
-      />
       <ScrollProgress />
 
       <SiteHeader />
