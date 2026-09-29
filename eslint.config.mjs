@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Local agent worktrees and Wrangler state
+    ".claude/**",
+    ".wrangler/**",
   ]),
   {
     // shadcn/ui generated components are kept as upstream ships them
