@@ -116,7 +116,8 @@
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.623 0.214 260);
-  --primary-foreground: oklch(0.985 0 0);
+  /* Dark text: white on this blue is 3.6:1, below WCAG AA; near-black is 5.3:1. */
+  --primary-foreground: oklch(0.145 0 0);
   --brand: oklch(0.623 0.214 260);
   --brand-foreground: oklch(0.985 0 0);
   --brand-from: oklch(0.623 0.214 260);
