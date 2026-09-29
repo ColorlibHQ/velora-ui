@@ -244,6 +244,11 @@ export default async function ComponentPage({
         <p className="mt-2 max-w-2xl text-muted-foreground">
           {meta.description}
         </p>
+        {meta.credits && (
+          <p className="mt-1.5 max-w-2xl text-xs text-muted-foreground/80">
+            {meta.credits}
+          </p>
+        )}
 
         {/* Receipts — generated at build time by scripts/component-stats.mjs */}
         <ul className="mt-5 flex flex-wrap gap-2">

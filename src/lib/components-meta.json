@@ -1961,6 +1961,7 @@
     "description": "Dotted canvas globe with markers, great-circle arcs, drag and keyboard rotation.",
     "category": "Data & Maps",
     "dependencies": [],
+    "credits": "Land mask derived from Natural Earth (public domain).",
     "a11y": {
       "motion": "Auto-rotation, marker pulses and travelling arc highlights stop; one static frame is drawn with arcs shown in full. Dragging and arrow keys still rotate it, arrow keys in instant 15° steps.",
       "keyboard": "The globe is a single Tab stop with a focus ring; Left/Right arrows turn it west/east and Up/Down tilt it north/south. Auto-rotation pauses while it has focus or is hovered.",
@@ -1984,6 +1985,7 @@
     "description": "Dotted SVG world map with markers, pulsing hubs and animated connection arcs.",
     "category": "Data & Maps",
     "dependencies": [],
+    "credits": "Land mask derived from Natural Earth (public domain).",
     "a11y": {
       "motion": "Arcs are drawn in full with no travelling highlight and markers do not pulse. The server render is this static state too; animation is added after hydration.",
       "keyboard": null,
