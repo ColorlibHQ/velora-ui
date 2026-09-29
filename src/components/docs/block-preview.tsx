@@ -6,6 +6,7 @@ import {
   MonitorIcon,
   RotateCcwIcon,
   SmartphoneIcon,
+  SparklesIcon,
   TabletIcon,
 } from "lucide-react";
 
@@ -28,12 +29,15 @@ const toolButton =
  */
 export function BlockPreview({
   src,
+  registryUrl,
   title,
   code,
   highlighted,
 }: {
   /** URL of the bare preview page */
   src: string;
+  /** The block's shadcn registry item, for "Open in v0" */
+  registryUrl: string;
   title: string;
   code: string;
   highlighted: string;
@@ -113,6 +117,16 @@ export function BlockPreview({
             className="inline-flex size-8 items-center justify-center rounded-md border bg-card text-muted-foreground transition-colors hover:text-foreground"
           >
             <ExternalLinkIcon className="size-4" />
+          </a>
+          <a
+            href={`https://v0.app/chat/api/open?url=${encodeURIComponent(registryUrl)}`}
+            target="_blank"
+            rel="noopener"
+            aria-label={`Open ${title} in v0`}
+            className="inline-flex h-8 items-center gap-1.5 rounded-md border bg-card px-2.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <SparklesIcon className="size-3.5" aria-hidden />
+            Open in v0
           </a>
           <CopyButton text={code} label={`Copy ${title} code`} />
         </div>
