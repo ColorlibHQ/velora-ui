@@ -51,6 +51,10 @@ export interface Comparison {
   weWin: string[];
   /** Their component name → equivalent Velora component slug */
   equivalents: [string, string][];
+  /** Set when this library was measured on a different day from `measuredOn` */
+  measuredOn?: string;
+  /** Anything about how this library was measured that differs from the others */
+  methodNote?: string;
 }
 
 export const comparisons: Comparison[] = [
@@ -228,6 +232,72 @@ export const comparisons: Comparison[] = [
       ["Tweet Card", "tweet-card"],
       ["Typing Animation", "typewriter"],
       ["Word Rotate", "word-rotate"],
+    ],
+  },
+  {
+    slug: "react-bits",
+    measuredOn: "September 29, 2026",
+    methodNote:
+      "React Bits publishes each component four times (JavaScript or TypeScript, plain CSS or Tailwind) as registry:component items, not registry:ui. We measured the TypeScript + Tailwind variant of each of the 212 components in its public registry at reactbits.dev/r, so every component counts once; Velora was re-measured the same day with unchanged results.",
+    them: {
+      name: "React Bits",
+      url: "https://reactbits.dev",
+      freeComponents: 212,
+      reducedMotion: 67,
+      aria: 78,
+      zeroDeps: 46,
+      incompleteInstalls: 2,
+      license: "MIT + Commons Clause (no reselling the components); source on GitHub",
+      freeBlocks: "None free; 280 in React Bits Pro",
+      templates: "15 in React Bits Pro (1 free)",
+      pricing:
+        "Free components; Pro $129–$349 one-time, or $79–$199/year",
+      tailwind: "Tailwind or plain CSS, per component",
+    },
+    summary:
+      "React Bits is one of the most popular animated-component collections for React (about 48,000 GitHub stars), with more than twice Velora's free components, each in JavaScript, TypeScript, CSS and Tailwind versions. Velora is smaller and built around shadcn/ui: plain MIT, free section blocks and a SaaS template, reduced motion handled in nearly every animated component, and CLI installs that bring their keyframes.",
+    theyWin: [
+      "Far more free components (212 against our 100), including dozens of WebGL, three.js and shader backgrounds Velora doesn't attempt",
+      "Every component in four variants — JavaScript or TypeScript, plain CSS or Tailwind — so it works outside Tailwind projects too",
+      "Official Vue (Vue Bits) and Svelte (Svelte Bits) ports from the same author",
+      "A much larger community — about 48,000 GitHub stars",
+      "A paid Pro library with 150 more components, 280 page blocks, 300 app-UI screens and 15 templates",
+      "Relative to size, more components set ARIA attributes or roles (78 of 212 against our 32 of 100)",
+    ],
+    weWin: [
+      "Plain MIT licence. React Bits adds a Commons Clause that bars selling or redistributing the components themselves, alone or in a bundle",
+      "31 free section blocks and a free multi-page SaaS template; React Bits' free library has no page-level blocks — those are in Pro",
+      "Reduced motion handled in the component source in 89 of 100 components (the other 11 don't animate), against 67 of 212 in React Bits",
+      "Lighter installs: 51 of 100 components need no npm package (React Bits: 46 of 212, with ogl, GSAP, motion and three.js the most common)",
+      "CLI installs are complete: every component ships its keyframes. Two React Bits Tailwind components leave theirs as a comment to paste into a Tailwind config",
+      "Built for shadcn/ui: components read your theme tokens and brand variables, and keyboard, focus and screen-reader behaviour is documented on every page",
+    ],
+    equivalents: [
+      ["Animated Content", "blur-fade"],
+      ["Animated List", "animated-list"],
+      ["Aurora", "aurora-background"],
+      ["Border Glow", "glowing-effect"],
+      ["Card Swap", "card-stack"],
+      ["Count Up", "number-ticker"],
+      ["Decrypted Text", "hyper-text"],
+      ["Dock", "dock"],
+      ["Fade Content", "blur-fade"],
+      ["Glare Hover", "glare-card"],
+      ["Gradient Text", "animated-gradient-text"],
+      ["Light Rays", "light-rays"],
+      ["Logo Loop", "marquee"],
+      ["Magic Bento", "bento-grid"],
+      ["Magnet", "magnetic-button"],
+      ["Particles", "particles"],
+      ["Rotating Text", "word-rotate"],
+      ["Scroll Reveal", "text-reveal"],
+      ["Scroll Velocity", "scroll-velocity"],
+      ["Shiny Text", "text-shimmer"],
+      ["Spotlight Card", "spotlight-card"],
+      ["Star Border", "moving-border"],
+      ["Stepper", "stepper"],
+      ["Text Type", "typewriter"],
+      ["Tilted Card", "tilt-card"],
     ],
   },
 ];
