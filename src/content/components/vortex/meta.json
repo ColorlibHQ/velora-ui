@@ -2,6 +2,7 @@
   "title": "Vortex",
   "description": "Brand-tinted particles spiralling into the centre, leaving soft fading trails.",
   "category": "Backgrounds",
+  "since": "0.6.0",
   "dependencies": [],
   "a11y": {
     "motion": "No animation runs: the canvas pre-computes a short burst of motion and shows it as one frozen swirl, redrawn on resize and theme change.",

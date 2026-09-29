@@ -2,6 +2,7 @@
   "title": "Ripple Button",
   "description": "Expands a ripple from the exact point you pressed.",
   "category": "Buttons",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "No ripple is created on click; the button keeps its hover background change only.",

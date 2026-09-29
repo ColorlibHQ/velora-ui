@@ -2,6 +2,7 @@
   "title": "Noise Background",
   "description": "Drifting brand-gradient blobs under a static film-grain overlay; wraps its content.",
   "category": "Backgrounds",
+  "since": "0.7.0",
   "dependencies": [],
   "a11y": {
     "motion": "The blobs never move; the gradient wash and grain render as a still backdrop.",

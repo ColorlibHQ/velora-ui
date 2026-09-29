@@ -2,6 +2,7 @@
   "title": "Loaders",
   "description": "Five tiny CSS loading indicators — dots, pulse, orbit, bars and spinner.",
   "category": "Loaders",
+  "since": "0.7.0",
   "dependencies": [],
   "a11y": {
     "motion": "Bouncing, spinning and rippling stop; each loader holds its shape and fades gently in and out on a 2-second cycle instead.",

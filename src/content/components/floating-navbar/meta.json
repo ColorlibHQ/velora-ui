@@ -2,6 +2,7 @@
   "title": "Floating Navbar",
   "description": "Hides on scroll down, returns the moment you scroll up.",
   "category": "Navigation",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "The bar still hides on scroll down and returns on scroll up, but it jumps instead of sliding over 300ms.",

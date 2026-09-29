@@ -2,6 +2,7 @@
   "title": "Tracing Beam",
   "description": "Gradient line that draws itself down long-form content.",
   "category": "Scroll",
+  "since": "0.4.0",
   "dependencies": [
     "motion"
   ],

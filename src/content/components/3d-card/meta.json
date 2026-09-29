@@ -2,6 +2,7 @@
   "title": "3D Card",
   "description": "Perspective card that turns toward the pointer while its layers lift to different depths.",
   "category": "3D",
+  "since": "0.6.0",
   "dependencies": [
     "motion"
   ],

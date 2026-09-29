@@ -2,6 +2,7 @@
   "title": "Hero Parallax",
   "description": "Hero copy over three card rows that slide apart as a tilted block flattens.",
   "category": "Scroll",
+  "since": "0.6.0",
   "dependencies": [
     "motion"
   ],

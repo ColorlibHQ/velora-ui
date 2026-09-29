@@ -2,6 +2,7 @@
   "title": "File Tree",
   "description": "Collapsible tree for documenting project structure.",
   "category": "Cards & Layout",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "The chevron snaps between closed and open instead of rotating. Child lists appear and disappear instantly for everyone.",

@@ -2,6 +2,7 @@
   "title": "Animated Testimonials",
   "description": "Crossfades portraits behind a rotating quote.",
   "category": "Social Proof",
+  "since": "0.4.0",
   "dependencies": [
     "motion"
   ],

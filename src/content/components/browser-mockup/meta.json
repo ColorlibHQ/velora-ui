@@ -2,6 +2,7 @@
   "title": "Browser Mockup",
   "description": "Browser window frame for product screenshots.",
   "category": "Mockups",
+  "since": "0.1.2",
   "dependencies": [],
   "a11y": {
     "motion": "Static; no animation.",

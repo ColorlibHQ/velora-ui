@@ -2,6 +2,7 @@
   "title": "Sticky Banner",
   "description": "Dismissible announcement bar pinned above the header.",
   "category": "Navigation",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "Nothing animates, so reduced-motion users see the same banner.",

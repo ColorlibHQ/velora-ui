@@ -2,6 +2,7 @@
   "title": "Resizable Navbar",
   "description": "Full-width navbar that shrinks into a floating, blurred pill once you scroll.",
   "category": "Navigation",
+  "since": "0.7.0",
   "dependencies": ["motion"],
   "a11y": {
     "motion": "The bar still narrows into the pill past the threshold, but it snaps to size instead of springing; the link highlight jumps rather than glides and the mobile menu appears without sliding.",

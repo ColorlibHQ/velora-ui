@@ -2,6 +2,7 @@
   "title": "Animated List",
   "description": "Looping feed that springs each item in, newest on top.",
   "category": "Cards & Layout",
+  "since": "0.1.1",
   "dependencies": [
     "motion"
   ],

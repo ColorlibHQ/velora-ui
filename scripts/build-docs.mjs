@@ -1,6 +1,7 @@
 // Assembles the docs catalogue from src/content/components/<slug>/:
 //   meta.json            → src/lib/components-meta.json (read by the site and
-//                           scripts/build-registry.mjs)
+//                           scripts/build-registry.mjs); every key, including
+//                           the optional "since" release, passes through
 //   examples/<name>.tsx  → src/content/components/index.ts (static imports)
 // and extracts props tables from src/components/velora/<slug>.tsx
 //                        → src/lib/component-props.json
@@ -43,6 +44,10 @@ const docs = readdirSync(contentDir, { withFileTypes: true })
     }
     if (!existsSync(resolve(root, "src/components/velora", `${slug}.tsx`))) {
       throw new Error(`${slug}: no src/components/velora/${slug}.tsx`);
+    }
+    // Optional release the component first shipped in (drives "New" badges).
+    if ("since" in meta && !/^\d+\.\d+\.\d+$/.test(meta.since)) {
+      throw new Error(`${slug}/meta.json: "since" must be a version like "0.7.0"`);
     }
     if (meta.examples[0]?.name !== "default") {
       throw new Error(`${slug}/meta.json: first example must be "default"`);

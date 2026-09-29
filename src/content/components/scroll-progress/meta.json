@@ -2,6 +2,7 @@
   "title": "Scroll Progress",
   "description": "Gradient page-progress bar pinned to the top.",
   "category": "Scroll",
+  "since": "0.1.0",
   "dependencies": [
     "motion"
   ],

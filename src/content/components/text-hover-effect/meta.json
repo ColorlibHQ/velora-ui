@@ -2,6 +2,7 @@
   "title": "Text Hover Effect",
   "description": "Giant outlined word that draws in, then glows in brand colours under the pointer.",
   "category": "Text",
+  "since": "0.6.0",
   "dependencies": [
     "motion"
   ],

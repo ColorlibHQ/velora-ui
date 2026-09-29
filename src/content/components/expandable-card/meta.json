@@ -2,6 +2,7 @@
   "title": "Expandable Card",
   "description": "Expands into a centred panel with shared-layout transitions.",
   "category": "Cards & Layout",
+  "since": "0.4.0",
   "dependencies": [
     "motion"
   ],

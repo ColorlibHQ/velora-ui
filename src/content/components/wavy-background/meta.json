@@ -2,6 +2,7 @@
   "title": "Wavy Background",
   "description": "Blurred, translucent ribbons of brand colour flowing sideways on a canvas.",
   "category": "Backgrounds",
+  "since": "0.6.0",
   "dependencies": [],
   "a11y": {
     "motion": "The waves do not move: the canvas paints one still frame of the ribbons and repaints it on resize and theme change.",

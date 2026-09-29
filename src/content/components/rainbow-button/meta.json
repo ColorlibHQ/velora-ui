@@ -2,6 +2,7 @@
   "title": "Rainbow Button",
   "description": "CTA cycling the brand ramp, with a matching glow beneath.",
   "category": "Buttons",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "The colour cycle and glow freeze, leaving a static brand gradient with a still glow beneath; the hover glow and press scale remain.",

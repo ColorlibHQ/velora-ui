@@ -2,6 +2,7 @@
   "title": "Hyper Text",
   "description": "Scrambles through letters and resolves into the real text.",
   "category": "Text",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "No scramble runs, on mount or on hover; the text renders as-is.",

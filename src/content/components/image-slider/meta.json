@@ -2,6 +2,7 @@
   "title": "Image Slider",
   "description": "Full-bleed image slider with crossfade-zoom, autoplay, dots, arrows and swipe.",
   "category": "Carousels",
+  "since": "0.7.0",
   "dependencies": [
     "motion"
   ],

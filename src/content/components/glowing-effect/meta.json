@@ -2,6 +2,7 @@
   "title": "Glowing Effect",
   "description": "Border glow that follows the pointer around a card's edge as it comes near.",
   "category": "Effects",
+  "since": "0.6.0",
   "dependencies": [],
   "a11y": {
     "motion": "The arc stops following the pointer; hovering the card shows a soft glow around the whole border instead.",

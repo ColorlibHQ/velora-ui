@@ -2,6 +2,7 @@
   "title": "Globe",
   "description": "Dotted canvas globe with markers, great-circle arcs, drag and keyboard rotation.",
   "category": "Data & Maps",
+  "since": "0.6.0",
   "dependencies": [],
   "a11y": {
     "motion": "Auto-rotation, marker pulses and travelling arc highlights stop; one static frame is drawn with arcs shown in full. Dragging and arrow keys still rotate it, arrow keys in instant 15° steps.",

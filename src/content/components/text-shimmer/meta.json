@@ -2,6 +2,7 @@
   "title": "Text Shimmer",
   "description": "A soft light sweep — great for AI loading states.",
   "category": "Text",
+  "since": "0.1.2",
   "dependencies": [],
   "a11y": {
     "motion": "The sweep is off; the text rests in the muted foreground colour with a slight brightening at the right edge and stays fully readable.",

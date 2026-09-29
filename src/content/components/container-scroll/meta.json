@@ -2,6 +2,7 @@
   "title": "Container Scroll",
   "description": "Screenshot panel that rotates flat as it scrolls into view.",
   "category": "Scroll",
+  "since": "0.4.0",
   "dependencies": [
     "motion"
   ],

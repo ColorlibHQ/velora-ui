@@ -2,6 +2,7 @@
   "title": "Retro Grid",
   "description": "Perspective grid scrolling forever toward the horizon.",
   "category": "Backgrounds",
+  "since": "0.1.1",
   "dependencies": [],
   "a11y": {
     "motion": "The scroll animation is off; the perspective grid plane shows as a still grid under the top and bottom fades.",

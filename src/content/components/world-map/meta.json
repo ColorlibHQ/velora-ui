@@ -2,6 +2,7 @@
   "title": "World Map",
   "description": "Dotted SVG world map with markers, pulsing hubs and animated connection arcs.",
   "category": "Data & Maps",
+  "since": "0.6.0",
   "dependencies": [],
   "a11y": {
     "motion": "Arcs are drawn in full with no travelling highlight and markers do not pulse. The server render is this static state too; animation is added after hydration.",

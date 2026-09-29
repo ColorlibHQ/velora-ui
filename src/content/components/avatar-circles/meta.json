@@ -2,6 +2,7 @@
   "title": "Avatar Circles",
   "description": "Stacked initials avatars with a +N badge — zero images.",
   "category": "Cards & Layout",
+  "since": "0.1.1",
   "dependencies": [],
   "a11y": {
     "motion": "Static; no animation.",

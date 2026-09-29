@@ -2,6 +2,7 @@
   "title": "Magnetic Button",
   "description": "Leans toward the cursor and springs back on leave.",
   "category": "Buttons",
+  "since": "0.4.0",
   "dependencies": [
     "motion"
   ],

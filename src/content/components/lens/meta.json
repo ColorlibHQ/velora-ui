@@ -2,6 +2,7 @@
   "title": "Lens",
   "description": "Circular magnifier that follows the pointer or arrow keys to zoom into an image.",
   "category": "Cursor & Pointer",
+  "since": "0.6.0",
   "dependencies": [],
   "a11y": {
     "motion": "The lens tracks the pointer directly with no easing, and appears and hides without a fade or scale.",
