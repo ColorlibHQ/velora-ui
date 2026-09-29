@@ -45,21 +45,11 @@ import { TextReveal } from "@/components/velora/text-reveal";
 import { TiltCard } from "@/components/velora/tilt-card";
 import { Typewriter } from "@/components/velora/typewriter";
 import { blocksMeta } from "@/lib/blocks-meta";
+import { StackLogo, stackNames } from "@/components/template/stack-logos";
 import { WaitlistForm } from "@/components/template/waitlist-form";
 import { componentsMeta } from "@/lib/components-meta";
 import { JsonLd, publisher } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
-
-const stack = [
-  "Next.js",
-  "React",
-  "Tailwind CSS",
-  "Motion",
-  "shadcn/ui",
-  "Radix",
-  "Base UI",
-  "TypeScript",
-];
 
 const stats = [
   {
@@ -266,13 +256,12 @@ export default function Home() {
             Built on the stack you already ship
           </p>
           <Marquee pauseOnHover className="[--duration:30s]">
-            {stack.map((logo) => (
-              <span
-                key={logo}
-                className="mx-8 text-xl font-semibold tracking-tight text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {logo}
-              </span>
+            {stackNames.map((name) => (
+              <StackLogo
+                key={name}
+                name={name}
+                className="mx-8 text-lg font-semibold tracking-tight text-muted-foreground transition-colors hover:text-foreground"
+              />
             ))}
           </Marquee>
         </div>
