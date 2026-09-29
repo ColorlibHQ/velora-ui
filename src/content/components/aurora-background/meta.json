@@ -2,6 +2,7 @@
   "title": "Aurora Background",
   "description": "Velora's signature drifting aurora gradient backdrop.",
   "category": "Backgrounds",
+  "since": "0.1.0",
   "dependencies": [],
   "a11y": {
     "motion": "The drift animation is off; the three blurred colour blobs rest at their default positions, so the glow is unchanged but static.",

@@ -2,6 +2,7 @@
   "title": "Sticky Scroll",
   "description": "Copy scrolls past a pinned panel that swaps per section.",
   "category": "Scroll",
+  "since": "0.4.0",
   "dependencies": [
     "motion"
   ],

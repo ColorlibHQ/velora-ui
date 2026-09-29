@@ -2,6 +2,7 @@
   "title": "Shooting Stars",
   "description": "A twinkling star field with brand-tinted streaks shooting across at random.",
   "category": "Backgrounds",
+  "since": "0.6.0",
   "dependencies": [],
   "a11y": {
     "motion": "Stars stop twinkling and no streaks launch; one streak is painted frozen mid-flight. Both canvases repaint that still frame on resize and theme change.",

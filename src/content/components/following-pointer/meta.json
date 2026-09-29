@@ -2,6 +2,7 @@
   "title": "Following Pointer",
   "description": "Swaps the cursor for an arrow and a name tag that trail the pointer inside a region.",
   "category": "Cursor & Pointer",
+  "since": "0.7.0",
   "dependencies": [
     "motion"
   ],

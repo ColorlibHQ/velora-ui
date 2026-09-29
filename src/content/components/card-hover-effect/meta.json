@@ -2,6 +2,7 @@
   "title": "Card Hover Effect",
   "description": "Link-card grid with a highlight that glides to whichever card you hover or focus.",
   "category": "Cards & Layout",
+  "since": "0.6.0",
   "dependencies": [
     "motion"
   ],

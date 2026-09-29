@@ -164,13 +164,14 @@ export default async function BlockCategoryPage({
               <div className="mt-5">
                 <BlockPreview
                   src={`/blocks/preview/${block.slug}`}
+                  registryUrl={`${REGISTRY_BASE}/${block.slug}.json`}
                   title={block.title}
                   code={code}
                   highlighted={html}
                 />
               </div>
 
-              <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_20rem]">
+              <div className="mt-5 grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
                 <PackageManagerCommand
                   type="dlx"
                   args={`shadcn@latest add ${REGISTRY_BASE}/${block.slug}.json`}

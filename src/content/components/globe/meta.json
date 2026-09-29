@@ -2,7 +2,9 @@
   "title": "Globe",
   "description": "Dotted canvas globe with markers, great-circle arcs, drag and keyboard rotation.",
   "category": "Data & Maps",
+  "since": "0.6.0",
   "dependencies": [],
+  "credits": "Land mask derived from Natural Earth (public domain).",
   "a11y": {
     "motion": "Auto-rotation, marker pulses and travelling arc highlights stop; one static frame is drawn with arcs shown in full. Dragging and arrow keys still rotate it, arrow keys in instant 15° steps.",
     "keyboard": "The globe is a single Tab stop with a focus ring; Left/Right arrows turn it west/east and Up/Down tilt it north/south. Auto-rotation pauses while it has focus or is hovered.",

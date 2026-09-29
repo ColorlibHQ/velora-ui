@@ -2,6 +2,7 @@
   "title": "3D Marquee",
   "description": "A tilted 3D grid of images whose columns scroll up and down in an endless loop.",
   "category": "Carousels",
+  "since": "0.7.0",
   "dependencies": [],
   "a11y": {
     "motion": "The columns stop scrolling and the grid rests as a static tilted wall. Scrolling also pauses on hover and while offscreen.",

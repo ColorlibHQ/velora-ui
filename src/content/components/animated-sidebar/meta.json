@@ -2,6 +2,7 @@
   "title": "Animated Sidebar",
   "description": "Icon rail that expands on hover or focus and turns into a drawer on narrow screens.",
   "category": "Navigation",
+  "since": "0.7.0",
   "dependencies": [],
   "a11y": {
     "motion": "The rail snaps between its collapsed and expanded widths, labels appear without fading and the drawer opens without sliding.",

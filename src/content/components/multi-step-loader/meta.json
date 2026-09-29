@@ -2,6 +2,7 @@
   "title": "Multi Step Loader",
   "description": "Full-screen overlay that ticks through a list of steps, keeping the active one centred.",
   "category": "Loaders",
+  "since": "0.7.0",
   "dependencies": [],
   "a11y": {
     "motion": "The list jumps to the active step instead of scrolling, the spinner stands still and the overlay appears without a fade; steps still advance on schedule.",

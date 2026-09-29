@@ -112,11 +112,11 @@ npx shadcn@latest add https://velora.colorlib.com/r/hero-globe.json
 
 ### The complete template
 
-A production landing site, not a component sandbox. Every page is real, static-rendered and yours to keep:
+A production landing site, not a component sandbox — browse it at [/templates](https://velora.colorlib.com/templates). Every page is real, static-rendered and yours to keep:
 
 | Page | What you get |
 |------|--------------|
-| [Home](https://velora.colorlib.com) | Animated hero, feature bento, social proof, marquee and CTA sections |
+| [SaaS landing](https://velora.colorlib.com/templates/saas) | Animated hero, feature bento, integrations, sample testimonials, pricing, FAQ and CTA — in `src/app/templates/saas/page.tsx`; move it to `src/app/page.tsx` to make it your homepage |
 | [Components](https://velora.colorlib.com/components) | Browsable gallery + a docs page per component (demo · props · install · source) |
 | [Themes](https://velora.colorlib.com/themes) | Six brand presets with live token switching |
 | [Pricing](https://velora.colorlib.com/pricing) | Free vs. Pro tiers with feature comparison |

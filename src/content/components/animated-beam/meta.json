@@ -2,6 +2,7 @@
   "title": "Animated Beam",
   "description": "Draws an animated connection between any two elements.",
   "category": "Effects",
+  "since": "0.1.1",
   "dependencies": [
     "motion"
   ],

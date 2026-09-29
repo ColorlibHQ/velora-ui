@@ -2,6 +2,7 @@
   "title": "Moving Border",
   "description": "A light laps the button's border via offset-path.",
   "category": "Buttons",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "The travelling light is replaced by a static glow on the top-left and bottom-right corners of the border.",

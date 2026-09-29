@@ -2,6 +2,7 @@
   "title": "Confetti",
   "description": "Dependency-free confetti burst, fired from anywhere.",
   "category": "Buttons",
+  "since": "0.1.2",
   "dependencies": [],
   "a11y": {
     "motion": "confettiBurst does nothing, so clicking shows no burst; the button's own onClick still runs.",

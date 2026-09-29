@@ -25,6 +25,10 @@ export interface ComponentMeta {
   dependencies: string[];
   examples: ComponentExampleMeta[];
   a11y?: ComponentA11y;
+  /** Attribution for third-party data or assets, shown under the description */
+  credits?: string;
+  /** Release the component first shipped in, e.g. "0.7.0" */
+  since?: string;
 }
 
 /**
@@ -35,6 +39,29 @@ export interface ComponentMeta {
 export const componentsMeta = meta as ComponentMeta[];
 
 export const categories = categoryList as readonly string[];
+
+const versionParts = (v: string) => v.split(".").map(Number);
+const compareVersions = (a: string, b: string) => {
+  const [x, y] = [versionParts(a), versionParts(b)];
+  for (let i = 0; i < Math.max(x.length, y.length); i++) {
+    const d = (x[i] ?? 0) - (y[i] ?? 0);
+    if (d) return d;
+  }
+  return 0;
+};
+
+/** The newest `since` across the catalogue, e.g. "0.7.0" */
+export const latestSince: string | undefined = componentsMeta
+  .map((c) => c.since)
+  .filter((v): v is string => !!v)
+  .sort(compareVersions)
+  .at(-1);
+
+/** True when the component shipped in the newest release that added components */
+export const isNew = (meta: Pick<ComponentMeta, "since">) =>
+  !!meta.since && meta.since === latestSince;
+
+export const newComponents = componentsMeta.filter(isNew);
 
 /** "Cards & Layout" → "cards-layout" */
 export const categorySlug = (category: string) =>

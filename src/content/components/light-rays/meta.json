@@ -2,6 +2,7 @@
   "title": "Light Rays",
   "description": "God rays fanning down from the top of a section.",
   "category": "Backgrounds",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "No change: the rays are static gradients with no animation.",

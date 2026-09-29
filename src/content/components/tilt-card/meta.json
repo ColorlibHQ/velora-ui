@@ -2,6 +2,7 @@
   "title": "Tilt Card",
   "description": "3D perspective tilt that tracks the cursor.",
   "category": "Cards & Layout",
+  "since": "0.1.1",
   "dependencies": [
     "motion"
   ],

@@ -2,6 +2,7 @@
   "title": "Smooth Cursor",
   "description": "Dot-and-ring custom cursor; the ring trails on a spring and grows over links and buttons.",
   "category": "Cursor & Pointer",
+  "since": "0.7.0",
   "dependencies": [
     "motion"
   ],

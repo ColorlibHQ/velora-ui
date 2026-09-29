@@ -2,6 +2,7 @@
   "title": "Scroll Velocity",
   "description": "Marquee whose speed and direction follow your scrolling.",
   "category": "Scroll",
+  "since": "0.4.0",
   "dependencies": [
     "motion"
   ],

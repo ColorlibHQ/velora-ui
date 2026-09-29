@@ -2,6 +2,7 @@
   "title": "Terminal",
   "description": "A terminal window that types its lines in view.",
   "category": "Mockups",
+  "since": "0.1.2",
   "dependencies": [
     "motion"
   ],

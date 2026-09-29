@@ -2,6 +2,7 @@
   "title": "Lamp",
   "description": "A glowing lamp-line header that expands into view.",
   "category": "Backgrounds",
+  "since": "0.1.2",
   "dependencies": [
     "motion"
   ],

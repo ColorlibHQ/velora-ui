@@ -19,7 +19,11 @@ const blockGroups = blockCategories.filter((c) => blocksIn(c.slug).length);
 const pages = [
   { href: "/components/get-started", title: "Get started" },
   { href: "/components", title: "All components" },
+  { href: "/components/ai", title: "AI & MCP" },
   { href: "/blocks", title: "All blocks" },
+  { href: "/templates", title: "Templates" },
+  { href: "/templates/saas", title: "SaaS landing template" },
+  { href: "/showcase", title: "Showcase" },
   { href: "/themes", title: "Themes" },
   { href: "/pricing", title: "Pricing" },
   { href: "/blog", title: "Blog" },

@@ -2,6 +2,7 @@
   "title": "Stateful Button",
   "description": "Button that morphs through loading, success and error states while a Promise settles.",
   "category": "Buttons",
+  "since": "0.7.0",
   "dependencies": [],
   "a11y": {
     "motion": "The pill no longer shrinks to a circle, the spinner stands still and the labels swap instantly; colour changes remain.",

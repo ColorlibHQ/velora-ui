@@ -2,6 +2,7 @@
   "title": "Text Highlighter",
   "description": "Marker-pen sweep that draws in when the phrase scrolls into view.",
   "category": "Text",
+  "since": "0.4.0",
   "dependencies": [
     "motion"
   ],

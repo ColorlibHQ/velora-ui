@@ -2,6 +2,7 @@
   "title": "Pointer Highlight",
   "description": "Draws an outline around a phrase on scroll, then glides a pointer icon to its corner.",
   "category": "Cursor & Pointer",
+  "since": "0.7.0",
   "dependencies": [
     "motion"
   ],

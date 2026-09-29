@@ -2,6 +2,7 @@
   "title": "File Drop",
   "description": "Upload zone that lifts and glows while a file is over it.",
   "category": "Forms",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "The 200ms transition is removed, so on drag-over the zone snaps to its lifted, brand-bordered state instead of easing into it.",

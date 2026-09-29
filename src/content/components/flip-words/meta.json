@@ -2,6 +2,7 @@
   "title": "Flip Words",
   "description": "Cycles words with a springy blur-flip transition.",
   "category": "Text",
+  "since": "0.1.2",
   "dependencies": [
     "motion"
   ],

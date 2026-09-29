@@ -75,6 +75,7 @@ export default async function ComparePage({
   const { slug } = await params;
   const c = comparisons.find((x) => x.slug === slug);
   if (!c) notFound();
+  const date = c.measuredOn ?? measuredOn;
   const title = (s: string) =>
     componentsMeta.find((m) => m.slug === s)?.title ?? s;
 
@@ -98,7 +99,7 @@ export default async function ComparePage({
           {c.summary}
         </p>
         <p className="mt-3 text-sm text-muted-foreground">
-          Measured {measuredOn}. How we measured is{" "}
+          Measured {date}. How we measured is{" "}
           <a
             href="#method"
             className="text-foreground underline underline-offset-4"
@@ -111,7 +112,7 @@ export default async function ComparePage({
         <div className="mt-10 overflow-x-auto rounded-xl border">
           <table className="w-full min-w-[34rem] text-left text-sm">
             <caption className="sr-only">
-              Velora UI and {c.them.name} compared, measured {measuredOn}
+              Velora UI and {c.them.name} compared, measured {date}
             </caption>
             <thead className="border-b bg-muted/40">
               <tr>
@@ -234,10 +235,11 @@ export default async function ComparePage({
           </h2>
           <div className="mt-3 space-y-3 text-sm text-muted-foreground">
             <p>
-              On {measuredOn} we downloaded every free component each library
+              On {date} we downloaded every free component each library
               publishes in its public shadcn registry and scanned the source
               with one script, run identically on all of them.
             </p>
+            {c.methodNote && <p>{c.methodNote}</p>}
             <ul className="list-disc space-y-1.5 pl-5">
               <li>
                 <strong className="text-foreground">Reduced motion:</strong> the

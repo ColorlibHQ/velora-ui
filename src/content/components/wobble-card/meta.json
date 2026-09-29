@@ -2,6 +2,7 @@
   "title": "Wobble Card",
   "description": "Colored card that drifts toward the pointer, with parallax content and grain.",
   "category": "Cards & Layout",
+  "since": "0.7.0",
   "dependencies": [
     "motion"
   ],

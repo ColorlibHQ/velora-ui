@@ -2,6 +2,7 @@
   "title": "Macbook Scroll",
   "description": "A CSS-drawn laptop pins in place and opens its lid as the screenshot scales up.",
   "category": "Scroll",
+  "since": "0.6.0",
   "dependencies": [
     "motion"
   ],

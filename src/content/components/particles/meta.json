@@ -2,6 +2,7 @@
   "title": "Particles",
   "description": "Drifting, twinkling particle field on a lightweight canvas.",
   "category": "Backgrounds",
+  "since": "0.1.1",
   "dependencies": [],
   "a11y": {
     "motion": "The drift and twinkle loop does not run; the canvas draws one still frame of dots and redraws it on resize and theme change.",

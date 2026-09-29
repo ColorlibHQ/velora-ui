@@ -2,6 +2,7 @@
   "title": "Apple Cards Carousel",
   "description": "Snap-scrolling row of tall image cards that morph into a full modal story.",
   "category": "Carousels",
+  "since": "0.6.0",
   "dependencies": [
     "motion"
   ],

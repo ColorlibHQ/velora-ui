@@ -2,6 +2,7 @@
   "title": "Timeline",
   "description": "Vertical timeline with sticky labels and a gradient beam that fills as you scroll.",
   "category": "Scroll",
+  "since": "0.6.0",
   "dependencies": [
     "motion"
   ],

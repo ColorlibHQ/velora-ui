@@ -45,3 +45,6 @@ next-env.d.ts
 
 # Wrangler local state
 .wrangler/
+
+# Local agent worktrees
+.claude/

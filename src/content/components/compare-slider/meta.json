@@ -2,6 +2,7 @@
   "title": "Compare Slider",
   "description": "Before/after wipe with a keyboard-accessible divider.",
   "category": "Cards & Layout",
+  "since": "0.4.0",
   "dependencies": [],
   "a11y": {
     "motion": "Nothing animates: the divider and clip jump straight to the slider value, so reduced-motion users see the same thing as everyone else.",

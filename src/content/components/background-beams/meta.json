@@ -2,6 +2,7 @@
   "title": "Background Beams",
   "description": "Light beams flowing along curved paths behind content.",
   "category": "Backgrounds",
+  "since": "0.1.2",
   "dependencies": [
     "motion"
   ],
