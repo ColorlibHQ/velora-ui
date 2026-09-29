@@ -1,149 +1,294 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
-  CheckIcon,
+  AccessibilityIcon,
+  AppWindowIcon,
+  ArrowRightIcon,
+  ArrowUpRightIcon,
+  BoxIcon,
+  ChevronsDownIcon,
+  FeatherIcon,
+  GalleryHorizontalIcon,
   GaugeIcon,
+  GitCompareIcon,
+  GlobeIcon,
   LayersIcon,
-  MoonIcon,
+  LayoutGridIcon,
+  LoaderIcon,
+  MenuIcon,
+  MessageSquareQuoteIcon,
+  MonitorSmartphoneIcon,
+  MousePointer2Icon,
   MousePointerClickIcon,
   PaletteIcon,
-  RocketIcon,
+  PanelsTopLeftIcon,
+  ScaleIcon,
   SparklesIcon,
-  StarIcon,
+  TerminalIcon,
+  TextCursorInputIcon,
+  TypeIcon,
+  WavesIcon,
   ZapIcon,
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ActivityList } from "@/components/demo/activity-list";
-import { SiteHeader } from "@/components/site-header";
+import { BlockThumbnail } from "@/components/docs/block-thumbnail";
+import { CopyButton } from "@/components/docs/copy-button";
+import { LiveDemo } from "@/components/home/live-demo";
 import { SiteFooter } from "@/components/site-footer";
-import { HeroMockup } from "@/components/demo/hero-mockup";
-import IntegrationsBeam from "@/content/components/animated-beam/examples/default";
-import { AnimatedGradientText } from "@/components/velora/animated-gradient-text";
-import { AuroraBackground } from "@/components/velora/aurora-background";
-import { AvatarCircles } from "@/components/velora/avatar-circles";
-import { BentoCard, BentoGrid } from "@/components/velora/bento-grid";
-import { BlurFade } from "@/components/velora/blur-fade";
-import { BorderBeam } from "@/components/velora/border-beam";
-import { Dock, DockIcon } from "@/components/velora/dock";
-import { DotPattern, GridPattern } from "@/components/velora/grid-pattern";
-import { Marquee } from "@/components/velora/marquee";
-import { Meteors } from "@/components/velora/meteors";
-import { NumberTicker } from "@/components/velora/number-ticker";
-import { OrbitingCircles } from "@/components/velora/orbiting-circles";
-import { Particles } from "@/components/velora/particles";
-import { RetroGrid } from "@/components/velora/retro-grid";
-import { ScrollProgress } from "@/components/velora/scroll-progress";
-import { ShimmerButton } from "@/components/velora/shimmer-button";
-import { SpotlightCard } from "@/components/velora/spotlight-card";
-import { TextReveal } from "@/components/velora/text-reveal";
-import { TiltCard } from "@/components/velora/tilt-card";
-import { Typewriter } from "@/components/velora/typewriter";
-import { blocksMeta } from "@/lib/blocks-meta";
+import { SiteHeader } from "@/components/site-header";
 import { StackLogo, stackNames } from "@/components/template/stack-logos";
-import { WaitlistForm } from "@/components/template/waitlist-form";
-import { componentsMeta } from "@/lib/components-meta";
+import { AuroraBackground } from "@/components/velora/aurora-background";
+import { GridPattern } from "@/components/velora/grid-pattern";
+import {
+  BarsLoader,
+  DotsLoader,
+  OrbitLoader,
+  PulseLoader,
+  SpinnerLoader,
+} from "@/components/velora/loaders";
+import { Marquee } from "@/components/velora/marquee";
+import { OrbitingCircles } from "@/components/velora/orbiting-circles";
+import { blocksMeta } from "@/lib/blocks-meta";
+import componentStats from "@/lib/component-stats.json";
+import {
+  categories,
+  categoryInfo,
+  categorySlug,
+  componentsMeta,
+} from "@/lib/components-meta";
 import { JsonLd, publisher } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
-
-const stats = [
-  {
-    value: componentsMeta.length,
-    suffix: "",
-    prefix: "",
-    label: "Animated components",
-  },
-  { value: blocksMeta.length, suffix: "", prefix: "", label: "Free blocks" },
-  { value: 0, suffix: "", prefix: "$", label: "Forever. MIT licensed" },
-  { value: 5, suffix: " min", prefix: "", label: "To your first page" },
-];
-
-// Placeholder quotes for the template — swap in real customer quotes.
-const testimonials = [
-  {
-    quote:
-      "We moved our whole team onto it in a week. Onboarding took an afternoon and nobody has asked to go back.",
-    name: "Maya Chen",
-    role: "Example customer · Design engineer",
-  },
-  {
-    quote:
-      "The reporting view alone replaced two spreadsheets and a weekly status meeting.",
-    name: "Tom Okafor",
-    role: "Example customer · Frontend lead",
-  },
-  {
-    quote:
-      "Setup was copy, paste, ship. It fits the tools we already use instead of fighting them.",
-    name: "Sofia Lindqvist",
-    role: "Example customer · Indie hacker",
-  },
-  {
-    quote:
-      "Fast enough that I checked the numbers twice. Then I showed them to finance.",
-    name: "Dan Romero",
-    role: "Example customer · CTO",
-  },
-  {
-    quote:
-      "We launched in a day. Support answered every question before we finished asking it.",
-    name: "Aisha Patel",
-    role: "Example customer · Founder",
-  },
-  {
-    quote: "The first tool in years our designers and engineers both like.",
-    name: "Lukas Weber",
-    role: "Example customer · Product designer",
-  },
-];
-
-const faqs = [
-  {
-    q: "Is Velora UI really free?",
-    a: "Yes — every component and the full landing template are MIT licensed. Use them in personal and commercial projects, no attribution required.",
-  },
-  {
-    q: "How is this different from Magic UI?",
-    a: "Velora ships complete, assembled landing pages — not just isolated components. Every animation respects prefers-reduced-motion, causes zero layout shift, and is tuned for mobile.",
-  },
-  {
-    q: "What's the tech stack?",
-    a: "Next.js 16, React 19, Tailwind CSS 4, shadcn/ui and Motion. Copy components via the CLI or clone the whole template.",
-  },
-  {
-    q: "Will there be more templates?",
-    a: "Yes. The SaaS template is free forever. Additional niches (AI agent, dev tool, mobile app, portfolio) and section variants land in Velora Pro.",
-  },
-];
-
-const freeFeatures = [
-  `${componentsMeta.length} animated components`,
-  "Complete SaaS landing template",
-  "Dark mode + full accessibility",
-  "MIT license — commercial use OK",
-  "Community support",
-];
-
-const proFeatures = [
-  "5 niche templates (AI, dev tool, mobile…)",
-  "50+ section design variants",
-  "Figma source file",
-  "Waitlist, newsletter & Stripe wiring",
-  "Private registry + lifetime updates",
-];
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-export default function Home() {
+const stats = componentStats as Record<
+  string,
+  { bytes: number; gzip: number; deps: string[] }
+>;
+const statList = Object.values(stats);
+const zeroDeps = statList.filter((s) => s.deps.length === 0).length;
+const underThreeKb = statList.filter((s) => s.gzip <= 3 * 1024).length;
+const kb = (slug: string) => (stats[slug].gzip / 1024).toFixed(1);
+
+// A sample of names for the marquee tile; the full list would bloat the HTML.
+const marqueeSample = componentsMeta.filter((_, i) => i % 3 === 0);
+const marqueeRows = [
+  marqueeSample.slice(0, Math.ceil(marqueeSample.length / 2)),
+  marqueeSample.slice(Math.ceil(marqueeSample.length / 2)),
+];
+
+const REGISTRY = `${siteConfig.url}/r/{name}.json`;
+const installSteps = [
+  {
+    title: "1. Register the namespace",
+    command: `npx shadcn@latest registry add @velora=${REGISTRY}`,
+  },
+  {
+    title: "2. Add a component or a block",
+    command: "npx shadcn@latest add @velora/marquee @velora/hero-globe",
+  },
+];
+const INSTALL = "npx shadcn@latest add @velora/marquee";
+
+const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  Backgrounds: WavesIcon,
+  Text: TypeIcon,
+  Buttons: MousePointerClickIcon,
+  "Cards & Layout": LayoutGridIcon,
+  Navigation: MenuIcon,
+  Forms: TextCursorInputIcon,
+  Overlays: AppWindowIcon,
+  Loaders: LoaderIcon,
+  "Social Proof": MessageSquareQuoteIcon,
+  Scroll: ChevronsDownIcon,
+  Effects: SparklesIcon,
+  "3D": BoxIcon,
+  Carousels: GalleryHorizontalIcon,
+  "Cursor & Pointer": MousePointer2Icon,
+  "Data & Maps": GlobeIcon,
+  Mockups: MonitorSmartphoneIcon,
+};
+
+const featuredBlocks = [
+  "hero-globe",
+  "features-bento",
+  "pricing-three-tiers",
+  "testimonials-marquee",
+].flatMap((slug) => blocksMeta.filter((b) => b.slug === slug));
+
+const faqs: { q: string; a: React.ReactNode }[] = [
+  {
+    q: "Is Velora UI free for commercial projects?",
+    a: (
+      <>
+        Yes. Every component, block and the SaaS template are MIT licensed, so you can
+        use them in personal, client and commercial work. The source is on{" "}
+        <a href={siteConfig.github} className="text-foreground underline underline-offset-4">
+          GitHub
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    q: "What do I need to use it?",
+    a: "React 19, Tailwind CSS v4 and a shadcn/ui project. About half the components use Motion; the shadcn CLI installs it when a component needs it.",
+  },
+  {
+    q: "Does it work with Radix UI or Base UI?",
+    a: "Both. Velora components don't import Radix or Base UI, so they work whichever primitive layer your shadcn project uses.",
+  },
+  {
+    q: "What happens when someone prefers reduced motion?",
+    a: "Every animated component respects prefers-reduced-motion on its own, so it still does after you install it. Anything that loops pauses on hover and focus, and each docs page spells out what reduced-motion, keyboard and screen-reader users get.",
+  },
+  {
+    q: "How do installs work?",
+    a: (
+      <>
+        Components are source files you own. The shadcn CLI copies them into{" "}
+        <code className="font-mono text-foreground">components/velora</code>, merges any
+        keyframes and brand tokens into your CSS and installs npm dependencies. There is no
+        Velora package to update. Blocks install the same way and bring the components they
+        use along.
+      </>
+    ),
+  },
+  {
+    q: "Can my AI agent install components?",
+    a: (
+      <>
+        Yes. Velora is a standard shadcn registry, so the shadcn MCP server can search and
+        install it by name. <a href="/llms.txt" className="text-foreground underline underline-offset-4">llms.txt</a>{" "}
+        lists every component with its size and install command.
+      </>
+    ),
+  },
+  {
+    q: "What is Velora Pro?",
+    a: (
+      <>
+        A paid add-on in the works: niche templates, more section variants and a private
+        registry, for $99 paid once. Everything free today stays free and MIT.{" "}
+        <Link href="/pricing#waitlist" className="text-foreground underline underline-offset-4">
+          Join the waitlist
+        </Link>{" "}
+        to hear when it opens.
+      </>
+    ),
+  },
+];
+
+/** A showcase tile: a live component with its name, docs link and size. */
+function Tile({
+  slug,
+  className,
+  children,
+}: {
+  slug: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  const meta = componentsMeta.find((c) => c.slug === slug);
+  const s = stats[slug];
   return (
-    <main className="relative">
+    <figure
+      className={cn(
+        "relative flex min-w-0 flex-col overflow-hidden rounded-2xl border bg-card/50",
+        className
+      )}
+    >
+      <div className="relative min-h-0 flex-1 overflow-hidden">{children}</div>
+      <figcaption className="flex flex-wrap items-center justify-between gap-x-3 gap-y-0.5 border-t border-border/60 px-4 py-2.5 text-sm">
+        <Link
+          href={`/components/${slug}`}
+          className="group/link inline-flex min-w-0 items-center gap-1 rounded-sm font-medium transition-colors outline-none hover:text-primary focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <span className="truncate">{meta?.title ?? slug}</span>
+          <ArrowRightIcon className="size-3.5 shrink-0 text-muted-foreground transition-transform group-hover/link:translate-x-0.5" />
+        </Link>
+        {s && (
+          <span className="shrink-0 font-mono text-xs text-muted-foreground">
+            {kb(slug)} KB{s.deps.length === 0 && " · 0 deps"}
+          </span>
+        )}
+      </figcaption>
+    </figure>
+  );
+}
+
+function SectionHeading({
+  id,
+  eyebrow,
+  title,
+  children,
+  className,
+}: {
+  id: string;
+  eyebrow: string;
+  title: React.ReactNode;
+  children?: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={cn("max-w-2xl", className)}>
+      <p className="text-sm font-medium text-primary">{eyebrow}</p>
+      <h2
+        id={id}
+        className="mt-2 text-3xl font-semibold tracking-tight text-balance lg:text-4xl"
+      >
+        {title}
+      </h2>
+      {children && <p className="mt-3 text-muted-foreground text-pretty">{children}</p>}
+    </div>
+  );
+}
+
+export default function Home() {
+  const why = [
+    {
+      icon: AccessibilityIcon,
+      title: "Accessibility, documented",
+      body: "Every component page lists what reduced-motion, keyboard and screen-reader users get. An audit fixed 60 accessibility defects across 38 components.",
+      link: { href: "/components/animated-tabs#accessibility", label: "See Animated Tabs" },
+    },
+    {
+      icon: GaugeIcon,
+      title: "Size receipts",
+      body: `${underThreeKb} of ${componentsMeta.length} components are 3 KB or less gzipped and ${zeroDeps} have no runtime dependencies. Each page prints its own numbers.`,
+      link: { href: "/components/marquee", label: `Marquee: ${kb("marquee")} KB` },
+    },
+    {
+      icon: TerminalIcon,
+      title: "Complete CLI installs",
+      body: "One shadcn command brings the component, its keyframes, brand tokens and npm dependencies. The registry passes shadcn registry validate.",
+      link: { href: "/components/get-started", label: "How installs work" },
+    },
+    {
+      icon: ScaleIcon,
+      title: "MIT and open source",
+      body: "Use it in client and commercial work. The whole site, components, blocks and template included, is public on GitHub.",
+      link: { href: siteConfig.github, label: "View the source", external: true },
+    },
+    {
+      icon: PanelsTopLeftIcon,
+      title: "Free blocks, not a paywall",
+      body: `${blocksMeta.length} complete sections, from heroes and pricing to login pages, free and installable in one command.`,
+      link: { href: "/blocks", label: "Browse blocks" },
+    },
+  ];
+
+  return (
+    <>
       <JsonLd
         data={[
           {
@@ -156,525 +301,475 @@ export default function Home() {
           { ...publisher, sameAs: [siteConfig.github] },
         ]}
       />
-      <ScrollProgress />
-
       <SiteHeader />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-40 pb-24 lg:pt-48 lg:pb-28">
-        <AuroraBackground intensity="subtle" />
-        <GridPattern
-          width={48}
-          height={48}
-          className="fill-transparent stroke-border/60 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black,transparent)]"
-        />
-        <div className="relative mx-auto max-w-6xl px-4 text-center lg:px-8">
-          <BlurFade delay={0} direction="down">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/60 px-4 py-1.5 text-sm backdrop-blur">
-              <SparklesIcon className="size-3.5 text-primary" />
-              <span className="font-medium">
-                Introducing Velora UI — free forever
-              </span>
-            </span>
-          </BlurFade>
+      <main>
+        {/* Hero + live showcase */}
+        <section className="relative overflow-hidden pt-28 pb-16 lg:pt-36">
+          <AuroraBackground intensity="subtle" />
+          <GridPattern
+            width={48}
+            height={48}
+            className="fill-transparent stroke-border/60 mask-[radial-gradient(ellipse_70%_50%_at_30%_0%,black,transparent)]"
+          />
+          <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 lg:grid-cols-2 lg:gap-12 lg:px-8">
+            {/* Plain server HTML: the h1 and intro are the LCP. */}
+            <div className="min-w-0">
+              <Link
+                href="/changelog"
+                className="group/pill inline-flex max-w-full items-center gap-2 rounded-full border border-border/60 bg-card/60 py-1 pr-3 pl-1 text-sm backdrop-blur transition-colors hover:border-primary/40"
+              >
+                <span className="rounded-full bg-primary/15 px-2 py-0.5 text-xs font-medium text-foreground">
+                  New in 0.7.0
+                </span>
+                <span className="truncate">Modal, Code Block, Loaders &amp; more</span>
+                <ArrowRightIcon className="size-3.5 shrink-0 text-muted-foreground transition-transform group-hover/pill:translate-x-0.5" />
+              </Link>
 
-          <h1 className="mx-auto mt-8 max-w-4xl text-5xl font-semibold tracking-tight text-balance lg:text-7xl">
-            <TextReveal text="Landing pages that feel" />{" "}
-            <AnimatedGradientText>
-              <Typewriter words={["alive.", "effortless.", "unforgettable."]} />
-            </AnimatedGradientText>
-          </h1>
+              <h1 className="mt-6 text-4xl font-semibold tracking-tight text-balance sm:text-5xl xl:text-6xl">
+                Animated React components &amp; blocks —{" "}
+                <span className="bg-linear-to-r from-brand-from via-brand-via to-brand-to bg-clip-text text-transparent">
+                  free, accessible, MIT
+                </span>
+              </h1>
+              <p className="mt-5 max-w-xl text-lg text-muted-foreground text-pretty">
+                {componentsMeta.length} animated components and {blocksMeta.length} ready-made
+                sections for Tailwind CSS 4 and shadcn/ui, each installed with one CLI
+                command as source you own.
+              </p>
 
-          {/* Not faded in: this is the Largest Contentful Paint element, and
-              hiding it until hydration costs seconds of LCP on mobile. */}
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground text-pretty">
-            Free, open-source animated components and complete landing
-            templates for React. Built on Next.js 16, Tailwind CSS 4 and
-            shadcn/ui — accessible, reduced-motion friendly and light: most
-            components weigh under 3 KB.
-          </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/components"
+                  className="inline-flex h-11 items-center gap-2 rounded-full bg-foreground px-6 text-sm font-medium text-background shadow-lg shadow-primary/20 transition-opacity hover:opacity-90"
+                >
+                  Browse components
+                  <ArrowRightIcon className="size-4" />
+                </Link>
+                <Link
+                  href="/components/get-started"
+                  className="inline-flex h-11 items-center rounded-full border bg-background/60 px-6 text-sm font-medium backdrop-blur transition-colors hover:bg-muted"
+                >
+                  Get started
+                </Link>
+              </div>
 
-          <BlurFade delay={0.5}>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <ShimmerButton>
-                <RocketIcon className="size-4" />
-                Get started — it&apos;s free
-              </ShimmerButton>
-              <Button variant="ghost" size="lg" asChild>
-                <a href="#features">Browse components</a>
-              </Button>
+              <div className="mt-6 flex max-w-md items-center gap-2 rounded-xl border bg-card/60 py-1.5 pr-1.5 pl-3.5 backdrop-blur">
+                <span aria-hidden className="font-mono text-sm text-muted-foreground">
+                  $
+                </span>
+                <code className="min-w-0 flex-1 truncate font-mono text-xs sm:text-sm">
+                  {INSTALL}
+                </code>
+                <CopyButton text={INSTALL} label="Copy install command" />
+              </div>
             </div>
-          </BlurFade>
 
-          <BlurFade delay={0.6}>
-            <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
-              {[
-                "MIT licensed",
-                `${componentsMeta.length} components`,
-                "Reduced-motion safe",
-                "shadcn CLI ready",
-              ].map((fact) => (
-                <li key={fact} className="flex items-center gap-1.5">
-                  <CheckIcon className="size-4 text-primary" />
-                  {fact}
+            <div className="grid min-w-0 grid-cols-2 gap-3 lg:auto-rows-[10.5rem]">
+              <Tile slug="globe" className="col-span-2 h-80 sm:col-span-1 sm:row-span-2 lg:h-auto">
+                <LiveDemo name="globe" />
+              </Tile>
+              <Tile slug="morphing-text" className="col-span-2 h-40 sm:col-span-1 lg:h-auto">
+                <LiveDemo name="morphing-text" />
+              </Tile>
+              <Tile slug="border-beam" className="col-span-2 h-40 sm:col-span-1 lg:h-auto">
+                <div className="flex size-full items-center justify-center p-4">
+                  <LiveDemo name="border-beam" />
+                </div>
+              </Tile>
+              <Tile slug="dock" className="col-span-2 h-40 lg:h-auto">
+                <LiveDemo name="dock" />
+              </Tile>
+            </div>
+          </div>
+
+          <div className="relative mx-auto mt-3 grid max-w-7xl grid-cols-2 gap-3 px-4 lg:grid-cols-4 lg:auto-rows-[11rem] lg:px-8">
+            <Tile slug="3d-card" className="col-span-2 h-80 sm:col-span-1 lg:row-span-2 lg:h-auto">
+              <div className="flex size-full items-center justify-center p-4">
+                <LiveDemo name="3d-card" />
+              </div>
+            </Tile>
+            <Tile slug="animated-list" className="col-span-2 h-80 sm:col-span-1 lg:row-span-2 lg:h-auto">
+              <LiveDemo name="animated-list" />
+            </Tile>
+            <Tile slug="marquee" className="col-span-2 h-44 lg:h-auto">
+              <div className="flex size-full flex-col justify-center gap-2.5">
+                <Marquee pauseOnHover repeat={2} className="[--duration:90s] [--gap:0.5rem]">
+                  {marqueeRows[0].map((c) => (
+                    <span
+                      key={c.slug}
+                      className="rounded-full border bg-background px-3 py-1 text-xs whitespace-nowrap text-muted-foreground"
+                    >
+                      {c.title}
+                    </span>
+                  ))}
+                </Marquee>
+                <Marquee
+                  pauseOnHover
+                  reverse
+                  repeat={2}
+                  className="[--duration:90s] [--gap:0.5rem]"
+                >
+                  {marqueeRows[1].map((c) => (
+                    <span
+                      key={c.slug}
+                      className="rounded-full border bg-background px-3 py-1 text-xs whitespace-nowrap text-muted-foreground"
+                    >
+                      {c.title}
+                    </span>
+                  ))}
+                </Marquee>
+              </div>
+            </Tile>
+            <Tile slug="orbiting-circles" className="h-48 lg:h-auto">
+              <div className="relative flex size-full items-center justify-center">
+                <ZapIcon className="size-6 text-primary" />
+                <OrbitingCircles radius={52} iconSize={26} duration={20}>
+                  <LayersIcon className="size-3.5 text-muted-foreground" />
+                  <PaletteIcon className="size-3.5 text-muted-foreground" />
+                  <GaugeIcon className="size-3.5 text-muted-foreground" />
+                  <FeatherIcon className="size-3.5 text-muted-foreground" />
+                </OrbitingCircles>
+              </div>
+            </Tile>
+            <Tile slug="loaders" className="h-48 lg:h-auto">
+              <div
+                aria-hidden
+                className="flex size-full flex-wrap content-center items-center justify-center gap-4 p-4 text-primary"
+              >
+                <DotsLoader />
+                <PulseLoader />
+                <OrbitLoader />
+                <BarsLoader />
+                <SpinnerLoader />
+              </div>
+            </Tile>
+          </div>
+          <p className="relative mx-auto mt-4 max-w-7xl px-4 text-sm text-muted-foreground lg:px-8">
+            Every tile is the real component — drag the globe, hover the dock and the card.
+          </p>
+        </section>
+
+        {/* Stack strip */}
+        <section aria-label="Built on" className="border-y border-border/40 py-12">
+          <div className="mx-auto max-w-6xl px-4 lg:px-8">
+            <p className="mb-8 text-center text-sm text-muted-foreground">
+              Built on the stack you already ship
+            </p>
+            <Marquee pauseOnHover className="[--duration:30s]">
+              {stackNames.map((name) => (
+                <StackLogo
+                  key={name}
+                  name={name}
+                  className="mx-8 text-lg font-semibold tracking-tight text-muted-foreground transition-colors hover:text-foreground"
+                />
+              ))}
+            </Marquee>
+          </div>
+        </section>
+
+        {/* Stats */}
+        <section aria-label="Velora in numbers" className="px-4 py-14 lg:px-8">
+          <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-px overflow-hidden rounded-2xl border bg-border lg:grid-cols-4">
+            {[
+              { value: componentsMeta.length, label: "animated components" },
+              { value: blocksMeta.length, label: "free section blocks" },
+              { value: zeroDeps, label: "components with zero runtime dependencies" },
+              { value: "MIT", label: "licence, commercial use included" },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col-reverse gap-1 bg-background p-6 lg:p-8">
+                <dt className="text-sm text-muted-foreground">{s.label}</dt>
+                <dd className="text-4xl font-semibold tracking-tight">{s.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        {/* Categories */}
+        <section aria-labelledby="categories" className="py-14 lg:py-20">
+          <div className="mx-auto max-w-6xl px-4 lg:px-8">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <SectionHeading
+                id="categories"
+                eyebrow="Components"
+                title={`${categories.length} categories, one design language`}
+              >
+                Backgrounds to cursors, all sharing the same tokens, motion rules and
+                install flow.
+              </SectionHeading>
+              <Link
+                href="/components"
+                className="inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
+              >
+                All {componentsMeta.length} components
+                <ArrowRightIcon className="size-4" />
+              </Link>
+            </div>
+            <ul className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
+              {categories.map((category) => {
+                const count = componentsMeta.filter((c) => c.category === category).length;
+                const Icon = categoryIcons[category] ?? SparklesIcon;
+                return (
+                  <li
+                    key={category}
+                    className="group/card relative flex flex-col gap-3 rounded-2xl border bg-card/50 p-4 transition-colors sm:flex-row focus-within:ring-2 focus-within:ring-ring hover:border-primary/40"
+                  >
+                    <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <Icon className="size-4.5" />
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="flex flex-wrap items-baseline gap-x-2 font-medium">
+                        <Link
+                          href={`/components/category/${categorySlug(category)}`}
+                          className="outline-none after:absolute after:inset-0 after:rounded-2xl"
+                        >
+                          {category}
+                        </Link>
+                        <span className="text-xs font-normal text-muted-foreground">
+                          {count}
+                        </span>
+                      </h3>
+                      <p className="mt-1 line-clamp-2 hidden text-sm text-muted-foreground sm:block">
+                        {categoryInfo[category]?.description}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
+
+        {/* Blocks */}
+        <section aria-labelledby="blocks" className="py-14 lg:py-20">
+          <div className="mx-auto max-w-6xl px-4 lg:px-8">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <SectionHeading
+                id="blocks"
+                eyebrow="Blocks"
+                title="Whole sections, free"
+              >
+                Heroes, features, pricing, testimonials, CTAs, navbars, footers and auth
+                pages, assembled from Velora components. Install one and it brings every
+                component it uses.
+              </SectionHeading>
+              <Link
+                href="/blocks"
+                className="inline-flex h-10 items-center gap-1.5 rounded-full border bg-background px-5 text-sm font-medium transition-colors hover:bg-muted"
+              >
+                {blocksMeta.length} free blocks
+                <ArrowRightIcon className="size-4" />
+              </Link>
+            </div>
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {featuredBlocks.map((block) => (
+                <li
+                  key={block.slug}
+                  className="group/card relative min-w-0 overflow-hidden rounded-2xl border bg-card/50 transition-all focus-within:ring-2 focus-within:ring-ring hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5"
+                >
+                  <div className="border-b">
+                    <BlockThumbnail src={`/blocks/preview/${block.slug}`} />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-sm font-medium">
+                      <Link
+                        href={`/blocks/${block.category}`}
+                        className="outline-none after:absolute after:inset-0"
+                      >
+                        {block.title}
+                      </Link>
+                    </h3>
+                    <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                      {block.description}
+                    </p>
+                  </div>
                 </li>
               ))}
             </ul>
-          </BlurFade>
-
-          {/* Product mockup */}
-          <BlurFade delay={0.75} offset={32}>
-            <HeroMockup className="mt-20" />
-          </BlurFade>
-
-          {/* Stats */}
-          <div className="mx-auto mt-20 grid max-w-4xl grid-cols-2 gap-8 lg:grid-cols-4">
-            {stats.map((stat, i) => (
-              <BlurFade key={stat.label} delay={i * 0.1}>
-                <div className="flex flex-col items-center gap-1">
-                  <span className="text-4xl font-semibold tracking-tight">
-                    <NumberTicker
-                      value={stat.value}
-                      prefix={stat.prefix}
-                      suffix={stat.suffix}
-                    />
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    {stat.label}
-                  </span>
-                </div>
-              </BlurFade>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Logo marquee */}
-      <section className="border-y border-border/40 py-12">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <p className="mb-8 text-center text-sm text-muted-foreground">
-            Built on the stack you already ship
-          </p>
-          <Marquee pauseOnHover className="[--duration:30s]">
-            {stackNames.map((name) => (
-              <StackLogo
-                key={name}
-                name={name}
-                className="mx-8 text-lg font-semibold tracking-tight text-muted-foreground transition-colors hover:text-foreground"
-              />
-            ))}
-          </Marquee>
-        </div>
-      </section>
-
-      {/* Bento features */}
-      <section id="features" className="relative py-24 lg:py-32">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <BlurFade>
-            <h2 className="mx-auto max-w-2xl text-center text-3xl font-semibold tracking-tight text-balance lg:text-5xl">
-              Everything you need to{" "}
-              <span className="text-primary">ship beautiful</span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
-              Assembled sections, not puzzle pieces. Every block below is built
-              from Velora primitives you can copy into your own project.
-            </p>
-          </BlurFade>
-
-          <BlurFade delay={0.15}>
-            <BentoGrid className="mt-16">
-              <BentoCard
-                name="Orbiting integrations"
-                description="Showcase your ecosystem with multi-ring orbit animations."
-                className="md:col-span-1"
-                background={
-                  <div className="relative flex size-full items-center justify-center pb-20">
-                    <ZapIcon className="size-8 text-primary" />
-                    <OrbitingCircles radius={90} iconSize={28} duration={24}>
-                      <LayersIcon className="size-5 text-muted-foreground" />
-                      <PaletteIcon className="size-5 text-muted-foreground" />
-                      <GaugeIcon className="size-5 text-muted-foreground" />
-                    </OrbitingCircles>
-                  </div>
-                }
-              />
-              <BentoCard
-                name="Animated borders"
-                description="Draw the eye with beams that travel around any card or CTA."
-                className="md:col-span-2"
-                background={
-                  <div className="absolute inset-6 rounded-xl border bg-card/50">
-                    <BorderBeam size={72} duration={7} />
-                    <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-                      &lt;BorderBeam /&gt;
-                    </div>
-                  </div>
-                }
-              />
-              <BentoCard
-                name="Scrolling testimonials"
-                description="Vertical marquees with hover-pause for social proof walls."
-                className="md:col-span-2"
-                background={
-                  <div className="absolute inset-x-10 top-4 bottom-24">
-                    <Marquee
-                      vertical
-                      pauseOnHover
-                      className="h-full [--duration:24s]"
+        {/* Why */}
+        <section aria-labelledby="why" className="py-14 lg:py-20">
+          <div className="mx-auto max-w-6xl px-4 lg:px-8">
+            <SectionHeading id="why" eyebrow="Why Velora" title="Claims you can check">
+              Every number here comes from the build, and every page shows its own. We
+              also compared ourselves with{" "}
+              <Link href="/compare/aceternity-ui" className="text-foreground underline underline-offset-4">
+                Aceternity UI
+              </Link>{" "}
+              and{" "}
+              <Link href="/compare/magic-ui" className="text-foreground underline underline-offset-4">
+                Magic UI
+              </Link>
+              , measured the same way, including where they&apos;re stronger.
+            </SectionHeading>
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {why.map((item) => (
+                <li key={item.title} className="flex flex-col rounded-2xl border bg-card/50 p-5 lg:p-6">
+                  <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <item.icon className="size-5" />
+                  </span>
+                  <h3 className="mt-4 font-semibold">{item.title}</h3>
+                  <p className="mt-2 flex-1 text-sm text-muted-foreground">{item.body}</p>
+                  {"external" in item.link ? (
+                    <a
+                      href={item.link.href}
+                      className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
                     >
-                      {[
-                        "“Shipped our launch page in an afternoon.”",
-                        "“The animations are buttery smooth.”",
-                        "“Finally, free components that feel premium.”",
-                        "“Our docs finally feel alive.”",
-                      ].map((quote) => (
-                        <div
-                          key={quote}
-                          className="rounded-xl border bg-card/80 p-4 text-sm text-muted-foreground"
-                        >
-                          {quote}
-                        </div>
-                      ))}
-                    </Marquee>
-                  </div>
-                }
-              />
-              <BentoCard
-                name="Falling meteors"
-                description="Subtle streaks that bring dark sections to life."
-                className="md:col-span-1"
-                background={
-                  <div className="absolute inset-0">
-                    <DotPattern className="[mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
-                    <Meteors number={10} />
-                  </div>
-                }
-              />
-            </BentoGrid>
-          </BlurFade>
-        </div>
-      </section>
-
-      {/* Integrations beam */}
-      <section className="relative py-24 lg:py-32">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2 lg:gap-20 lg:px-8">
-          <BlurFade direction="right">
-            <div>
-              <span className="text-sm font-medium text-primary">
-                Animated beams
-              </span>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance lg:text-4xl">
-                Connect anything to{" "}
-                <span className="text-primary">everything</span>
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                The classic integrations diagram, rebuilt as a single component.
-                Point a beam at any two elements and it draws, curves and
-                animates itself — responsive and resize-aware.
-              </p>
-              <ul className="mt-6 space-y-3 text-sm">
-                {[
-                  "Auto-measured paths between any two refs",
-                  "Curvature, direction, speed and color per beam",
-                  "Resize-aware — no manual coordinates",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <span className="flex size-5 items-center justify-center rounded-full bg-primary/15 text-primary">
-                      <CheckIcon className="size-3" />
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </BlurFade>
-          <BlurFade direction="left" delay={0.15}>
-            <IntegrationsBeam />
-          </BlurFade>
-        </div>
-      </section>
-
-      {/* Live activity */}
-      <section className="relative overflow-hidden py-24 lg:py-32">
-        <RetroGrid />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2 lg:gap-20 lg:px-8">
-          <BlurFade direction="right" className="order-2 lg:order-1">
-            <ActivityList />
-          </BlurFade>
-          <BlurFade
-            direction="left"
-            delay={0.15}
-            className="order-1 lg:order-2"
-          >
-            <div>
-              <span className="text-sm font-medium text-primary">
-                Animated lists
-              </span>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance lg:text-4xl">
-                Show your product{" "}
-                <span className="text-primary">doing things</span>
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Notifications, sales, deploys — a looping feed that springs each
-                item in and gracefully pushes the rest down. Perfect for hero
-                mockups and feature sections that need life.
-              </p>
-              <p className="mt-4 text-muted-foreground">
-                Behind it: the retro grid backdrop, scrolling forever toward the
-                horizon.
-              </p>
-            </div>
-          </BlurFade>
-        </div>
-      </section>
-
-      {/* Spotlight cards */}
-      <section className="relative py-24 lg:py-32">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                icon: <GaugeIcon className="size-6" />,
-                title: "Performance first",
-                body: "CSS-driven animations wherever possible, Motion only where it earns its bytes. No layout shift, ever.",
-              },
-              {
-                icon: <MousePointerClickIcon className="size-6" />,
-                title: "Accessible by default",
-                body: "Every component respects prefers-reduced-motion, keeps keyboard focus visible and ships semantic markup.",
-              },
-              {
-                icon: <MoonIcon className="size-6" />,
-                title: "Dark mode native",
-                body: "Designed dark-first with oklch color tokens. Flip one class and every gradient adapts.",
-              },
-            ].map((card, i) => (
-              <BlurFade key={card.title} delay={i * 0.12}>
-                <SpotlightCard className="h-full p-8">
-                  <div className="mb-4 w-fit rounded-xl bg-primary/10 p-3 text-primary">
-                    {card.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold">{card.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {card.body}
-                  </p>
-                </SpotlightCard>
-              </BlurFade>
-            ))}
+                      {item.link.label}
+                      <ArrowUpRightIcon className="size-3.5" />
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.link.href}
+                      className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      {item.link.label}
+                      <ArrowRightIcon className="size-3.5" />
+                    </Link>
+                  )}
+                </li>
+              ))}
+              <li className="flex flex-col rounded-2xl border bg-card/50 p-5 lg:p-6">
+                <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <GitCompareIcon className="size-5" />
+                </span>
+                <h3 className="mt-4 font-semibold">Honest comparisons</h3>
+                <p className="mt-2 flex-1 text-sm text-muted-foreground">
+                  Side-by-side tables with the numbers, and a guide for switching over.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium">
+                  <Link href="/compare/aceternity-ui" className="text-primary underline-offset-4 hover:underline">
+                    vs Aceternity UI
+                  </Link>
+                  <Link href="/compare/magic-ui" className="text-primary underline-offset-4 hover:underline">
+                    vs Magic UI
+                  </Link>
+                </div>
+              </li>
+            </ul>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Testimonials */}
-      <section className="relative py-24 lg:py-32">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <BlurFade>
-            <h2 className="mx-auto max-w-2xl text-center text-3xl font-semibold tracking-tight text-balance lg:text-5xl">
-              A testimonial wall{" "}
-              <span className="text-primary">that moves</span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
-              Sample quotes from the template — swap in your customers&apos;.
-              Hover the cards: they tilt in 3D.
-            </p>
-          </BlurFade>
-          <div className="mt-16 columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6">
-            {testimonials.map((t, i) => (
-              <BlurFade
-                key={t.name}
-                delay={(i % 3) * 0.1}
-                className="break-inside-avoid"
+        {/* Install */}
+        <section aria-labelledby="install" className="py-14 lg:py-20">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 lg:grid-cols-5 lg:gap-16 lg:px-8">
+            <div className="lg:col-span-2">
+              <SectionHeading id="install" eyebrow="Install" title="Install in seconds">
+                Register the @velora namespace once, then add anything by name. The CLI
+                writes the source into your project — edit it like your own code.
+              </SectionHeading>
+              <Link
+                href="/components/get-started"
+                className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
               >
-                <TiltCard>
-                  <figure className="rounded-2xl border bg-card p-6">
-                    <span className="flex gap-0.5 text-amber-400">
-                      {Array.from({ length: 5 }).map((_, s) => (
-                        <StarIcon key={s} className="size-3.5 fill-current" />
-                      ))}
-                    </span>
-                    <blockquote className="mt-4 text-sm text-card-foreground">
-                      “{t.quote}”
-                    </blockquote>
-                    <figcaption className="mt-4 flex items-center gap-3">
-                      <AvatarCircles
-                        people={[t.name]}
-                        className="[&>span]:size-8 [&>span]:text-[10px]"
-                      />
-                      <div>
-                        <p className="text-sm font-medium">{t.name}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {t.role}
-                        </p>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </TiltCard>
-              </BlurFade>
-            ))}
+                Read the get started guide
+                <ArrowRightIcon className="size-4" />
+              </Link>
+            </div>
+            <ol className="min-w-0 space-y-6 lg:col-span-3">
+              {installSteps.map((step) => (
+                <li key={step.title} className="min-w-0">
+                  <p className="mb-2 text-sm font-medium">{step.title}</p>
+                  <div className="flex items-start gap-3 rounded-xl border bg-neutral-950 py-2 pr-2 pl-4 text-neutral-200">
+                    <code className="min-w-0 flex-1 py-1.5 font-mono text-sm break-all">
+                      {step.command}
+                    </code>
+                    <CopyButton
+                      text={step.command}
+                      label={`Copy: ${step.title.slice(3).toLowerCase()} command`}
+                      className="shrink-0 border-white/15 bg-white/5 text-neutral-300"
+                    />
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Pricing */}
-      <section id="pricing" className="relative py-24 lg:py-32">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <BlurFade>
-            <h2 className="mx-auto max-w-2xl text-center text-3xl font-semibold tracking-tight text-balance lg:text-5xl">
-              Free forever. <span className="text-primary">Pro later.</span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
-              Everything on this page is free. Pro adds breadth — more niches,
-              more variants, more shortcuts.
-            </p>
-          </BlurFade>
-
-          <div className="mx-auto mt-16 grid max-w-4xl gap-6 md:grid-cols-2">
-            <BlurFade>
-              <div className="flex h-full flex-col rounded-2xl border bg-card p-8">
-                <h3 className="text-lg font-semibold">Free</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Everything you see in this showcase.
-                </p>
-                <p className="mt-6 text-5xl font-semibold tracking-tight">
-                  $0
-                  <span className="text-base font-normal text-muted-foreground">
-                    {" "}
-                    forever
-                  </span>
-                </p>
-                <ul className="mt-8 flex-1 space-y-3 text-sm">
-                  {freeFeatures.map((f) => (
-                    <li key={f} className="flex items-center gap-3">
-                      <span className="flex size-5 items-center justify-center rounded-full bg-primary/15 text-primary">
-                        <CheckIcon className="size-3" />
-                      </span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="mt-8 w-full rounded-full"
-                >
-                  Get started
-                </Button>
-              </div>
-            </BlurFade>
-
-            <BlurFade delay={0.12}>
-              <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border bg-card p-8">
-                <BorderBeam size={80} duration={8} />
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-primary">Pro</h3>
-                  <span className="rounded-full bg-primary/15 px-3 py-1 text-xs font-medium text-primary">
+        {/* Pro teaser */}
+        <section aria-labelledby="pro" className="py-8">
+          <div className="mx-auto max-w-6xl px-4 lg:px-8">
+            <div className="flex flex-col gap-4 rounded-2xl border bg-card/50 p-6 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+              <div>
+                <h2 id="pro" className="flex flex-wrap items-center gap-2 font-semibold">
+                  Velora Pro
+                  <span className="rounded-full bg-primary/15 px-2 py-0.5 text-xs font-medium text-foreground">
                     Coming soon
                   </span>
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  For teams shipping more than one page.
+                </h2>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Niche templates and more section variants, $99 once. The free library
+                  stays free.
                 </p>
-                <p className="mt-6 text-5xl font-semibold tracking-tight">
-                  $99
-                  <span className="text-base font-normal text-muted-foreground">
-                    {" "}
-                    lifetime
-                  </span>
-                </p>
-                <ul className="mt-8 flex-1 space-y-3 text-sm">
-                  {proFeatures.map((f) => (
-                    <li key={f} className="flex items-center gap-3">
-                      <span className="flex size-5 items-center justify-center rounded-full bg-primary/15 text-primary">
-                        <CheckIcon className="size-3" />
-                      </span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <WaitlistForm className="mt-8" />
               </div>
-            </BlurFade>
+              <Link
+                href="/pricing#waitlist"
+                className="inline-flex h-10 shrink-0 items-center justify-center gap-1.5 rounded-full border bg-background px-5 text-sm font-medium transition-colors hover:bg-muted"
+              >
+                Join the waitlist
+                <ArrowRightIcon className="size-4" />
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ */}
-      <section id="faq" className="py-24 lg:py-32">
-        <div className="mx-auto max-w-3xl px-4 lg:px-8">
-          <BlurFade>
-            <h2 className="text-center text-3xl font-semibold tracking-tight lg:text-4xl">
-              Frequently asked questions
+        {/* FAQ */}
+        <section aria-labelledby="faq" className="py-14 lg:py-20">
+          <div className="mx-auto max-w-3xl px-4 lg:px-8">
+            <h2 id="faq" className="text-center text-3xl font-semibold tracking-tight lg:text-4xl">
+              Questions, answered
             </h2>
-          </BlurFade>
-          <BlurFade delay={0.15}>
-            <Accordion type="single" collapsible className="mt-12">
+            <Accordion type="single" collapsible className="mt-10">
               {faqs.map((faq) => (
                 <AccordionItem key={faq.q} value={faq.q}>
-                  <AccordionTrigger className="text-left text-base">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {faq.a}
-                  </AccordionContent>
+                  <AccordionTrigger className="text-left text-base">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
-          </BlurFade>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden py-24 lg:py-32">
-        <AuroraBackground intensity="subtle" />
-        <Particles quantity={50} />
-        <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-8">
-          <BlurFade>
-            <h2 className="text-4xl font-semibold tracking-tight text-balance lg:text-6xl">
-              Stop paying <span className="text-primary">$199</span> for landing
-              pages.
+        {/* Final CTA */}
+        <section aria-labelledby="cta" className="relative overflow-hidden py-24 lg:py-32">
+          <GridPattern
+            width={48}
+            height={48}
+            className="fill-transparent stroke-border/60 mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)]"
+          />
+          <div className="relative mx-auto max-w-3xl px-4 text-center lg:px-8">
+            <h2 id="cta" className="text-4xl font-semibold tracking-tight text-balance lg:text-5xl">
+              Pick a component. Run one command.{" "}
+              <span className="bg-linear-to-r from-brand-from via-brand-via to-brand-to bg-clip-text text-transparent">
+                Own the code.
+              </span>
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-              Velora UI gives you the same polish — animated, accessible and
-              production-ready — for free.
+            <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">
+              {componentsMeta.length} components, {blocksMeta.length} blocks and a
+              complete template, free under MIT.
             </p>
-            <div className="mt-10">
-              <ShimmerButton className="h-14 px-10 text-base">
-                <RocketIcon className="size-5" />
-                Start building now
-              </ShimmerButton>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href="/components"
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-foreground px-6 text-sm font-medium text-background shadow-lg shadow-primary/20 transition-opacity hover:opacity-90"
+              >
+                Browse components
+                <ArrowRightIcon className="size-4" />
+              </Link>
+              <Link
+                href="/templates"
+                className="inline-flex h-11 items-center rounded-full border bg-background/60 px-6 text-sm font-medium transition-colors hover:bg-muted"
+              >
+                See the template
+              </Link>
             </div>
-          </BlurFade>
-          <BlurFade delay={0.2}>
-            <div className="mt-16">
-              <p className="mb-4 text-xs text-muted-foreground">
-                Even the dock is a component — hover it
-              </p>
-              <Dock>
-                <DockIcon label="Components">
-                  <LayersIcon className="size-5" />
-                </DockIcon>
-                <DockIcon label="Themes">
-                  <PaletteIcon className="size-5" />
-                </DockIcon>
-                <DockIcon label="Performance">
-                  <GaugeIcon className="size-5" />
-                </DockIcon>
-                <DockIcon label="Animations">
-                  <ZapIcon className="size-5" />
-                </DockIcon>
-                <DockIcon label="Dark mode">
-                  <MoonIcon className="size-5" />
-                </DockIcon>
-                <DockIcon label="Ship it">
-                  <RocketIcon className="size-5" />
-                </DockIcon>
-              </Dock>
-            </div>
-          </BlurFade>
-        </div>
-      </section>
+          </div>
+        </section>
+      </main>
 
       <SiteFooter />
-    </main>
+    </>
   );
 }
