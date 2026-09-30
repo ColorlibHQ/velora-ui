@@ -4,7 +4,6 @@ import {
   AccessibilityIcon,
   AppWindowIcon,
   ArrowRightIcon,
-  ArrowUpRightIcon,
   BoxIcon,
   ChevronsDownIcon,
   FeatherIcon,
@@ -21,8 +20,6 @@ import {
   MousePointer2Icon,
   MousePointerClickIcon,
   PaletteIcon,
-  PanelsTopLeftIcon,
-  ScaleIcon,
   SparklesIcon,
   TerminalIcon,
   TextCursorInputIcon,
@@ -58,7 +55,6 @@ import { blocksMeta } from "@/lib/blocks-meta";
 import componentStats from "@/lib/component-stats.json";
 import {
   categories,
-  categoryInfo,
   categorySlug,
   componentsMeta,
 } from "@/lib/components-meta";
@@ -257,33 +253,31 @@ export default function Home() {
   const why = [
     {
       icon: AccessibilityIcon,
-      title: "Accessibility, documented",
-      body: "Every component page lists what reduced-motion, keyboard and screen-reader users get. An audit fixed 60 accessibility defects across 38 components.",
-      link: { href: "/components/animated-tabs#accessibility", label: "See Animated Tabs" },
+      metric: "60",
+      label: "accessibility fixes, documented per component",
+      links: [{ href: "/components/animated-tabs#accessibility", label: "See an example" }],
     },
     {
       icon: GaugeIcon,
-      title: "Size receipts",
-      body: `${underThreeKb} of ${componentsMeta.length} components are 3 KB or less gzipped and ${zeroDeps} have no runtime dependencies. Each page prints its own numbers.`,
-      link: { href: "/components/marquee", label: `Marquee: ${kb("marquee")} KB` },
+      metric: "≤ 3 KB",
+      label: `${underThreeKb} of ${componentsMeta.length} components, gzipped`,
+      links: [{ href: "/components/marquee", label: `Marquee: ${kb("marquee")} KB` }],
     },
     {
       icon: TerminalIcon,
-      title: "Complete CLI installs",
-      body: "One shadcn command brings the component, its keyframes, brand tokens and npm dependencies. The registry passes shadcn registry validate.",
-      link: { href: "/components/get-started", label: "How installs work" },
+      metric: "1 command",
+      label: "code, keyframes, tokens and dependencies",
+      links: [{ href: "/components/get-started", label: "How installs work" }],
     },
     {
-      icon: ScaleIcon,
-      title: "MIT and open source",
-      body: "Use it in client and commercial work. The whole site, components, blocks and template included, is public on GitHub.",
-      link: { href: siteConfig.github, label: "View the source", external: true },
-    },
-    {
-      icon: PanelsTopLeftIcon,
-      title: "Free blocks, not a paywall",
-      body: `${blocksMeta.length} complete sections, from heroes and pricing to login pages, free and installable in one command.`,
-      link: { href: "/blocks", label: "Browse blocks" },
+      icon: GitCompareIcon,
+      metric: "3",
+      label: "comparisons, measured the same way",
+      links: [
+        { href: "/compare/aceternity-ui", label: "Aceternity" },
+        { href: "/compare/magic-ui", label: "Magic UI" },
+        { href: "/compare/react-bits", label: "React Bits" },
+      ],
     },
   ];
 
@@ -333,9 +327,8 @@ export default function Home() {
                 </span>
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted-foreground text-pretty">
-                {componentsMeta.length} animated components and {blocksMeta.length} ready-made
-                sections for Tailwind CSS 4 and shadcn/ui, each installed with one CLI
-                command as source you own.
+                {componentsMeta.length} components and {blocksMeta.length} blocks for Tailwind CSS 4
+                and shadcn/ui. One command, source you own.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -445,9 +438,6 @@ export default function Home() {
               </div>
             </Tile>
           </div>
-          <p className="relative mx-auto mt-4 max-w-7xl px-4 text-sm text-muted-foreground lg:px-8">
-            Every tile is the real component — drag the globe, hover the dock and the card.
-          </p>
         </section>
 
         {/* Stack strip */}
@@ -472,10 +462,10 @@ export default function Home() {
         <section aria-label="Velora in numbers" className="px-4 py-14 lg:px-8">
           <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-px overflow-hidden rounded-2xl border bg-border lg:grid-cols-4">
             {[
-              { value: componentsMeta.length, label: "animated components" },
-              { value: blocksMeta.length, label: "free section blocks" },
-              { value: zeroDeps, label: "components with zero runtime dependencies" },
-              { value: "MIT", label: "licence, commercial use included" },
+              { value: componentsMeta.length, label: "components" },
+              { value: blocksMeta.length, label: "free blocks" },
+              { value: zeroDeps, label: "zero-dependency" },
+              { value: "MIT", label: "open source" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col-reverse gap-1 bg-background p-6 lg:p-8">
                 <dt className="text-sm text-muted-foreground">{s.label}</dt>
@@ -492,11 +482,8 @@ export default function Home() {
               <SectionHeading
                 id="categories"
                 eyebrow="Components"
-                title={`${categories.length} categories, one design language`}
-              >
-                Backgrounds to cursors, all sharing the same tokens, motion rules and
-                install flow.
-              </SectionHeading>
+                title={`${categories.length} categories`}
+              />
               <Link
                 href="/components"
                 className="inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
@@ -505,34 +492,29 @@ export default function Home() {
                 <ArrowRightIcon className="size-4" />
               </Link>
             </div>
-            <ul className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
+            <ul className="mt-8 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
               {categories.map((category) => {
                 const count = componentsMeta.filter((c) => c.category === category).length;
                 const Icon = categoryIcons[category] ?? SparklesIcon;
                 return (
                   <li
                     key={category}
-                    className="group/card relative flex flex-col gap-3 rounded-2xl border bg-card/50 p-4 transition-colors sm:flex-row focus-within:ring-2 focus-within:ring-ring hover:border-primary/40"
+                    className="group/card relative flex items-center gap-3 rounded-xl border bg-card/50 p-3 transition-colors focus-within:ring-2 focus-within:ring-ring hover:border-primary/40"
                   >
-                    <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover/card:bg-primary/15">
                       <Icon className="size-4.5" />
                     </span>
-                    <div className="min-w-0">
-                      <h3 className="flex flex-wrap items-baseline gap-x-2 font-medium">
-                        <Link
-                          href={`/components/category/${categorySlug(category)}`}
-                          className="outline-none after:absolute after:inset-0 after:rounded-2xl"
-                        >
-                          {category}
-                        </Link>
-                        <span className="text-xs font-normal text-muted-foreground">
-                          {count}
-                        </span>
-                      </h3>
-                      <p className="mt-1 line-clamp-2 hidden text-sm text-muted-foreground sm:block">
-                        {categoryInfo[category]?.description}
-                      </p>
-                    </div>
+                    <h3 className="min-w-0 flex-1 truncate text-sm font-medium">
+                      <Link
+                        href={`/components/category/${categorySlug(category)}`}
+                        className="outline-none after:absolute after:inset-0 after:rounded-xl"
+                      >
+                        {category}
+                      </Link>
+                    </h3>
+                    <span className="shrink-0 rounded-full bg-muted px-2 py-0.5 font-mono text-xs text-foreground tabular-nums">
+                      {count}
+                    </span>
                   </li>
                 );
               })}
@@ -544,15 +526,7 @@ export default function Home() {
         <section aria-labelledby="blocks" className="py-14 lg:py-20">
           <div className="mx-auto max-w-6xl px-4 lg:px-8">
             <div className="flex flex-wrap items-end justify-between gap-4">
-              <SectionHeading
-                id="blocks"
-                eyebrow="Blocks"
-                title="Whole sections, free"
-              >
-                Heroes, features, pricing, testimonials, CTAs, navbars, footers and auth
-                pages, assembled from Velora components. Install one and it brings every
-                component it uses.
-              </SectionHeading>
+              <SectionHeading id="blocks" eyebrow="Blocks" title="Whole sections, free" />
               <Link
                 href="/blocks"
                 className="inline-flex h-10 items-center gap-1.5 rounded-full border bg-background px-5 text-sm font-medium transition-colors hover:bg-muted"
@@ -561,7 +535,7 @@ export default function Home() {
                 <ArrowRightIcon className="size-4" />
               </Link>
             </div>
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {featuredBlocks.map((block) => (
                 <li
                   key={block.slug}
@@ -579,9 +553,6 @@ export default function Home() {
                         {block.title}
                       </Link>
                     </h3>
-                    <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
-                      {block.description}
-                    </p>
                   </div>
                 </li>
               ))}
@@ -592,69 +563,27 @@ export default function Home() {
         {/* Why */}
         <section aria-labelledby="why" className="py-14 lg:py-20">
           <div className="mx-auto max-w-6xl px-4 lg:px-8">
-            <SectionHeading id="why" eyebrow="Why Velora" title="Claims you can check">
-              Every number here comes from the build, and every page shows its own. We
-              also compared ourselves with{" "}
-              <Link href="/compare/aceternity-ui" className="text-foreground underline underline-offset-4">
-                Aceternity UI
-              </Link>
-              ,{" "}
-              <Link href="/compare/magic-ui" className="text-foreground underline underline-offset-4">
-                Magic UI
-              </Link>{" "}
-              and{" "}
-              <Link href="/compare/react-bits" className="text-foreground underline underline-offset-4">
-                React Bits
-              </Link>
-              , measured the same way, including where they&apos;re stronger.
-            </SectionHeading>
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <SectionHeading id="why" eyebrow="Why Velora" title="Claims you can check" />
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {why.map((item) => (
-                <li key={item.title} className="flex flex-col rounded-2xl border bg-card/50 p-5 lg:p-6">
-                  <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <item.icon className="size-5" />
-                  </span>
-                  <h3 className="mt-4 font-semibold">{item.title}</h3>
-                  <p className="mt-2 flex-1 text-sm text-muted-foreground">{item.body}</p>
-                  {"external" in item.link ? (
-                    <a
-                      href={item.link.href}
-                      className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                    >
-                      {item.link.label}
-                      <ArrowUpRightIcon className="size-3.5" />
-                    </a>
-                  ) : (
-                    <Link
-                      href={item.link.href}
-                      className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                    >
-                      {item.link.label}
-                      <ArrowRightIcon className="size-3.5" />
-                    </Link>
-                  )}
+                <li key={item.label} className="flex flex-col rounded-2xl border bg-card/50 p-5">
+                  <item.icon className="size-5 text-primary" />
+                  <p className="mt-4 text-3xl font-semibold tracking-tight">{item.metric}</p>
+                  <p className="mt-1 flex-1 text-sm text-muted-foreground">{item.label}</p>
+                  <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-sm font-medium">
+                    {item.links.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="inline-flex items-center gap-1 text-primary underline-offset-4 hover:underline"
+                      >
+                        {link.label}
+                        {item.links.length === 1 && <ArrowRightIcon className="size-3.5" />}
+                      </Link>
+                    ))}
+                  </div>
                 </li>
               ))}
-              <li className="flex flex-col rounded-2xl border bg-card/50 p-5 lg:p-6">
-                <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <GitCompareIcon className="size-5" />
-                </span>
-                <h3 className="mt-4 font-semibold">Honest comparisons</h3>
-                <p className="mt-2 flex-1 text-sm text-muted-foreground">
-                  Side-by-side tables with the numbers, and a guide for switching over.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium">
-                  <Link href="/compare/aceternity-ui" className="text-primary underline-offset-4 hover:underline">
-                    vs Aceternity UI
-                  </Link>
-                  <Link href="/compare/magic-ui" className="text-primary underline-offset-4 hover:underline">
-                    vs Magic UI
-                  </Link>
-                  <Link href="/compare/react-bits" className="text-primary underline-offset-4 hover:underline">
-                    vs React Bits
-                  </Link>
-                </div>
-              </li>
             </ul>
           </div>
         </section>
@@ -663,10 +592,7 @@ export default function Home() {
         <section aria-labelledby="install" className="py-14 lg:py-20">
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 lg:grid-cols-5 lg:gap-16 lg:px-8">
             <div className="lg:col-span-2">
-              <SectionHeading id="install" eyebrow="Install" title="Install in seconds">
-                Register the @velora namespace once, then add anything by name. The CLI
-                writes the source into your project — edit it like your own code.
-              </SectionHeading>
+              <SectionHeading id="install" eyebrow="Install" title="Install in seconds" />
               <Link
                 href="/components/get-started"
                 className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
@@ -707,8 +633,7 @@ export default function Home() {
                   </span>
                 </h2>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Niche templates and more section variants, $99 once. The free library
-                  stays free.
+                  Niche templates, $99 once. The library stays free.
                 </p>
               </div>
               <Link
@@ -753,10 +678,6 @@ export default function Home() {
                 Own the code.
               </span>
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">
-              {componentsMeta.length} components, {blocksMeta.length} blocks and a
-              complete template, free under MIT.
-            </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/components"
