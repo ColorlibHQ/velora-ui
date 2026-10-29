@@ -10,6 +10,7 @@
     "start": "next start",
     "lint": "eslint",
     "docs:build": "node scripts/build-docs.mjs",
+    "pro:build": "node scripts/build-docs.mjs && node scripts/build-pro.mjs",
     "registry:build": "node scripts/build-docs.mjs && node scripts/component-stats.mjs && node scripts/build-registry.mjs && shadcn build"
   },
   "dependencies": {
