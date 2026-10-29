@@ -267,6 +267,17 @@ const extras = {
   "file-drop": { cssVars: brandVars },
 };
 
+// shadcn/ui primitives a component imports, so the CLI installs them too.
+const uiImports = (slug) => [
+  ...new Set(
+    [
+      ...readFileSync(resolve(root, "src/components/velora", `${slug}.tsx`), "utf8").matchAll(
+        /from "@\/components\/ui\/([\w-]+)"/g
+      ),
+    ].map((m) => m[1])
+  ),
+];
+
 const items = meta.map((c) => ({
   name: c.slug,
   type: "registry:ui",
@@ -274,7 +285,7 @@ const items = meta.map((c) => ({
   description: c.description,
   dependencies: c.dependencies.length ? c.dependencies : undefined,
   // Every component imports cn() from @/lib/utils.
-  registryDependencies: ["utils"],
+  registryDependencies: ["utils", ...uiImports(c.slug)],
   files: [
     {
       path: `src/components/velora/${c.slug}.tsx`,

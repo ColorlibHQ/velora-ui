@@ -565,6 +565,14 @@
       "motion/react"
     ]
   },
+  "data-grid": {
+    "bytes": 20404,
+    "gzip": 5542,
+    "deps": [
+      "@tanstack/react-table",
+      "lucide-react"
+    ]
+  },
   "globe": {
     "bytes": 13233,
     "gzip": 5349,

@@ -4031,6 +4031,141 @@
     ],
     "types": []
   },
+  "data-grid": {
+    "components": [
+      {
+        "name": "DataGrid",
+        "description": "Sortable, filterable, paginated table built on TanStack Table and the shadcn/ui table primitives. Pass column definitions and rows; search, faceted filters, selection and column visibility are opt-in props.",
+        "extends": [],
+        "forwardsRest": false,
+        "props": [
+          {
+            "name": "data",
+            "type": "TData[]",
+            "required": true,
+            "description": "Rows to display"
+          },
+          {
+            "name": "columns",
+            "type": "ColumnDef<TData, TValue>[]",
+            "required": true,
+            "description": "TanStack Table column definitions; set `meta.label` for a readable name in menus"
+          },
+          {
+            "name": "getRowId",
+            "type": "(row: TData, index: number) => string",
+            "required": false,
+            "description": "Stable row id, so selection survives sorting and new data. Defaults to the row index"
+          },
+          {
+            "name": "searchable",
+            "type": "boolean",
+            "required": false,
+            "default": "true",
+            "description": "Show a search box that matches text in every column"
+          },
+          {
+            "name": "searchPlaceholder",
+            "type": "string",
+            "required": false,
+            "default": "\"Search…\""
+          },
+          {
+            "name": "filters",
+            "type": "DataGridFilter[]",
+            "required": false,
+            "default": "[]",
+            "description": "Multi-select filter buttons, one per column"
+          },
+          {
+            "name": "selectable",
+            "type": "boolean",
+            "required": false,
+            "default": "false",
+            "description": "Add a checkbox column"
+          },
+          {
+            "name": "onSelectionChange",
+            "type": "(rows: TData[]) => void",
+            "required": false,
+            "description": "Called with the selected rows' data whenever the selection changes"
+          },
+          {
+            "name": "bulkActions",
+            "type": "(rows: TData[], clearSelection: () => void) => React.ReactNode",
+            "required": false,
+            "description": "Actions shown in a bar while rows are selected"
+          },
+          {
+            "name": "columnToggle",
+            "type": "boolean",
+            "required": false,
+            "default": "true",
+            "description": "Show the column visibility menu"
+          },
+          {
+            "name": "pageSize",
+            "type": "number",
+            "required": false,
+            "default": "10"
+          },
+          {
+            "name": "pageSizes",
+            "type": "number[]",
+            "required": false,
+            "default": "[10, 20, 50]",
+            "description": "Options in the rows-per-page menu"
+          },
+          {
+            "name": "defaultSort",
+            "type": "SortingState",
+            "required": false,
+            "default": "[]",
+            "description": "Initial sort, e.g. `[{ id: \"date\", desc: true }]`"
+          },
+          {
+            "name": "loading",
+            "type": "boolean",
+            "required": false,
+            "default": "false",
+            "description": "Show skeleton rows instead of data"
+          },
+          {
+            "name": "empty",
+            "type": "React.ReactNode",
+            "required": false,
+            "default": "\"No results.\"",
+            "description": "Shown when no row matches"
+          },
+          {
+            "name": "density",
+            "type": "\"compact\" | \"comfortable\"",
+            "required": false,
+            "default": "\"comfortable\"",
+            "description": "Row height"
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "required": false,
+            "default": "\"Data table\"",
+            "description": "Accessible name for the table"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "types": [
+      {
+        "name": "DataGridFilter",
+        "source": "interface DataGridFilter {\n  /** Column id (usually the accessorKey) to filter */\n  column: string;\n  /** Label on the filter button */\n  title: string;\n  /** Choices; read from the data when omitted */\n  options?: { label: string; value: string }[];\n}"
+      }
+    ]
+  },
   "globe": {
     "components": [
       {
