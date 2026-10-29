@@ -96,7 +96,7 @@ cd velora-ui
 pnpm install
 pnpm dev`;
 
-const niches = ["AI product", "Developer tool", "Mobile app", "Portfolio"];
+const niches = ["SaaS analytics", "CRM", "E-commerce admin", "AI app"];
 
 export default function TemplatesPage() {
   return (
@@ -109,8 +109,7 @@ export default function TemplatesPage() {
         </h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">
           Complete, multi-page sites assembled from Velora components. One template
-          is available today — free and MIT licensed. Niche templates are coming with
-          Velora Pro.
+          is available today — free and MIT licensed. Dashboard templates are next.
         </p>
 
         {/* The one template that exists today */}
@@ -257,12 +256,11 @@ export default function TemplatesPage() {
                 id="pro-heading"
                 className="mt-4 text-2xl font-semibold tracking-tight text-balance"
               >
-                Pro niche templates
+                Dashboard templates
               </h2>
               <p className="mt-2 text-muted-foreground">
-                Velora Pro adds templates for specific products, more section variants
-                and a private registry — $99, paid once. It isn&apos;t out yet: join the
-                waitlist and we&apos;ll email you when it opens.
+                Multi-page admin apps assembled from the Velora Pro blocks. Join the
+                waitlist and we&apos;ll email you when the first ones ship.
               </p>
               <ul className="mt-6 flex flex-wrap gap-2">
                 {niches.map((niche) => (

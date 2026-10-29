@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   CheckIcon,
   GaugeIcon,
@@ -43,9 +44,9 @@ import { SpotlightCard } from "@/components/velora/spotlight-card";
 import { TextReveal } from "@/components/velora/text-reveal";
 import { TiltCard } from "@/components/velora/tilt-card";
 import { Typewriter } from "@/components/velora/typewriter";
-import { freeBlocks } from "@/lib/blocks-meta";
+import { freeBlocks, proBlocks } from "@/lib/blocks-meta";
+import { siteConfig } from "@/lib/site-config";
 import { StackLogo, stackNames } from "@/components/template/stack-logos";
-import { WaitlistForm } from "@/components/template/waitlist-form";
 import { componentsMeta } from "@/lib/components-meta";
 import { pageMetadata } from "@/lib/seo";
 
@@ -115,7 +116,7 @@ const faqs = [
   },
   {
     q: "Will there be more templates?",
-    a: "Yes. The SaaS template is free forever. Additional niches (AI agent, dev tool, mobile app, portfolio) and section variants land in Velora Pro.",
+    a: "Yes. The SaaS template is free forever. Velora Pro adds application blocks for dashboards and SaaS apps.",
   },
 ];
 
@@ -128,11 +129,11 @@ const freeFeatures = [
 ];
 
 const proFeatures = [
-  "5 niche templates (AI, dev tool, mobile…)",
-  "50+ section design variants",
-  "Figma source file",
-  "Waitlist, newsletter & Stripe wiring",
-  "Private registry + lifetime updates",
+  "Everything in Free",
+  `${proBlocks.length} application blocks`,
+  "KPIs, charts, tables, billing, AI…",
+  "Chart kit + theme tokens",
+  "Lifetime updates",
 ];
 
 export const metadata = pageMetadata({
@@ -509,11 +510,11 @@ export default function SaasTemplate() {
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <BlurFade>
             <h2 className="mx-auto max-w-2xl text-center text-3xl font-semibold tracking-tight text-balance lg:text-5xl">
-              Free forever. <span className="text-primary">Pro later.</span>
+              Free forever. <span className="text-primary">Pro for apps.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
-              Everything on this page is free. Pro adds breadth — more niches,
-              more variants, more shortcuts.
+              Everything on this page is free. Pro adds the blocks behind the
+              login: dashboards, settings, billing.
             </p>
           </BlurFade>
 
@@ -557,17 +558,17 @@ export default function SaasTemplate() {
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-primary">Pro</h3>
                   <span className="rounded-full bg-primary/15 px-3 py-1 text-xs font-medium text-primary">
-                    Coming soon
+                    New
                   </span>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  For teams shipping more than one page.
+                  For teams building the app, not just the landing page.
                 </p>
                 <p className="mt-6 text-5xl font-semibold tracking-tight">
-                  $99
+                  ${siteConfig.pro.personal.price}
                   <span className="text-base font-normal text-muted-foreground">
                     {" "}
-                    lifetime
+                    once
                   </span>
                 </p>
                 <ul className="mt-8 flex-1 space-y-3 text-sm">
@@ -580,7 +581,9 @@ export default function SaasTemplate() {
                     </li>
                   ))}
                 </ul>
-                <WaitlistForm className="mt-8" />
+                <Button size="lg" className="mt-8 w-full rounded-full" asChild>
+                  <Link href="/pricing">Get Velora Pro</Link>
+                </Button>
               </div>
             </BlurFade>
           </div>
