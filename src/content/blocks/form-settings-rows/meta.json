@@ -1,0 +1,8 @@
+{
+  "title": "Settings toggles",
+  "description": "Switches with room to explain what each one actually promises.",
+  "category": "app-forms",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

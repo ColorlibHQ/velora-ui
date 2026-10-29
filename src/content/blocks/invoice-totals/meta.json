@@ -1,0 +1,8 @@
+{
+  "title": "Invoice totals that add up",
+  "description": "Derived from the line items, in integer cents rather than floats.",
+  "category": "commerce-billing",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

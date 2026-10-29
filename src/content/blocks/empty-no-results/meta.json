@@ -1,0 +1,8 @@
+{
+  "title": "No results",
+  "description": "A search that found nothing, distinguished from having no data at all.",
+  "category": "banners-empty-states",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 3
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Bulk action bar",
+  "description": "Appears on selection, announces the count, keeps delete away from the rest.",
+  "category": "page-shells",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 5
+}

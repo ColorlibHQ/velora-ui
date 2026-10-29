@@ -31,9 +31,11 @@ export default async function BlockPreviewPage({
 }) {
   const { slug } = await params;
   const Block = blockComponents[slug];
-  if (!Block) notFound();
+  const meta = blocksMeta.find((b) => b.slug === slug);
+  if (!Block || !meta) notFound();
   return (
-    <main className="bg-background">
+    // Application blocks are fragments of a page, not full-bleed sections.
+    <main className={meta.pro ? "bg-muted/30 p-6 sm:p-10" : "bg-background"}>
       <Block />
     </main>
   );

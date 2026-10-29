@@ -1,0 +1,8 @@
+{
+  "title": "In-page section nav",
+  "description": "IntersectionObserver with a narrow band, so it cannot flicker.",
+  "category": "page-shells",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 7
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Editable roles with a protected owner",
+  "description": "The owner gets a badge, not a disabled select that reads as temporary.",
+  "category": "people-teams",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}

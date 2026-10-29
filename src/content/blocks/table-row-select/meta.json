@@ -1,0 +1,8 @@
+{
+  "title": "Selection with a real tri-state",
+  "description": "indeterminate is a DOM property, so it needs an effect.",
+  "category": "tables-lists",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 8
+}

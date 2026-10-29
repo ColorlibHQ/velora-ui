@@ -1,0 +1,8 @@
+{
+  "title": "Four-metric grid",
+  "description": "The standard dashboard opener: four metrics with trend and sparkline.",
+  "category": "stats-kpis",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

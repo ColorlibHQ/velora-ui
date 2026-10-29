@@ -1,0 +1,8 @@
+{
+  "title": "Order summary",
+  "description": "A total that shows its arithmetic, with tax on the discounted subtotal.",
+  "category": "commerce-billing",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Upload queue with a failure",
+  "description": "All four states at once, including the failed row most lists drop.",
+  "category": "files-media",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

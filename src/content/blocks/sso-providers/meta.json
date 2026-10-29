@@ -1,0 +1,8 @@
+{
+  "title": "SSO buttons",
+  "description": "No vendor logos shipped, because their marks are trademarked.",
+  "category": "app-auth",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

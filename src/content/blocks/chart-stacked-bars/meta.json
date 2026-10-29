@@ -1,0 +1,8 @@
+{
+  "title": "Stacked composition",
+  "description": "How a total divides, over time.",
+  "category": "chart-cards",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

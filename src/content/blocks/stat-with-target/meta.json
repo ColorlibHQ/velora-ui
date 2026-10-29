@@ -1,0 +1,8 @@
+{
+  "title": "Metric against target",
+  "description": "A number that only means something next to what it was aiming at.",
+  "category": "stats-kpis",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}

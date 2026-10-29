@@ -1,0 +1,8 @@
+{
+  "title": "Sticky summary footer",
+  "description": "Sticky inside the scroller, which needs an explicit height.",
+  "category": "page-shells",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 8
+}

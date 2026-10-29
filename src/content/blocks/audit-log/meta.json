@@ -1,0 +1,8 @@
+{
+  "title": "Audit trail with before and after",
+  "description": "The old and new values are the reason the log exists, marked up as such.",
+  "category": "feeds-activity",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 5
+}

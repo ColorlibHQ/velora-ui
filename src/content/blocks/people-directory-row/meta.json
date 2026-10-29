@@ -1,0 +1,8 @@
+{
+  "title": "Directory rows",
+  "description": "Members with role, status and actions that work on a touch device.",
+  "category": "people-teams",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 3
+}

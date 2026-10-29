@@ -1,0 +1,8 @@
+{
+  "title": "Horizontal stepper",
+  "description": "An ordered list with a connector that mirrors under RTL.",
+  "category": "progress-goals",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

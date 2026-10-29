@@ -1,0 +1,8 @@
+{
+  "title": "Pending invitations with expiry",
+  "description": "Remaining time, so the resend button means something.",
+  "category": "people-teams",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 5
+}

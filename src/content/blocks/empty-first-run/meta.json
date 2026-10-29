@@ -1,0 +1,8 @@
+{
+  "title": "First-run empty state",
+  "description": "Nothing here yet, and what to do about it.",
+  "category": "banners-empty-states",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}

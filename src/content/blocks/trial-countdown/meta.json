@@ -1,0 +1,8 @@
+{
+  "title": "Trial banner that escalates",
+  "description": "Tone follows days left, and dismissal says what it does.",
+  "category": "banners-empty-states",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 7
+}

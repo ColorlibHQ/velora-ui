@@ -1,0 +1,8 @@
+{
+  "title": "Page header with actions",
+  "description": "Title, record count and the actions, wrapping rather than shrinking.",
+  "category": "page-shells",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

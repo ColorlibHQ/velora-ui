@@ -1,0 +1,8 @@
+{
+  "title": "Filter bar",
+  "description": "Search plus removable active filters, and a Clear that only appears when needed.",
+  "category": "app-forms",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

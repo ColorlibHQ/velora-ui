@@ -1,0 +1,8 @@
+{
+  "title": "Threaded comments, one level deep",
+  "description": "A deliberate nesting cap, indented so it mirrors under RTL.",
+  "category": "feeds-activity",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}

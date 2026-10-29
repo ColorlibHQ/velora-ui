@@ -1,0 +1,8 @@
+{
+  "title": "Informational callout",
+  "description": "A note that is not an error and should not look like one.",
+  "category": "banners-empty-states",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

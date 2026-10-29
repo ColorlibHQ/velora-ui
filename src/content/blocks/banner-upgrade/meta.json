@@ -1,0 +1,8 @@
+{
+  "title": "Upgrade prompt",
+  "description": "A limit reached, with the action next to it.",
+  "category": "banners-empty-states",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

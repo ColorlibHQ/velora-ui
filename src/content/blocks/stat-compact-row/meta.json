@@ -1,0 +1,8 @@
+{
+  "title": "Compact metric row",
+  "description": "Six metrics on one line, for a page whose charts need the space.",
+  "category": "stats-kpis",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 3
+}

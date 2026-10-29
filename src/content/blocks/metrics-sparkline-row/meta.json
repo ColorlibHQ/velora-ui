@@ -1,0 +1,8 @@
+{
+  "title": "Sparkline rows",
+  "description": "Eight trends visible at once, with inverted colour where down is good.",
+  "category": "advanced-metrics",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}

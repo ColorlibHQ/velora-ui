@@ -1,0 +1,8 @@
+{
+  "title": "Secret with masked reveal",
+  "description": "Copy reads state, so the key never has to be shown.",
+  "category": "app-forms",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 7
+}

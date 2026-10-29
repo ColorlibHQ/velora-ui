@@ -1,0 +1,8 @@
+{
+  "title": "Sign-in card",
+  "description": "With the autocomplete tokens password managers actually need.",
+  "category": "app-auth",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

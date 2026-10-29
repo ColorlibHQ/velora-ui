@@ -1,0 +1,8 @@
+{
+  "title": "Capacity meters",
+  "description": "Utilisation that can exceed 100%, and has to show it.",
+  "category": "progress-goals",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

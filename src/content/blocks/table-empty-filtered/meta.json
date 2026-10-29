@@ -1,0 +1,8 @@
+{
+  "title": "Both table empty states",
+  "description": "Never-had-data and filtered-to-nothing need different copy and actions.",
+  "category": "tables-lists",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 7
+}

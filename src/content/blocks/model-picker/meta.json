@@ -1,0 +1,8 @@
+{
+  "title": "Model picker",
+  "description": "States the speed and cost trade-off, as a proper radio group.",
+  "category": "ai-interfaces",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}

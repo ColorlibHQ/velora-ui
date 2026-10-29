@@ -1,0 +1,8 @@
+{
+  "title": "Activity timeline",
+  "description": "A vertical run of events with a connecting rail.",
+  "category": "feeds-activity",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

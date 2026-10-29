@@ -1,0 +1,8 @@
+{
+  "title": "Cohort retention",
+  "description": "A triangular heatmap as a real table, with numbers in every cell.",
+  "category": "advanced-metrics",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

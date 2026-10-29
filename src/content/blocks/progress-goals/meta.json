@@ -1,0 +1,8 @@
+{
+  "title": "Goals with progress bars",
+  "description": "Several targets and how far along each one is.",
+  "category": "progress-goals",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

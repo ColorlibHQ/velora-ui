@@ -1,0 +1,8 @@
+{
+  "title": "Notification list",
+  "description": "Unread state, type icon and a relative time.",
+  "category": "feeds-activity",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 3
+}

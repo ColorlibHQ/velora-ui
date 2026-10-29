@@ -1,0 +1,8 @@
+{
+  "title": "Step progress",
+  "description": "Where something is in a fixed sequence.",
+  "category": "progress-goals",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 3
+}

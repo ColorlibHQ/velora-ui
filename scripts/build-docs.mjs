@@ -313,13 +313,23 @@ const blocks = (existsSync(blocksDir) ? readdirSync(blocksDir, { withFileTypes: 
       if (!componentSlugs.has(c)) throw new Error(`blocks/${slug}: imports unknown component "${c}"`);
     }
     const unexpected = specifiers.filter(
-      (s) => s.startsWith("@/") && !/^@\/components\/(velora|ui)\//.test(s) && s !== "@/lib/utils"
+      (s) =>
+        s.startsWith("@/") &&
+        !/^@\/components\/(velora|ui)\//.test(s) &&
+        s !== "@/lib/utils" &&
+        // The chart kit ships with Pro blocks only.
+        !(meta.pro && s === "@/components/charts")
     );
     if (unexpected.length) {
       throw new Error(`blocks/${slug}: imports site-only modules (${unexpected.join(", ")}) — blocks must be installable`);
     }
     const exportName = source.match(/^export function ([A-Z]\w*)/m)?.[1];
     if (!exportName) throw new Error(`blocks/${slug}: needs a named "export function Name()"`);
+
+    const category = blockCategories.find((c) => c.slug === meta.category);
+    if (Boolean(meta.pro) !== Boolean(category.pro)) {
+      throw new Error(`blocks/${slug}: "pro" must match its category "${meta.category}"`);
+    }
 
     return { slug, ...meta, exportName, components, ui, dependencies };
   })

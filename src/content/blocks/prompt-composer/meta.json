@@ -1,0 +1,8 @@
+{
+  "title": "Prompt composer",
+  "description": "Auto-growing input, Enter to send, and Stop replacing Send while streaming.",
+  "category": "ai-interfaces",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

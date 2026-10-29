@@ -287,9 +287,13 @@ const items = meta.map((c) => ({
 
 // Blocks: full sections. Their Velora components are pulled in by URL so a
 // single `shadcn add` installs everything the section needs.
-const blocks = JSON.parse(
+// Pro blocks are previewed on the site but never published to the public
+// registry or given install commands; their source ships in the Pro download.
+const allBlocks = JSON.parse(
   readFileSync(resolve(root, "src/lib/blocks-meta.json"), "utf8")
 );
+const blocks = allBlocks.filter((b) => !b.pro);
+const proBlocks = allBlocks.filter((b) => b.pro);
 const blockCategories = JSON.parse(
   readFileSync(resolve(root, "src/content/block-categories.json"), "utf8")
 );
@@ -384,6 +388,15 @@ ${blocks
   .join("\n")}`
   )
   .join("\n\n")}
+
+## Velora Pro blocks
+
+Application blocks for dashboards and SaaS apps (${proBlocks.length} blocks). Previews are public; the source is part of Velora Pro and is not in the public registry.
+
+${blockCategories
+  .filter((cat) => cat.pro && proBlocks.some((b) => b.category === cat.slug))
+  .map((cat) => `- [${cat.title}](${HOMEPAGE}/blocks/${cat.slug}): ${cat.description}`)
+  .join("\n")}
 
 ## Pages
 

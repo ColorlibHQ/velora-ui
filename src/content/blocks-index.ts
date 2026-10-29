@@ -32,6 +32,120 @@ import { FooterWordmark } from "@/components/blocks/footer-wordmark";
 import { FooterNewsletter } from "@/components/blocks/footer-newsletter";
 import { AuthLoginSplit } from "@/components/blocks/auth-login-split";
 import { AuthSignupCard } from "@/components/blocks/auth-signup-card";
+import { StatGridFour } from "@/components/blocks/stat-grid-four";
+import { StatInvertedTrend } from "@/components/blocks/stat-inverted-trend";
+import { StatCompactRow } from "@/components/blocks/stat-compact-row";
+import { StatWithTarget } from "@/components/blocks/stat-with-target";
+import { StatSplitPanel } from "@/components/blocks/stat-split-panel";
+import { StatDeltaGrid } from "@/components/blocks/stat-delta-grid";
+import { StatPeriodCompare } from "@/components/blocks/stat-period-compare";
+import { StatLoadingSkeleton } from "@/components/blocks/stat-loading-skeleton";
+import { StatIconTiles } from "@/components/blocks/stat-icon-tiles";
+import { StatVersusColumns } from "@/components/blocks/stat-versus-columns";
+import { StatRingRow } from "@/components/blocks/stat-ring-row";
+import { StatLiveCounter } from "@/components/blocks/stat-live-counter";
+import { ChartAreaTrend } from "@/components/blocks/chart-area-trend";
+import { ChartStackedBars } from "@/components/blocks/chart-stacked-bars";
+import { ChartDonutLegend } from "@/components/blocks/chart-donut-legend";
+import { ChartDualAxis } from "@/components/blocks/chart-dual-axis";
+import { ChartReferenceBand } from "@/components/blocks/chart-reference-band";
+import { ChartEmptyState } from "@/components/blocks/chart-empty-state";
+import { ChartHorizontalBars } from "@/components/blocks/chart-horizontal-bars";
+import { ChartPercentStack } from "@/components/blocks/chart-percent-stack";
+import { ChartRadarProfile } from "@/components/blocks/chart-radar-profile";
+import { ChartSparklineGrid } from "@/components/blocks/chart-sparkline-grid";
+import { ListRanked } from "@/components/blocks/list-ranked";
+import { TableCompact } from "@/components/blocks/table-compact";
+import { TableLeague } from "@/components/blocks/table-league";
+import { ListTwoLine } from "@/components/blocks/list-two-line";
+import { TableSortableHeader } from "@/components/blocks/table-sortable-header";
+import { TablePaginationFooter } from "@/components/blocks/table-pagination-footer";
+import { TableEmptyFiltered } from "@/components/blocks/table-empty-filtered";
+import { TableRowSelect } from "@/components/blocks/table-row-select";
+import { TableExpandableRows } from "@/components/blocks/table-expandable-rows";
+import { FeedTimeline } from "@/components/blocks/feed-timeline";
+import { FeedGrouped } from "@/components/blocks/feed-grouped";
+import { FeedNotifications } from "@/components/blocks/feed-notifications";
+import { CommentThread } from "@/components/blocks/comment-thread";
+import { AuditLog } from "@/components/blocks/audit-log";
+import { NotificationGroups } from "@/components/blocks/notification-groups";
+import { PresenceList } from "@/components/blocks/presence-list";
+import { ReleaseNotesFeed } from "@/components/blocks/release-notes-feed";
+import { ProgressGoals } from "@/components/blocks/progress-goals";
+import { ProgressCapacity } from "@/components/blocks/progress-capacity";
+import { ProgressSteps } from "@/components/blocks/progress-steps";
+import { MilestoneChecklist } from "@/components/blocks/milestone-checklist";
+import { SlaBreachRisk } from "@/components/blocks/sla-breach-risk";
+import { OnboardingStepper } from "@/components/blocks/onboarding-stepper";
+import { BannerCallout } from "@/components/blocks/banner-callout";
+import { BannerUpgrade } from "@/components/blocks/banner-upgrade";
+import { EmptyNoResults } from "@/components/blocks/empty-no-results";
+import { EmptyFirstRun } from "@/components/blocks/empty-first-run";
+import { MaintenanceWindow } from "@/components/blocks/maintenance-window";
+import { DestructiveConfirm } from "@/components/blocks/destructive-confirm";
+import { TrialCountdown } from "@/components/blocks/trial-countdown";
+import { OfflineNotice } from "@/components/blocks/offline-notice";
+import { FormFilterBar } from "@/components/blocks/form-filter-bar";
+import { FormSettingsRows } from "@/components/blocks/form-settings-rows";
+import { FormApiKeyRow } from "@/components/blocks/form-api-key-row";
+import { FormInlineCreate } from "@/components/blocks/form-inline-create";
+import { FieldErrors } from "@/components/blocks/field-errors";
+import { UnsavedChangesBar } from "@/components/blocks/unsaved-changes-bar";
+import { ApiKeyReveal } from "@/components/blocks/api-key-reveal";
+import { TagInput } from "@/components/blocks/tag-input";
+import { SettingsToggleRows } from "@/components/blocks/settings-toggle-rows";
+import { PeopleWorkload } from "@/components/blocks/people-workload";
+import { PeopleAvatarStack } from "@/components/blocks/people-avatar-stack";
+import { PeopleDirectoryRow } from "@/components/blocks/people-directory-row";
+import { RoleAssignmentRow } from "@/components/blocks/role-assignment-row";
+import { InvitePendingList } from "@/components/blocks/invite-pending-list";
+import { TeamWorkload } from "@/components/blocks/team-workload";
+import { AvatarStack } from "@/components/blocks/avatar-stack";
+import { CommerceOrderSummary } from "@/components/blocks/commerce-order-summary";
+import { CommerceProductCard } from "@/components/blocks/commerce-product-card";
+import { CommercePlanCard } from "@/components/blocks/commerce-plan-card";
+import { CommercePaymentMethods } from "@/components/blocks/commerce-payment-methods";
+import { OrderTimeline } from "@/components/blocks/order-timeline";
+import { InvoiceTotals } from "@/components/blocks/invoice-totals";
+import { CartSummary } from "@/components/blocks/cart-summary";
+import { PlanCompareCards } from "@/components/blocks/plan-compare-cards";
+import { MetricsFunnel } from "@/components/blocks/metrics-funnel";
+import { MetricsRetentionGrid } from "@/components/blocks/metrics-retention-grid";
+import { MetricsGaugeRow } from "@/components/blocks/metrics-gauge-row";
+import { MetricsSparklineRow } from "@/components/blocks/metrics-sparkline-row";
+import { MetricsGoalGauge } from "@/components/blocks/metrics-goal-gauge";
+import { MetricsBreakdownTable } from "@/components/blocks/metrics-breakdown-table";
+import { MetricsFunnelSteps } from "@/components/blocks/metrics-funnel-steps";
+import { PageHeaderActions } from "@/components/blocks/page-header-actions";
+import { BreadcrumbToolbar } from "@/components/blocks/breadcrumb-toolbar";
+import { FilterToolbar } from "@/components/blocks/filter-toolbar";
+import { SectionTabs } from "@/components/blocks/section-tabs";
+import { SelectionActionBar } from "@/components/blocks/selection-action-bar";
+import { DetailSummaryHeader } from "@/components/blocks/detail-summary-header";
+import { InpageSectionNav } from "@/components/blocks/inpage-section-nav";
+import { StickyTotalFooter } from "@/components/blocks/sticky-total-footer";
+import { SignInCard } from "@/components/blocks/sign-in-card";
+import { PasswordStrength } from "@/components/blocks/password-strength";
+import { TwoFactorPrompt } from "@/components/blocks/two-factor-prompt";
+import { ActiveSessions } from "@/components/blocks/active-sessions";
+import { CheckYourEmail } from "@/components/blocks/check-your-email";
+import { SsoProviders } from "@/components/blocks/sso-providers";
+import { RecoveryCodes } from "@/components/blocks/recovery-codes";
+import { UploadProgressList } from "@/components/blocks/upload-progress-list";
+import { DropzoneEmpty } from "@/components/blocks/dropzone-empty";
+import { AttachmentGrid } from "@/components/blocks/attachment-grid";
+import { ImageGallery } from "@/components/blocks/image-gallery";
+import { StorageQuota } from "@/components/blocks/storage-quota";
+import { FileBreadcrumbList } from "@/components/blocks/file-breadcrumb-list";
+import { DocumentVersions } from "@/components/blocks/document-versions";
+import { PromptComposer } from "@/components/blocks/prompt-composer";
+import { ToolCallCard } from "@/components/blocks/tool-call-card";
+import { CitationList } from "@/components/blocks/citation-list";
+import { ModelPicker } from "@/components/blocks/model-picker";
+import { TokenUsageMeter } from "@/components/blocks/token-usage-meter";
+import { StreamingAnswer } from "@/components/blocks/streaming-answer";
+import { ConversationList } from "@/components/blocks/conversation-list";
+import { ResponseFeedback } from "@/components/blocks/response-feedback";
 
 export const blockComponents: Record<string, ComponentType> = {
   "hero-aurora": HeroAurora,
@@ -65,4 +179,118 @@ export const blockComponents: Record<string, ComponentType> = {
   "footer-newsletter": FooterNewsletter,
   "auth-login-split": AuthLoginSplit,
   "auth-signup-card": AuthSignupCard,
+  "stat-grid-four": StatGridFour,
+  "stat-inverted-trend": StatInvertedTrend,
+  "stat-compact-row": StatCompactRow,
+  "stat-with-target": StatWithTarget,
+  "stat-split-panel": StatSplitPanel,
+  "stat-delta-grid": StatDeltaGrid,
+  "stat-period-compare": StatPeriodCompare,
+  "stat-loading-skeleton": StatLoadingSkeleton,
+  "stat-icon-tiles": StatIconTiles,
+  "stat-versus-columns": StatVersusColumns,
+  "stat-ring-row": StatRingRow,
+  "stat-live-counter": StatLiveCounter,
+  "chart-area-trend": ChartAreaTrend,
+  "chart-stacked-bars": ChartStackedBars,
+  "chart-donut-legend": ChartDonutLegend,
+  "chart-dual-axis": ChartDualAxis,
+  "chart-reference-band": ChartReferenceBand,
+  "chart-empty-state": ChartEmptyState,
+  "chart-horizontal-bars": ChartHorizontalBars,
+  "chart-percent-stack": ChartPercentStack,
+  "chart-radar-profile": ChartRadarProfile,
+  "chart-sparkline-grid": ChartSparklineGrid,
+  "list-ranked": ListRanked,
+  "table-compact": TableCompact,
+  "table-league": TableLeague,
+  "list-two-line": ListTwoLine,
+  "table-sortable-header": TableSortableHeader,
+  "table-pagination-footer": TablePaginationFooter,
+  "table-empty-filtered": TableEmptyFiltered,
+  "table-row-select": TableRowSelect,
+  "table-expandable-rows": TableExpandableRows,
+  "feed-timeline": FeedTimeline,
+  "feed-grouped": FeedGrouped,
+  "feed-notifications": FeedNotifications,
+  "comment-thread": CommentThread,
+  "audit-log": AuditLog,
+  "notification-groups": NotificationGroups,
+  "presence-list": PresenceList,
+  "release-notes-feed": ReleaseNotesFeed,
+  "progress-goals": ProgressGoals,
+  "progress-capacity": ProgressCapacity,
+  "progress-steps": ProgressSteps,
+  "milestone-checklist": MilestoneChecklist,
+  "sla-breach-risk": SlaBreachRisk,
+  "onboarding-stepper": OnboardingStepper,
+  "banner-callout": BannerCallout,
+  "banner-upgrade": BannerUpgrade,
+  "empty-no-results": EmptyNoResults,
+  "empty-first-run": EmptyFirstRun,
+  "maintenance-window": MaintenanceWindow,
+  "destructive-confirm": DestructiveConfirm,
+  "trial-countdown": TrialCountdown,
+  "offline-notice": OfflineNotice,
+  "form-filter-bar": FormFilterBar,
+  "form-settings-rows": FormSettingsRows,
+  "form-api-key-row": FormApiKeyRow,
+  "form-inline-create": FormInlineCreate,
+  "field-errors": FieldErrors,
+  "unsaved-changes-bar": UnsavedChangesBar,
+  "api-key-reveal": ApiKeyReveal,
+  "tag-input": TagInput,
+  "settings-toggle-rows": SettingsToggleRows,
+  "people-workload": PeopleWorkload,
+  "people-avatar-stack": PeopleAvatarStack,
+  "people-directory-row": PeopleDirectoryRow,
+  "role-assignment-row": RoleAssignmentRow,
+  "invite-pending-list": InvitePendingList,
+  "team-workload": TeamWorkload,
+  "avatar-stack": AvatarStack,
+  "commerce-order-summary": CommerceOrderSummary,
+  "commerce-product-card": CommerceProductCard,
+  "commerce-plan-card": CommercePlanCard,
+  "commerce-payment-methods": CommercePaymentMethods,
+  "order-timeline": OrderTimeline,
+  "invoice-totals": InvoiceTotals,
+  "cart-summary": CartSummary,
+  "plan-compare-cards": PlanCompareCards,
+  "metrics-funnel": MetricsFunnel,
+  "metrics-retention-grid": MetricsRetentionGrid,
+  "metrics-gauge-row": MetricsGaugeRow,
+  "metrics-sparkline-row": MetricsSparklineRow,
+  "metrics-goal-gauge": MetricsGoalGauge,
+  "metrics-breakdown-table": MetricsBreakdownTable,
+  "metrics-funnel-steps": MetricsFunnelSteps,
+  "page-header-actions": PageHeaderActions,
+  "breadcrumb-toolbar": BreadcrumbToolbar,
+  "filter-toolbar": FilterToolbar,
+  "section-tabs": SectionTabs,
+  "selection-action-bar": SelectionActionBar,
+  "detail-summary-header": DetailSummaryHeader,
+  "inpage-section-nav": InpageSectionNav,
+  "sticky-total-footer": StickyTotalFooter,
+  "sign-in-card": SignInCard,
+  "password-strength": PasswordStrength,
+  "two-factor-prompt": TwoFactorPrompt,
+  "active-sessions": ActiveSessions,
+  "check-your-email": CheckYourEmail,
+  "sso-providers": SsoProviders,
+  "recovery-codes": RecoveryCodes,
+  "upload-progress-list": UploadProgressList,
+  "dropzone-empty": DropzoneEmpty,
+  "attachment-grid": AttachmentGrid,
+  "image-gallery": ImageGallery,
+  "storage-quota": StorageQuota,
+  "file-breadcrumb-list": FileBreadcrumbList,
+  "document-versions": DocumentVersions,
+  "prompt-composer": PromptComposer,
+  "tool-call-card": ToolCallCard,
+  "citation-list": CitationList,
+  "model-picker": ModelPicker,
+  "token-usage-meter": TokenUsageMeter,
+  "streaming-answer": StreamingAnswer,
+  "conversation-list": ConversationList,
+  "response-feedback": ResponseFeedback,
 };

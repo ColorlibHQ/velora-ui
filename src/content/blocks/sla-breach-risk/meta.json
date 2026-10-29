@@ -1,0 +1,8 @@
+{
+  "title": "Time remaining, coloured by risk",
+  "description": "Tone follows the fraction consumed, and breaches say how far over.",
+  "category": "progress-goals",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 5
+}

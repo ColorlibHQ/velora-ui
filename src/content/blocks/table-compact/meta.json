@@ -1,0 +1,8 @@
+{
+  "title": "Compact table",
+  "description": "A read-only table for a dashboard panel, not a CRUD screen.",
+  "category": "tables-lists",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

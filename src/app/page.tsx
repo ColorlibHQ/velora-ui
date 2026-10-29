@@ -51,7 +51,7 @@ import {
 } from "@/components/velora/loaders";
 import { Marquee } from "@/components/velora/marquee";
 import { OrbitingCircles } from "@/components/velora/orbiting-circles";
-import { blocksMeta } from "@/lib/blocks-meta";
+import { blocksMeta, freeBlocks } from "@/lib/blocks-meta";
 import componentStats from "@/lib/component-stats.json";
 import {
   categories,
@@ -327,7 +327,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted-foreground text-pretty">
-                {componentsMeta.length} components and {blocksMeta.length} blocks for Tailwind CSS 4
+                {componentsMeta.length} components and {freeBlocks.length} blocks for Tailwind CSS 4
                 and shadcn/ui. One command, source you own.
               </p>
 
@@ -463,7 +463,7 @@ export default function Home() {
           <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-px overflow-hidden rounded-2xl border bg-border lg:grid-cols-4">
             {[
               { value: componentsMeta.length, label: "components" },
-              { value: blocksMeta.length, label: "free blocks" },
+              { value: freeBlocks.length, label: "free blocks" },
               { value: zeroDeps, label: "zero-dependency" },
               { value: "MIT", label: "open source" },
             ].map((s) => (
@@ -531,7 +531,7 @@ export default function Home() {
                 href="/blocks"
                 className="inline-flex h-10 items-center gap-1.5 rounded-full border bg-background px-5 text-sm font-medium transition-colors hover:bg-muted"
               >
-                {blocksMeta.length} free blocks
+                {freeBlocks.length} free blocks
                 <ArrowRightIcon className="size-4" />
               </Link>
             </div>

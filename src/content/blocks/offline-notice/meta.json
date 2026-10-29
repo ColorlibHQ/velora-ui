@@ -1,0 +1,8 @@
+{
+  "title": "Connection notice",
+  "description": "Real online/offline events, with a matching server snapshot.",
+  "category": "banners-empty-states",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 8
+}

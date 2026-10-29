@@ -1,0 +1,8 @@
+{
+  "title": "Payment methods",
+  "description": "Saved cards, with an expiring one called out in words rather than colour.",
+  "category": "commerce-billing",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}

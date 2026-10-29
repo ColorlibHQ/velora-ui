@@ -1,0 +1,8 @@
+{
+  "title": "Save bar that knows it is dirty",
+  "description": "Compares against what loaded, so undoing an edit hides it again.",
+  "category": "app-forms",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

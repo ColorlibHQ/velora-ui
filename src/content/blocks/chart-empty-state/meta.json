@@ -1,0 +1,8 @@
+{
+  "title": "Chart with nothing to plot",
+  "description": "Replaces the plot area at the same height, and says what would fill it.",
+  "category": "chart-cards",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

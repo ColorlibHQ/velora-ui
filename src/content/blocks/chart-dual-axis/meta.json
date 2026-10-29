@@ -1,0 +1,8 @@
+{
+  "title": "Dual axis",
+  "description": "Two series in different units, with the axis colours to tell them apart.",
+  "category": "chart-cards",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}
