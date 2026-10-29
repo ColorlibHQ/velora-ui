@@ -1,0 +1,25 @@
+{
+  "title": "Data Grid",
+  "description": "Sortable, searchable, filterable table with selection, column toggles and pagination, built on TanStack Table.",
+  "category": "Data & Maps",
+  "since": "0.11.0",
+  "dependencies": [
+    "@tanstack/react-table@^8.21.3",
+    "lucide-react"
+  ],
+  "a11y": {
+    "motion": "Nothing in the table animates. The selection bar fades in only when reduced motion is off.",
+    "keyboard": "Sortable headers are buttons: Tab reaches them and Enter or Space cycles ascending, descending and unsorted. Search, filter and column menus, row checkboxes and pagination are all native or Radix controls reachable with Tab; menus use arrow keys.",
+    "screenReader": "A named table whose sortable headers report aria-sort. Every checkbox and icon button has a label, and the result range (\"1–10 of 48\") is a polite live region, so filtering announces how many rows match."
+  },
+  "examples": [
+    {
+      "name": "default",
+      "title": "Orders"
+    },
+    {
+      "name": "compact",
+      "title": "Compact, read-only"
+    }
+  ]
+}

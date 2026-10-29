@@ -1,7 +1,7 @@
 # Velora UI — full documentation
 
 > Free, MIT-licensed animated React components and complete sections (blocks) for
-> Tailwind CSS 4 and shadcn/ui. 100 components, 31 blocks. Every
+> Tailwind CSS 4 and shadcn/ui. 101 components, 31 blocks. Every
 > component respects prefers-reduced-motion and documents its keyboard and
 > screen-reader behavior. Components import only react, motion/react (some),
 > lucide-react (a few) and a cn() helper from @/lib/utils.
@@ -4733,6 +4733,187 @@ export default function SmoothCursorDemo() {
         </p>
       </div>
     </div>
+  );
+}
+```
+
+
+### Data Grid
+
+Sortable, searchable, filterable table with selection, column toggles and pagination, built on TanStack Table. (5.4 KB gzipped, deps: @tanstack/react-table, lucide-react)
+
+- Docs: https://velora.colorlib.com/components/data-grid
+- Category: Data & Maps
+- Install: `npx shadcn@latest add https://velora.colorlib.com/r/data-grid.json` (creates `components/velora/data-grid.tsx`)
+
+**Accessibility**
+- Reduced motion: Nothing in the table animates. The selection bar fades in only when reduced motion is off.
+- Keyboard: Sortable headers are buttons: Tab reaches them and Enter or Space cycles ascending, descending and unsorted. Search, filter and column menus, row checkboxes and pagination are all native or Radix controls reachable with Tab; menus use arrow keys.
+- Screen readers: A named table whose sortable headers report aria-sort. Every checkbox and icon button has a label, and the result range ("1–10 of 48") is a polite live region, so filtering announces how many rows match.
+
+**Props**
+
+#### DataGrid
+- `data: TData[]` — Rows to display
+- `columns: ColumnDef<TData, TValue>[]` — TanStack Table column definitions; set `meta.label` for a readable name in menus
+- `getRowId?: (row: TData, index: number) => string` — Stable row id, so selection survives sorting and new data. Defaults to the row index
+- `searchable?: boolean` (default `true`) — Show a search box that matches text in every column
+- `searchPlaceholder?: string` (default `"Search…"`)
+- `filters?: DataGridFilter[]` (default `[]`) — Multi-select filter buttons, one per column
+- `selectable?: boolean` (default `false`) — Add a checkbox column
+- `onSelectionChange?: (rows: TData[]) => void` — Called with the selected rows' data whenever the selection changes
+- `bulkActions?: (rows: TData[], clearSelection: () => void) => React.ReactNode` — Actions shown in a bar while rows are selected
+- `columnToggle?: boolean` (default `true`) — Show the column visibility menu
+- `pageSize?: number` (default `10`)
+- `pageSizes?: number[]` (default `[10, 20, 50]`) — Options in the rows-per-page menu
+- `defaultSort?: SortingState` (default `[]`) — Initial sort, e.g. `[{ id: "date", desc: true }]`
+- `loading?: boolean` (default `false`) — Show skeleton rows instead of data
+- `empty?: React.ReactNode` (default `"No results."`) — Shown when no row matches
+- `density?: "compact" | "comfortable"` (default `"comfortable"`) — Row height
+- `label?: string` (default `"Data table"`) — Accessible name for the table
+- `className?: string`
+
+**Example**
+
+```tsx
+"use client";
+
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { DataGrid, type ColumnDef } from "@/components/velora/data-grid";
+
+type Order = {
+  id: string;
+  customer: string;
+  email: string;
+  status: "Paid" | "Pending" | "Refunded" | "Failed";
+  method: "Card" | "PayPal" | "Bank transfer";
+  total: number;
+  date: string;
+};
+
+const names = [
+  "Ana Whitfield",
+  "Marcus Oyelaran",
+  "Priya Raman",
+  "Tomas Berg",
+  "Lena Kovač",
+  "Diego Alvarez",
+  "Mei Tanaka",
+  "Samuel Okafor",
+  "Ines Moreau",
+  "Jonah Weiss",
+  "Aisha Rahman",
+  "Felix Lindqvist",
+];
+const statuses: Order["status"][] = [
+  "Paid",
+  "Paid",
+  "Paid",
+  "Pending",
+  "Refunded",
+  "Paid",
+  "Failed",
+  "Pending",
+];
+const methods: Order["method"][] = ["Card", "Card", "PayPal", "Bank transfer"];
+
+// Deterministic, so server and client render the same rows.
+const orders: Order[] = Array.from({ length: 48 }, (_, i) => {
+  const name = names[(i * 7) % names.length];
+  return {
+    id: `ORD-${7940 - i}`,
+    customer: name,
+    email: `${name.split(" ")[0].toLowerCase()}@example.com`,
+    status: statuses[(i * 5) % statuses.length],
+    method: methods[(i * 3) % methods.length],
+    total: Math.round(((i * 7919) % 180000) / 100 + 12),
+    date: new Date(Date.UTC(2026, 9, 28 - Math.floor(i / 2)))
+      .toISOString()
+      .slice(0, 10),
+  };
+});
+
+const dot = {
+  Paid: "bg-emerald-500",
+  Pending: "bg-amber-500",
+  Refunded: "bg-muted-foreground",
+  Failed: "bg-destructive",
+} as const;
+
+const currency = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
+const columns: ColumnDef<Order>[] = [
+  {
+    accessorKey: "id",
+    header: "Order",
+    cell: ({ row }) => (
+      <span className="font-mono text-xs">{row.original.id}</span>
+    ),
+  },
+  {
+    accessorKey: "customer",
+    header: "Customer",
+    cell: ({ row }) => (
+      <div>
+        <div className="font-medium">{row.original.customer}</div>
+        <div className="text-xs text-muted-foreground">
+          {row.original.email}
+        </div>
+      </div>
+    ),
+  },
+  {
+    accessorKey: "status",
+    header: "Status",
+    cell: ({ row }) => (
+      <Badge variant="outline" className="gap-1.5">
+        <span
+          aria-hidden
+          className={`size-1.5 rounded-full ${dot[row.original.status]}`}
+        />
+        {row.original.status}
+      </Badge>
+    ),
+  },
+  { accessorKey: "method", header: "Method" },
+  { accessorKey: "date", header: "Date" },
+  {
+    accessorKey: "total",
+    header: () => <span className="ml-auto">Total</span>,
+    meta: { label: "Total" },
+    cell: ({ row }) => (
+      <span className="block text-right tabular-nums">
+        {currency.format(row.original.total)}
+      </span>
+    ),
+  },
+];
+
+export default function DataGridDemo() {
+  return (
+    <DataGrid
+      className="w-full"
+      label="Orders"
+      data={orders}
+      columns={columns}
+      getRowId={(o) => o.id}
+      searchPlaceholder="Search orders…"
+      filters={[
+        { column: "status", title: "Status" },
+        { column: "method", title: "Method" },
+      ]}
+      selectable
+      defaultSort={[{ id: "date", desc: true }]}
+      bulkActions={(rows, clear) => (
+        <Button size="sm" variant="outline" onClick={clear}>
+          Export {rows.length}
+        </Button>
+      )}
+    />
   );
 }
 ```
