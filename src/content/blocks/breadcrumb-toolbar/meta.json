@@ -1,0 +1,8 @@
+{
+  "title": "Detail toolbar with prev/next",
+  "description": "Where you are, plus a way to reach the next record without going back.",
+  "category": "page-shells",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

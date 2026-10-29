@@ -1,0 +1,8 @@
+{
+  "title": "Plan comparison",
+  "description": "Pricing tiers with one recommended, without breaking the row's alignment.",
+  "category": "commerce-billing",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 3
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Expandable detail rows",
+  "description": "A second tr, because a div inside tbody is invalid HTML.",
+  "category": "tables-lists",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 9
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Area trend with tabs",
+  "description": "One chart, several series, switched rather than stacked.",
+  "category": "chart-cards",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

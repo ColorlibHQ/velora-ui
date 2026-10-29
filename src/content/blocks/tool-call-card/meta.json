@@ -1,0 +1,8 @@
+{
+  "title": "Tool call, inspectable",
+  "description": "What the model ran and with which arguments, in a native disclosure.",
+  "category": "ai-interfaces",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

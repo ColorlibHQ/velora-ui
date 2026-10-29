@@ -1,0 +1,8 @@
+{
+  "title": "100% stacked area",
+  "description": "Normalised in the data, so the axis and tooltip agree.",
+  "category": "chart-cards",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 8
+}

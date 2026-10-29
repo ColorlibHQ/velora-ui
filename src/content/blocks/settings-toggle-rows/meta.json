@@ -1,0 +1,8 @@
+{
+  "title": "Notification toggles with dependants",
+  "description": "Descriptions tied to the switch, and dependants explain themselves.",
+  "category": "app-forms",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 9
+}

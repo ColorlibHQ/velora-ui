@@ -1,0 +1,8 @@
+{
+  "title": "Avatar stack",
+  "description": "Overlapping avatars with an overflow count and one accessible name.",
+  "category": "people-teams",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

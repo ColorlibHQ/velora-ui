@@ -1,0 +1,8 @@
+{
+  "title": "Completion rings",
+  "description": "Four SVG rings with pathLength, so the radius leaves the maths.",
+  "category": "stats-kpis",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 11
+}

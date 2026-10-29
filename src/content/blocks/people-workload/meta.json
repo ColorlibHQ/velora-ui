@@ -1,0 +1,8 @@
+{
+  "title": "Team workload",
+  "description": "Who is over-committed, on a scale that makes the comparison possible.",
+  "category": "people-teams",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

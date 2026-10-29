@@ -1,0 +1,8 @@
+{
+  "title": "Count-up that respects motion",
+  "description": "Jumps straight to the value under prefers-reduced-motion.",
+  "category": "stats-kpis",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 12
+}

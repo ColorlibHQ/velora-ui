@@ -1,0 +1,8 @@
+{
+  "title": "Cart with quantity steppers",
+  "description": "Totals in integer cents, and minus floors at one, not zero.",
+  "category": "commerce-billing",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 7
+}

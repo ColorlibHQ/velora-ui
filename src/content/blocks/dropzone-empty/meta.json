@@ -1,0 +1,8 @@
+{
+  "title": "Drop target",
+  "description": "A real file input, so clicking, tapping and Enter all work.",
+  "category": "files-media",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

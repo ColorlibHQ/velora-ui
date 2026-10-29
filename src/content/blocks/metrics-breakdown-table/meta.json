@@ -1,0 +1,8 @@
+{
+  "title": "Contribution table with inline bars",
+  "description": "Shares and totals derived from the rows, so the columns always add up.",
+  "category": "advanced-metrics",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

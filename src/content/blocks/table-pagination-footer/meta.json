@@ -1,0 +1,8 @@
+{
+  "title": "Pager stating the range",
+  "description": "1,001-1,050 of 1,284, which a page number alone never tells you.",
+  "category": "tables-lists",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

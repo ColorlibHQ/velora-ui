@@ -1,0 +1,8 @@
+{
+  "title": "Radial goal gauges",
+  "description": "One SVG circle each, with pathLength so percentages are literal.",
+  "category": "advanced-metrics",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 5
+}

@@ -1,0 +1,8 @@
+{
+  "title": "File browser with a path",
+  "description": "A real nav and ordered list, with the current folder not a link.",
+  "category": "files-media",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

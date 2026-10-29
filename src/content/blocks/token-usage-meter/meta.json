@@ -1,0 +1,8 @@
+{
+  "title": "Spend against budget",
+  "description": "Projects month-end from the run rate, and warns on the projection.",
+  "category": "ai-interfaces",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 5
+}

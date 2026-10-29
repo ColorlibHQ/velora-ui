@@ -7,6 +7,9 @@ export interface BlockCategory {
   /** H1 on the category page — phrased the way people search */
   heading: string;
   description: string;
+  /** "marketing" sections are free; "application" blocks ship with Velora Pro */
+  group: "marketing" | "application";
+  pro?: boolean;
 }
 
 export interface BlockMeta {
@@ -15,6 +18,9 @@ export interface BlockMeta {
   description: string;
   category: string;
   order?: number;
+  /** Velora Pro block: previewed on the site, source not in the public registry */
+  pro?: boolean;
+  since?: string;
   exportName: string;
   /** Velora components the block imports (installed by the CLI) */
   components: string[];
@@ -31,3 +37,6 @@ export const blockCategories = categoryList as BlockCategory[];
 
 export const blocksIn = (category: string) =>
   blocksMeta.filter((b) => b.category === category);
+
+export const freeBlocks = blocksMeta.filter((b) => !b.pro);
+export const proBlocks = blocksMeta.filter((b) => b.pro);

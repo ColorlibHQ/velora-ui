@@ -1,0 +1,8 @@
+{
+  "title": "Checklist with derived progress",
+  "description": "The bar is computed from the boxes, so the two can never disagree.",
+  "category": "progress-goals",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}

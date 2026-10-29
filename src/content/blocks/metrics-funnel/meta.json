@@ -1,0 +1,8 @@
+{
+  "title": "Conversion funnel",
+  "description": "Both drop-offs: from the previous step, and from the top.",
+  "category": "advanced-metrics",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 1
+}

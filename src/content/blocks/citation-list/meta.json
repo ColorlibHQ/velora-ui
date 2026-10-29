@@ -1,0 +1,8 @@
+{
+  "title": "Answer with citations",
+  "description": "Numbered markers that are real anchors into a source list.",
+  "category": "ai-interfaces",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 3
+}

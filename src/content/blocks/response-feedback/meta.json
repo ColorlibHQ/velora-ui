@@ -1,0 +1,8 @@
+{
+  "title": "Feedback with a reason",
+  "description": "A thumbs-down asks what was wrong, turning one bit into signal.",
+  "category": "ai-interfaces",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 8
+}

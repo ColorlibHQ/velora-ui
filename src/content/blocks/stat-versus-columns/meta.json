@@ -1,0 +1,8 @@
+{
+  "title": "This period against last",
+  "description": "Paired bars, so a big percentage on a tiny base is visible.",
+  "category": "stats-kpis",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 10
+}

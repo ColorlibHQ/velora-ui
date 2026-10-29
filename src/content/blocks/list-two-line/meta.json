@@ -1,0 +1,8 @@
+{
+  "title": "Two-line list",
+  "description": "A label and its context, with a value on the end.",
+  "category": "tables-lists",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}

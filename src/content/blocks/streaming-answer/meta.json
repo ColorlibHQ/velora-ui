@@ -1,0 +1,8 @@
+{
+  "title": "Streaming response",
+  "description": "Yields whole under prefers-reduced-motion, and clears its timer on unmount.",
+  "category": "ai-interfaces",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

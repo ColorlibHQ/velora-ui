@@ -1,0 +1,8 @@
+{
+  "title": "Presence without colour alone",
+  "description": "Three states differing in shape as well as hue.",
+  "category": "feeds-activity",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 7
+}

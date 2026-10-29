@@ -1,0 +1,8 @@
+{
+  "title": "Metrics where down is good",
+  "description": "Burn rate, churn, cost per lead — a fall is an improvement.",
+  "category": "stats-kpis",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

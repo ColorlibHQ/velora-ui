@@ -1,0 +1,8 @@
+{
+  "title": "Password rules that tick",
+  "description": "Requirements stated up front and satisfied live, announced as they are met.",
+  "category": "app-auth",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

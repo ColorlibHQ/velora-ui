@@ -1,0 +1,8 @@
+{
+  "title": "Record header with key facts",
+  "description": "Status, owner and the four numbers you would otherwise scroll to find.",
+  "category": "page-shells",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

@@ -573,5 +573,1837 @@
     "dependencies": [
       "lucide-react"
     ]
+  },
+  {
+    "slug": "stat-grid-four",
+    "title": "Four-metric grid",
+    "description": "The standard dashboard opener: four metrics with trend and sparkline.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "StatGridFour",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "stat-inverted-trend",
+    "title": "Metrics where down is good",
+    "description": "Burn rate, churn, cost per lead — a fall is an improvement.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "StatInvertedTrend",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "stat-compact-row",
+    "title": "Compact metric row",
+    "description": "Six metrics on one line, for a page whose charts need the space.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "StatCompactRow",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "stat-with-target",
+    "title": "Metric against target",
+    "description": "A number that only means something next to what it was aiming at.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "StatWithTarget",
+    "components": [],
+    "ui": [
+      "card"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "stat-split-panel",
+    "title": "Split summary panel",
+    "description": "One headline figure with its components broken out beside it.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "StatSplitPanel",
+    "components": [],
+    "ui": [
+      "card"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "stat-delta-grid",
+    "title": "Metrics against a prior period",
+    "description": "Includes the flat case, and never signals direction by colour alone.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "StatDeltaGrid",
+    "components": [],
+    "ui": [
+      "card"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "stat-period-compare",
+    "title": "One metric, three period lengths",
+    "description": "Switched rather than stacked, with figures that stay internally consistent.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "StatPeriodCompare",
+    "components": [],
+    "ui": [
+      "card"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "stat-loading-skeleton",
+    "title": "Metric row loading state",
+    "description": "Shaped like the content it replaces, so nothing jumps when data lands.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 8,
+    "exportName": "StatLoadingSkeleton",
+    "components": [],
+    "ui": [
+      "button",
+      "card",
+      "skeleton"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "stat-icon-tiles",
+    "title": "Six metrics as icon tiles",
+    "description": "Breadth over depth, with a literal-class tone map Tailwind can scan.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 9,
+    "exportName": "StatIconTiles",
+    "components": [],
+    "ui": [
+      "card"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "stat-versus-columns",
+    "title": "This period against last",
+    "description": "Paired bars, so a big percentage on a tiny base is visible.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 10,
+    "exportName": "StatVersusColumns",
+    "components": [],
+    "ui": [
+      "card"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "stat-ring-row",
+    "title": "Completion rings",
+    "description": "Four SVG rings with pathLength, so the radius leaves the maths.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 11,
+    "exportName": "StatRingRow",
+    "components": [],
+    "ui": [
+      "card"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "stat-live-counter",
+    "title": "Count-up that respects motion",
+    "description": "Jumps straight to the value under prefers-reduced-motion.",
+    "category": "stats-kpis",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 12,
+    "exportName": "StatLiveCounter",
+    "components": [],
+    "ui": [
+      "card"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "chart-area-trend",
+    "title": "Area trend with tabs",
+    "description": "One chart, several series, switched rather than stacked.",
+    "category": "chart-cards",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "ChartAreaTrend",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "recharts"
+    ]
+  },
+  {
+    "slug": "chart-stacked-bars",
+    "title": "Stacked composition",
+    "description": "How a total divides, over time.",
+    "category": "chart-cards",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "ChartStackedBars",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "recharts"
+    ]
+  },
+  {
+    "slug": "chart-donut-legend",
+    "title": "Donut with a value legend",
+    "description": "A breakdown where the legend carries the numbers, not the slices.",
+    "category": "chart-cards",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "ChartDonutLegend",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "recharts"
+    ]
+  },
+  {
+    "slug": "chart-dual-axis",
+    "title": "Dual axis",
+    "description": "Two series in different units, with the axis colours to tell them apart.",
+    "category": "chart-cards",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "ChartDualAxis",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "recharts"
+    ]
+  },
+  {
+    "slug": "chart-reference-band",
+    "title": "Chart with a target band",
+    "description": "A series read against the range it is supposed to stay inside.",
+    "category": "chart-cards",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "ChartReferenceBand",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "recharts"
+    ]
+  },
+  {
+    "slug": "chart-empty-state",
+    "title": "Chart with nothing to plot",
+    "description": "Replaces the plot area at the same height, and says what would fill it.",
+    "category": "chart-cards",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "ChartEmptyState",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "recharts",
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "chart-horizontal-bars",
+    "title": "Horizontal bars that mirror",
+    "description": "The one chart form RTL does not fix for free, fixed here.",
+    "category": "chart-cards",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "ChartHorizontalBars",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "recharts"
+    ]
+  },
+  {
+    "slug": "chart-percent-stack",
+    "title": "100% stacked area",
+    "description": "Normalised in the data, so the axis and tooltip agree.",
+    "category": "chart-cards",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 8,
+    "exportName": "ChartPercentStack",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "recharts"
+    ]
+  },
+  {
+    "slug": "chart-radar-profile",
+    "title": "Radar against a benchmark",
+    "description": "A fixed radius domain, so two renders stay comparable.",
+    "category": "chart-cards",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 9,
+    "exportName": "ChartRadarProfile",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "recharts"
+    ]
+  },
+  {
+    "slug": "chart-sparkline-grid",
+    "title": "Eight sparklines",
+    "description": "Unique gradient ids and no tab stops, at density.",
+    "category": "chart-cards",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 10,
+    "exportName": "ChartSparklineGrid",
+    "components": [],
+    "ui": [
+      "card"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "list-ranked",
+    "title": "Ranked list with bars",
+    "description": "Top pages, top products, top anything — share shown inline.",
+    "category": "tables-lists",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "ListRanked",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "table-compact",
+    "title": "Compact table",
+    "description": "A read-only table for a dashboard panel, not a CRUD screen.",
+    "category": "tables-lists",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "TableCompact",
+    "components": [],
+    "ui": [
+      "badge"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "table-league",
+    "title": "League table",
+    "description": "Rows with a position, a delta and a figure.",
+    "category": "tables-lists",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "TableLeague",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "list-two-line",
+    "title": "Two-line list",
+    "description": "A label and its context, with a value on the end.",
+    "category": "tables-lists",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "ListTwoLine",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "table-sortable-header",
+    "title": "Sortable headers with aria-sort",
+    "description": "The attribute hand-rolled tables omit, so sort direction is announced.",
+    "category": "tables-lists",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "TableSortableHeader",
+    "components": [],
+    "ui": [
+      "table"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "table-pagination-footer",
+    "title": "Pager stating the range",
+    "description": "1,001-1,050 of 1,284, which a page number alone never tells you.",
+    "category": "tables-lists",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "TablePaginationFooter",
+    "components": [],
+    "ui": [
+      "button",
+      "select"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "table-empty-filtered",
+    "title": "Both table empty states",
+    "description": "Never-had-data and filtered-to-nothing need different copy and actions.",
+    "category": "tables-lists",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "TableEmptyFiltered",
+    "components": [],
+    "ui": [
+      "button",
+      "badge"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "table-row-select",
+    "title": "Selection with a real tri-state",
+    "description": "indeterminate is a DOM property, so it needs an effect.",
+    "category": "tables-lists",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 8,
+    "exportName": "TableRowSelect",
+    "components": [],
+    "ui": [
+      "table"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "table-expandable-rows",
+    "title": "Expandable detail rows",
+    "description": "A second tr, because a div inside tbody is invalid HTML.",
+    "category": "tables-lists",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 9,
+    "exportName": "TableExpandableRows",
+    "components": [],
+    "ui": [
+      "badge"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "feed-timeline",
+    "title": "Activity timeline",
+    "description": "A vertical run of events with a connecting rail.",
+    "category": "feeds-activity",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "FeedTimeline",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "feed-grouped",
+    "title": "Feed grouped by day",
+    "description": "The same stream, with the date breaks a long feed needs.",
+    "category": "feeds-activity",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "FeedGrouped",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "feed-notifications",
+    "title": "Notification list",
+    "description": "Unread state, type icon and a relative time.",
+    "category": "feeds-activity",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "FeedNotifications",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "comment-thread",
+    "title": "Threaded comments, one level deep",
+    "description": "A deliberate nesting cap, indented so it mirrors under RTL.",
+    "category": "feeds-activity",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "CommentThread",
+    "components": [],
+    "ui": [
+      "avatar",
+      "badge",
+      "button"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "audit-log",
+    "title": "Audit trail with before and after",
+    "description": "The old and new values are the reason the log exists, marked up as such.",
+    "category": "feeds-activity",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "AuditLog",
+    "components": [],
+    "ui": [
+      "badge"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "notification-groups",
+    "title": "Read and unread, without colour",
+    "description": "Distinguishable by weight and a marker, so it survives dark mode.",
+    "category": "feeds-activity",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "NotificationGroups",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "presence-list",
+    "title": "Presence without colour alone",
+    "description": "Three states differing in shape as well as hue.",
+    "category": "feeds-activity",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "PresenceList",
+    "components": [],
+    "ui": [
+      "avatar"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "release-notes-feed",
+    "title": "Release notes feed",
+    "description": "Versions as real headings, so the outline is navigable.",
+    "category": "feeds-activity",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 8,
+    "exportName": "ReleaseNotesFeed",
+    "components": [],
+    "ui": [
+      "badge"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "progress-goals",
+    "title": "Goals with progress bars",
+    "description": "Several targets and how far along each one is.",
+    "category": "progress-goals",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "ProgressGoals",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "progress-capacity",
+    "title": "Capacity meters",
+    "description": "Utilisation that can exceed 100%, and has to show it.",
+    "category": "progress-goals",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "ProgressCapacity",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "progress-steps",
+    "title": "Step progress",
+    "description": "Where something is in a fixed sequence.",
+    "category": "progress-goals",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "ProgressSteps",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "milestone-checklist",
+    "title": "Checklist with derived progress",
+    "description": "The bar is computed from the boxes, so the two can never disagree.",
+    "category": "progress-goals",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "MilestoneChecklist",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "sla-breach-risk",
+    "title": "Time remaining, coloured by risk",
+    "description": "Tone follows the fraction consumed, and breaches say how far over.",
+    "category": "progress-goals",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "SlaBreachRisk",
+    "components": [],
+    "ui": [
+      "badge"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "onboarding-stepper",
+    "title": "Horizontal stepper",
+    "description": "An ordered list with a connector that mirrors under RTL.",
+    "category": "progress-goals",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "OnboardingStepper",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "banner-callout",
+    "title": "Informational callout",
+    "description": "A note that is not an error and should not look like one.",
+    "category": "banners-empty-states",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "BannerCallout",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "banner-upgrade",
+    "title": "Upgrade prompt",
+    "description": "A limit reached, with the action next to it.",
+    "category": "banners-empty-states",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "BannerUpgrade",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "empty-no-results",
+    "title": "No results",
+    "description": "A search that found nothing, distinguished from having no data at all.",
+    "category": "banners-empty-states",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "EmptyNoResults",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "empty-first-run",
+    "title": "First-run empty state",
+    "description": "Nothing here yet, and what to do about it.",
+    "category": "banners-empty-states",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "EmptyFirstRun",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "maintenance-window",
+    "title": "Scheduled downtime in local time",
+    "description": "Shows the reader's own timezone without a hydration mismatch.",
+    "category": "banners-empty-states",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "MaintenanceWindow",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "destructive-confirm",
+    "title": "Type-to-confirm deletion",
+    "description": "Forces the user to read what they are destroying, case-sensitively.",
+    "category": "banners-empty-states",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "DestructiveConfirm",
+    "components": [],
+    "ui": [
+      "button",
+      "input",
+      "label"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "trial-countdown",
+    "title": "Trial banner that escalates",
+    "description": "Tone follows days left, and dismissal says what it does.",
+    "category": "banners-empty-states",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "TrialCountdown",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "offline-notice",
+    "title": "Connection notice",
+    "description": "Real online/offline events, with a matching server snapshot.",
+    "category": "banners-empty-states",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 8,
+    "exportName": "OfflineNotice",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "form-filter-bar",
+    "title": "Filter bar",
+    "description": "Search plus removable active filters, and a Clear that only appears when needed.",
+    "category": "app-forms",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "FormFilterBar",
+    "components": [],
+    "ui": [
+      "badge",
+      "button",
+      "input"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "form-settings-rows",
+    "title": "Settings toggles",
+    "description": "Switches with room to explain what each one actually promises.",
+    "category": "app-forms",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "FormSettingsRows",
+    "components": [],
+    "ui": [
+      "switch"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "form-api-key-row",
+    "title": "API key row",
+    "description": "A secret masked to its prefix, copyable without revealing it.",
+    "category": "app-forms",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "FormApiKeyRow",
+    "components": [],
+    "ui": [
+      "badge",
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "form-inline-create",
+    "title": "Inline create",
+    "description": "Adding an item without leaving the list or opening a dialog.",
+    "category": "app-forms",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "FormInlineCreate",
+    "components": [],
+    "ui": [
+      "button",
+      "input"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "field-errors",
+    "title": "Validation wired for screen readers",
+    "description": "aria-invalid, aria-describedby and a summary of links to the failures.",
+    "category": "app-forms",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "FieldErrors",
+    "components": [],
+    "ui": [
+      "button",
+      "input",
+      "label"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "unsaved-changes-bar",
+    "title": "Save bar that knows it is dirty",
+    "description": "Compares against what loaded, so undoing an edit hides it again.",
+    "category": "app-forms",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "UnsavedChangesBar",
+    "components": [],
+    "ui": [
+      "button",
+      "input",
+      "label"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "api-key-reveal",
+    "title": "Secret with masked reveal",
+    "description": "Copy reads state, so the key never has to be shown.",
+    "category": "app-forms",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "ApiKeyReveal",
+    "components": [],
+    "ui": [
+      "badge",
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "tag-input",
+    "title": "Tag field",
+    "description": "Backspace removes the last tag, which is what makes it feel native.",
+    "category": "app-forms",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 8,
+    "exportName": "TagInput",
+    "components": [],
+    "ui": [
+      "label"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "settings-toggle-rows",
+    "title": "Notification toggles with dependants",
+    "description": "Descriptions tied to the switch, and dependants explain themselves.",
+    "category": "app-forms",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 9,
+    "exportName": "SettingsToggleRows",
+    "components": [],
+    "ui": [
+      "switch",
+      "label"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "people-workload",
+    "title": "Team workload",
+    "description": "Who is over-committed, on a scale that makes the comparison possible.",
+    "category": "people-teams",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "PeopleWorkload",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "people-avatar-stack",
+    "title": "Avatar stack",
+    "description": "Overlapping avatars with an overflow count and one accessible name.",
+    "category": "people-teams",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "PeopleAvatarStack",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "people-directory-row",
+    "title": "Directory rows",
+    "description": "Members with role, status and actions that work on a touch device.",
+    "category": "people-teams",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "PeopleDirectoryRow",
+    "components": [],
+    "ui": [
+      "badge",
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "role-assignment-row",
+    "title": "Editable roles with a protected owner",
+    "description": "The owner gets a badge, not a disabled select that reads as temporary.",
+    "category": "people-teams",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "RoleAssignmentRow",
+    "components": [],
+    "ui": [
+      "avatar",
+      "badge",
+      "select"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "invite-pending-list",
+    "title": "Pending invitations with expiry",
+    "description": "Remaining time, so the resend button means something.",
+    "category": "people-teams",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "InvitePendingList",
+    "components": [],
+    "ui": [
+      "badge",
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "team-workload",
+    "title": "Capacity with over-allocation",
+    "description": "Scaled against the busiest person, so 130% and 180% look different.",
+    "category": "people-teams",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "TeamWorkload",
+    "components": [],
+    "ui": [
+      "avatar",
+      "badge"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "avatar-stack",
+    "title": "Overlapping avatars",
+    "description": "Negative logical margins, so the stack leans the right way under RTL.",
+    "category": "people-teams",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "AvatarStack",
+    "components": [],
+    "ui": [
+      "avatar"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "commerce-order-summary",
+    "title": "Order summary",
+    "description": "A total that shows its arithmetic, with tax on the discounted subtotal.",
+    "category": "commerce-billing",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "CommerceOrderSummary",
+    "components": [],
+    "ui": [
+      "separator"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "commerce-product-card",
+    "title": "Product tiles",
+    "description": "Three stock states, because collapsing 'low' loses the only one people act on.",
+    "category": "commerce-billing",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "CommerceProductCard",
+    "components": [],
+    "ui": [
+      "badge",
+      "button",
+      "card"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "commerce-plan-card",
+    "title": "Plan comparison",
+    "description": "Pricing tiers with one recommended, without breaking the row's alignment.",
+    "category": "commerce-billing",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "CommercePlanCard",
+    "components": [],
+    "ui": [
+      "badge",
+      "button",
+      "card"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "commerce-payment-methods",
+    "title": "Payment methods",
+    "description": "Saved cards, with an expiring one called out in words rather than colour.",
+    "category": "commerce-billing",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "CommercePaymentMethods",
+    "components": [],
+    "ui": [
+      "badge",
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "order-timeline",
+    "title": "Fulfilment steps as an ordered list",
+    "description": "Real list semantics and a connector that mirrors under RTL.",
+    "category": "commerce-billing",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "OrderTimeline",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "invoice-totals",
+    "title": "Invoice totals that add up",
+    "description": "Derived from the line items, in integer cents rather than floats.",
+    "category": "commerce-billing",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "InvoiceTotals",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "cart-summary",
+    "title": "Cart with quantity steppers",
+    "description": "Totals in integer cents, and minus floors at one, not zero.",
+    "category": "commerce-billing",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "CartSummary",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "plan-compare-cards",
+    "title": "Pricing with a period switch",
+    "description": "Annual prices derived, so the saving badge cannot lie.",
+    "category": "commerce-billing",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 8,
+    "exportName": "PlanCompareCards",
+    "components": [],
+    "ui": [
+      "badge",
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "metrics-funnel",
+    "title": "Conversion funnel",
+    "description": "Both drop-offs: from the previous step, and from the top.",
+    "category": "advanced-metrics",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "MetricsFunnel",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "metrics-retention-grid",
+    "title": "Cohort retention",
+    "description": "A triangular heatmap as a real table, with numbers in every cell.",
+    "category": "advanced-metrics",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "MetricsRetentionGrid",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "metrics-gauge-row",
+    "title": "Radial gauges",
+    "description": "Arcs on a 0-110 scale, so over-capacity looks different from full.",
+    "category": "advanced-metrics",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "MetricsGaugeRow",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "recharts"
+    ]
+  },
+  {
+    "slug": "metrics-sparkline-row",
+    "title": "Sparkline rows",
+    "description": "Eight trends visible at once, with inverted colour where down is good.",
+    "category": "advanced-metrics",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "MetricsSparklineRow",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "metrics-goal-gauge",
+    "title": "Radial goal gauges",
+    "description": "One SVG circle each, with pathLength so percentages are literal.",
+    "category": "advanced-metrics",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "MetricsGoalGauge",
+    "components": [],
+    "ui": [
+      "card"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "metrics-breakdown-table",
+    "title": "Contribution table with inline bars",
+    "description": "Shares and totals derived from the rows, so the columns always add up.",
+    "category": "advanced-metrics",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "MetricsBreakdownTable",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "metrics-funnel-steps",
+    "title": "Funnel with both conversion rates",
+    "description": "Both rates that matter, with the worst drop-off called out.",
+    "category": "advanced-metrics",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "MetricsFunnelSteps",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "page-header-actions",
+    "title": "Page header with actions",
+    "description": "Title, record count and the actions, wrapping rather than shrinking.",
+    "category": "page-shells",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "PageHeaderActions",
+    "components": [],
+    "ui": [
+      "button",
+      "badge"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "breadcrumb-toolbar",
+    "title": "Detail toolbar with prev/next",
+    "description": "Where you are, plus a way to reach the next record without going back.",
+    "category": "page-shells",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "BreadcrumbToolbar",
+    "components": [],
+    "ui": [
+      "button",
+      "breadcrumb"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "filter-toolbar",
+    "title": "Filter bar with removable chips",
+    "description": "Active filters shown and individually clearable, not hidden behind a count.",
+    "category": "page-shells",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "FilterToolbar",
+    "components": [],
+    "ui": [
+      "button",
+      "badge",
+      "input"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "section-tabs",
+    "title": "Counted tab strip",
+    "description": "Status tabs with totals and real arrow-key navigation, one tab stop.",
+    "category": "page-shells",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "SectionTabs",
+    "components": [],
+    "ui": [
+      "badge"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "selection-action-bar",
+    "title": "Bulk action bar",
+    "description": "Appears on selection, announces the count, keeps delete away from the rest.",
+    "category": "page-shells",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "SelectionActionBar",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "detail-summary-header",
+    "title": "Record header with key facts",
+    "description": "Status, owner and the four numbers you would otherwise scroll to find.",
+    "category": "page-shells",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "DetailSummaryHeader",
+    "components": [],
+    "ui": [
+      "badge",
+      "button",
+      "card"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "inpage-section-nav",
+    "title": "In-page section nav",
+    "description": "IntersectionObserver with a narrow band, so it cannot flicker.",
+    "category": "page-shells",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "InpageSectionNav",
+    "components": [],
+    "ui": [],
+    "dependencies": []
+  },
+  {
+    "slug": "sticky-total-footer",
+    "title": "Sticky summary footer",
+    "description": "Sticky inside the scroller, which needs an explicit height.",
+    "category": "page-shells",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 8,
+    "exportName": "StickyTotalFooter",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "sign-in-card",
+    "title": "Sign-in card",
+    "description": "With the autocomplete tokens password managers actually need.",
+    "category": "app-auth",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "SignInCard",
+    "components": [],
+    "ui": [
+      "button",
+      "card",
+      "input",
+      "label",
+      "checkbox"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "password-strength",
+    "title": "Password rules that tick",
+    "description": "Requirements stated up front and satisfied live, announced as they are met.",
+    "category": "app-auth",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "PasswordStrength",
+    "components": [],
+    "ui": [
+      "input",
+      "label"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "two-factor-prompt",
+    "title": "Two-factor code entry",
+    "description": "Six digits with one-time-code autofill and a visible resend cooldown.",
+    "category": "app-auth",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "TwoFactorPrompt",
+    "components": [],
+    "ui": [
+      "button",
+      "card",
+      "input-otp"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "active-sessions",
+    "title": "Active sessions",
+    "description": "Devices, locations and times, with the current session marked and safe.",
+    "category": "app-auth",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "ActiveSessions",
+    "components": [],
+    "ui": [
+      "badge",
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "check-your-email",
+    "title": "Check your email",
+    "description": "Shows the address, names the sender, and offers a way to fix a typo.",
+    "category": "app-auth",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "CheckYourEmail",
+    "components": [],
+    "ui": [
+      "button",
+      "card"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "sso-providers",
+    "title": "SSO buttons",
+    "description": "No vendor logos shipped, because their marks are trademarked.",
+    "category": "app-auth",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "SsoProviders",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "recovery-codes",
+    "title": "Recovery codes",
+    "description": "Gated on an acknowledgement, since they are shown once.",
+    "category": "app-auth",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "RecoveryCodes",
+    "components": [],
+    "ui": [
+      "button",
+      "card"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "upload-progress-list",
+    "title": "Upload queue with a failure",
+    "description": "All four states at once, including the failed row most lists drop.",
+    "category": "files-media",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "UploadProgressList",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "dropzone-empty",
+    "title": "Drop target",
+    "description": "A real file input, so clicking, tapping and Enter all work.",
+    "category": "files-media",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "DropzoneEmpty",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "attachment-grid",
+    "title": "File tiles by type",
+    "description": "Icon-and-extension tiles that need no generated thumbnails.",
+    "category": "files-media",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "AttachmentGrid",
+    "components": [],
+    "ui": [
+      "badge"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "image-gallery",
+    "title": "Selectable media grid",
+    "description": "Multi-select tiles with reserved aspect ratio, so nothing shifts on load.",
+    "category": "files-media",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "ImageGallery",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "storage-quota",
+    "title": "Storage broken down",
+    "description": "A segmented meter that answers what the space is being used by.",
+    "category": "files-media",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "StorageQuota",
+    "components": [],
+    "ui": [
+      "button",
+      "card"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "file-breadcrumb-list",
+    "title": "File browser with a path",
+    "description": "A real nav and ordered list, with the current folder not a link.",
+    "category": "files-media",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "FileBreadcrumbList",
+    "components": [],
+    "ui": [],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "document-versions",
+    "title": "Version history",
+    "description": "Size deltas, and no restore on the version you are viewing.",
+    "category": "files-media",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "DocumentVersions",
+    "components": [],
+    "ui": [
+      "badge",
+      "button",
+      "avatar"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "prompt-composer",
+    "title": "Prompt composer",
+    "description": "Auto-growing input, Enter to send, and Stop replacing Send while streaming.",
+    "category": "ai-interfaces",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 1,
+    "exportName": "PromptComposer",
+    "components": [],
+    "ui": [
+      "button",
+      "badge"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "tool-call-card",
+    "title": "Tool call, inspectable",
+    "description": "What the model ran and with which arguments, in a native disclosure.",
+    "category": "ai-interfaces",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 2,
+    "exportName": "ToolCallCard",
+    "components": [],
+    "ui": [
+      "badge"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "citation-list",
+    "title": "Answer with citations",
+    "description": "Numbered markers that are real anchors into a source list.",
+    "category": "ai-interfaces",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 3,
+    "exportName": "CitationList",
+    "components": [],
+    "ui": [
+      "badge"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "model-picker",
+    "title": "Model picker",
+    "description": "States the speed and cost trade-off, as a proper radio group.",
+    "category": "ai-interfaces",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 4,
+    "exportName": "ModelPicker",
+    "components": [],
+    "ui": [
+      "badge"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "token-usage-meter",
+    "title": "Spend against budget",
+    "description": "Projects month-end from the run rate, and warns on the projection.",
+    "category": "ai-interfaces",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 5,
+    "exportName": "TokenUsageMeter",
+    "components": [],
+    "ui": [
+      "card",
+      "badge"
+    ],
+    "dependencies": []
+  },
+  {
+    "slug": "streaming-answer",
+    "title": "Streaming response",
+    "description": "Yields whole under prefers-reduced-motion, and clears its timer on unmount.",
+    "category": "ai-interfaces",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 6,
+    "exportName": "StreamingAnswer",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "conversation-list",
+    "title": "Conversation history",
+    "description": "Grouped by recency, with delete reachable by keyboard.",
+    "category": "ai-interfaces",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 7,
+    "exportName": "ConversationList",
+    "components": [],
+    "ui": [
+      "button"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
+  },
+  {
+    "slug": "response-feedback",
+    "title": "Feedback with a reason",
+    "description": "A thumbs-down asks what was wrong, turning one bit into signal.",
+    "category": "ai-interfaces",
+    "pro": true,
+    "since": "0.11.0",
+    "order": 8,
+    "exportName": "ResponseFeedback",
+    "components": [],
+    "ui": [
+      "button",
+      "badge"
+    ],
+    "dependencies": [
+      "lucide-react"
+    ]
   }
 ]

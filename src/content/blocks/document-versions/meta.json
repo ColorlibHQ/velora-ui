@@ -1,0 +1,8 @@
+{
+  "title": "Version history",
+  "description": "Size deltas, and no restore on the version you are viewing.",
+  "category": "files-media",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 7
+}

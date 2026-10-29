@@ -1,0 +1,8 @@
+{
+  "title": "Type-to-confirm deletion",
+  "description": "Forces the user to read what they are destroying, case-sensitively.",
+  "category": "banners-empty-states",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

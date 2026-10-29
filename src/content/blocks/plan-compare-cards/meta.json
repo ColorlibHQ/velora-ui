@@ -1,0 +1,8 @@
+{
+  "title": "Pricing with a period switch",
+  "description": "Annual prices derived, so the saving badge cannot lie.",
+  "category": "commerce-billing",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 8
+}

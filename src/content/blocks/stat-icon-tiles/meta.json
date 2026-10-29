@@ -1,0 +1,8 @@
+{
+  "title": "Six metrics as icon tiles",
+  "description": "Breadth over depth, with a literal-class tone map Tailwind can scan.",
+  "category": "stats-kpis",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 9
+}

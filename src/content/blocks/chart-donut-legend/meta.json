@@ -1,0 +1,8 @@
+{
+  "title": "Donut with a value legend",
+  "description": "A breakdown where the legend carries the numbers, not the slices.",
+  "category": "chart-cards",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 3
+}

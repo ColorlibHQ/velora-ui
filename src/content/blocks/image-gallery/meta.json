@@ -1,0 +1,8 @@
+{
+  "title": "Selectable media grid",
+  "description": "Multi-select tiles with reserved aspect ratio, so nothing shifts on load.",
+  "category": "files-media",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}

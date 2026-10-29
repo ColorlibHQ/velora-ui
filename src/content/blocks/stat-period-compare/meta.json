@@ -1,0 +1,8 @@
+{
+  "title": "One metric, three period lengths",
+  "description": "Switched rather than stacked, with figures that stay internally consistent.",
+  "category": "stats-kpis",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 7
+}

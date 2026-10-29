@@ -1,0 +1,8 @@
+{
+  "title": "Capacity with over-allocation",
+  "description": "Scaled against the busiest person, so 130% and 180% look different.",
+  "category": "people-teams",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

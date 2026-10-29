@@ -1,0 +1,8 @@
+{
+  "title": "Counted tab strip",
+  "description": "Status tabs with totals and real arrow-key navigation, one tab stop.",
+  "category": "page-shells",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 4
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Check your email",
+  "description": "Shows the address, names the sender, and offers a way to fix a typo.",
+  "category": "app-auth",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 5
+}

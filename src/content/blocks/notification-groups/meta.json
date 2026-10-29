@@ -1,0 +1,8 @@
+{
+  "title": "Read and unread, without colour",
+  "description": "Distinguishable by weight and a marker, so it survives dark mode.",
+  "category": "feeds-activity",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 6
+}

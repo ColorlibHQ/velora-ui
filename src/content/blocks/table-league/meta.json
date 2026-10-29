@@ -1,0 +1,8 @@
+{
+  "title": "League table",
+  "description": "Rows with a position, a delta and a figure.",
+  "category": "tables-lists",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 3
+}

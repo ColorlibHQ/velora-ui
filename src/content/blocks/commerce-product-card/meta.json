@@ -1,0 +1,8 @@
+{
+  "title": "Product tiles",
+  "description": "Three stock states, because collapsing 'low' loses the only one people act on.",
+  "category": "commerce-billing",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 2
+}

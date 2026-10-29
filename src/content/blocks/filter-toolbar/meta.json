@@ -1,0 +1,8 @@
+{
+  "title": "Filter bar with removable chips",
+  "description": "Active filters shown and individually clearable, not hidden behind a count.",
+  "category": "page-shells",
+  "pro": true,
+  "since": "0.11.0",
+  "order": 3
+}
