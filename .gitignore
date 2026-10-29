@@ -48,3 +48,4 @@ next-env.d.ts
 
 # Local agent worktrees
 .claude/
+/dist/

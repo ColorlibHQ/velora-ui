@@ -51,7 +51,7 @@ import {
 } from "@/components/velora/loaders";
 import { Marquee } from "@/components/velora/marquee";
 import { OrbitingCircles } from "@/components/velora/orbiting-circles";
-import { blocksMeta, freeBlocks } from "@/lib/blocks-meta";
+import { blocksMeta, freeBlocks, proBlocks } from "@/lib/blocks-meta";
 import componentStats from "@/lib/component-stats.json";
 import {
   categories,
@@ -173,12 +173,12 @@ const faqs: { q: string; a: React.ReactNode }[] = [
     q: "What is Velora Pro?",
     a: (
       <>
-        A paid add-on in the works: niche templates, more section variants and a private
-        registry, for $99 paid once. Everything free today stays free and MIT.{" "}
-        <Link href="/pricing#waitlist" className="text-foreground underline underline-offset-4">
-          Join the waitlist
-        </Link>{" "}
-        to hear when it opens.
+        {proBlocks.length} application blocks for dashboards and SaaS apps, from $
+        {siteConfig.pro.personal.price} paid once. Everything free today stays free and MIT.{" "}
+        <Link href="/pricing" className="text-foreground underline underline-offset-4">
+          See pricing
+        </Link>
+        .
       </>
     ),
   },
@@ -629,18 +629,19 @@ export default function Home() {
                 <h2 id="pro" className="flex flex-wrap items-center gap-2 font-semibold">
                   Velora Pro
                   <span className="rounded-full bg-primary/15 px-2 py-0.5 text-xs font-medium text-foreground">
-                    Coming soon
+                    New
                   </span>
                 </h2>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Niche templates, $99 once. The library stays free.
+                  {proBlocks.length} app blocks, ${siteConfig.pro.personal.price} once. The library
+                  stays free.
                 </p>
               </div>
               <Link
-                href="/pricing#waitlist"
+                href="/blocks"
                 className="inline-flex h-10 shrink-0 items-center justify-center gap-1.5 rounded-full border bg-background px-5 text-sm font-medium transition-colors hover:bg-muted"
               >
-                Join the waitlist
+                See the blocks
                 <ArrowRightIcon className="size-4" />
               </Link>
             </div>

@@ -404,7 +404,7 @@ ${blockCategories
 - [Blocks](${HOMEPAGE}/blocks): Free sections — heroes, features, pricing, testimonials, CTAs and more.
 - [llms-full.txt](${HOMEPAGE}/llms-full.txt): This index plus props, accessibility notes and a working example for every component.
 - [Themes](${HOMEPAGE}/themes): Brand ramp presets — rebrand every effect by copying seven CSS variables.
-- [Pricing](${HOMEPAGE}/pricing): Free forever (MIT); Pro adds niche templates and variants.
+- [Pricing](${HOMEPAGE}/pricing): Components and marketing sections free (MIT); Velora Pro adds ${proBlocks.length} application blocks, one-time payment.
 - [Blog](${HOMEPAGE}/blog): Engineering notes and announcements (MDX pipeline is part of the free template).
 - [Changelog](${HOMEPAGE}/changelog): Every release, documented.
 - Template pages included free: about, contact, login, signup, blog, changelog, 404.

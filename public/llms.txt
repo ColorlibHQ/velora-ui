@@ -203,7 +203,7 @@ Application blocks for dashboards and SaaS apps (114 blocks). Previews are publi
 - [Blocks](https://velora.colorlib.com/blocks): Free sections — heroes, features, pricing, testimonials, CTAs and more.
 - [llms-full.txt](https://velora.colorlib.com/llms-full.txt): This index plus props, accessibility notes and a working example for every component.
 - [Themes](https://velora.colorlib.com/themes): Brand ramp presets — rebrand every effect by copying seven CSS variables.
-- [Pricing](https://velora.colorlib.com/pricing): Free forever (MIT); Pro adds niche templates and variants.
+- [Pricing](https://velora.colorlib.com/pricing): Components and marketing sections free (MIT); Velora Pro adds 114 application blocks, one-time payment.
 - [Blog](https://velora.colorlib.com/blog): Engineering notes and announcements (MDX pipeline is part of the free template).
 - [Changelog](https://velora.colorlib.com/changelog): Every release, documented.
 - Template pages included free: about, contact, login, signup, blog, changelog, 404.
