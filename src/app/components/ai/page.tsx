@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { CopyButton } from "@/components/docs/copy-button";
 import { PackageManagerCommand } from "@/components/docs/install-tabs";
-import { blocksMeta } from "@/lib/blocks-meta";
+import { freeBlocks } from "@/lib/blocks-meta";
 import { componentsMeta } from "@/lib/components-meta";
 import { highlight } from "@/lib/highlight";
 import { JsonLd, absoluteUrl, breadcrumbs, pageMetadata } from "@/lib/seo";
@@ -138,7 +138,7 @@ export default async function AiPage() {
         Velora is a shadcn registry, so any agent that can run the shadcn CLI can find and
         install it. Register the <code className="font-mono text-[0.9em] text-foreground">@velora</code>{" "}
         namespace once, and your agent can search all {componentsMeta.length} components and{" "}
-        {blocksMeta.length} blocks by name.
+        {freeBlocks.length} blocks by name.
       </p>
 
       <nav aria-label="On this page" className="mt-8 rounded-xl border bg-card/50 p-5">

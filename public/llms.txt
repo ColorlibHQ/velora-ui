@@ -178,6 +178,25 @@ Complete sections built from the components above. Installing a block also insta
 - [Split login page](https://velora.colorlib.com/blocks/auth-sections#auth-login-split): Login form with password reveal, remember-me and social sign-in beside an aurora testimonial panel. Install: `npx shadcn@latest add https://velora.colorlib.com/r/auth-login-split.json`
 - [Sign-up card](https://velora.colorlib.com/blocks/auth-sections#auth-signup-card): Centered sign-up card over a grid and light beams, with live password rules, terms and social sign-up. Install: `npx shadcn@latest add https://velora.colorlib.com/r/auth-signup-card.json`
 
+## Velora Pro blocks
+
+Application blocks for dashboards and SaaS apps (114 blocks). Previews are public; the source is part of Velora Pro and is not in the public registry.
+
+- [Stats & KPIs](https://velora.colorlib.com/blocks/stats-kpis): KPI cards, metric grids, period comparisons and live counters for React dashboards — trends shown with glyphs, never colour alone.
+- [Chart Cards](https://velora.colorlib.com/blocks/chart-cards): Dashboard chart cards for React and Recharts: area trends, stacked and percent bars, donuts, radar and reference bands, themed by CSS variables.
+- [Tables & Lists](https://velora.colorlib.com/blocks/tables-lists): Sortable headers, row selection, expandable rows, pagination footers and ranked lists for React admin dashboards.
+- [Feeds & Activity](https://velora.colorlib.com/blocks/feeds-activity): Activity timelines, audit logs, comment threads, notification groups and release notes for React apps.
+- [Progress & Goals](https://velora.colorlib.com/blocks/progress-goals): Goal bars, capacity meters, onboarding steppers, milestone checklists and SLA risk for React dashboards.
+- [Banners & Empty States](https://velora.colorlib.com/blocks/banners-empty-states): Upgrade banners, trial countdowns, maintenance notices, destructive confirms and empty states for React apps.
+- [Forms & Settings](https://velora.colorlib.com/blocks/app-forms): Filter bars, settings rows, API key reveal, tag input, inline create and unsaved-changes bars for React apps.
+- [People & Teams](https://velora.colorlib.com/blocks/people-teams): Team directories, workload views, role assignment, pending invites and avatar stacks for React admin apps.
+- [Commerce & Billing](https://velora.colorlib.com/blocks/commerce-billing): Cart and order summaries, invoices, plan comparison, payment methods and product cards for React apps.
+- [Advanced Metrics](https://velora.colorlib.com/blocks/advanced-metrics): Conversion funnels, cohort retention grids, goal gauges and breakdown tables for React analytics dashboards.
+- [Page Shells](https://velora.colorlib.com/blocks/page-shells): Page headers with actions, breadcrumb toolbars, section tabs, filter toolbars and selection action bars for React apps.
+- [Account & Security](https://velora.colorlib.com/blocks/app-auth): Sign-in cards, SSO providers, two-factor prompts, recovery codes, password rules and active sessions for React apps.
+- [Files & Media](https://velora.colorlib.com/blocks/files-media): Upload queues, drop zones, attachment grids, document versions, galleries and storage quotas for React apps.
+- [AI Interfaces](https://velora.colorlib.com/blocks/ai-interfaces): Prompt composers, streaming answers, tool-call cards, citations, model pickers and token usage meters for React AI apps.
+
 ## Pages
 
 - [Components](https://velora.colorlib.com/components): All components with live previews, install commands and source.

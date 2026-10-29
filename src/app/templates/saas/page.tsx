@@ -43,7 +43,7 @@ import { SpotlightCard } from "@/components/velora/spotlight-card";
 import { TextReveal } from "@/components/velora/text-reveal";
 import { TiltCard } from "@/components/velora/tilt-card";
 import { Typewriter } from "@/components/velora/typewriter";
-import { blocksMeta } from "@/lib/blocks-meta";
+import { freeBlocks } from "@/lib/blocks-meta";
 import { StackLogo, stackNames } from "@/components/template/stack-logos";
 import { WaitlistForm } from "@/components/template/waitlist-form";
 import { componentsMeta } from "@/lib/components-meta";
@@ -56,7 +56,7 @@ const stats = [
     prefix: "",
     label: "Animated components",
   },
-  { value: blocksMeta.length, suffix: "", prefix: "", label: "Free blocks" },
+  { value: freeBlocks.length, suffix: "", prefix: "", label: "Free blocks" },
   { value: 0, suffix: "", prefix: "$", label: "Forever. MIT licensed" },
   { value: 5, suffix: " min", prefix: "", label: "To your first page" },
 ];

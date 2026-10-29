@@ -32,7 +32,9 @@ export async function generateMetadata({
   const cat = blockCategories.find((c) => c.slug === category);
   if (!cat) return {};
   return pageMetadata({
-    absoluteTitle: `Free ${cat.title} for React & Tailwind CSS | Velora UI`,
+    absoluteTitle: cat.pro
+      ? `${cat.title} Blocks for React & Tailwind CSS | Velora Pro`
+      : `Free ${cat.title} for React & Tailwind CSS | Velora UI`,
     description: cat.description,
     path: `/blocks/${cat.slug}`,
     image: `/blocks/${cat.slug}/opengraph-image`,
@@ -52,13 +54,20 @@ export default async function BlockCategoryPage({
   const blocks = blocksIn(category);
   if (!cat || !blocks.length) notFound();
 
+  // Pro source must never reach the static HTML, so it is not even read.
   const items = await Promise.all(
     blocks.map(async (block) => {
+      if (block.pro) return { block, source: undefined };
       const code = await fs.readFile(
         path.join(process.cwd(), "src/components/blocks", `${block.slug}.tsx`),
         "utf8",
       );
-      return { block, code, html: await highlight(code) };
+      const source = {
+        registryUrl: `${REGISTRY_BASE}/${block.slug}.json`,
+        code,
+        highlighted: await highlight(code),
+      };
+      return { block, source };
     }),
   );
 
@@ -139,7 +148,7 @@ export default async function BlockCategoryPage({
         </nav>
 
         <div className="mt-14 space-y-20">
-          {items.map(({ block, code, html }) => (
+          {items.map(({ block, source }) => (
             <section
               key={block.slug}
               id={block.slug}
@@ -164,41 +173,43 @@ export default async function BlockCategoryPage({
               <div className="mt-5">
                 <BlockPreview
                   src={`/blocks/preview/${block.slug}`}
-                  registryUrl={`${REGISTRY_BASE}/${block.slug}.json`}
                   title={block.title}
-                  code={code}
-                  highlighted={html}
+                  source={source}
                 />
               </div>
 
-              <div className="mt-5 grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
-                <PackageManagerCommand
-                  type="dlx"
-                  args={`shadcn@latest add ${REGISTRY_BASE}/${block.slug}.json`}
-                />
-                {block.components.length > 0 && (
-                  <p className="text-sm text-muted-foreground lg:pt-9">
-                    Installs to{" "}
-                    <code className="font-mono text-foreground">
-                      components/blocks/{block.slug}.tsx
-                    </code>{" "}
-                    with{" "}
-                    {block.components.map((c, i) => (
-                      <span key={c}>
-                        {i > 0 &&
-                          (i === block.components.length - 1 ? " and " : ", ")}
-                        <Link
-                          href={`/components/${c}`}
-                          className="text-foreground underline-offset-4 hover:underline"
-                        >
-                          {titleOf(c)}
-                        </Link>
-                      </span>
-                    ))}
-                    .
-                  </p>
-                )}
-              </div>
+              {source && (
+                <div className="mt-5 grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
+                  <PackageManagerCommand
+                    type="dlx"
+                    args={`shadcn@latest add ${REGISTRY_BASE}/${block.slug}.json`}
+                  />
+                  {block.components.length > 0 && (
+                    <p className="text-sm text-muted-foreground lg:pt-9">
+                      Installs to{" "}
+                      <code className="font-mono text-foreground">
+                        components/blocks/{block.slug}.tsx
+                      </code>{" "}
+                      with{" "}
+                      {block.components.map((c, i) => (
+                        <span key={c}>
+                          {i > 0 &&
+                            (i === block.components.length - 1
+                              ? " and "
+                              : ", ")}
+                          <Link
+                            href={`/components/${c}`}
+                            className="text-foreground underline-offset-4 hover:underline"
+                          >
+                            {titleOf(c)}
+                          </Link>
+                        </span>
+                      ))}
+                      .
+                    </p>
+                  )}
+                </div>
+              )}
             </section>
           ))}
         </div>

@@ -11,7 +11,7 @@ import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { NumberTicker } from "@/components/velora/number-ticker";
 import { SpotlightCard } from "@/components/velora/spotlight-card";
-import { blocksMeta } from "@/lib/blocks-meta";
+import { freeBlocks } from "@/lib/blocks-meta";
 import componentStats from "@/lib/component-stats.json";
 import { componentsMeta } from "@/lib/components-meta";
 import { pageMetadata } from "@/lib/seo";
@@ -52,7 +52,7 @@ const zeroDependency = Object.values(
 
 const stats = [
   { value: componentsMeta.length, suffix: "", label: "Animated components" },
-  { value: blocksMeta.length, suffix: "", label: "Free blocks" },
+  { value: freeBlocks.length, suffix: "", label: "Free blocks" },
   { value: zeroDependency, suffix: "", label: "With zero dependencies" },
   { value: 10, suffix: "+", label: "Template pages" },
 ];

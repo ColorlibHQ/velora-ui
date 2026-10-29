@@ -38,9 +38,17 @@ import { AuroraBackground } from "@/components/velora/aurora-background";
 
 export default function AuroraBackgroundDemo() {
   return (
-    <div className="relative flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg">
+    <div className="relative flex min-h-80 w-full items-center justify-center overflow-hidden rounded-xl border bg-background">
       <AuroraBackground intensity="vivid" />
-      <p className="relative text-xl font-semibold">Aurora</p>
+      <div className="relative px-6 text-center">
+        <p className="text-sm font-medium text-foreground/70">Spring release</p>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+          Northern lights for your hero
+        </h2>
+        <p className="mx-auto mt-3 max-w-sm text-foreground/70 text-balance">
+          A slow, drifting gradient that sits behind any headline.
+        </p>
+      </div>
     </div>
   );
 }
@@ -73,9 +81,17 @@ import { BackgroundBeams } from "@/components/velora/background-beams";
 
 export default function BackgroundBeamsDemo() {
   return (
-    <div className="relative flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg">
-      <BackgroundBeams />
-      <p className="relative text-xl font-semibold">Beams</p>
+    <div className="relative flex min-h-80 w-full items-center justify-center overflow-hidden rounded-xl border bg-linear-to-b from-background to-brand-from/10">
+      <BackgroundBeams count={10} />
+      <div className="relative px-6 text-center">
+        <p className="text-sm font-medium text-primary">Now in public beta</p>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-balance">
+          Deploy on every push
+        </h2>
+        <p className="mx-auto mt-3 max-w-sm text-muted-foreground text-balance">
+          Preview links for each branch, ready before the review starts.
+        </p>
+      </div>
     </div>
   );
 }
@@ -246,14 +262,32 @@ import { DotPattern, GridPattern } from "@/components/velora/grid-pattern";
 
 export default function GridPatternDemo() {
   return (
-    <div className="relative flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg">
+    <div className="relative flex min-h-80 w-full items-center justify-center overflow-hidden rounded-xl border bg-background">
       <GridPattern
-        width={36}
-        height={36}
-        className="fill-transparent stroke-border [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]"
+        width={40}
+        height={40}
+        squares={[
+          [1, 1],
+          [4, 2],
+          [2, 5],
+          [6, 4],
+          [3, 7],
+        ]}
+        className="fill-brand/10 stroke-border mask-[linear-gradient(to_right,black_35%,transparent_65%)]"
       />
-      <DotPattern className="[mask-image:radial-gradient(ellipse_at_center,black,transparent_55%)]" />
-      <p className="relative text-xl font-semibold">Patterns</p>
+      <DotPattern
+        width={16}
+        height={16}
+        className="fill-muted-foreground/40 mask-[linear-gradient(to_right,transparent_35%,black_65%)]"
+      />
+      <div className="relative px-6 text-center">
+        <p className="text-sm font-medium text-muted-foreground">
+          Grid pattern · Dot pattern
+        </p>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-balance">
+          Texture that stays out of the way
+        </h2>
+      </div>
     </div>
   );
 }
@@ -286,9 +320,16 @@ import { Lamp } from "@/components/velora/lamp";
 
 export default function LampDemo() {
   return (
-    <div className="w-full overflow-hidden rounded-lg [&_[data-slot=lamp]]:py-12">
-      <Lamp className="[&>div:first-child]:min-h-44">
-        <h3 className="text-2xl font-semibold">Lit from above</h3>
+    <div className="w-full overflow-hidden rounded-xl border bg-background">
+      {/* The mask fades the light cones out at the sides and bottom, so the
+          glow reads as a beam at any width instead of a solid block. */}
+      <Lamp className="py-10 [&>div:first-child]:min-h-52 [&>div:first-child]:mask-[radial-gradient(ellipse_70%_75%_at_50%_25%,black_45%,transparent)]">
+        <h2 className="text-3xl font-semibold tracking-tight text-balance">
+          Lit from above
+        </h2>
+        <p className="mt-2 max-w-xs text-sm text-muted-foreground text-balance">
+          A glowing lamp line that opens as the section scrolls in.
+        </p>
       </Lamp>
     </div>
   );
@@ -472,9 +513,14 @@ import { RetroGrid } from "@/components/velora/retro-grid";
 
 export default function RetroGridDemo() {
   return (
-    <div className="relative flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg">
-      <RetroGrid opacity={0.6} />
-      <p className="relative text-xl font-semibold">Retro Grid</p>
+    <div className="relative flex min-h-80 w-full items-center justify-center overflow-hidden rounded-xl border bg-radial from-brand-from/20 to-background to-70%">
+      <RetroGrid opacity={1} cellSize={48} />
+      <div className="relative px-6 text-center">
+        <p className="text-sm font-medium text-primary">Launch week · Day 3</p>
+        <h2 className="mt-2 text-4xl font-semibold tracking-tight text-balance">
+          Back to the grid
+        </h2>
+      </div>
     </div>
   );
 }
@@ -504,13 +550,25 @@ Concentric rings pulsing outward — calm 'listening' backdrop. (0.6 KB gzipped,
 **Example**
 
 ```tsx
+import { RadioIcon } from "lucide-react";
+
 import { Ripple } from "@/components/velora/ripple";
 
 export default function RippleDemo() {
   return (
-    <div className="flex h-full min-h-64 w-full items-center justify-center overflow-hidden rounded-lg relative">
-      <Ripple circles={5} baseSize={90} />
-      <p className="relative text-xl font-semibold">Ripple</p>
+    <div className="relative flex min-h-80 w-full items-center justify-center overflow-hidden rounded-xl border bg-radial from-brand-from/15 to-background to-70%">
+      <Ripple circles={6} baseSize={112} className="[&>span]:border-brand/60" />
+      <div className="relative flex flex-col items-center">
+        <span className="flex size-16 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30">
+          <RadioIcon aria-hidden className="size-7" />
+        </span>
+        <div className="absolute top-full mt-6 text-center whitespace-nowrap">
+          <p className="font-semibold">Looking for devices…</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Keep your phone nearby
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -2089,15 +2147,28 @@ Sheet of light tracking the cursor, like a foil trading card. (0.8 KB gzipped, z
 **Example**
 
 ```tsx
+import { SparklesIcon } from "lucide-react";
+
 import { GlareCard } from "@/components/velora/glare-card";
 
 export default function GlareCardDemo() {
   return (
-    <GlareCard className="w-full max-w-xs">
-      <h3 className="font-medium">Glare Card</h3>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Move the cursor across this card.
-      </p>
+    <GlareCard className="w-full max-w-sm bg-linear-to-br from-brand-from/25 via-card to-card shadow-xl shadow-black/10">
+      <div className="flex items-center justify-between">
+        <span className="text-sm font-semibold tracking-tight">Velora Pass</span>
+        <SparklesIcon aria-hidden className="size-5 text-primary" />
+      </div>
+      <p className="mt-10 font-mono text-lg tracking-[0.2em]">•••• •••• 4821</p>
+      <div className="mt-6 flex items-end justify-between text-xs">
+        <div>
+          <p className="text-muted-foreground">Member</p>
+          <p className="mt-0.5 text-sm font-medium">Priya Raman</p>
+        </div>
+        <div className="text-right">
+          <p className="text-muted-foreground">Valid thru</p>
+          <p className="mt-0.5 text-sm font-medium tabular-nums">09/28</p>
+        </div>
+      </div>
     </GlareCard>
   );
 }
@@ -2350,17 +2421,36 @@ export default function SpotlightCardDemo() {
 **Example**
 
 ```tsx
+import { CalendarIcon, UsersIcon } from "lucide-react";
+
 import { TiltCard } from "@/components/velora/tilt-card";
 
 export default function TiltCardDemo() {
   return (
     <TiltCard className="w-full max-w-sm">
-      <div className="rounded-2xl border bg-card p-8">
-        <h3 className="font-semibold">Tilt me</h3>
-        <p className="mt-2 text-sm text-muted-foreground">
-          3D perspective that tracks your cursor.
-        </p>
-      </div>
+      <article className="overflow-hidden rounded-2xl border bg-card shadow-xl shadow-black/10">
+        <div className="relative h-24 bg-linear-to-br from-brand-from via-brand-via to-brand-to">
+          <span className="absolute top-3 left-3 rounded-full bg-background/85 px-2.5 py-1 text-xs font-medium backdrop-blur">
+            Live workshop
+          </span>
+        </div>
+        <div className="p-5">
+          <h3 className="font-semibold">Motion for product teams</h3>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Springs, layout animation and reduced motion in two hours.
+          </p>
+          <div className="mt-4 flex items-center justify-between text-sm">
+            <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+              <CalendarIcon aria-hidden className="size-4" />
+              Thu, 14:00 UTC
+            </span>
+            <span className="inline-flex items-center gap-1.5 font-medium text-primary">
+              <UsersIcon aria-hidden className="size-4" />
+              12 seats left
+            </span>
+          </div>
+        </div>
+      </article>
     </TiltCard>
   );
 }

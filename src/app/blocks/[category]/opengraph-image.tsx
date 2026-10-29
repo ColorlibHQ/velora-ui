@@ -21,10 +21,12 @@ export default async function Image({
   const cat = blockCategories.find((c) => c.slug === category)!;
   const count = blocksIn(category).length;
   return ogCard({
-    eyebrow: "Free blocks",
+    eyebrow: cat.pro ? "Velora Pro" : "Free blocks",
     title: cat.title,
     accent: "for React",
-    description: `${count} free, copy-paste ${cat.title.toLowerCase()} for React and Tailwind CSS.`,
+    description: cat.pro
+      ? `${count} ${cat.title.toLowerCase()} blocks for React dashboards and SaaS apps.`
+      : `${count} free, copy-paste ${cat.title.toLowerCase()} for React and Tailwind CSS.`,
     chips: ["shadcn CLI", "Responsive", "Accessible", "MIT"],
   });
 }
