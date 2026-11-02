@@ -17,15 +17,14 @@ import { BlockThumbnail } from "@/components/docs/block-thumbnail";
 import { CopyButton } from "@/components/docs/copy-button";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { WaitlistForm } from "@/components/template/waitlist-form";
-import { BorderBeam } from "@/components/velora/border-beam";
+import { TemplateShot } from "@/components/templates/template-shot";
+import { proTemplates } from "@/content/pro-templates";
 import { JsonLd, breadcrumbs, pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = pageMetadata({
-  title: "Free Next.js landing page templates",
-  description:
-    "A free, MIT-licensed multi-page SaaS template built from Velora UI components — landing, pricing, MDX blog, changelog, about, contact, login, sign-up and 404. Clone the repo and ship it.",
+  title: "Next.js dashboard and landing page templates",
+  description: `${proTemplates.length} Pro dashboard templates (${proTemplates.map((t) => t.niche).join(", ")}) with live demos, plus a free, MIT-licensed multi-page SaaS landing template. Next.js 16, Tailwind CSS 4, shadcn/ui.`,
   path: "/templates",
 });
 
@@ -96,8 +95,6 @@ cd velora-ui
 pnpm install
 pnpm dev`;
 
-const niches = ["SaaS analytics", "CRM", "E-commerce admin", "AI app"];
-
 export default function TemplatesPage() {
   return (
     <>
@@ -105,17 +102,59 @@ export default function TemplatesPage() {
       <SiteHeader />
       <main className="mx-auto w-full max-w-6xl px-4 pt-28 pb-24 lg:px-8">
         <h1 className="text-4xl font-semibold tracking-tight text-balance">
-          Free Next.js landing page templates
+          Next.js templates
         </h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          Complete, multi-page sites assembled from Velora components. One template
-          is available today — free and MIT licensed. Dashboard templates are next.
+          Dashboard apps with Velora Pro. A landing site, free.
         </p>
 
-        {/* The one template that exists today */}
+        <section aria-labelledby="pro-templates" className="mt-12">
+          <div className="flex flex-wrap items-baseline gap-3">
+            <h2 id="pro-templates" className="text-2xl font-semibold tracking-tight">
+              Dashboard templates
+            </h2>
+            <span className="rounded-full bg-primary/15 px-2.5 py-0.5 text-xs font-medium text-foreground">
+              All-Access
+            </span>
+          </div>
+          <ul className="mt-6 grid gap-6 md:grid-cols-2">
+            {proTemplates.map((t) => (
+              <li
+                key={t.slug}
+                className="group/card relative overflow-hidden rounded-2xl border bg-card/50 p-3 transition-colors focus-within:ring-2 focus-within:ring-ring hover:border-primary/40"
+              >
+                <TemplateShot slug={t.slug} file="overview" alt={`${t.name} ${t.niche} dashboard`} dark />
+                <div className="flex items-start justify-between gap-4 px-2 pt-4 pb-2">
+                  <div className="min-w-0">
+                    <h3 className="font-semibold">
+                      <Link
+                        href={`/templates/${t.slug}`}
+                        className="outline-none after:absolute after:inset-0"
+                      >
+                        {t.name}
+                      </Link>
+                    </h3>
+                    <p className="mt-0.5 text-sm text-muted-foreground">
+                      {t.niche} · {t.pages.length} pages
+                    </p>
+                  </div>
+                  <a
+                    href={`/demos/${t.slug}/`}
+                    className="relative z-10 inline-flex h-8 shrink-0 items-center gap-1 rounded-lg border bg-background px-3 text-sm font-medium transition-colors hover:bg-muted"
+                  >
+                    Live demo
+                    <ArrowUpRightIcon className="size-3.5" aria-hidden />
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <h2 className="mt-20 text-2xl font-semibold tracking-tight">Landing template</h2>
         <section
           aria-labelledby="saas"
-          className="mt-12 overflow-hidden rounded-3xl border bg-card/50"
+          className="mt-6 overflow-hidden rounded-3xl border bg-card/50"
         >
           <div className="grid grid-cols-1 lg:grid-cols-5">
             <div className="min-w-0 border-b p-3 sm:p-4 lg:col-span-3 lg:border-r lg:border-b-0">
@@ -240,50 +279,6 @@ export default function TemplatesPage() {
           </ul>
         </section>
 
-        {/* Pro */}
-        <section
-          id="pro"
-          aria-labelledby="pro-heading"
-          className="relative mt-20 overflow-hidden rounded-3xl border bg-card/50 p-6 sm:p-10"
-        >
-          <BorderBeam size={90} duration={9} />
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <span className="rounded-full bg-primary/15 px-2.5 py-0.5 text-xs font-medium text-foreground">
-                Coming soon
-              </span>
-              <h2
-                id="pro-heading"
-                className="mt-4 text-2xl font-semibold tracking-tight text-balance"
-              >
-                Dashboard templates
-              </h2>
-              <p className="mt-2 text-muted-foreground">
-                Multi-page admin apps assembled from the Velora Pro blocks. Join the
-                waitlist and we&apos;ll email you when the first ones ship.
-              </p>
-              <ul className="mt-6 flex flex-wrap gap-2">
-                {niches.map((niche) => (
-                  <li
-                    key={niche}
-                    className="rounded-full border bg-background px-3 py-1 text-sm text-muted-foreground"
-                  >
-                    {niche}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-6 text-sm">
-                <Link
-                  href="/pricing"
-                  className="font-medium text-primary underline-offset-4 hover:underline"
-                >
-                  Compare Free and Pro →
-                </Link>
-              </p>
-            </div>
-            <WaitlistForm className="self-center" />
-          </div>
-        </section>
       </main>
       <SiteFooter />
     </>

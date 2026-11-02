@@ -2,6 +2,23 @@
 
 All notable changes to Velora UI. Also published at [/changelog](https://velora.colorlib.com/changelog).
 
+## 0.12.0 — 2026-11-02
+
+### Added
+
+- Four Velora Pro dashboard templates, each a full Next.js 16 app with a live demo at
+  `/demos/<name>/`: Insight (SaaS analytics), Relay (CRM), Prism (AI assistant) and Harbor
+  (e-commerce admin)
+- `/templates/<name>` pages with screenshots in light and dark, every page linked into the demo,
+  and the stack
+- All-Access ($249): every Pro block plus every template, current and future. Team ($399) is now
+  All-Access for 10 developers
+
+### Changed
+
+- `/templates` leads with the dashboard templates; the free SaaS landing template stays below
+- Pricing shows Free, Personal, All-Access and Team
+
 ## 0.11.0 — 2026-11-02
 
 ### Added

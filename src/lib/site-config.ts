@@ -24,8 +24,15 @@ export const siteConfig = {
       checkout:
         "https://dashboardpack.com/cart/?add-to-cart=393469&variation_id=393470",
     },
+    /** Blocks + every template, current and future */
+    allAccess: {
+      price: 249,
+      checkout:
+        "https://dashboardpack.com/cart/?add-to-cart=393469&variation_id=393485",
+    },
+    /** All-Access for up to 10 developers */
     team: {
-      price: 299,
+      price: 399,
       checkout:
         "https://dashboardpack.com/cart/?add-to-cart=393469&variation_id=393471",
     },
