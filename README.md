@@ -115,7 +115,10 @@ npx shadcn@latest add https://velora.colorlib.com/r/hero-globe.json
 114 application blocks for dashboards and SaaS apps: KPI cards, chart cards, tables, activity
 feeds, billing, account security, file uploads, AI interfaces and more. Preview every one at
 [/blocks](https://velora.colorlib.com/blocks); see [pricing](https://velora.colorlib.com/pricing).
-Pro source is sold separately and isn't part of this MIT repository.
+Pro also includes four dashboard templates with live demos: Insight (SaaS analytics), Relay
+(CRM), Prism (AI assistant) and Harbor (e-commerce admin); see
+[/templates](https://velora.colorlib.com/templates). Pro source is sold separately and isn't
+part of this MIT repository.
 
 ### The complete template
 

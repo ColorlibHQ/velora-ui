@@ -23,6 +23,17 @@ interface Release {
 const releases: Release[] = [
   {
     date: "November 2, 2026",
+    version: "0.12.0",
+    title: "Four Pro dashboard templates with live demos",
+    tag: "New",
+    items: [
+      "Insight (SaaS analytics), Relay (CRM), Prism (AI assistant) and Harbor (e-commerce admin): full Next.js apps you can try live",
+      "Each template has its own page with screenshots and links straight into every demo screen",
+      "New All-Access plan: every Pro block and every template, including future ones",
+    ],
+  },
+  {
+    date: "November 2, 2026",
     version: "0.11.0",
     title: "A free Data Grid and a first look at Velora Pro",
     tag: "New",
