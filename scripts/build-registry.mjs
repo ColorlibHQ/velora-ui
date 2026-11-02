@@ -267,6 +267,17 @@ const extras = {
   "file-drop": { cssVars: brandVars },
 };
 
+// shadcn/ui primitives a component imports, so the CLI installs them too.
+const uiImports = (slug) => [
+  ...new Set(
+    [
+      ...readFileSync(resolve(root, "src/components/velora", `${slug}.tsx`), "utf8").matchAll(
+        /from "@\/components\/ui\/([\w-]+)"/g
+      ),
+    ].map((m) => m[1])
+  ),
+];
+
 const items = meta.map((c) => ({
   name: c.slug,
   type: "registry:ui",
@@ -274,7 +285,7 @@ const items = meta.map((c) => ({
   description: c.description,
   dependencies: c.dependencies.length ? c.dependencies : undefined,
   // Every component imports cn() from @/lib/utils.
-  registryDependencies: ["utils"],
+  registryDependencies: ["utils", ...uiImports(c.slug)],
   files: [
     {
       path: `src/components/velora/${c.slug}.tsx`,
@@ -287,9 +298,13 @@ const items = meta.map((c) => ({
 
 // Blocks: full sections. Their Velora components are pulled in by URL so a
 // single `shadcn add` installs everything the section needs.
-const blocks = JSON.parse(
+// Pro blocks are previewed on the site but never published to the public
+// registry or given install commands; their source ships in the Pro download.
+const allBlocks = JSON.parse(
   readFileSync(resolve(root, "src/lib/blocks-meta.json"), "utf8")
 );
+const blocks = allBlocks.filter((b) => !b.pro);
+const proBlocks = allBlocks.filter((b) => b.pro);
 const blockCategories = JSON.parse(
   readFileSync(resolve(root, "src/content/block-categories.json"), "utf8")
 );
@@ -308,7 +323,7 @@ const blockItems = blocks.map((b) => ({
   ],
   files: [
     {
-      path: `src/components/blocks/${b.slug}.tsx`,
+      path: b.file,
       type: "registry:component",
       target: `components/blocks/${b.slug}.tsx`,
     },
@@ -385,13 +400,26 @@ ${blocks
   )
   .join("\n\n")}
 
-## Pages
+${
+  proBlocks.length
+    ? `## Velora Pro blocks
+
+Application blocks for dashboards and SaaS apps (${proBlocks.length} blocks). Previews are public; the source is part of Velora Pro and is not in the public registry.
+
+${blockCategories
+  .filter((cat) => cat.pro && proBlocks.some((b) => b.category === cat.slug))
+  .map((cat) => `- [${cat.title}](${HOMEPAGE}/blocks/${cat.slug}): ${cat.description}`)
+  .join("\n")}
+
+`
+    : ""
+}## Pages
 
 - [Components](${HOMEPAGE}/components): All components with live previews, install commands and source.
 - [Blocks](${HOMEPAGE}/blocks): Free sections — heroes, features, pricing, testimonials, CTAs and more.
 - [llms-full.txt](${HOMEPAGE}/llms-full.txt): This index plus props, accessibility notes and a working example for every component.
 - [Themes](${HOMEPAGE}/themes): Brand ramp presets — rebrand every effect by copying seven CSS variables.
-- [Pricing](${HOMEPAGE}/pricing): Free forever (MIT); Pro adds niche templates and variants.
+- [Pricing](${HOMEPAGE}/pricing): Components and marketing sections free (MIT); Velora Pro adds ${proBlocks.length} application blocks, one-time payment.
 - [Blog](${HOMEPAGE}/blog): Engineering notes and announcements (MDX pipeline is part of the free template).
 - [Changelog](${HOMEPAGE}/changelog): Every release, documented.
 - Template pages included free: about, contact, login, signup, blog, changelog, 404.

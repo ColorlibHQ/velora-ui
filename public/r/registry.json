@@ -2344,6 +2344,32 @@
       ]
     },
     {
+      "name": "data-grid",
+      "type": "registry:ui",
+      "title": "Data Grid",
+      "description": "Sortable, searchable, filterable table with selection, column toggles and pagination, built on TanStack Table.",
+      "dependencies": [
+        "@tanstack/react-table@^8.21.3",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "dropdown-menu",
+        "input",
+        "select",
+        "skeleton",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "src/components/velora/data-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/velora/data-grid.tsx"
+        }
+      ]
+    },
+    {
       "name": "globe",
       "type": "registry:ui",
       "title": "Globe",

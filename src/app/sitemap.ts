@@ -79,7 +79,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((c) => ({
       url: `${BASE}/blocks/${c.slug}`,
       lastModified: lastCommit(
-        ...blocksIn(c.slug).map((b) => `src/components/blocks/${b.slug}.tsx`)
+        ...blocksIn(c.slug).map((b) => b.file)
       ),
       changeFrequency: "weekly" as const,
       priority: 0.7,

@@ -129,6 +129,8 @@ import ExamplePointerHighlightDefault from "./pointer-highlight/examples/default
 import ExamplePointerHighlightHero from "./pointer-highlight/examples/hero";
 import ExampleSmoothCursorDefault from "./smooth-cursor/examples/default";
 import ExampleSmoothCursorCtaCard from "./smooth-cursor/examples/cta-card";
+import ExampleDataGridDefault from "./data-grid/examples/default";
+import ExampleDataGridCompact from "./data-grid/examples/compact";
 import ExampleGlobeDefault from "./globe/examples/default";
 import ExampleGlobeEdgeNetwork from "./globe/examples/edge-network";
 import ExampleWorldMapDefault from "./world-map/examples/default";
@@ -237,6 +239,7 @@ export const componentExamples: Record<
   "lens": [{ name: "default", Component: ExampleLensDefault }, { name: "product-inspector", Component: ExampleLensProductInspector }],
   "pointer-highlight": [{ name: "default", Component: ExamplePointerHighlightDefault }, { name: "hero", Component: ExamplePointerHighlightHero }],
   "smooth-cursor": [{ name: "default", Component: ExampleSmoothCursorDefault }, { name: "cta-card", Component: ExampleSmoothCursorCtaCard }],
+  "data-grid": [{ name: "default", Component: ExampleDataGridDefault }, { name: "compact", Component: ExampleDataGridCompact }],
   "globe": [{ name: "default", Component: ExampleGlobeDefault }, { name: "edge-network", Component: ExampleGlobeEdgeNetwork }],
   "world-map": [{ name: "default", Component: ExampleWorldMapDefault }, { name: "remote-team", Component: ExampleWorldMapRemoteTeam }],
   "browser-mockup": [{ name: "default", Component: ExampleBrowserMockupDefault }],

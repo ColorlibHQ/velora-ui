@@ -4,7 +4,7 @@
 
 **Free, MIT-licensed animated components and complete landing templates for React.**
 
-100 animated shadcn/ui components and a full multi-page SaaS template — home, pricing, blog (MDX), auth, changelog, contact and 404 — built with Next.js 16, Tailwind CSS 4 and Motion. The free tier isn't a teaser: everything on the site ships under MIT, commercial use included.
+101 shadcn/ui components (100 animated, plus a Data Grid) and a full multi-page SaaS template — home, pricing, blog (MDX), auth, changelog, contact and 404 — built with Next.js 16, Tailwind CSS 4 and Motion. The free tier isn't a teaser: everything on the site ships under MIT, commercial use included.
 
 [![Live demo](https://img.shields.io/badge/Live_demo-velora.colorlib.com-2563eb?style=for-the-badge&logo=vercel&logoColor=white)](https://velora.colorlib.com)
 &nbsp;
@@ -12,7 +12,7 @@
 &nbsp;
 [![Stars](https://img.shields.io/github/stars/ColorlibHQ/velora-ui?style=for-the-badge&color=eab308)](https://github.com/ColorlibHQ/velora-ui/stargazers)
 
-![Components](https://img.shields.io/badge/components-100-2563eb?style=flat-square)
+![Components](https://img.shields.io/badge/components-101-2563eb?style=flat-square)
 ![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=next.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?style=flat-square&logo=tailwindcss&logoColor=white)
 ![Motion](https://img.shields.io/badge/Motion-13-ff0088?style=flat-square)
@@ -29,8 +29,8 @@
 <table>
 <tr>
 <td width="50%" align="center">
-  <a href="https://velora.colorlib.com/components"><img src=".github/screenshots/components.webp" alt="Component catalog — 100 animated components grouped by category"></a>
-  <br><sub><b>Component catalog</b> — 100 components, grouped by category, one CLI command to install.</sub>
+  <a href="https://velora.colorlib.com/components"><img src=".github/screenshots/components.webp" alt="Component catalog — 101 components grouped by category"></a>
+  <br><sub><b>Component catalog</b> — 101 components, grouped by category, one CLI command to install.</sub>
 </td>
 <td width="50%" align="center">
   <a href="https://velora.colorlib.com/themes"><img src=".github/screenshots/themes.webp" alt="Themes — rebrand from one token block"></a>
@@ -52,14 +52,14 @@
 ## Why Velora
 
 - **The free tier is the whole product.** Complete assembled pages, not just isolated components. The kind of template that costs $149–$299 elsewhere is the baseline here.
-- **Animations with receipts.** Every component's docs page shows its gzipped size (0.3–3 KB for 97 of them; the dependency-free Globe carries its own land map at 5.2 KB — no Three.js, no WebGL) and dependency count. 51 of 100 components have zero runtime dependencies; the rest use Motion and nothing else.
+- **Animations with receipts.** Every component's docs page shows its gzipped size (0.3–3 KB for 97 of them; the dependency-free Globe carries its own land map at 5.2 KB — no Three.js, no WebGL) and dependency count. 51 of 101 components have zero runtime dependencies; almost all the rest use only Motion, and the Data Grid uses TanStack Table.
 - **Tokens, not hardcoded hues.** Components read your shadcn CSS variables. Rebrand every gradient, beam and glow by editing seven variables — ready-made presets on the [themes page](https://velora.colorlib.com/themes).
 - **Motion that asks permission.** Every component handles `prefers-reduced-motion` itself — so it still does after you install it — and documents what reduced-motion, keyboard and screen-reader users get on its docs page.
 - **Primitive-agnostic.** Velora components import neither Radix nor Base UI — they work in any shadcn project, whichever primitive layer you use.
 
 ## What's inside
 
-### 100 animated components
+### 101 components
 
 | Category | Components |
 |----------|-----------|
@@ -77,7 +77,7 @@
 | **3D** | 3D Card · 3D Pin |
 | **Carousels** | 3D Marquee · Apple Cards Carousel · Image Slider |
 | **Cursor & Pointer** | Following Pointer · Lens · Pointer Highlight · Smooth Cursor |
-| **Data & Maps** | Globe · World Map |
+| **Data & Maps** | Data Grid · Globe · World Map |
 | **Mockups** | Browser Mockup · Code Block · iPhone Mockup · Terminal |
 
 Browse them all — with live demos, props, install commands and source — at [velora.colorlib.com/components](https://velora.colorlib.com/components). New here? Start with [Get started](https://velora.colorlib.com/components/get-started), or register the namespace once and install by name:
@@ -109,6 +109,13 @@ npx shadcn@latest add https://velora.colorlib.com/r/hero-globe.json
 | **[Navbars](https://velora.colorlib.com/blocks/navbars)** | Floating pill navbar · Mega menu navbar |
 | **[Footers](https://velora.colorlib.com/blocks/footers)** | Link columns footer · Giant wordmark footer · Newsletter footer |
 | **[Login & Sign-up](https://velora.colorlib.com/blocks/auth-sections)** | Split login page · Sign-up card |
+
+### Velora Pro
+
+114 application blocks for dashboards and SaaS apps: KPI cards, chart cards, tables, activity
+feeds, billing, account security, file uploads, AI interfaces and more. Preview every one at
+[/blocks](https://velora.colorlib.com/blocks); see [pricing](https://velora.colorlib.com/pricing).
+Pro source is sold separately and isn't part of this MIT repository.
 
 ### The complete template
 
