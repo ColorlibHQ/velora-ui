@@ -3,7 +3,7 @@
   "version": "0.11.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/build-docs.mjs",
+    "predev": "VELORA_PRO_LIVE=1 node scripts/build-docs.mjs",
     "dev": "next dev",
     "prebuild": "node scripts/build-docs.mjs",
     "build": "next build",
@@ -11,6 +11,7 @@
     "lint": "eslint",
     "docs:build": "node scripts/build-docs.mjs",
     "pro:build": "node scripts/build-docs.mjs && node pro/scripts/build-pro.mjs",
+    "pro:snapshot": "node pro/scripts/snapshot-pro.mjs",
     "registry:build": "node scripts/build-docs.mjs && node scripts/component-stats.mjs && node scripts/build-registry.mjs && shadcn build"
   },
   "dependencies": {
@@ -44,6 +45,7 @@
     "@types/react-dom": "^19.3.0",
     "eslint": "^10.11.0",
     "eslint-config-next": "16.3.7",
+    "playwright": "1.64.1",
     "prettier": "^3.9.9",
     "tailwindcss": "^4.3.3",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
