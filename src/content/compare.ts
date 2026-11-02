@@ -37,7 +37,7 @@ export const velora: LibraryFacts = {
   license: "MIT, source on GitHub",
   freeBlocks: "31",
   templates: "1 multi-page SaaS template, free",
-  pricing: "Free. Pro ($99 one-time, niche templates) is on a waitlist",
+  pricing: "Free (MIT). Pro: 114 application blocks, $149 one-time",
   tailwind: "v4",
 };
 

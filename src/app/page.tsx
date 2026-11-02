@@ -51,7 +51,7 @@ import {
 } from "@/components/velora/loaders";
 import { Marquee } from "@/components/velora/marquee";
 import { OrbitingCircles } from "@/components/velora/orbiting-circles";
-import { blocksMeta } from "@/lib/blocks-meta";
+import { blocksMeta, freeBlocks, proBlocks } from "@/lib/blocks-meta";
 import componentStats from "@/lib/component-stats.json";
 import {
   categories,
@@ -173,12 +173,13 @@ const faqs: { q: string; a: React.ReactNode }[] = [
     q: "What is Velora Pro?",
     a: (
       <>
-        A paid add-on in the works: niche templates, more section variants and a private
-        registry, for $99 paid once. Everything free today stays free and MIT.{" "}
-        <Link href="/pricing#waitlist" className="text-foreground underline underline-offset-4">
-          Join the waitlist
-        </Link>{" "}
-        to hear when it opens.
+        {proBlocks.length} application blocks for dashboards and SaaS apps, from $
+        {siteConfig.pro.personal.price} paid once{siteConfig.pro.onSale ? "" : ", launching soon"}.
+        Everything free today stays free and MIT.{" "}
+        <Link href="/pricing" className="text-foreground underline underline-offset-4">
+          See pricing
+        </Link>
+        .
       </>
     ),
   },
@@ -327,7 +328,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="mt-5 max-w-xl text-lg text-muted-foreground text-pretty">
-                {componentsMeta.length} components and {blocksMeta.length} blocks for Tailwind CSS 4
+                {componentsMeta.length} components and {freeBlocks.length} blocks for Tailwind CSS 4
                 and shadcn/ui. One command, source you own.
               </p>
 
@@ -463,7 +464,7 @@ export default function Home() {
           <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-px overflow-hidden rounded-2xl border bg-border lg:grid-cols-4">
             {[
               { value: componentsMeta.length, label: "components" },
-              { value: blocksMeta.length, label: "free blocks" },
+              { value: freeBlocks.length, label: "free blocks" },
               { value: zeroDeps, label: "zero-dependency" },
               { value: "MIT", label: "open source" },
             ].map((s) => (
@@ -531,7 +532,7 @@ export default function Home() {
                 href="/blocks"
                 className="inline-flex h-10 items-center gap-1.5 rounded-full border bg-background px-5 text-sm font-medium transition-colors hover:bg-muted"
               >
-                {blocksMeta.length} free blocks
+                {freeBlocks.length} free blocks
                 <ArrowRightIcon className="size-4" />
               </Link>
             </div>
@@ -629,18 +630,19 @@ export default function Home() {
                 <h2 id="pro" className="flex flex-wrap items-center gap-2 font-semibold">
                   Velora Pro
                   <span className="rounded-full bg-primary/15 px-2 py-0.5 text-xs font-medium text-foreground">
-                    Coming soon
+                    {siteConfig.pro.onSale ? "New" : "Coming soon"}
                   </span>
                 </h2>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Niche templates, $99 once. The library stays free.
+                  {proBlocks.length} app blocks, ${siteConfig.pro.personal.price} once. The library
+                  stays free.
                 </p>
               </div>
               <Link
-                href="/pricing#waitlist"
+                href="/blocks"
                 className="inline-flex h-10 shrink-0 items-center justify-center gap-1.5 rounded-full border bg-background px-5 text-sm font-medium transition-colors hover:bg-muted"
               >
-                Join the waitlist
+                See the blocks
                 <ArrowRightIcon className="size-4" />
               </Link>
             </div>
