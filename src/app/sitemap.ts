@@ -4,6 +4,7 @@ import type { MetadataRoute } from "next";
 import { blockCategories, blocksIn } from "@/lib/blocks-meta";
 import { categories, categorySlug, componentsMeta } from "@/lib/components-meta";
 import { comparisons } from "@/content/compare";
+import { proTemplates } from "@/content/pro-templates";
 import { blogPosts } from "@/lib/blog-posts";
 import { siteConfig } from "@/lib/site-config";
 
@@ -99,8 +100,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
+  const templatePages = proTemplates.map((t) => ({
+    url: `${BASE}/templates/${t.slug}`,
+    lastModified: lastCommit("src/content/pro-templates.ts"),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
+    ...templatePages,
     ...blockPages,
     ...componentCategoryPages,
     ...componentPages,

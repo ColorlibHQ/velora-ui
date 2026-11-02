@@ -16,6 +16,7 @@ import { BorderBeam } from "@/components/velora/border-beam";
 import { WaitlistForm } from "@/components/template/waitlist-form";
 import { blockCategories, freeBlocks, proBlocks } from "@/lib/blocks-meta";
 import { componentsMeta } from "@/lib/components-meta";
+import { proTemplates } from "@/content/pro-templates";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
@@ -37,7 +38,7 @@ const plans = [
     unit: "forever",
     blurb: "Landing pages",
     features: [
-      `${componentsMeta.length} animated components`,
+      `${componentsMeta.length} components`,
       `${freeBlocks.length} marketing sections`,
       "SaaS landing template",
       "shadcn CLI install",
@@ -60,6 +61,22 @@ const plans = [
     cta: pro.onSale
       ? { label: "Get Personal", href: pro.personal.checkout }
       : waitlist,
+  },
+  {
+    name: "All-Access",
+    price: pro.allAccess.price,
+    unit: "once",
+    blurb: "One developer, everything",
+    features: [
+      "Everything in Personal",
+      `${proTemplates.length} dashboard ${proTemplates.length === 1 ? "template" : "templates"}`,
+      "Every future template",
+      "Full Next.js projects",
+      "Lifetime updates",
+    ],
+    cta: pro.onSale
+      ? { label: "Get All-Access", href: pro.allAccess.checkout }
+      : waitlist,
     featured: true,
   },
   {
@@ -68,7 +85,7 @@ const plans = [
     unit: "once",
     blurb: "Up to 10 developers",
     features: [
-      "Everything in Personal",
+      "Everything in All-Access",
       "10 developer seats",
       "One organization",
       "Unlimited end products",
@@ -96,6 +113,11 @@ const comparison: {
   { feature: "SaaS landing template", free: true, pro: true },
   { feature: "Application blocks", free: false, pro: `${proBlocks.length}` },
   { feature: "Chart kit (Recharts)", free: false, pro: true },
+  {
+    feature: "Dashboard templates",
+    free: false,
+    pro: `${proTemplates.length} with All-Access`,
+  },
   { feature: "Works without Next.js", free: true, pro: true },
   { feature: "Dark mode + reduced motion", free: true, pro: true },
   { feature: "Commercial use", free: true, pro: true },
@@ -105,12 +127,16 @@ const comparison: {
 
 const faqs = [
   {
+    q: "What's the difference between Personal and All-Access?",
+    a: "Personal is the application blocks. All-Access adds every dashboard template as a full Next.js project, including templates released later.",
+  },
+  {
     q: "Is Pro a subscription?",
     a: "No. One payment, lifetime access and lifetime updates.",
   },
   {
-    q: "What's the difference between Personal and Team?",
-    a: "Seats. Personal covers one developer; Team covers up to 10 in one organization. Both allow unlimited end products, including client work.",
+    q: "What does Team add?",
+    a: "Seats. Team is All-Access for up to 10 developers in one organization. Every plan allows unlimited end products, including client work.",
   },
   {
     q: "How do I get the code?",
@@ -157,7 +183,7 @@ export default function PricingPage() {
         title={
           <>
             Free components.{" "}
-            <span className="text-primary">Pro app blocks.</span>
+            <span className="text-primary">Pro blocks and templates.</span>
           </>
         }
         description="One-time payment. Lifetime updates."
@@ -165,7 +191,7 @@ export default function PricingPage() {
 
       {/* Plans */}
       <section className="pb-12">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-3 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 md:grid-cols-2 lg:px-8 xl:grid-cols-4">
           {plans.map((plan, i) => {
             const external = !plan.cta.href.startsWith("/");
             const featured = "featured" in plan && plan.featured;
