@@ -2,6 +2,32 @@
 
 All notable changes to Velora UI. Also published at [/changelog](https://velora.colorlib.com/changelog).
 
+## 0.11.0 — 2026-11-02
+
+### Added
+
+- Data Grid component (free, MIT): sorting, search, multi-select column filters with counts, row
+  selection with bulk actions, column visibility, pagination, loading and empty states, compact
+  density. Built on TanStack Table v8; works in Radix and Base UI shadcn projects
+- Velora Pro previews: 114 application blocks in 14 categories (KPIs, chart cards, tables, feeds,
+  progress, banners, forms, people, billing, metrics, page shells, account security, files, AI),
+  previewed live on `/blocks`. Their source ships in the Pro download, not in this repo
+- `/pricing` lists Free, Personal ($149) and Team ($299). Until checkout opens, the Pro plans
+  collect waitlist sign-ups
+- `success` and `warning` theme tokens, a brand-tinted chart palette, Badge `success`/`warning`
+  variants, and shadcn table, select, checkbox, skeleton, input-otp and breadcrumb primitives
+
+### Changed
+
+- `/blocks` is split into free marketing sections and Pro application blocks
+- Registry items now list the shadcn primitives a component imports, so `shadcn add` installs them
+- Removed the old "$99 / niche templates / Figma" Pro copy from the homepage, templates, compare
+  and llms.txt
+
+### Fixed
+
+- The pricing comparison table overflowed horizontally at phone width
+
 ## 0.10.0 — 2026-09-29
 
 ### Added

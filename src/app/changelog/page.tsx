@@ -22,6 +22,19 @@ interface Release {
 
 const releases: Release[] = [
   {
+    date: "November 2, 2026",
+    version: "0.11.0",
+    title: "A free Data Grid and a first look at Velora Pro",
+    tag: "New",
+    items: [
+      "Data Grid: sorting, search, column filters, row selection, column visibility and pagination in one free component, built on TanStack Table",
+      "The Data Grid works in both Radix and Base UI shadcn projects",
+      "Velora Pro previews: 114 application blocks for dashboards and SaaS apps, from KPI cards and charts to billing, auth and AI interfaces",
+      "A new pricing page: everything here stays free, and Pro adds the application blocks for a one-time payment",
+      "shadcn add now installs the shadcn primitives a component needs",
+    ],
+  },
+  {
     date: "September 29, 2026",
     version: "0.10.0",
     title: "A homepage about the library, templates, showcase and AI docs",
