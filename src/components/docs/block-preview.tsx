@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
   ExternalLinkIcon,
+  LockIcon,
   MonitorIcon,
   RotateCcwIcon,
   SmartphoneIcon,
@@ -26,23 +28,25 @@ const toolButton =
 /**
  * A block rendered in an iframe, so its responsive layout reacts to the
  * preview width (Tailwind breakpoints follow the viewport, not the box).
+ * Pro blocks pass no `source`: the Code tab shows how to get it instead.
  */
 export function BlockPreview({
   src,
-  registryUrl,
   title,
-  code,
-  highlighted,
+  source,
 }: {
   /** URL of the bare preview page */
   src: string;
-  /** The block's shadcn registry item, for "Open in v0" */
-  registryUrl: string;
   title: string;
-  code: string;
-  highlighted: string;
+  source?: {
+    /** The block's shadcn registry item, for "Open in v0" */
+    registryUrl: string;
+    code: string;
+    highlighted: string;
+  };
 }) {
-  const [viewport, setViewport] = useState<(typeof viewports)[number]["key"]>("desktop");
+  const [viewport, setViewport] =
+    useState<(typeof viewports)[number]["key"]>("desktop");
   const [height, setHeight] = useState(640);
   const [reloadKey, setReloadKey] = useState(0);
   const frameRef = useRef<HTMLIFrameElement>(null);
@@ -54,7 +58,8 @@ export function BlockPreview({
     const block = frameRef.current?.contentDocument?.querySelector("main");
     if (!block) return;
     observerRef.current?.disconnect();
-    const update = () => setHeight(Math.max(240, Math.ceil(block.getBoundingClientRect().height)));
+    const update = () =>
+      setHeight(Math.max(240, Math.ceil(block.getBoundingClientRect().height)));
     observerRef.current = new ResizeObserver(update);
     observerRef.current.observe(block);
     update();
@@ -118,21 +123,29 @@ export function BlockPreview({
           >
             <ExternalLinkIcon className="size-4" />
           </a>
-          <a
-            href={`https://v0.app/chat/api/open?url=${encodeURIComponent(registryUrl)}`}
-            target="_blank"
-            rel="noopener"
-            aria-label={`Open ${title} in v0`}
-            className="inline-flex h-8 items-center gap-1.5 rounded-md border bg-card px-2.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <SparklesIcon className="size-3.5" aria-hidden />
-            Open in v0
-          </a>
-          <CopyButton text={code} label={`Copy ${title} code`} />
+          {source && (
+            <>
+              <a
+                href={`https://v0.app/chat/api/open?url=${encodeURIComponent(source.registryUrl)}`}
+                target="_blank"
+                rel="noopener"
+                aria-label={`Open ${title} in v0`}
+                className="inline-flex h-8 items-center gap-1.5 rounded-md border bg-card px-2.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <SparklesIcon className="size-3.5" aria-hidden />
+                Open in v0
+              </a>
+              <CopyButton text={source.code} label={`Copy ${title} code`} />
+            </>
+          )}
         </div>
       </div>
 
-      <TabsContent value="preview" forceMount className="data-[state=inactive]:hidden">
+      <TabsContent
+        value="preview"
+        forceMount
+        className="data-[state=inactive]:hidden"
+      >
         <div className="overflow-hidden rounded-2xl border bg-muted/30">
           <iframe
             key={reloadKey}
@@ -144,16 +157,32 @@ export function BlockPreview({
             style={{ width, height }}
             className={cn(
               "mx-auto block max-w-full bg-background transition-[width] duration-300 motion-reduce:transition-none",
-              viewport !== "desktop" && "border-x"
+              viewport !== "desktop" && "border-x",
             )}
           />
         </div>
       </TabsContent>
       <TabsContent value="code">
-        <div
-          className="overflow-x-auto rounded-2xl border text-sm [&_pre]:max-h-[36rem] [&_pre]:overflow-auto [&_pre]:p-5"
-          dangerouslySetInnerHTML={{ __html: highlighted }}
-        />
+        {source ? (
+          <div
+            className="overflow-x-auto rounded-2xl border text-sm [&_pre]:max-h-[36rem] [&_pre]:overflow-auto [&_pre]:p-5"
+            dangerouslySetInnerHTML={{ __html: source.highlighted }}
+          />
+        ) : (
+          <div className="flex flex-col items-center gap-3 rounded-2xl border border-dashed px-6 py-16 text-center">
+            <LockIcon className="size-5 text-muted-foreground" aria-hidden />
+            <p className="font-medium">Source included with Velora Pro</p>
+            <p className="max-w-sm text-sm text-muted-foreground">
+              Typed React and Tailwind code, no runtime dependency on Velora.
+            </p>
+            <Link
+              href="/pricing"
+              className="mt-2 inline-flex h-9 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              Get Velora Pro
+            </Link>
+          </div>
+        )}
       </TabsContent>
     </Tabs>
   );

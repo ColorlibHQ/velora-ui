@@ -3,60 +3,182 @@
     "slug": "hero-sections",
     "title": "Hero Sections",
     "heading": "React hero sections",
-    "description": "Free animated hero sections for React and Tailwind CSS: aurora, globe, product screenshot and split layouts. Copy the code or install with the shadcn CLI."
+    "description": "Free animated hero sections for React and Tailwind CSS: aurora, globe, product screenshot and split layouts. Copy the code or install with the shadcn CLI.",
+    "group": "marketing"
   },
   {
     "slug": "feature-sections",
     "title": "Feature Sections",
     "heading": "React feature sections",
-    "description": "Free feature sections for React and Tailwind CSS: bento grids, icon grids, tabbed tours and screenshot splits that animate without hurting performance."
+    "description": "Free feature sections for React and Tailwind CSS: bento grids, icon grids, tabbed tours and screenshot splits that animate without hurting performance.",
+    "group": "marketing"
   },
   {
     "slug": "pricing-sections",
     "title": "Pricing Sections",
     "heading": "React pricing sections",
-    "description": "Free pricing tables and pricing sections for React and Tailwind CSS, with monthly/yearly toggles, highlighted plans and comparison rows."
+    "description": "Free pricing tables and pricing sections for React and Tailwind CSS, with monthly/yearly toggles, highlighted plans and comparison rows.",
+    "group": "marketing"
   },
   {
     "slug": "testimonial-sections",
     "title": "Testimonial Sections",
     "heading": "React testimonial sections",
-    "description": "Free testimonial sections for React and Tailwind CSS: marquee walls, featured quotes and review grids — accessible, with motion that pauses."
+    "description": "Free testimonial sections for React and Tailwind CSS: marquee walls, featured quotes and review grids — accessible, with motion that pauses.",
+    "group": "marketing"
   },
   {
     "slug": "cta-sections",
     "title": "CTA Sections",
     "heading": "React call-to-action sections",
-    "description": "Free call-to-action sections for React and Tailwind CSS: banners, split CTAs and newsletter sign-ups with animated backgrounds."
+    "description": "Free call-to-action sections for React and Tailwind CSS: banners, split CTAs and newsletter sign-ups with animated backgrounds.",
+    "group": "marketing"
   },
   {
     "slug": "logo-clouds",
     "title": "Logo Clouds",
     "heading": "React logo clouds",
-    "description": "Free logo cloud sections for React and Tailwind CSS: scrolling marquees and static grids for customer and integration logos."
+    "description": "Free logo cloud sections for React and Tailwind CSS: scrolling marquees and static grids for customer and integration logos.",
+    "group": "marketing"
   },
   {
     "slug": "faq-sections",
     "title": "FAQ Sections",
     "heading": "React FAQ sections",
-    "description": "Free FAQ sections for React and Tailwind CSS: accessible accordions and two-column layouts with a contact prompt."
+    "description": "Free FAQ sections for React and Tailwind CSS: accessible accordions and two-column layouts with a contact prompt.",
+    "group": "marketing"
   },
   {
     "slug": "navbars",
     "title": "Navbars",
     "heading": "React navbars",
-    "description": "Free responsive navbars for React and Tailwind CSS with mobile menus, keyboard support and scroll-aware styling."
+    "description": "Free responsive navbars for React and Tailwind CSS with mobile menus, keyboard support and scroll-aware styling.",
+    "group": "marketing"
   },
   {
     "slug": "footers",
     "title": "Footers",
     "heading": "React footers",
-    "description": "Free website footers for React and Tailwind CSS: link columns, newsletter sign-ups and oversized wordmarks."
+    "description": "Free website footers for React and Tailwind CSS: link columns, newsletter sign-ups and oversized wordmarks.",
+    "group": "marketing"
   },
   {
     "slug": "auth-sections",
     "title": "Login & Sign-up",
     "heading": "React login and sign-up pages",
-    "description": "Free login and sign-up screens for React and Tailwind CSS with social buttons, validation states and animated side panels."
+    "description": "Free login and sign-up screens for React and Tailwind CSS with social buttons, validation states and animated side panels.",
+    "group": "marketing"
+  },
+  {
+    "slug": "stats-kpis",
+    "title": "Stats & KPIs",
+    "heading": "React stat cards and KPI blocks",
+    "description": "KPI cards, metric grids, period comparisons and live counters for React dashboards — trends shown with glyphs, never colour alone.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "chart-cards",
+    "title": "Chart Cards",
+    "heading": "React chart cards (Recharts)",
+    "description": "Dashboard chart cards for React and Recharts: area trends, stacked and percent bars, donuts, radar and reference bands, themed by CSS variables.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "tables-lists",
+    "title": "Tables & Lists",
+    "heading": "React table and list blocks",
+    "description": "Sortable headers, row selection, expandable rows, pagination footers and ranked lists for React admin dashboards.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "feeds-activity",
+    "title": "Feeds & Activity",
+    "heading": "React activity feed blocks",
+    "description": "Activity timelines, audit logs, comment threads, notification groups and release notes for React apps.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "progress-goals",
+    "title": "Progress & Goals",
+    "heading": "React progress and goal blocks",
+    "description": "Goal bars, capacity meters, onboarding steppers, milestone checklists and SLA risk for React dashboards.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "banners-empty-states",
+    "title": "Banners & Empty States",
+    "heading": "React banners and empty states",
+    "description": "Upgrade banners, trial countdowns, maintenance notices, destructive confirms and empty states for React apps.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "app-forms",
+    "title": "Forms & Settings",
+    "heading": "React form and settings blocks",
+    "description": "Filter bars, settings rows, API key reveal, tag input, inline create and unsaved-changes bars for React apps.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "people-teams",
+    "title": "People & Teams",
+    "heading": "React team and people blocks",
+    "description": "Team directories, workload views, role assignment, pending invites and avatar stacks for React admin apps.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "commerce-billing",
+    "title": "Commerce & Billing",
+    "heading": "React billing and commerce blocks",
+    "description": "Cart and order summaries, invoices, plan comparison, payment methods and product cards for React apps.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "advanced-metrics",
+    "title": "Advanced Metrics",
+    "heading": "React funnel, cohort and gauge blocks",
+    "description": "Conversion funnels, cohort retention grids, goal gauges and breakdown tables for React analytics dashboards.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "page-shells",
+    "title": "Page Shells",
+    "heading": "React page header and toolbar blocks",
+    "description": "Page headers with actions, breadcrumb toolbars, section tabs, filter toolbars and selection action bars for React apps.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "app-auth",
+    "title": "Account & Security",
+    "heading": "React sign-in, 2FA and session blocks",
+    "description": "Sign-in cards, SSO providers, two-factor prompts, recovery codes, password rules and active sessions for React apps.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "files-media",
+    "title": "Files & Media",
+    "heading": "React file upload and media blocks",
+    "description": "Upload queues, drop zones, attachment grids, document versions, galleries and storage quotas for React apps.",
+    "group": "application",
+    "pro": true
+  },
+  {
+    "slug": "ai-interfaces",
+    "title": "AI Interfaces",
+    "heading": "React AI chat and agent UI blocks",
+    "description": "Prompt composers, streaming answers, tool-call cards, citations, model pickers and token usage meters for React AI apps.",
+    "group": "application",
+    "pro": true
   }
 ]
