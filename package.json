@@ -1,6 +1,6 @@
 {
   "name": "velora-ui",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "private": true,
   "scripts": {
     "predev": "node scripts/build-docs.mjs",
@@ -10,16 +10,19 @@
     "start": "next start",
     "lint": "eslint",
     "docs:build": "node scripts/build-docs.mjs",
+    "pro:build": "node scripts/build-docs.mjs && node pro/scripts/build-pro.mjs",
     "registry:build": "node scripts/build-docs.mjs && node scripts/component-stats.mjs && node scripts/build-registry.mjs && shadcn build"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.3.7",
+    "@tanstack/react-table": "^8.21.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "embla-carousel-react": "^8.6.0",
+    "input-otp": "^1.5.0",
     "lucide-react": "^1.48.0",
     "motion": "^13.4.6",
     "next": "16.3.7",
@@ -27,6 +30,7 @@
     "radix-ui": "^1.6.7",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "recharts": "3.10.1",
     "shadcn": "^4.21.0",
     "shiki": "^4.4.3",
     "tailwind-merge": "^3.7.0",
